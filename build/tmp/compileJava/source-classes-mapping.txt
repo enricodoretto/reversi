@@ -1,2 +1,5 @@
 sdm/reversi/Main.java
  sdm.reversi.Main
+sdm/reversi/Disk.java
+ sdm.reversi.Disk
+ sdm.reversi.Disk$Color
