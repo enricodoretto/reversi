@@ -3,3 +3,5 @@ sdm/reversi/Main.java
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
+sdm/reversi/Coordinate.java
+ sdm.reversi.Coordinate
