@@ -24,18 +24,4 @@ public class TestDisk {
         assertEquals(flippedColor, disk.getSideUp());
     }
 
-    @Test
-    public void flipSideWhiteToBlack(){
-        Disk disk = new Disk(Disk.Color.WHITE);
-        disk.flip();
-        assertEquals(Disk.Color.BLACK, disk.getSideUp());
-    }
-
-    @Test
-    public void flipSideBlackToWhite(){
-        Disk disk = new Disk(Disk.Color.BLACK);
-        disk.flip();
-        assertEquals(Disk.Color.WHITE, disk.getSideUp());
-    }
-
 }
