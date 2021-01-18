@@ -22,4 +22,10 @@ public class TestCoordinate {
     public void withRowGreaterThanEightIsNotValid(int row, char column){
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
     }
+
+    @ParameterizedTest
+    @CsvSource({"0, A", "-2, A", "-10, B"})
+    void withRowSmallerThanOneIsNotValid(int row, char column) {
+        assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
+    }
 }
