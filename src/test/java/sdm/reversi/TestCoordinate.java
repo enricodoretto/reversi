@@ -28,4 +28,12 @@ public class TestCoordinate {
     void withRowSmallerThanOneIsNotValid(int row, char column) {
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
     }
+
+    @ParameterizedTest
+    @CsvSource({"1, L", "3, è", "6, T"})
+    void withColumnNotBetweenAAndHIgnoreCaseIsNotValid(int row, char column) {
+        assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
+    }
+
+
 }
