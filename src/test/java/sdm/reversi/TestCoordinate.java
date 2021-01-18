@@ -26,4 +26,9 @@ public class TestCoordinate {
     void elevenAIsNotValid() {
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(11,'A'));
     }
+
+    @Test
+    void twelveBIsNotValid() {
+        assertThrows(IllegalArgumentException.class, () -> new Coordinate(12,'B'));
+    }
 }
