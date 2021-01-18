@@ -17,6 +17,12 @@ public class TestCoordinate {
         );
     }
 
+    @ParameterizedTest
+    @CsvSource({"10, A", "11, A", "12, B"})
+    public void withRowGreaterThanEightIsNotValid(int row, char column){
+        assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
+    }
+
     @Test
     void tenAIsNotValid() {
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(10,'A'));
