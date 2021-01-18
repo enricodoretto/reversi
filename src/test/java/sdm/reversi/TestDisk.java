@@ -22,4 +22,11 @@ public class TestDisk {
         assertEquals(Disk.Color.BLACK, disk.getSideUp());
     }
 
+    @Test
+    public void flipSideBlackToWhite(){
+        Disk disk = new Disk(Disk.Color.BLACK);
+        disk.flip();
+        assertEquals(Disk.Color.WHITE, disk.getSideUp());
+    }
+
 }

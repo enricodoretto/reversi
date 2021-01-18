@@ -17,7 +17,10 @@ public class Disk {
     }
 
     public void flip(){
-        sideUp = Color.BLACK;
+        if(sideUp == Color.BLACK){
+            sideUp = Color.WHITE;
+        }
+        else sideUp = Color.BLACK;
     }
 
 }
