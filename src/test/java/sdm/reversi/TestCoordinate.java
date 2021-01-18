@@ -14,4 +14,13 @@ public class TestCoordinate {
                 () -> assertEquals('A', coordinate.getColumn())
         );
     }
+
+    @Test
+    void hasRow2AndColumnDAsCreated() {
+        Coordinate coordinate = new Coordinate(2, 'D');
+        assertAll(
+                () -> assertEquals(2, coordinate.getRow()),
+                () -> assertEquals('D', coordinate.getColumn())
+        );
+    }
 }
