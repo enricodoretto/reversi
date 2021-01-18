@@ -16,4 +16,8 @@ public class Disk {
         return sideUp;
     }
 
+    public void flip(){
+        sideUp = Color.BLACK;
+    }
+
 }
