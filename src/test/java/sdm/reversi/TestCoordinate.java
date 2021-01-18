@@ -4,8 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestCoordinate {
     @ParameterizedTest
@@ -18,5 +17,8 @@ public class TestCoordinate {
         );
     }
 
-
+    @Test
+    void tenAIsNotValid() {
+        assertThrows(IllegalArgumentException.class, () -> new Coordinate(10,'A'));
+    }
 }
