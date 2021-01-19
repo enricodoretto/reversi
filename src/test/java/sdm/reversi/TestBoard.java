@@ -26,31 +26,4 @@ public class TestBoard {
         assertFalse(board.putDisk(duplicatedDisk, row, column));
     }
 
-    @Test
-    public void putDiskInNonEmpty1ACell(){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        board.putDisk(disk,1,'A');
-        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
-        assertFalse(board.putDisk(duplicatedDisk,1,'A'));
-    }
-
-    @Test
-    public void putDiskInNonEmpty5FCell(){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        board.putDisk(disk,5,'F');
-        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
-        assertFalse(board.putDisk(duplicatedDisk,5,'F'));
-    }
-
-    @Test
-    public void putDiskInNonEmpty8HCell(){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        board.putDisk(disk,8,'H');
-        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
-        assertFalse(board.putDisk(duplicatedDisk,8,'H'));
-    }
-
 }
