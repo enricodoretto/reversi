@@ -30,4 +30,11 @@ public class TestDisk {
         assertEquals("B",disk.toString());
     }
 
+
+    @Test
+    public void whiteDiskIsRepresentedAsW(){
+        Disk disk = new Disk(Disk.Color.WHITE);
+        assertEquals("W",disk.toString());
+    }
+
 }
