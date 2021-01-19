@@ -23,7 +23,15 @@ public class TestBoard {
         board.putDisk(disk,1,'A');
         Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
         assertFalse(board.putDisk(duplicatedDisk,1,'A'));
+    }
 
+    @Test
+    public void putDiskInNonEmpty5FCell(){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        board.putDisk(disk,5,'F');
+        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
+        assertFalse(board.putDisk(duplicatedDisk,5,'F'));
     }
 
 }
