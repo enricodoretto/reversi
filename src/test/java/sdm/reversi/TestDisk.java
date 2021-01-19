@@ -23,5 +23,4 @@ public class TestDisk {
         disk.flip();
         assertEquals(flippedColor, disk.getSideUp());
     }
-
 }

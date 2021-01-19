@@ -1,8 +1,10 @@
 package sdm.reversi;
 
+import java.util.Objects;
+
 public class Coordinate {
-    private int row;
-    private char column;
+    private final int row;
+    private final char column;
 
     public Coordinate(int row, char column) throws IllegalArgumentException {
         column = Character.toUpperCase(column);
@@ -34,7 +36,16 @@ public class Coordinate {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return row == ((Coordinate)obj).getRow() && column == ((Coordinate)obj).getColumn();
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinate that = (Coordinate) o;
+        return row == that.row && column == that.column;
     }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
+    }
+
 }

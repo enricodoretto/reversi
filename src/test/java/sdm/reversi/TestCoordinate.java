@@ -37,14 +37,14 @@ public class TestCoordinate {
 
     @ParameterizedTest
     @CsvSource({"1,A,1A", "5,E,5E", "3,D,3D", "8,H,8H"})
-    void checkIfStringIsValidStringCoordinate(int row, char column, String inputCoordinate){
+    void ifAValidInputStringIsValidCoordinate(int row, char column, String inputCoordinate){
         Coordinate coordinate = new Coordinate(row, column);
         assertEquals(coordinate, Coordinate.parseCoordinate(inputCoordinate));
     }
 
     @ParameterizedTest
     @CsvSource({"A1","11A","321"})
-    void checkIfANotValidStringIsNotAValidCoordinate(String inputCoordinate){
+    void ifANotValidInputStringIsNotAValidCoordinate(String inputCoordinate){
         assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate(inputCoordinate));
     }
 
