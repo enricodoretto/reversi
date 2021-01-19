@@ -16,6 +16,16 @@ public class TestBoard {
         assertTrue(board.putDisk(disk, row, column));
     }
 
+    @ParameterizedTest
+    @CsvSource({"1, A", "5, F", "8, H"})
+    public void cantPutDiskInNonEmptyCell(int row, char column){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        board.putDisk(disk,row,column);
+        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
+        assertFalse(board.putDisk(duplicatedDisk, row, column));
+    }
+
     @Test
     public void putDiskInNonEmpty1ACell(){
         Board board = new Board();
