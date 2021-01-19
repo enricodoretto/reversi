@@ -10,11 +10,19 @@ public class Board {
     }
 
     public boolean putDisk(Disk disk, int row, char column){
-        if(board[row-1][column-'A'] == null) {
-            board[row-1][column - 'A'] = disk;
+        int boardRow = row-1;
+        int boardColumn = column -'A';
+        if(!isValidIndex(boardRow) || !isValidIndex(boardColumn)) throw new IllegalArgumentException();
+
+        if(board[boardRow][boardColumn] == null) {
+            board[boardRow][boardColumn] = disk;
             return true;
         }
         return false;
+    }
+
+    private static boolean isValidIndex(int index) {
+        return index >= 0 && index <= BOARD_SIZE-1;
     }
 
 }

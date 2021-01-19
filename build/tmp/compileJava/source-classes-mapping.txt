@@ -3,7 +3,7 @@ sdm/reversi/Main.java
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
-sdm/reversi/Board.java
- sdm.reversi.Board
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+sdm/reversi/Board.java
+ sdm.reversi.Board

@@ -26,4 +26,11 @@ public class TestBoard {
         assertFalse(board.putDisk(duplicatedDisk, row, column));
     }
 
+    @Test
+    public void cantPutDiskInCell11C(){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,11,'C'));
+    }
+
 }
