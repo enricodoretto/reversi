@@ -23,4 +23,11 @@ public class TestDisk {
         disk.flip();
         assertEquals(flippedColor, disk.getSideUp());
     }
+
+    @Test
+    public void blackDiskIsRepresentedAsB(){
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertEquals("B",disk.toString());
+    }
+
 }

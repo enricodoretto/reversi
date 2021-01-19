@@ -23,4 +23,8 @@ public class Disk {
         else sideUp = Color.BLACK;
     }
 
+    @Override
+    public String toString() {
+        return String.valueOf(sideUp.toString().charAt(0));
+    }
 }
