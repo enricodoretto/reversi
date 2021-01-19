@@ -28,9 +28,9 @@ public class Coordinate {
     }
 
     public static Coordinate parseCoordinate(String inputCoordinate){
-        //int row = Character.getNumericValue(inputCoordinate.charAt(0));
-        //char column = inputCoordinate.charAt(1);
-        return new Coordinate(1, 'A');
+        int row = Character.getNumericValue(inputCoordinate.charAt(0));
+        char column = inputCoordinate.charAt(1);
+        return new Coordinate(row, column);
     }
 
     @Override

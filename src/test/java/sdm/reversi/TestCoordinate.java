@@ -41,7 +41,11 @@ public class TestCoordinate {
         assertEquals(coordinate, Coordinate.parseCoordinate("1A"));
     }
 
-
+    @Test
+    void checkIfString5EIsValidCoordinate(){
+        Coordinate coordinate = new Coordinate(5, 'E');
+        assertEquals(coordinate, Coordinate.parseCoordinate("5E"));
+    }
 
     //@Test
     //void checkIfString11AIsNotValidCoordinate(){
