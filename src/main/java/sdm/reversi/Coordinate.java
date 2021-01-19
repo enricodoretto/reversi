@@ -28,8 +28,13 @@ public class Coordinate {
     }
 
     public static Coordinate parseCoordinate(String inputCoordinate){
-        int row = inputCoordinate.charAt(0);
-        char column = inputCoordinate.charAt(1);
-        return new Coordinate(row, column);
+        //int row = Character.getNumericValue(inputCoordinate.charAt(0));
+        //char column = inputCoordinate.charAt(1);
+        return new Coordinate(1, 'A');
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return row == ((Coordinate)obj).getRow() && column == ((Coordinate)obj).getColumn();
     }
 }

@@ -37,7 +37,15 @@ public class TestCoordinate {
 
     @Test
     void checkIfString1AIsValidCoordinate(){
-        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("1A"));
+        Coordinate coordinate = new Coordinate(1, 'A');
+        assertEquals(coordinate, Coordinate.parseCoordinate("1A"));
     }
+
+
+
+    //@Test
+    //void checkIfString11AIsNotValidCoordinate(){
+    //    assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("11A"));
+    //}
 
 }
