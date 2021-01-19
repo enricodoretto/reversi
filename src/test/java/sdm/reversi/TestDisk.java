@@ -24,12 +24,18 @@ public class TestDisk {
         assertEquals(flippedColor, disk.getSideUp());
     }
 
+    @ParameterizedTest
+    @CsvSource({"BLACK, B", "WHITE, W"})
+    public void diskRepresentedAsString(Disk.Color color, String representation){
+        Disk disk = new Disk(color);
+        assertEquals(representation, disk.toString());
+    }
+
     @Test
     public void blackDiskIsRepresentedAsB(){
         Disk disk = new Disk(Disk.Color.BLACK);
         assertEquals("B",disk.toString());
     }
-
 
     @Test
     public void whiteDiskIsRepresentedAsW(){
