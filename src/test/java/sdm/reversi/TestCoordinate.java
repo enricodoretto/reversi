@@ -35,16 +35,11 @@ public class TestCoordinate {
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
     }
 
-    @Test
-    void checkIfString1AIsValidCoordinate(){
-        Coordinate coordinate = new Coordinate(1, 'A');
-        assertEquals(coordinate, Coordinate.parseCoordinate("1A"));
-    }
-
-    @Test
-    void checkIfString5EIsValidCoordinate(){
-        Coordinate coordinate = new Coordinate(5, 'E');
-        assertEquals(coordinate, Coordinate.parseCoordinate("5E"));
+    @ParameterizedTest
+    @CsvSource({"1,A,1A", "5,E,5E", "3,D,3D", "8,H,8H"})
+    void checkIfStringIsValidStringCoordinate(int row, char column, String inputCoordinate){
+        Coordinate coordinate = new Coordinate(row, column);
+        assertEquals(coordinate, Coordinate.parseCoordinate(inputCoordinate));
     }
 
     @Test
