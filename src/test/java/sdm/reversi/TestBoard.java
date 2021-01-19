@@ -64,4 +64,22 @@ public class TestBoard {
         assertEquals(emptyBoard, board.toString());
     }
 
+    @Test
+    public void boardWithWhiteDiskInCell1AAndBlackDiskInCell8HRepresentedAsString(){
+        String emptyBoard = "W-------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "-------B";
+        Board board = new Board();
+        Disk whiteDisk = new Disk(Disk.Color.WHITE);
+        Disk blackDisk = new Disk(Disk.Color.BLACK);
+        board.putDisk(whiteDisk,1,'A');
+        board.putDisk(blackDisk,8,'H');
+        assertEquals(emptyBoard, board.toString());
+    }
+
 }
