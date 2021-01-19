@@ -52,4 +52,9 @@ public class TestCoordinate {
         assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("11A"));
     }
 
+    @Test
+    void checkIfStringA1IsNotValidCoordinate(){
+        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("A1"));
+    }
+
 }
