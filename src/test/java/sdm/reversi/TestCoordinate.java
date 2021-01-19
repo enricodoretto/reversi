@@ -35,5 +35,9 @@ public class TestCoordinate {
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
     }
 
+    @Test
+    void checkIfString1AIsValidCoordinate(){
+        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("1A"));
+    }
 
 }

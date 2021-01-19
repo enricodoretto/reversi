@@ -26,4 +26,10 @@ public class Coordinate {
     public char getColumn() {
         return column;
     }
+
+    public static Coordinate parseCoordinate(String inputCoordinate){
+        int row = inputCoordinate.charAt(0);
+        char column = inputCoordinate.charAt(1);
+        return new Coordinate(row, column);
+    }
 }
