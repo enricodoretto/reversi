@@ -1,5 +1,7 @@
 package sdm.reversi;
 
+import java.util.Arrays;
+
 public class Board {
 
     private final Disk[][] board;
@@ -29,4 +31,19 @@ public class Board {
         return index >= 0 && index <= BOARD_SIZE-1;
     }
 
+
+    @Override
+    public String toString() {
+        //to improve
+        String representation = "";
+        for(int row=0; row<BOARD_SIZE; row++){
+            for(int column=0; column<BOARD_SIZE; column++){
+                representation += isCellEmpty(row,column) ? "-" : board[row][column].toString();
+            }
+            if(row != BOARD_SIZE-1){
+                representation += "\n";
+            }
+        }
+        return representation;
+    }
 }

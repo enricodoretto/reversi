@@ -34,4 +34,18 @@ public class TestBoard {
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,row,column));
     }
 
+    @Test
+    public void emptyBoardRepresentedAsString(){
+        String emptyBoard = "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------";
+        Board board = new Board();
+        assertEquals(emptyBoard, board.toString());
+    }
+
 }
