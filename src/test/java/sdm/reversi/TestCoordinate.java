@@ -57,4 +57,9 @@ public class TestCoordinate {
         assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("A1"));
     }
 
+    @Test
+    void checkIfString321IsNotValidCoordinate(){
+        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("321"));
+    }
+
 }
