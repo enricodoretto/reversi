@@ -26,6 +26,14 @@ public class TestBoard {
         assertFalse(board.putDisk(duplicatedDisk, row, column));
     }
 
+    @ParameterizedTest
+    @CsvSource({"11, C", "0, A", "4, I"})
+    public void cantPutDiskInCellOutOfBoard(int row, char column){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,row,column));
+    }
+
     @Test
     public void cantPutDiskInCell11C(){
         Board board = new Board();
