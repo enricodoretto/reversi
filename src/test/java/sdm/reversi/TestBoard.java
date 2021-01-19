@@ -40,4 +40,11 @@ public class TestBoard {
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,0,'A'));
     }
 
+    @Test
+    public void cantPutDiskInCell4I(){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,4,'I'));
+    }
+
 }
