@@ -42,19 +42,10 @@ public class TestCoordinate {
         assertEquals(coordinate, Coordinate.parseCoordinate(inputCoordinate));
     }
 
-    @Test
-    void checkIfString11AIsNotValidCoordinate(){
-        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("11A"));
-    }
-
-    @Test
-    void checkIfStringA1IsNotValidCoordinate(){
-        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("A1"));
-    }
-
-    @Test
-    void checkIfString321IsNotValidCoordinate(){
-        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate("321"));
+    @ParameterizedTest
+    @CsvSource({"A1","11A","321"})
+    void checkIfANotValidStringIsNotAValidCoordinate(String inputCoordinate){
+        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate(inputCoordinate));
     }
 
 }
