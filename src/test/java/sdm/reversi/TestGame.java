@@ -22,4 +22,18 @@ public class TestGame {
     void failedToCreateGameWithBothPlayersWithSameName(String playerName) {
         assertThrows(IllegalArgumentException.class, () -> new Game(playerName, playerName));
     }
+
+    @Test
+    void initializeReversiBoard() {
+        Game game = new Game("Bob", "Alice");
+        String initializedReversiBoard = "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "---WB---\n" +
+                "---BW---\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------";
+        assertEquals(initializedReversiBoard, game.getBoardRepresentation());
+    }
 }
