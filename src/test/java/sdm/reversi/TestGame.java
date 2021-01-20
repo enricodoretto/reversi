@@ -21,4 +21,9 @@ public class TestGame {
     void failedToCreateGameWithBothPlayersBob() {
         assertThrows(IllegalArgumentException.class, () -> new Game("Bob", "Bob"));
     }
+
+    @Test
+    void failedToCreateGameWithBothPlayersAlice() {
+        assertThrows(IllegalArgumentException.class, () -> new Game("Alice", "Alice"));
+    }
 }
