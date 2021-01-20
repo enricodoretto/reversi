@@ -10,11 +10,19 @@ public class TestPlayer {
 
     @Test
     public void createPlayerBobWithBlackDisk(){
-
         Player player = new Player("Bob", Disk.Color.BLACK);
         assertAll(
                 () -> assertEquals("Bob", player.getName()),
                 () -> assertEquals(Disk.Color.BLACK, player.getColor())
+        );
+    }
+
+    @Test
+    public void createPlayerAliceWithWhiteDisk(){
+        Player player = new Player("Alice", Disk.Color.WHITE);
+        assertAll(
+                () -> assertEquals("Alice", player.getName()),
+                () -> assertEquals(Disk.Color.WHITE, player.getColor())
         );
     }
 }
