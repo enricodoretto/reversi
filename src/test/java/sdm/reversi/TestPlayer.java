@@ -8,6 +8,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestPlayer {
 
+    @ParameterizedTest
+    @CsvSource({"Bob, BLACK", "Alice, WHITE"})
+    public void createPlayerWithACertainColor(String name, Disk.Color color){
+        Player player = new Player(name, color);
+        assertAll(
+                () -> assertEquals(name, player.getName()),
+                () -> assertEquals(color, player.getColor())
+        );
+    }
+
     @Test
     public void createPlayerBobWithBlackDisk(){
         Player player = new Player("Bob", Disk.Color.BLACK);
@@ -25,4 +35,5 @@ public class TestPlayer {
                 () -> assertEquals(Disk.Color.WHITE, player.getColor())
         );
     }
+
 }
