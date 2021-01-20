@@ -22,18 +22,4 @@ public class TestGame {
     void failedToCreateGameWithBothPlayersWithSameName(String playerName) {
         assertThrows(IllegalArgumentException.class, () -> new Game(playerName, playerName));
     }
-    @Test
-    void failedToCreateGameWithBothPlayersBob() {
-        assertThrows(IllegalArgumentException.class, () -> new Game("Bob", "Bob"));
-    }
-
-    @Test
-    void failedToCreateGameWithBothPlayersAlice() {
-        assertThrows(IllegalArgumentException.class, () -> new Game("Alice", "Alice"));
-    }
-
-    @Test
-    void failedToCreateGameWithBothPlayersJohn() {
-        assertThrows(IllegalArgumentException.class, () -> new Game("John", "John"));
-    }
 }
