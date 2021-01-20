@@ -5,7 +5,8 @@ public class Game {
     private Player player2;
     private Board board;
 
-    public Game(String player1Name, String player2Name) {
+    public Game(String player1Name, String player2Name) throws IllegalArgumentException{
+        if(player1Name.equals(player2Name)) throw new IllegalArgumentException();
         this.player1 = new Player(player1Name, Disk.Color.BLACK);
         this.player2 = new Player(player2Name, Disk.Color.WHITE);
         this.board = new Board();
@@ -18,6 +19,5 @@ public class Game {
     public Player getPlayer2() {
         return player2;
     }
-
 
 }
