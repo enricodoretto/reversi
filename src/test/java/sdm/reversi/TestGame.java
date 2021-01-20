@@ -17,6 +17,11 @@ public class TestGame {
         );
     }
 
+    @ParameterizedTest
+    @CsvSource({"Bob", "Alice", "John"})
+    void failedToCreateGameWithBothPlayersWithSameName(String playerName) {
+        assertThrows(IllegalArgumentException.class, () -> new Game(playerName, playerName));
+    }
     @Test
     void failedToCreateGameWithBothPlayersBob() {
         assertThrows(IllegalArgumentException.class, () -> new Game("Bob", "Bob"));
