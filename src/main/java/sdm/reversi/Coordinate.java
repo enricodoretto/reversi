@@ -7,6 +7,7 @@ public class Coordinate {
     private final char column;
 
     public Coordinate(int row, char column) throws IllegalArgumentException {
+        //column -= 32;
         column = Character.toUpperCase(column);
         if(!isValidRow(row) || !isValidColumn(column)) throw new IllegalArgumentException();
         this.row = row;
