@@ -7,3 +7,5 @@ sdm/reversi/Disk.java
  sdm.reversi.Disk$Color
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+sdm/reversi/Player.java
+ sdm.reversi.Player

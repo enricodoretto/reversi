@@ -81,5 +81,4 @@ public class TestBoard {
         board.putDisk(blackDisk,8,'H');
         assertEquals(emptyBoard, board.toString());
     }
-
 }
