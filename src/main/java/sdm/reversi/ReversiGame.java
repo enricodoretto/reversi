@@ -19,15 +19,15 @@ public class ReversiGame extends Game {
     }
 
     @Override
-    public boolean isValidMove(Player player, String stringCoordinate) {
+    public boolean isValidMove(String stringCoordinate) {
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
         if (!board.isCellEmpty(coordinate)) {
             return false;
         }
-        return (cellAboveHasDiskWithDifferentColor(coordinate, player.getColor()) ||
-                cellBelowHasDiskWithDifferentColor(coordinate, player.getColor()) ||
-                cellRightHasDiskWithDifferentColor(coordinate, player.getColor()) ||
-                cellLeftHasDiskWithDifferentColor(coordinate, player.getColor()));
+        return (cellAboveHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()) ||
+                cellBelowHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()) ||
+                cellRightHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()) ||
+                cellLeftHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()));
     }
 
     private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
