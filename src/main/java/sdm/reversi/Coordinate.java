@@ -67,4 +67,12 @@ public class Coordinate {
     public Coordinate getUpRightCoordinate() {
         return new Coordinate(row-1, column+1);
     }
+
+    public Coordinate getDownLeftCoordinate() {
+        return new Coordinate(row+1, column-1);
+    }
+
+    public Coordinate getDownRightCoordinate() {
+        return new Coordinate(row+1, column+1);
+    }
 }

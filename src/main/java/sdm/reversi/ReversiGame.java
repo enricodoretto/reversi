@@ -28,7 +28,9 @@ public class ReversiGame extends Game {
                 checkIfAHorizontalRightMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 checkIfAHorizontalLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 checkIfAUpLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAUpRightMoveIsValid(coordinate, currentPlayer.getColor()));
+                checkIfAUpRightMoveIsValid(coordinate, currentPlayer.getColor())) ||
+                checkIfADownLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                checkIfADownRightMoveIsValid(coordinate, currentPlayer.getColor());
     }
 
     private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
@@ -59,6 +61,16 @@ public class ReversiGame extends Game {
     private boolean cellUpRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
         return !(board.isCellEmpty(coordinate.getUpRightCoordinate()) ||
                 board.getDiskColorFromCoordinate(coordinate.getUpRightCoordinate()) == diskColor);
+    }
+
+    private boolean cellDownLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
+        return !(board.isCellEmpty(coordinate.getDownLeftCoordinate()) ||
+                board.getDiskColorFromCoordinate(coordinate.getDownLeftCoordinate()) == diskColor);
+    }
+
+    private boolean cellDownRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
+        return !(board.isCellEmpty(coordinate.getDownRightCoordinate()) ||
+                board.getDiskColorFromCoordinate(coordinate.getDownRightCoordinate()) == diskColor);
     }
 
     private boolean checkIfAVerticalUpMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
@@ -147,6 +159,38 @@ public class ReversiGame extends Game {
         }
         while (true) {
             coordinate = coordinate.getUpRightCoordinate();
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return true;
+            }
+
+        }
+    }
+
+    private boolean checkIfADownLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+        if (!cellDownLeftHasDiskWithDifferentColor(coordinate, diskColor)) {
+            return false;
+        }
+        while (true) {
+            coordinate = coordinate.getDownLeftCoordinate();
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return true;
+            }
+
+        }
+    }
+
+    private boolean checkIfADownRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+        if (!cellDownRightHasDiskWithDifferentColor(coordinate, diskColor)) {
+            return false;
+        }
+        while (true) {
+            coordinate = coordinate.getDownRightCoordinate();
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
