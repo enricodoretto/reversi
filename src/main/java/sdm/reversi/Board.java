@@ -11,6 +11,14 @@ public class Board {
         board = new Disk[BOARD_SIZE][BOARD_SIZE];
     }
 
+    public boolean putDisk(Disk disk, Coordinate coordinate){
+        if (!isValidIndex(coordinate.getRow()) || !isValidIndex(coordinate.getColumn())) throw new IllegalArgumentException();
+        if (isCellEmpty(coordinate.getRow(), coordinate.getColumn())) {
+            board[coordinate.getRow()][coordinate.getColumn()] = disk;
+            return true;
+        }
+        return false;
+    }
 
     public boolean putDisk(Disk disk, String coordinate) {
         int row = coordinate.charAt(0) - '0';

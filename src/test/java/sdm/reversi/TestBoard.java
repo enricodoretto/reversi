@@ -25,6 +25,15 @@ public class TestBoard {
     }
 
     @ParameterizedTest
+    @CsvSource({"1A", "2A", "5C"})
+    public void putDiskInEmptyCellViaCoordinate(String stringCoordinate){
+        Board board = new Board();
+        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertTrue(board.putDisk(disk, coordinate));
+    }
+
+    @ParameterizedTest
     @CsvSource({"1, A", "5, F", "8, H"})
     public void cantPutDiskInNonEmptyCell(int row, char column){
         Board board = new Board();
