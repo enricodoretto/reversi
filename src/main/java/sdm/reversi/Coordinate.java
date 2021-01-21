@@ -62,38 +62,6 @@ public class Coordinate {
         return new Coordinate(row+shiftDirection.rowShift, column+shiftDirection.columnShift);
     }
 
-    public Coordinate getAboveCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.UP);
-    }
-
-    public Coordinate getBelowCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.DOWN);
-    }
-
-    public Coordinate getRightCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.RIGHT);
-    }
-
-    public Coordinate getLeftCoordinate(){
-        return getShiftedCoordinate(ShiftDirection.LEFT);
-    }
-
-    public Coordinate getUpLeftCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.UP_LEFT);
-    }
-
-    public Coordinate getUpRightCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.UP_RIGHT);
-    }
-
-    public Coordinate getDownLeftCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.DOWN_LEFT);
-    }
-
-    public Coordinate getDownRightCoordinate() {
-        return getShiftedCoordinate(ShiftDirection.DOWN_RIGHT);
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
