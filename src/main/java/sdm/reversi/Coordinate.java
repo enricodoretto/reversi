@@ -51,4 +51,12 @@ public class Coordinate {
     public Coordinate getBelowCoordinate() {
         return new Coordinate(row + 1, column);
     }
+
+    public Coordinate getRightCoordinate() {
+        return new Coordinate(row, column+1);
+    }
+
+    public Coordinate getLeftCoordinate(){
+        return new Coordinate(row, column-1);
+    }
 }
