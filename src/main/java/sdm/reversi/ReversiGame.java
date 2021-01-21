@@ -1,6 +1,6 @@
 package sdm.reversi;
 
-public class ReversiGame extends Game{
+public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
         super(player1Name, player2Name);
@@ -21,13 +21,22 @@ public class ReversiGame extends Game{
     @Override
     public boolean isValidMove(Player player, String stringCoordinate) {
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
-        if(!board.isCellEmpty(coordinate)){
+        if (!board.isCellEmpty(coordinate)) {
             return false;
         }
-        if(board.isCellEmpty(coordinate.getAboveCoordinate()) ||
-            board.getDiskColorFromCoordinate(coordinate.getAboveCoordinate())==player.getColor()){
-            return false;
-        }
-        return true;
+        return (cellAboveHasDiskWithDifferentColor(coordinate, player.getColor()) ||
+                cellBelowHasDiskWithDifferentColor(coordinate, player.getColor()));
     }
+
+    private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
+        return !(board.isCellEmpty(coordinate.getBelowCoordinate()) ||
+                board.getDiskColorFromCoordinate(coordinate.getBelowCoordinate()) == diskColor);
+    }
+
+    private boolean cellAboveHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
+        return !(board.isCellEmpty(coordinate.getAboveCoordinate()) ||
+                board.getDiskColorFromCoordinate(coordinate.getAboveCoordinate()) == diskColor);
+    }
+
+
 }
