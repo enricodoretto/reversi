@@ -79,19 +79,19 @@ public class Coordinate {
     }
 
     public Coordinate getUpLeftCoordinate() {
-        return new Coordinate(row-1, column-1);
+        return getShiftedCoordinate(ShiftDirection.UP_LEFT);
     }
 
     public Coordinate getUpRightCoordinate() {
-        return new Coordinate(row-1, column+1);
+        return getShiftedCoordinate(ShiftDirection.UP_RIGHT);
     }
 
     public Coordinate getDownLeftCoordinate() {
-        return new Coordinate(row+1, column-1);
+        return getShiftedCoordinate(ShiftDirection.DOWN_LEFT);
     }
 
     public Coordinate getDownRightCoordinate() {
-        return new Coordinate(row+1, column+1);
+        return getShiftedCoordinate(ShiftDirection.DOWN_RIGHT);
     }
 
     @Override
