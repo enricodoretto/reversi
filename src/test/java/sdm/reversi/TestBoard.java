@@ -95,7 +95,22 @@ public class TestBoard {
     }
 
     @Test
-    public void boardWithWhiteDiskInCell1AAndBlackDiskInCell8HRepresentedAsString(){
+    public void boardWithWhiteDiskInCell1ARepresentedAsStringDelegatingDiskCreation(){
+        String emptyBoard = "W-------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------";
+        Board board = new Board();
+        board.putDisk(Disk.Color.WHITE,Coordinate.parseCoordinate("1A"));
+        assertEquals(emptyBoard, board.toString());
+    }
+
+    @Test
+    public void boardWithWhiteDiskInCell1AAndBlackDiskInCell8HRepresentedAsStringDelegatingDiskCreation(){
         String emptyBoard = "W-------\n" +
                             "--------\n" +
                             "--------\n" +
@@ -104,6 +119,22 @@ public class TestBoard {
                             "--------\n" +
                             "--------\n" +
                             "-------B";
+        Board board = new Board();
+        board.putDisk(Disk.Color.WHITE,Coordinate.parseCoordinate("1A"));
+        board.putDisk(Disk.Color.BLACK,Coordinate.parseCoordinate("8H"));
+        assertEquals(emptyBoard, board.toString());
+    }
+
+    @Test
+    public void boardWithWhiteDiskInCell1AAndBlackDiskInCell8HRepresentedAsString(){
+        String emptyBoard = "W-------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "--------\n" +
+                "-------B";
         Board board = new Board();
         Disk whiteDisk = new Disk(Disk.Color.WHITE);
         Disk blackDisk = new Disk(Disk.Color.BLACK);
