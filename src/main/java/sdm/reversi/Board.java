@@ -20,6 +20,14 @@ public class Board {
         return false;
     }
 
+    public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate){
+        Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
+        if(disk==null){
+            return null;
+        }
+        return disk.getSideUp();
+    }
+
 
     public boolean isCellEmpty(Coordinate coordinate) {
         return isCellEmpty(coordinate.getRow(),coordinate.getColumn());

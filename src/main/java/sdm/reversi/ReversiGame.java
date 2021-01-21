@@ -24,6 +24,10 @@ public class ReversiGame extends Game{
         if(!board.isCellEmpty(coordinate)){
             return false;
         }
+        if(board.isCellEmpty(coordinate.getAboveCoordinate()) ||
+            board.getDiskColorFromCoordinate(coordinate.getAboveCoordinate())==player.getColor()){
+            return false;
+        }
         return true;
     }
 }

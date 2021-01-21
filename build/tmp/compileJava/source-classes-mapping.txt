@@ -1,15 +1,15 @@
-sdm/reversi/Board.java
- sdm.reversi.Board
+sdm/reversi/Disk.java
+ sdm.reversi.Disk
+ sdm.reversi.Disk$Color
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/Player.java
  sdm.reversi.Player
-sdm/reversi/Game.java
- sdm.reversi.Game
-sdm/reversi/Disk.java
- sdm.reversi.Disk
- sdm.reversi.Disk$Color
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+sdm/reversi/Board.java
+ sdm.reversi.Board
 sdm/reversi/ReversiGame.java
  sdm.reversi.ReversiGame
+sdm/reversi/Game.java
+ sdm.reversi.Game

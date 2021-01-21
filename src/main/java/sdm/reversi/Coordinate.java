@@ -6,6 +6,11 @@ public class Coordinate {
     private final int row;
     private final int column;
 
+    public Coordinate(int row, int column) throws IllegalArgumentException {
+        this.row = row;
+        this.column = column;
+    }
+
     public Coordinate(int row, char column) throws IllegalArgumentException {
         column = Character.toUpperCase(column);
         this.row = row-1;
@@ -24,6 +29,10 @@ public class Coordinate {
         int row = Character.getNumericValue(inputCoordinate.charAt(0));
         char column = inputCoordinate.charAt(1);
         return new Coordinate(row, column);
+    }
+
+    public Coordinate getAboveCoordinate(){
+        return new Coordinate(row-1, column);
     }
 
     @Override
