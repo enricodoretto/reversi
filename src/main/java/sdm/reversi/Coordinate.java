@@ -6,6 +6,33 @@ public class Coordinate {
     private final int row;
     private final int column;
 
+    public enum ShiftDirection{
+        UP(-1,0),
+        DOWN(1,0),
+        LEFT(0, -1),
+        RIGHT(0,1),
+        UP_LEFT(-1, -1),
+        UP_RIGHT(-1, 1),
+        DOWN_LEFT(1, -1),
+        DOWN_RIGHT(1,1);
+
+        private int rowShift;
+        private int columnShift;
+
+        ShiftDirection(int rowShift, int columnShift) {
+            this.rowShift = rowShift;
+            this.columnShift = columnShift;
+        }
+
+        public int getRowShift() {
+            return rowShift;
+        }
+
+        public int getColumnShift() {
+            return columnShift;
+        }
+    }
+
     public Coordinate(int row, int column) {
         this.row = row;
         this.column = column;
@@ -31,25 +58,16 @@ public class Coordinate {
         return new Coordinate(row, column);
     }
 
+    public Coordinate getShiftedCoordinate(Coordinate.ShiftDirection shiftDirection){
+        return new Coordinate(row+shiftDirection.rowShift, column+shiftDirection.columnShift);
+    }
+
     public Coordinate getAboveCoordinate() {
-        return new Coordinate(row - 1, column);
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Coordinate that = (Coordinate) o;
-        return row == that.row && column == that.column;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(row, column);
+        return getShiftedCoordinate(ShiftDirection.UP);
     }
 
     public Coordinate getBelowCoordinate() {
-        return new Coordinate(row + 1, column);
+        return getShiftedCoordinate(ShiftDirection.DOWN);
     }
 
     public Coordinate getRightCoordinate() {
@@ -74,5 +92,18 @@ public class Coordinate {
 
     public Coordinate getDownRightCoordinate() {
         return new Coordinate(row+1, column+1);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Coordinate that = (Coordinate) o;
+        return row == that.row && column == that.column;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, column);
     }
 }

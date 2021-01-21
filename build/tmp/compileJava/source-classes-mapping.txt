@@ -11,5 +11,6 @@ sdm/reversi/ReversiGame.java
  sdm.reversi.ReversiGame
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+ sdm.reversi.Coordinate$ShiftDirection
 sdm/reversi/Game.java
  sdm.reversi.Game
