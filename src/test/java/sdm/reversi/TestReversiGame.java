@@ -57,4 +57,5 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertTrue(game.makeMove(Coordinate.parseCoordinate(stringCoordinate)));
     }
+
 }
