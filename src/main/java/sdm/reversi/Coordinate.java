@@ -71,11 +71,11 @@ public class Coordinate {
     }
 
     public Coordinate getRightCoordinate() {
-        return new Coordinate(row, column+1);
+        return getShiftedCoordinate(ShiftDirection.RIGHT);
     }
 
     public Coordinate getLeftCoordinate(){
-        return new Coordinate(row, column-1);
+        return getShiftedCoordinate(ShiftDirection.LEFT);
     }
 
     public Coordinate getUpLeftCoordinate() {
