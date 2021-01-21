@@ -57,8 +57,8 @@ public class ReversiGame extends Game {
     }
 
     private boolean cellUpRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getUpLeftCoordinate()) ||
-                board.getDiskColorFromCoordinate(coordinate.getUpLeftCoordinate()) == diskColor);
+        return !(board.isCellEmpty(coordinate.getUpRightCoordinate()) ||
+                board.getDiskColorFromCoordinate(coordinate.getUpRightCoordinate()) == diskColor);
     }
 
     private boolean checkIfAVerticalUpMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
