@@ -27,7 +27,8 @@ public class ReversiGame extends Game {
                 checkIfAVerticalDownMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 checkIfAHorizontalRightMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 checkIfAHorizontalLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAUpLeftMoveIsValid(coordinate, currentPlayer.getColor()));
+                checkIfAUpLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                checkIfAUpRightMoveIsValid(coordinate, currentPlayer.getColor()));
     }
 
     private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
@@ -51,6 +52,11 @@ public class ReversiGame extends Game {
     }
 
     private boolean cellUpLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
+        return !(board.isCellEmpty(coordinate.getUpLeftCoordinate()) ||
+                board.getDiskColorFromCoordinate(coordinate.getUpLeftCoordinate()) == diskColor);
+    }
+
+    private boolean cellUpRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
         return !(board.isCellEmpty(coordinate.getUpLeftCoordinate()) ||
                 board.getDiskColorFromCoordinate(coordinate.getUpLeftCoordinate()) == diskColor);
     }
@@ -125,6 +131,22 @@ public class ReversiGame extends Game {
         }
         while (true) {
             coordinate = coordinate.getUpLeftCoordinate();
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return true;
+            }
+
+        }
+    }
+
+    private boolean checkIfAUpRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+        if (!cellUpRightHasDiskWithDifferentColor(coordinate, diskColor)) {
+            return false;
+        }
+        while (true) {
+            coordinate = coordinate.getUpRightCoordinate();
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }

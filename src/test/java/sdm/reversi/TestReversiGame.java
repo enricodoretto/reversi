@@ -63,4 +63,10 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove("6F"));
     }
+
+    @Test
+    void checkIfBlackDiskIn6DCellIsNotValidFirstMove() {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertFalse(game.isValidMove("6D"));
+    }
 }
