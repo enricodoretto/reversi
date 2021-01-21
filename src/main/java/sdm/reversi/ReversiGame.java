@@ -25,7 +25,7 @@ public class ReversiGame extends Game {
         }
         return (checkIfAVerticalUpMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 checkIfAVerticalDownMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                cellRightHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()) ||
+                checkIfAHorizontalRightMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 cellLeftHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()));
     }
 
@@ -81,7 +81,19 @@ public class ReversiGame extends Game {
         }
     }
 
+    private boolean checkIfAHorizontalRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
+        if (!cellRightHasDiskWithDifferentColor(coordinate, diskColor)) {
+            return false;
+        }
+        while (true) {
+            coordinate = coordinate.getRightCoordinate();
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return true;
+            }
 
-
-
+        }
+    }
 }
