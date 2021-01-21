@@ -17,23 +17,6 @@ public class TestCoordinate {
         );
     }
 
-    @ParameterizedTest
-    @CsvSource({"10, A", "11, A", "12, B"})
-    public void withRowGreaterThanEightIsNotValid(int row, char column){
-        assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"0, A", "-2, A", "-10, B"})
-    void withRowSmallerThanOneIsNotValid(int row, char column) {
-        assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"1, L","3, è", "6, T"})
-    void withColumnNotBetweenAAndHIgnoreCaseIsNotValid(int row, char column) {
-        assertThrows(IllegalArgumentException.class, () -> new Coordinate(row,column));
-    }
 
     @ParameterizedTest
     @CsvSource({"1,A,1A", "5,E,5E", "3,D,3D", "8,H,8H"})
@@ -42,10 +25,6 @@ public class TestCoordinate {
         assertEquals(coordinate, Coordinate.parseCoordinate(inputCoordinate));
     }
 
-    @ParameterizedTest
-    @CsvSource({"A1","11A","321"})
-    void ifANotValidInputStringIsNotAValidCoordinate(String inputCoordinate){
-        assertThrows(IllegalArgumentException.class, () -> Coordinate.parseCoordinate(inputCoordinate));
-    }
+
 
 }
