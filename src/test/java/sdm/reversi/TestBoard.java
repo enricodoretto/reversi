@@ -17,6 +17,14 @@ public class TestBoard {
         assertTrue(board.putDisk(disk, coordinate));
     }
 
+    @ParameterizedTest
+    @CsvSource({"1A", "2A", "5C"})
+    public void putDiskInEmptyCellDelegatingDiskCreation(String stringCoordinate){
+        Board board = new Board();
+        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        assertTrue(board.putDisk(Disk.Color.BLACK, coordinate));
+    }
+
 
     @ParameterizedTest
     @CsvSource({"1A", "5F", "8H"})

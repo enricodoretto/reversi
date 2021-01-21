@@ -19,6 +19,10 @@ public class Board {
         }
         return false;
     }
+    public boolean putDisk(Disk.Color diskColor, Coordinate coordinate){
+        Disk disk = new Disk(diskColor);
+        return putDisk(disk, coordinate);
+    }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate){
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];

@@ -15,7 +15,7 @@ public abstract class Game {
 
     public boolean makeMove(Coordinate coordinate) {
         if (isValidMove(coordinate)) {
-            board.putDisk(new Disk(currentPlayer.getColor()), coordinate);
+            board.putDisk(currentPlayer.getColor(), coordinate);
             currentPlayer = (currentPlayer == player1) ? player2 : player1;
             return true;
         } else return false;
