@@ -69,8 +69,8 @@ public class ReversiGame extends Game {
     }
 
     private boolean cellDownRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getDownRightCoordinate()) ||
-                board.getDiskColorFromCoordinate(coordinate.getDownRightCoordinate()) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_RIGHT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_RIGHT)) == diskColor);
     }
 
     private boolean checkIfAVerticalUpMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
@@ -190,7 +190,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getDownRightCoordinate();
+            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_RIGHT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
