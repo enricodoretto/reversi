@@ -28,8 +28,7 @@ public class Board {
         return false;
     }
 
-
-    private boolean isCellEmpty(int boardRow, int boardColumn) {
+    public boolean isCellEmpty(int boardRow, int boardColumn) {
         return board[boardRow][boardColumn] == null;
     }
 

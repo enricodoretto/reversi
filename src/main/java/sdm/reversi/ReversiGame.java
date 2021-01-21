@@ -20,6 +20,7 @@ public class ReversiGame extends Game{
 
     @Override
     public boolean isValidMove(Player player, String coordinate) {
+        //if(board.isCellEmpty(coordinate))
         return true;
     }
 }
