@@ -20,22 +20,6 @@ public class Board {
         return false;
     }
 
-    public boolean putDisk(Disk disk, String coordinate) {
-        int row = coordinate.charAt(0) - '0';
-        char column = coordinate.charAt(1);
-        return putDisk(disk, row, column);
-    }
-
-    public boolean putDisk(Disk disk, int row, char column) {
-        int boardRow = row - 1;
-        int boardColumn = column - 'A';
-        if (!isValidIndex(boardRow) || !isValidIndex(boardColumn)) throw new IllegalArgumentException();
-        if (isCellEmpty(boardRow, boardColumn)) {
-            board[boardRow][boardColumn] = disk;
-            return true;
-        }
-        return false;
-    }
 
     public boolean isCellEmpty(int boardRow, int boardColumn) {
         return board[boardRow][boardColumn] == null;
