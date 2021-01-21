@@ -57,7 +57,12 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertTrue(game.makeMove(Coordinate.parseCoordinate(stringCoordinate)));
     }*/
-
+    @ParameterizedTest
+    @CsvSource("6D,6F,3E,3C")
+    void InvalidDiagonalFirstMove(String stringCoordinate){
+        Game game = new ReversiGame("Bob", "Alice");
+        assertFalse(game.isValidMove(stringCoordinate));
+    }
     @Test
     void checkIfBlackDiskIn6FCellIsNotValidFirstMove() {
         Game game = new ReversiGame("Bob", "Alice");
