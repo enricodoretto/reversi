@@ -45,6 +45,7 @@ public class Board {
         return index >= 0 && index <= BOARD_SIZE - 1;
     }
 
+    public boolean isValidCell(Coordinate coordinate){ return isValidIndex(coordinate.getRow()) && isValidIndex(coordinate.getColumn());}
 
     @Override
     public String toString() {
