@@ -24,7 +24,7 @@ public class ReversiGame extends Game {
             return false;
         }
         return (checkIfAVerticalUpMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                cellBelowHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()) ||
+                checkIfAVerticalDownMoveIsValid(coordinate, currentPlayer.getColor()) ||
                 cellRightHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()) ||
                 cellLeftHasDiskWithDifferentColor(coordinate, currentPlayer.getColor()));
     }
@@ -55,10 +55,7 @@ public class ReversiGame extends Game {
         }
         while (true) {
             coordinate = coordinate.getAboveCoordinate();
-            if (!board.isValidCell(coordinate)) {
-                return false;
-            }
-            if (board.isCellEmpty(coordinate)) {
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
@@ -67,6 +64,24 @@ public class ReversiGame extends Game {
 
         }
     }
+
+    private boolean checkIfAVerticalDownMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
+        if (!cellBelowHasDiskWithDifferentColor(coordinate, diskColor)) {
+            return false;
+        }
+        while (true) {
+            coordinate = coordinate.getBelowCoordinate();
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return true;
+            }
+
+        }
+    }
+
+
 
 
 }
