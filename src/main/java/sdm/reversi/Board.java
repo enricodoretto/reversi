@@ -11,6 +11,7 @@ public class Board {
         board = new Disk[BOARD_SIZE][BOARD_SIZE];
     }
 
+
     public boolean putDisk(Disk disk, String coordinate) {
         int row = coordinate.charAt(0) - '0';
         char column = coordinate.charAt(1);

@@ -4,19 +4,19 @@ import java.util.Objects;
 
 public class Coordinate {
     private final int row;
-    private final char column;
+    private final int column;
 
     public Coordinate(int row, char column) throws IllegalArgumentException {
         column = Character.toUpperCase(column);
-        this.row = row;
-        this.column = column;
+        this.row = row-1;
+        this.column = column-'A';
     }
 
     public int getRow() {
         return row;
     }
 
-    public char getColumn() {
+    public int getColumn() {
         return column;
     }
 
