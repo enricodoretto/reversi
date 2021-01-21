@@ -52,6 +52,14 @@ public class TestBoard {
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,row,column));
     }
 
+    @ParameterizedTest
+    @CsvSource({"11C", "0A", "4I"})
+    public void cantPutDiskInCellOutOfBoard(String coordinate){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,coordinate));
+    }
+
     @Test
     public void emptyBoardRepresentedAsString(){
         String emptyBoard = "--------\n" +
