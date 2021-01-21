@@ -6,11 +6,11 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestGame {
+public class TestReversiGame {
     @ParameterizedTest
     @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
     void createGameWithTwoPlayers(String player1Name, String player2Name) {
-        Game game = new Game(player1Name, player2Name);
+        Game game = new ReversiGame(player1Name, player2Name);
         assertAll(
                 () -> assertEquals(new Player(player1Name, Disk.Color.BLACK), game.getPlayer1()),
                 () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), game.getPlayer2())
@@ -20,12 +20,12 @@ public class TestGame {
     @ParameterizedTest
     @CsvSource({"Bob", "Alice", "John"})
     void failedToCreateGameWithBothPlayersWithSameName(String playerName) {
-        assertThrows(IllegalArgumentException.class, () -> new Game(playerName, playerName));
+        assertThrows(IllegalArgumentException.class, () -> new ReversiGame(playerName, playerName));
     }
 
     @Test
     void initializeReversiBoard() {
-        Game game = new Game("Bob", "Alice");
+        Game game = new ReversiGame("Bob", "Alice");
         String initializedReversiBoard = "--------\n" +
                 "--------\n" +
                 "--------\n" +
