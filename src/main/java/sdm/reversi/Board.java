@@ -13,7 +13,7 @@ public class Board {
 
     public boolean putDisk(Disk disk, Coordinate coordinate){
         if (!isValidIndex(coordinate.getRow()) || !isValidIndex(coordinate.getColumn())) throw new IllegalArgumentException();
-        if (isCellEmpty(coordinate.getRow(), coordinate.getColumn())) {
+        if (isCellEmpty(coordinate)) {
             board[coordinate.getRow()][coordinate.getColumn()] = disk;
             return true;
         }
@@ -21,8 +21,12 @@ public class Board {
     }
 
 
-    public boolean isCellEmpty(int boardRow, int boardColumn) {
-        return board[boardRow][boardColumn] == null;
+    public boolean isCellEmpty(Coordinate coordinate) {
+        return isCellEmpty(coordinate.getRow(),coordinate.getColumn());
+    }
+
+    public boolean isCellEmpty(int row, int column) {
+        return board[row][column] == null;
     }
 
     private static boolean isValidIndex(int index) {
