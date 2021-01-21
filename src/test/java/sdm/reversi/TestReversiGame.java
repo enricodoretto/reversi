@@ -49,21 +49,4 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove(game.getPlayer1(), coordinate));
     }
-    @Test
-    void blackIn5DIsNotValidFirstMove() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertFalse(game.isValidMove(game.getPlayer1(), "5D"));
-    }
-
-    @Test
-    void blackIn6DIsNotValidFirstMove() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertFalse(game.isValidMove(game.getPlayer1(), "6D"));
-    }
-
-    @Test
-    void blackIn3EIsNotValid() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertFalse(game.isValidMove(game.getPlayer1(), "3E"));
-    }
 }
