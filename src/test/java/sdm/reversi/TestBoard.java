@@ -64,6 +64,7 @@ public class TestBoard {
         assertFalse(board.putDisk(duplicatedDisk, coordinate));
     }
 
+
     @ParameterizedTest
     @CsvSource({"11, C", "0, A", "4, I"})
     public void cantPutDiskInCellOutOfBoard(int row, char column){
@@ -77,6 +78,15 @@ public class TestBoard {
     public void cantPutDiskInCellOutOfBoard(String coordinate){
         Board board = new Board();
         Disk disk = new Disk(Disk.Color.BLACK);
+        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,coordinate));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"11C", "0A", "4I"})
+    public void cantPutDiskInCellOutOfBoardViaCoordinate(String stringCoordinate){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,coordinate));
     }
 
