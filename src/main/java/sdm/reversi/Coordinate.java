@@ -6,15 +6,15 @@ public class Coordinate {
     private final int row;
     private final int column;
 
-    public Coordinate(int row, int column) throws IllegalArgumentException {
+    public Coordinate(int row, int column) {
         this.row = row;
         this.column = column;
     }
 
-    public Coordinate(int row, char column) throws IllegalArgumentException {
+    public Coordinate(int row, char column) {
         column = Character.toUpperCase(column);
-        this.row = row-1;
-        this.column = column-'A';
+        this.row = row - 1;
+        this.column = column - 'A';
     }
 
     public int getRow() {
@@ -25,14 +25,14 @@ public class Coordinate {
         return column;
     }
 
-    public static Coordinate parseCoordinate(String inputCoordinate){
+    public static Coordinate parseCoordinate(String inputCoordinate) {
         int row = Character.getNumericValue(inputCoordinate.charAt(0));
         char column = inputCoordinate.charAt(1);
         return new Coordinate(row, column);
     }
 
-    public Coordinate getAboveCoordinate(){
-        return new Coordinate(row-1, column);
+    public Coordinate getAboveCoordinate() {
+        return new Coordinate(row - 1, column);
     }
 
     @Override
@@ -48,4 +48,7 @@ public class Coordinate {
         return Objects.hash(row, column);
     }
 
+    public Coordinate getBelowCoordinate() {
+        return new Coordinate(row + 1, column);
+    }
 }
