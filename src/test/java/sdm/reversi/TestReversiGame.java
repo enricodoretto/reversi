@@ -42,4 +42,10 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertTrue(game.isValidMove(game.getPlayer1(), "6E"));
     }
+
+    @Test
+    void blackIn5DIsValidFirstMove() {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertFalse(game.isValidMove(game.getPlayer1(), "5D"));
+    }
 }

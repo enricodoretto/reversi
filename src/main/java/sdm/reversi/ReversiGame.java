@@ -19,8 +19,11 @@ public class ReversiGame extends Game{
     }
 
     @Override
-    public boolean isValidMove(Player player, String coordinate) {
-        //if(board.isCellEmpty(coordinate))
+    public boolean isValidMove(Player player, String stringCoordinate) {
+        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        if(!board.isCellEmpty(coordinate)){
+            return false;
+        }
         return true;
     }
 }
