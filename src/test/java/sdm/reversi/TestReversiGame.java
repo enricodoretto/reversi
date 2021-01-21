@@ -43,6 +43,12 @@ public class TestReversiGame {
         assertTrue(game.isValidMove(game.getPlayer1(), "6E"));
     }
 
+    @ParameterizedTest
+    @CsvSource("5D,6D,3E")
+    void invalidFirstMove(String coordinate){
+        Game game = new ReversiGame("Bob", "Alice");
+        assertFalse(game.isValidMove(game.getPlayer1(), coordinate));
+    }
     @Test
     void blackIn5DIsNotValidFirstMove() {
         Game game = new ReversiGame("Bob", "Alice");
