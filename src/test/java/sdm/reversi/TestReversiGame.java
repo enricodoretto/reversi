@@ -54,4 +54,10 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove(game.getPlayer1(), "6D"));
     }
+
+    @Test
+    void blackIn3EIsNotValid() {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertFalse(game.isValidMove(game.getPlayer1(), "3E"));
+    }
 }
