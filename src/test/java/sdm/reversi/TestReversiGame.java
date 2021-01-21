@@ -57,21 +57,4 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertTrue(game.makeMove(Coordinate.parseCoordinate(stringCoordinate)));
     }
-    @Test
-    void makeValidFirstMoveWithBlackDiskIn3D() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertTrue(game.makeMove(Coordinate.parseCoordinate("3D")));
-    }
-
-    @Test
-    void makeValidFirstMoveWithBlackDiskIn6E() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertTrue(game.makeMove(Coordinate.parseCoordinate("6E")));
-    }
-
-    @Test
-    void makeValidFirstMoveWithBlackDiskIn5F() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertTrue(game.makeMove(Coordinate.parseCoordinate("5F")));
-    }
 }
