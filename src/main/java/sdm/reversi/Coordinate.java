@@ -59,4 +59,8 @@ public class Coordinate {
     public Coordinate getLeftCoordinate(){
         return new Coordinate(row, column-1);
     }
+
+    public Coordinate getUpLeftCoordinate() {
+        return new Coordinate(row-1, column-1);
+    }
 }
