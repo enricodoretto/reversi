@@ -36,4 +36,10 @@ public class TestReversiGame {
                 "--------";
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
+
+    /*@Test
+    void blackIn6EIsValidFirstMove() {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertTrue(game.isValidMove(game.getPlayer1(), 6, 'A'));
+    }*/
 }
