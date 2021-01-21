@@ -13,9 +13,13 @@ public abstract class Game {
         this.currentPlayer = player1;
     }
 
-    /*public void makeMove(Coordinate coordinate){
-           isValidMove(currentPlayer, )
-    }*/
+    public boolean makeMove(Coordinate coordinate) {
+        if (isValidMove(coordinate)) {
+            board.putDisk(new Disk(currentPlayer.getColor()), coordinate);
+            currentPlayer = (currentPlayer == player1) ? player2 : player1;
+            return true;
+        } else return false;
+    }
 
     public Player getPlayer1() {
         return player1;
@@ -31,5 +35,10 @@ public abstract class Game {
 
     protected abstract void initializeBoard();
 
-    public abstract boolean isValidMove(String coordinate);
+    public boolean isValidMove(String stringCoordinate) {
+        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        return isValidMove(coordinate);
+    }
+
+    public abstract boolean isValidMove(Coordinate coordinate);
 }

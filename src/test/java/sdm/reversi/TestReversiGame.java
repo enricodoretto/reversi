@@ -50,4 +50,10 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove(coordinate));
     }
+
+    @Test
+    void makeValidFirstMoveWithBlackDiskIn3D() {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertTrue(game.makeMove(Coordinate.parseCoordinate("3D")));
+    }
 }
