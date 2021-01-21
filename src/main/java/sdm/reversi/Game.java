@@ -16,6 +16,7 @@ public abstract class Game {
     public boolean makeMove(Coordinate coordinate) {
         if (isValidMove(coordinate)) {
             board.putDisk(currentPlayer.getColor(), coordinate);
+            // we need to get all disks to flip and flip them
             currentPlayer = (currentPlayer == player1) ? player2 : player1;
             return true;
         } else return false;
