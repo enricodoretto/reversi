@@ -10,7 +10,7 @@ public class TestBoard {
 
     @ParameterizedTest
     @CsvSource({"1A", "2A", "5C"})
-    public void putDiskInEmptyCellViaCoordinate(String stringCoordinate){
+    public void putDiskInEmptyCell(String stringCoordinate){
         Board board = new Board();
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
         Disk disk = new Disk(Disk.Color.BLACK);
@@ -20,7 +20,7 @@ public class TestBoard {
 
     @ParameterizedTest
     @CsvSource({"1A", "5F", "8H"})
-    public void cantPutDiskInNonEmptyCellViaCoordinate(String stringCoordinate){
+    public void cantPutDiskInNonEmptyCell(String stringCoordinate){
         Board board = new Board();
         Disk disk = new Disk(Disk.Color.BLACK);
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
@@ -31,7 +31,7 @@ public class TestBoard {
 
     @ParameterizedTest
     @CsvSource({"11C", "0A", "4I"})
-    public void cantPutDiskInCellOutOfBoardViaCoordinate(String stringCoordinate){
+    public void cantPutDiskInCellOutOfBoard(String stringCoordinate){
         Board board = new Board();
         Disk disk = new Disk(Disk.Color.BLACK);
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
