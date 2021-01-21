@@ -37,6 +37,12 @@ public class TestReversiGame {
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
 
+    @ParameterizedTest
+    @CsvSource("6E,3D,5F")
+    void validFirstMove(String coordinate){
+        Game game = new ReversiGame("Bob", "Alice");
+        assertTrue(game.isValidMove(game.getPlayer1(), coordinate));
+    }
     @Test
     void blackIn6EIsValidFirstMove() {
         Game game = new ReversiGame("Bob", "Alice");
