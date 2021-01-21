@@ -24,4 +24,6 @@ public abstract class Game {
     }
 
     protected abstract void initializeBoard();
+
+    public abstract boolean isValidMove(Player player, String coordinate);
 }

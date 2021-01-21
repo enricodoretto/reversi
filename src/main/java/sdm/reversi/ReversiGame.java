@@ -17,4 +17,9 @@ public class ReversiGame extends Game{
         board.putDisk(blackDisk, 4, 'E');
         board.putDisk(blackDisk, 5, 'D');
     }
+
+    @Override
+    public boolean isValidMove(Player player, String coordinate) {
+        return true;
+    }
 }
