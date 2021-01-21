@@ -9,22 +9,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestBoard {
 
     @ParameterizedTest
-    @CsvSource({"1, A", "2, A", "5, C"})
-    public void putDiskInEmptyCell(int row, char column){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        assertTrue(board.putDisk(disk, row, column));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"1A", "2A", "5C"})
-    public void putDiskInEmptyCell(String coordinate){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        assertTrue(board.putDisk(disk, coordinate));
-    }
-
-    @ParameterizedTest
     @CsvSource({"1A", "2A", "5C"})
     public void putDiskInEmptyCellViaCoordinate(String stringCoordinate){
         Board board = new Board();
@@ -33,25 +17,6 @@ public class TestBoard {
         assertTrue(board.putDisk(disk, coordinate));
     }
 
-    @ParameterizedTest
-    @CsvSource({"1, A", "5, F", "8, H"})
-    public void cantPutDiskInNonEmptyCell(int row, char column){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        board.putDisk(disk,row,column);
-        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
-        assertFalse(board.putDisk(duplicatedDisk, row, column));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"1A", "5F", "8H"})
-    public void cantPutDiskInNonEmptyCell(String coordinate){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        board.putDisk(disk,coordinate);
-        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
-        assertFalse(board.putDisk(duplicatedDisk, coordinate));
-    }
 
     @ParameterizedTest
     @CsvSource({"1A", "5F", "8H"})
@@ -62,23 +27,6 @@ public class TestBoard {
         board.putDisk(disk,coordinate);
         Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
         assertFalse(board.putDisk(duplicatedDisk, coordinate));
-    }
-
-
-    @ParameterizedTest
-    @CsvSource({"11, C", "0, A", "4, I"})
-    public void cantPutDiskInCellOutOfBoard(int row, char column){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,row,column));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"11C", "0A", "4I"})
-    public void cantPutDiskInCellOutOfBoard(String coordinate){
-        Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
-        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,coordinate));
     }
 
     @ParameterizedTest
@@ -116,7 +64,7 @@ public class TestBoard {
                             "--------";
         Board board = new Board();
         Disk whiteDisk = new Disk(Disk.Color.WHITE);
-        board.putDisk(whiteDisk,1,'A');
+        board.putDisk(whiteDisk,Coordinate.parseCoordinate("1A"));
         assertEquals(emptyBoard, board.toString());
     }
 
@@ -133,8 +81,8 @@ public class TestBoard {
         Board board = new Board();
         Disk whiteDisk = new Disk(Disk.Color.WHITE);
         Disk blackDisk = new Disk(Disk.Color.BLACK);
-        board.putDisk(whiteDisk,1,'A');
-        board.putDisk(blackDisk,8,'H');
+        board.putDisk(whiteDisk,Coordinate.parseCoordinate("1A"));
+        board.putDisk(blackDisk,Coordinate.parseCoordinate("8H"));
         assertEquals(emptyBoard, board.toString());
     }
 

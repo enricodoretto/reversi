@@ -12,10 +12,10 @@ public class ReversiGame extends Game{
         board = new Board();
         Disk blackDisk = new Disk(Disk.Color.BLACK);
         Disk whiteDisk = new Disk(Disk.Color.WHITE);
-        board.putDisk(whiteDisk, 4, 'D');
-        board.putDisk(whiteDisk, 5, 'E');
-        board.putDisk(blackDisk, 4, 'E');
-        board.putDisk(blackDisk, 5, 'D');
+        board.putDisk(whiteDisk, Coordinate.parseCoordinate("4D"));
+        board.putDisk(whiteDisk, Coordinate.parseCoordinate("5E"));
+        board.putDisk(blackDisk, Coordinate.parseCoordinate("4E"));
+        board.putDisk(blackDisk, Coordinate.parseCoordinate("5D"));
     }
 
     @Override
