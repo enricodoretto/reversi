@@ -17,6 +17,14 @@ public class TestBoard {
     }
 
     @ParameterizedTest
+    @CsvSource({"1A", "2A", "5C"})
+    public void putDiskInEmptyCell(String coordinate){
+        Board board = new Board();
+        Disk disk = new Disk(Disk.Color.BLACK);
+        assertTrue(board.putDisk(disk, coordinate));
+    }
+
+    @ParameterizedTest
     @CsvSource({"1, A", "5, F", "8, H"})
     public void cantPutDiskInNonEmptyCell(int row, char column){
         Board board = new Board();
@@ -81,4 +89,6 @@ public class TestBoard {
         board.putDisk(blackDisk,8,'H');
         assertEquals(emptyBoard, board.toString());
     }
+
+
 }
