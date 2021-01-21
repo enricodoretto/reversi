@@ -38,6 +38,16 @@ public class TestBoard {
     }
 
     @ParameterizedTest
+    @CsvSource({"1A", "5F", "8H"})
+    public void cantPutDiskInNonEmptyCellDelegatingDiskCreation(String stringCoordinate){
+        Board board = new Board();
+
+        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        board.putDisk(Disk.Color.BLACK,coordinate);
+        assertFalse(board.putDisk(Disk.Color.BLACK, coordinate));
+    }
+
+    @ParameterizedTest
     @CsvSource({"11C", "0A", "4I"})
     public void cantPutDiskInCellOutOfBoard(String stringCoordinate){
         Board board = new Board();
