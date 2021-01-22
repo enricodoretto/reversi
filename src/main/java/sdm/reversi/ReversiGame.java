@@ -87,7 +87,7 @@ public class ReversiGame extends Game {
                     disksToFlip.addAll(disksToFlipInAValidDirection);
                 }
             }
-            return disksToFlip;
+            return disksToFlip.size() == 0 ? null : disksToFlip;
         } catch (IllegalArgumentException e) {
             return null;
         }

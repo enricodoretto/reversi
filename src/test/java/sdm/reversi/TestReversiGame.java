@@ -66,6 +66,7 @@ public class TestReversiGame {
         assertFalse(game.isValidMove(stringCoordinate));
     }
 
+
     @ParameterizedTest
     @CsvSource({"6E,5E", "5F,5E","4C,4D","3D,4D"})
     void validFirstBlackMoveReturnsCoordinatesToFlip(String blackDiskPosition, String expectedDiskCoordinateToFlip){
@@ -74,5 +75,12 @@ public class TestReversiGame {
         List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
         assertEquals(coordinatesToFlip, game.getDisksToFlip(blackDiskPosition));
     }
+
+    @Test
+    void blackIn6FReturnsNoCoordinatesToFlip(){
+        Game game = new ReversiGame("Bob", "Alice");
+        assertNull(game.getDisksToFlip("6F"));
+    }
+
 
 }
