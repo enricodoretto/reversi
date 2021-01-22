@@ -20,17 +20,21 @@ public class ReversiGame extends Game {
 
     @Override
     public boolean isValidMove(Coordinate coordinate) {
-        if (!board.isCellEmpty(coordinate)) {
+        try{
+            if (!board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            return (checkIfAVerticalUpMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                    checkIfAVerticalDownMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                    checkIfAHorizontalRightMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                    checkIfAHorizontalLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                    checkIfAUpLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                    checkIfAUpRightMoveIsValid(coordinate, currentPlayer.getColor())) ||
+                    checkIfADownLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
+                    checkIfADownRightMoveIsValid(coordinate, currentPlayer.getColor());}
+        catch (IllegalArgumentException e){
             return false;
         }
-        return (checkIfAVerticalUpMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAVerticalDownMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAHorizontalRightMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAHorizontalLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAUpLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfAUpRightMoveIsValid(coordinate, currentPlayer.getColor())) ||
-                checkIfADownLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                checkIfADownRightMoveIsValid(coordinate, currentPlayer.getColor());
     }
 
     private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
