@@ -66,38 +66,6 @@ public class TestReversiGame {
         assertFalse(game.isValidMove(stringCoordinate));
     }
 
-    @Test
-    void blackIn6EReturns5EToFlip(){
-        Game game = new ReversiGame("Bob", "Alice");
-        Coordinate coordinateToFlip = Coordinate.parseCoordinate("5E");
-        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
-        assertEquals(coordinatesToFlip, game.getDisksToFlip("6E"));
-    }
-
-    @Test
-    void blackIn5FReturns5EToFlip(){
-        Game game = new ReversiGame("Bob", "Alice");
-        Coordinate coordinateToFlip = Coordinate.parseCoordinate("5E");
-        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
-        assertEquals(coordinatesToFlip, game.getDisksToFlip("5F"));
-    }
-
-    @Test
-    void blackIn4CReturns4DToFlip(){
-        Game game = new ReversiGame("Bob", "Alice");
-        Coordinate coordinateToFlip = Coordinate.parseCoordinate("4D");
-        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
-        assertEquals(coordinatesToFlip, game.getDisksToFlip("4C"));
-    }
-
-    @Test
-    void blackIn3DReturns4DToFlip(){
-        Game game = new ReversiGame("Bob", "Alice");
-        Coordinate coordinateToFlip = Coordinate.parseCoordinate("4D");
-        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
-        assertEquals(coordinatesToFlip, game.getDisksToFlip("3D"));
-    }
-
     @ParameterizedTest
     @CsvSource({"6E,5E", "5F,5E","4C,4D","3D,4D"})
     void validFirstBlackMoveReturnsCoordinatesToFlip(String blackDiskPosition, String expectedDiskCoordinateToFlip){
