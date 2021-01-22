@@ -76,6 +76,11 @@ public class TestBoard {
         assertDoesNotThrow(() -> {Board board = new Board(boardSize);});
     }
 
+    @ParameterizedTest
+    @CsvSource({"5", "2", "30"})
+    public void cantBuildBoardOfIllegalSize(int boardSize){
+        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(boardSize);});
+    }
     @Test
     void cantBuildBoardOfSize5() {
         assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(5);});
