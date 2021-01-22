@@ -5,7 +5,7 @@ import java.util.*;
 public class Board {
 
     private final Disk[][] board;
-    private int boardSize;
+    private final int boardSize;
     private final static int DEFAULT_BOARD_SIZE = 8;
 
     public Board() {
