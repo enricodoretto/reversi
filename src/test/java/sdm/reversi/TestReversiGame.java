@@ -126,7 +126,12 @@ public class TestReversiGame {
                 () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5E")))
         );
     }
-
+    @ParameterizedTest
+    @CsvSource("1A, 10H, 3C")
+    void cantMakeIllegalFirstMove(String blackDiskCoordinate) {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertThrows(IllegalArgumentException.class, () ->game.makeMove(Coordinate.parseCoordinate(blackDiskCoordinate)));
+    }
     @Test
     void cantMakeIllegalFirstMoveOn1A() {
         Game game = new ReversiGame("Bob", "Alice");
