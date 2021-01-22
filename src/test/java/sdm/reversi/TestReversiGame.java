@@ -190,4 +190,31 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice", board);
         assertTrue(game.isOver());
     }
+
+    @Test
+    void gameWith2017FinalBoardIsOver() {
+        Board board = new Board();
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("1E"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("2E"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("2F"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3A"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3B"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3C"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3D"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3E"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3F"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("3G"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("4C"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("4D"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("4E"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("4F"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("5C"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("5D"));
+        board.putDisk(Disk.Color.WHITE, Coordinate.parseCoordinate("5E"));
+        board.putDisk(Disk.Color.BLACK, Coordinate.parseCoordinate("3H"));
+        board.putDisk(Disk.Color.BLACK, Coordinate.parseCoordinate("4H"));
+        board.putDisk(Disk.Color.BLACK, Coordinate.parseCoordinate("5H"));
+        Game game = new ReversiGame("Bob", "Alice", board);
+        assertTrue(game.isOver());
+    }
 }
