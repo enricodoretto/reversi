@@ -11,6 +11,7 @@ sdm/reversi/Disk.java
  sdm.reversi.Disk$Color
 sdm/reversi/Board.java
  sdm.reversi.Board
+ sdm.reversi.Board$1
 sdm/reversi/ReversiGame.java
  sdm.reversi.ReversiGame
 sdm/reversi/Game.java

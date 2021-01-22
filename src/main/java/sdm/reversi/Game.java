@@ -31,7 +31,7 @@ public abstract class Game {
 
     private void calculatePlayerPossibleMoves() {
         Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
-        for (Coordinate coordinate : board.getBoardCoordinates()) {
+        for (Coordinate coordinate : board) {
             Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
             if (disksToFlipForCoordinate != null) {
                 validCoordinates.put(coordinate, disksToFlipForCoordinate);

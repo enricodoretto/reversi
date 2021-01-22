@@ -1,8 +1,9 @@
 package sdm.reversi;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
-public class Board {
+public class Board implements Iterable<Coordinate>{
 
     private final Disk[][] board;
     private final int boardSize;
@@ -18,14 +19,34 @@ public class Board {
         board = new Disk[boardSize][boardSize];
     }
 
-    public Collection<Coordinate> getBoardCoordinates() {
-        Collection<Coordinate> boardCoordinates = new HashSet<>();
-        for (int row = 0; row < boardSize; row++) {
-            for (int column = 0; column < boardSize; column++) {
-                boardCoordinates.add(new Coordinate(row, column));
+    public Iterator<Coordinate> iterator(){
+        return new Iterator<>() {
+
+            private int currentRowIndex = 0;
+            private int currentColumnIndex = 0;
+            @Override
+            public boolean hasNext() {
+                return currentRowIndex < boardSize && currentColumnIndex < boardSize;
             }
-        }
-        return boardCoordinates;
+
+            @Override
+            public Coordinate next() {
+                Coordinate nextCoordinate = new Coordinate(currentRowIndex, currentColumnIndex);
+                if(currentColumnIndex == boardSize-1){
+                    currentRowIndex++;
+                    currentColumnIndex = 0;
+                }
+                else{
+                    currentColumnIndex++;
+                }
+                return nextCoordinate;
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+        };
     }
 
     public boolean putDisk(Disk disk, Coordinate coordinate) {
@@ -81,16 +102,16 @@ public class Board {
     @Override
     public String toString() {
         //to improve
-        String representation = "";
+        StringBuilder representation = new StringBuilder();
         for (int row = 0; row < boardSize; row++) {
             for (int column = 0; column < boardSize; column++) {
-                representation += isCellEmpty(row, column) ? "-" : board[row][column].toString();
+                representation.append(isCellEmpty(row, column) ? "-" : board[row][column].toString());
             }
             if (row != boardSize - 1) {
-                representation += "\n";
+                representation.append("\n");
             }
         }
-        return representation;
+        return representation.toString();
     }
 
     public Disk.Color getColorWithMoreDisks() {
