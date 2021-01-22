@@ -167,4 +167,15 @@ public class TestReversiGame {
         assertFalse(game.areThereAvailableMoves());
     }
 
+    @Test
+    void gameWithFullWhiteBoardIsOver() {
+        Board board = new Board();
+        for(int row=0; row<8; row++){
+            for(int column=0; column<8; column++){
+                board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(row,column));
+            }
+        }
+        Game game = new ReversiGame("Bob", "Alice", board);
+        assertTrue(game.isOver());
+    }
 }

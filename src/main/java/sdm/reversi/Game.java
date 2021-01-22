@@ -40,6 +40,16 @@ public abstract class Game {
         allowedMovesForCurrentPlayer = validCoordinates.size() == 0 ? null : validCoordinates;
     }
 
+    public boolean isOver(){
+        if(allowedMovesForCurrentPlayer == null ){
+            changeTurn();
+            if (allowedMovesForCurrentPlayer == null){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void makeMove(Coordinate coordinate) {
         if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
             throw new IllegalArgumentException();
