@@ -1,15 +1,11 @@
 package sdm.reversi;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
         super(player1Name, player2Name);
         initializeBoard();
+        allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
     @Override
