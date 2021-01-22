@@ -81,20 +81,6 @@ public class TestBoard {
     public void cantBuildBoardOfIllegalSize(int boardSize){
         assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(boardSize);});
     }
-    @Test
-    void cantBuildBoardOfSize5() {
-        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(5);});
-    }
-
-    @Test
-    void cantBuildBoardOfSize2() {
-        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(2);});
-    }
-
-    @Test
-    void cantBuildBoardOfSize30() {
-        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(30);});
-    }
 
     @Test
     public void emptyBoardRepresentedAsString(){
