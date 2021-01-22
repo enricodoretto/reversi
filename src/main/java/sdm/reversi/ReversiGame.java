@@ -38,43 +38,43 @@ public class ReversiGame extends Game {
     }
 
     private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.DOWN)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.DOWN)) == diskColor);
     }
 
     private boolean cellAboveHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.UP)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.UP)) == diskColor);
     }
 
     private boolean cellRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.RIGHT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.RIGHT)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.RIGHT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.RIGHT)) == diskColor);
     }
 
     private boolean cellLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.LEFT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.LEFT)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.LEFT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.LEFT)) == diskColor);
     }
 
     private boolean cellUpLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP_LEFT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP_LEFT)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.UP_LEFT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.UP_LEFT)) == diskColor);
     }
 
     private boolean cellUpRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP_RIGHT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP_RIGHT)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.UP_RIGHT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.UP_RIGHT)) == diskColor);
     }
 
     private boolean cellDownLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_LEFT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_LEFT)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_LEFT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_LEFT)) == diskColor);
     }
 
     private boolean cellDownRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_RIGHT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_RIGHT)) == diskColor);
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_RIGHT)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_RIGHT)) == diskColor);
     }
 
     private boolean checkIfAVerticalUpMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
@@ -82,7 +82,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.UP);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -98,7 +98,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.DOWN);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -114,7 +114,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.RIGHT);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.RIGHT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -130,7 +130,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.LEFT);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.LEFT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -146,7 +146,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP_LEFT);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.UP_LEFT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -162,7 +162,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.UP_RIGHT);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.UP_RIGHT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -178,7 +178,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_LEFT);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.DOWN_LEFT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -194,7 +194,7 @@ public class ReversiGame extends Game {
             return false;
         }
         while (true) {
-            coordinate = coordinate.getShiftedCoordinate(Coordinate.ShiftDirection.DOWN_RIGHT);
+            coordinate = coordinate.getShiftedCoordinate(ShiftDirection.DOWN_RIGHT);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
