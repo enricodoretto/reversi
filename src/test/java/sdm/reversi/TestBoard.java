@@ -75,22 +75,6 @@ public class TestBoard {
     public void canBuildBoardOfDifferentSize(int boardSize){
         assertDoesNotThrow(() -> {Board board = new Board(boardSize);});
     }
-    @Test
-    void canBuildBoardOfSize4() {
-        assertDoesNotThrow(() -> {Board board = new Board(4);});
-    }
-
-    @Test
-    void canBuildBoardOfSize6() {
-        assertDoesNotThrow(() -> {Board board = new Board(6);});
-    }
-
-    @Test
-    void canBuildBoardOfSize12() {
-        assertDoesNotThrow(() -> {Board board = new Board(12);});
-    }
-
-
 
     @Test
     public void emptyBoardRepresentedAsString(){
