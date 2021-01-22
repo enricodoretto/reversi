@@ -1,11 +1,10 @@
 package sdm.reversi;
 
-import java.util.List;
 import java.util.Set;
 
 public abstract class Game {
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
     protected Board board;
     protected Player currentPlayer;
 
@@ -16,14 +15,17 @@ public abstract class Game {
         this.currentPlayer = player1;
     }
 
-    public boolean makeMove(Coordinate coordinate) {
-        if (isValidMove(coordinate)) {
+    /*public boolean makeMove(Coordinate coordinate) {
+        Set<Coordinate> coordinatesOfDisksToFlip = getDisksToFlip(coordinate);
+        if (coordinatesOfDisksToFlip!=null) {
             board.putDisk(currentPlayer.getColor(), coordinate);
-            // we need to get all disks to flip and flip them
+            for(Coordinate coordinateOfDiskToFlip : coordinatesOfDisksToFlip){
+                board.flipDisk(coordinateOfDiskToFlip);
+            }
             currentPlayer = (currentPlayer == player1) ? player2 : player1;
             return true;
         } else return false;
-    }
+    }*/
 
     public Player getPlayer1() {
         return player1;

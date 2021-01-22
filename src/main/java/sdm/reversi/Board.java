@@ -24,6 +24,10 @@ public class Board {
         return putDisk(disk, coordinate);
     }
 
+    public void flipDisk(Coordinate coordinate){
+        flipDisk(coordinate);
+    }
+
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate){
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
         if(disk==null){
