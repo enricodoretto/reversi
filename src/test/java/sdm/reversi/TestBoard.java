@@ -36,11 +36,9 @@ public class TestBoard {
     @CsvSource({"1A", "5F", "8H"})
     public void cantPutDiskInNonEmptyCell(String stringCoordinate){
         Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
-        board.putDisk(disk,coordinate);
-        Disk duplicatedDisk = new Disk(Disk.Color.BLACK);
-        assertFalse(board.putDisk(duplicatedDisk, coordinate));
+        board.putDisk(Disk.Color.BLACK,coordinate);
+        assertFalse(board.putDisk(Disk.Color.BLACK, coordinate));
     }
 
     @ParameterizedTest
