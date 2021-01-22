@@ -42,40 +42,6 @@ public class ReversiGame extends Game {
                 board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
     }
 
-    private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.DOWN);
-    }
-
-    private boolean cellAboveHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.UP);
-    }
-
-    private boolean cellRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.RIGHT);
-    }
-
-    private boolean cellLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.LEFT);
-    }
-
-    private boolean cellUpLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.UP_LEFT);
-    }
-
-    private boolean cellUpRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.UP_RIGHT);
-    }
-
-    private boolean cellDownLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.DOWN_LEFT);
-    }
-
-    private boolean cellDownRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.DOWN_RIGHT);
-    }
-
     private boolean checkIfMoveInADirectionIsValid(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection){
         if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return false;
