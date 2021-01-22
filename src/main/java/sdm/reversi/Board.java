@@ -1,6 +1,8 @@
 package sdm.reversi;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 
 public class Board {
 
@@ -9,6 +11,16 @@ public class Board {
 
     public Board() {
         board = new Disk[BOARD_SIZE][BOARD_SIZE];
+    }
+
+    public Collection<Coordinate> getBoardCoordinates(){
+        Collection<Coordinate> boardCoordinates = new HashSet<>();
+        for(int row = 0; row<BOARD_SIZE; row++){
+            for(int column = 0; column<BOARD_SIZE; column++){
+                boardCoordinates.add(new Coordinate(row, column));
+            }
+        }
+        return boardCoordinates;
     }
 
     public boolean putDisk(Disk disk, Coordinate coordinate){

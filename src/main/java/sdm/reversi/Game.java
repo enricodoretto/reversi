@@ -1,5 +1,8 @@
 package sdm.reversi;
 
+import java.security.cert.CertificateParsingException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 public abstract class Game {
@@ -13,6 +16,17 @@ public abstract class Game {
         this.player1 = new Player(player1Name, Disk.Color.BLACK);
         this.player2 = new Player(player2Name, Disk.Color.WHITE);
         this.currentPlayer = player1;
+    }
+
+    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves(){
+        Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
+        for(Coordinate coordinate : board.getBoardCoordinates()){
+            Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
+            if(disksToFlipForCoordinate != null) {
+                validCoordinates.put(coordinate, disksToFlipForCoordinate);
+            }
+        }
+        return validCoordinates.size()==0 ? null : validCoordinates;
     }
 
     /*public boolean makeMove(Coordinate coordinate) {
