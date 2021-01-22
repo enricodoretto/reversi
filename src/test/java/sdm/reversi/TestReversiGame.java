@@ -132,4 +132,11 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertThrows(IllegalArgumentException.class, () ->game.makeMove(Coordinate.parseCoordinate(blackDiskCoordinate)));
     }
+
+    @Test
+    void blackDiskHasNoMoves() {
+        Game game = new ReversiGame("Bob", "Alice");
+        game.makeMove(Coordinate.parseCoordinate("4C"));
+
+    }
 }

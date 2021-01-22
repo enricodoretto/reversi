@@ -12,12 +12,17 @@ public abstract class Game {
     protected Player currentPlayer;
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
 
-    public Game(String player1Name, String player2Name) throws IllegalArgumentException {
+    public Game(String player1Name, String player2Name) {
         if (player1Name.equals(player2Name)) throw new IllegalArgumentException();
         this.player1 = new Player(player1Name, Disk.Color.BLACK);
         this.player2 = new Player(player2Name, Disk.Color.WHITE);
         this.currentPlayer = player1;
     }
+
+    /*public Game(String player1Name, String player2Name, String customBoard){
+        this(player1Name,player2Name);
+        this.board = Board.parseBoard(customBoard);
+    }*/
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         calculatePlayerPossibleMoves();
@@ -45,6 +50,10 @@ public abstract class Game {
         }
         changeTurn();
         // we will need to check if this is null
+    }
+
+    public boolean areThereAvailableMoves(){
+        return allowedMovesForCurrentPlayer.size() == 0 ? false : true;
     }
 
     private void changeTurn() {
@@ -103,7 +112,7 @@ public abstract class Game {
         }
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+            if (board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
@@ -119,7 +128,7 @@ public abstract class Game {
         Set<Coordinate> disksToFlipInADirection = new HashSet<>();
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+            if (board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return null;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
