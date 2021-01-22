@@ -10,6 +10,7 @@ public abstract class Game {
     private final Player player2;
     protected Board board;
     protected Player currentPlayer;
+    protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
 
     public Game(String player1Name, String player2Name) throws IllegalArgumentException {
         if (player1Name.equals(player2Name)) throw new IllegalArgumentException();
@@ -19,6 +20,11 @@ public abstract class Game {
     }
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves(){
+        calculatePlayerPossibleMoves();
+        return allowedMovesForCurrentPlayer;
+    }
+
+    private void calculatePlayerPossibleMoves(){
         Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
         for(Coordinate coordinate : board.getBoardCoordinates()){
             Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
@@ -26,7 +32,7 @@ public abstract class Game {
                 validCoordinates.put(coordinate, disksToFlipForCoordinate);
             }
         }
-        return validCoordinates.size()==0 ? null : validCoordinates;
+        allowedMovesForCurrentPlayer = validCoordinates.size()==0 ? null : validCoordinates;
     }
 
     /*public boolean makeMove(Coordinate coordinate) {
