@@ -43,9 +43,13 @@ public abstract class Game {
         for (Coordinate coordinateOfDiskToFlip : allowedMovesForCurrentPlayer.get(coordinate)) {
             board.flipDisk(coordinateOfDiskToFlip);
         }
+        changeTurn();
+        // we will need to check if this is null
+    }
+
+    private void changeTurn() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
         calculatePlayerPossibleMoves();
-        // we will need to check if this is null
     }
 
     public Player getPlayer1() {
