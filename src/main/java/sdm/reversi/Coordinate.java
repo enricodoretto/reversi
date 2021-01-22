@@ -12,9 +12,7 @@ public class Coordinate {
     }
 
     public Coordinate(int row, char column) {
-        column = Character.toUpperCase(column);
-        this.row = row - 1;
-        this.column = column - 'A';
+        this(row - 1, Character.toUpperCase(column)- 'A');
     }
 
     public int getRow() {
