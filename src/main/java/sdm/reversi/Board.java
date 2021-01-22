@@ -38,7 +38,11 @@ public class Board {
     }
 
     public boolean isCellEmpty(int row, int column) {
-        return board[row][column] == null;
+        if(isValidIndex(row) && isValidIndex(column)){
+            return board[row][column] == null;}
+        else {
+            throw new IllegalArgumentException();
+        }
     }
 
     private static boolean isValidIndex(int index) {
