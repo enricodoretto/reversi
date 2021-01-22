@@ -14,6 +14,7 @@ public class Board {
     }
 
     public Board(int boardSize) {
+        if(boardSize % 2 != 0 || boardSize < 4 || boardSize > 26) throw new IllegalArgumentException();
         this.boardSize = boardSize;
         board = new Disk[boardSize][boardSize];
     }
