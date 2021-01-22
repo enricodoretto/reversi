@@ -114,4 +114,17 @@ public class TestReversiGame {
         );
     }
 
+    @Test
+    void blackIn4CFlipsDiskIn4D(){
+        Game game = new ReversiGame("Bob", "Alice");
+        game.makeMove(Coordinate.parseCoordinate("4C"));
+        assertAll(
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4C"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4D"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4E"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5D"))),
+                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5E")))
+        );
+    }
+
 }
