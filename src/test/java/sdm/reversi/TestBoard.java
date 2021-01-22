@@ -82,6 +82,11 @@ public class TestBoard {
     }
 
     @Test
+    void cantBuildBoardOfSize2() {
+        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(2);});
+    }
+
+    @Test
     public void emptyBoardRepresentedAsString(){
         String emptyBoard = "--------\n" +
                             "--------\n" +
