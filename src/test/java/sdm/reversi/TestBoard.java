@@ -15,24 +15,6 @@ public class TestBoard {
         assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(Coordinate.parseCoordinate(stringCoordinate)));
     }
 
-    @Test
-    public void checkingIfEmptyCell0AIsNotPossible(){
-        Board board = new Board();
-        assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(Coordinate.parseCoordinate("0A")));
-    }
-
-    @Test
-    public void checkingIfEmptyCell2ZIsNotPossible(){
-        Board board = new Board();
-        assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(Coordinate.parseCoordinate("2Z")));
-    }
-
-    @Test
-    public void checkingIfEmptyCell10LIsNotPossible(){
-        Board board = new Board();
-        assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(Coordinate.parseCoordinate("10L")));
-    }
-
     @ParameterizedTest
     @CsvSource({"1A", "2A", "5C"})
     public void putDiskInEmptyCell(String stringCoordinate){
