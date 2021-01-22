@@ -132,21 +132,4 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertThrows(IllegalArgumentException.class, () ->game.makeMove(Coordinate.parseCoordinate(blackDiskCoordinate)));
     }
-    @Test
-    void cantMakeIllegalFirstMoveOn1A() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertThrows(IllegalArgumentException.class, () -> game.makeMove(Coordinate.parseCoordinate("1A")));
-    }
-
-    @Test
-    void cantMakeIllegalFirstMoveOn10H() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertThrows(IllegalArgumentException.class, () -> game.makeMove(Coordinate.parseCoordinate("10H")));
-    }
-
-    @Test
-    void cantMakeIllegalFirstMoveOn3C() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertThrows(IllegalArgumentException.class, () -> game.makeMove(Coordinate.parseCoordinate("3C")));
-    }
 }
