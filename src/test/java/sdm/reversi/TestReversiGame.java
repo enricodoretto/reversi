@@ -77,7 +77,7 @@ public class TestReversiGame {
     }
 
     @Test
-    void validPositionsFirstBlackMove(){
+    void validPositionsFirstBlackMove() {
         Game game = new ReversiGame("Bob", "Alice");
         Map<Coordinate, Set<Coordinate>> possibleDisksToFlip = Map.of(
                 Coordinate.parseCoordinate("3D"), Set.of(Coordinate.parseCoordinate("4D")),
@@ -89,7 +89,7 @@ public class TestReversiGame {
     }
 
     @Test
-    void blackIn3DFlipsDiskIn4D(){
+    void blackIn3DFlipsDiskIn4D() {
         Game game = new ReversiGame("Bob", "Alice");
         game.makeMove(Coordinate.parseCoordinate("3D"));
         assertAll(
@@ -102,7 +102,7 @@ public class TestReversiGame {
     }
 
     @Test
-    void blackIn6EFlipsDiskIn5E(){
+    void blackIn6EFlipsDiskIn5E() {
         Game game = new ReversiGame("Bob", "Alice");
         game.makeMove(Coordinate.parseCoordinate("6E"));
         assertAll(
@@ -115,7 +115,7 @@ public class TestReversiGame {
     }
 
     @Test
-    void blackIn4CFlipsDiskIn4D(){
+    void blackIn4CFlipsDiskIn4D() {
         Game game = new ReversiGame("Bob", "Alice");
         game.makeMove(Coordinate.parseCoordinate("4C"));
         assertAll(
@@ -127,4 +127,9 @@ public class TestReversiGame {
         );
     }
 
+    @Test
+    void cantMakeIllegalFirstMoveOn1A() {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertThrows(IllegalArgumentException.class, () -> game.makeMove(Coordinate.parseCoordinate("1A")));
+    }
 }
