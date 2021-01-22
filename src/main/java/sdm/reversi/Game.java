@@ -1,7 +1,7 @@
 package sdm.reversi;
 
-import java.security.cert.CertificateParsingException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -65,7 +65,74 @@ public abstract class Game {
         return getDisksToFlip(coordinate);
     }
 
-    public abstract boolean isValidMove(Coordinate coordinate);
+    public boolean isValidMove(Coordinate coordinate) {
+        try {
+            if (!board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
+                if (checkIfMoveInADirectionIsValid(coordinate, currentPlayer.getColor(), shiftDirection)) {
+                    return true;
+                }
+            }
+            return false;
+        } catch (IllegalArgumentException e) {
+            return false;
+        }
+    }
 
-    public abstract Set<Coordinate> getDisksToFlip(Coordinate coordinate);
+    private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(shiftDirection)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
+    }
+
+    private boolean checkIfMoveInADirectionIsValid(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
+            return false;
+        }
+        while (true) {
+            coordinate = coordinate.getShiftedCoordinate(shiftDirection);
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return false;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return true;
+            }
+        }
+    }
+
+    private Set<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
+            return null;
+        }
+        Set<Coordinate> disksToFlipInADirection = new HashSet<>();
+        while (true) {
+            coordinate = coordinate.getShiftedCoordinate(shiftDirection);
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return null;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return disksToFlipInADirection;
+            }
+            disksToFlipInADirection.add(coordinate);
+        }
+    }
+
+    public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
+        try {
+            if (!board.isCellEmpty(coordinate)) {
+                return null;
+            }
+            Set<Coordinate> disksToFlip = new HashSet<>();
+            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
+                Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
+                if (disksToFlipInAValidDirection != null) {
+                    disksToFlip.addAll(disksToFlipInAValidDirection);
+                }
+            }
+            return disksToFlip.size() == 0 ? null : disksToFlip;
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
 }
