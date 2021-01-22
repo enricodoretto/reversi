@@ -71,6 +71,13 @@ public class TestBoard {
     }
 
     @Test
+    void canBuildBoardOfSize4() {
+        assertDoesNotThrow(() -> {Board board = new Board(4);});
+    }
+
+
+
+    @Test
     public void emptyBoardRepresentedAsString(){
         String emptyBoard = "--------\n" +
                             "--------\n" +

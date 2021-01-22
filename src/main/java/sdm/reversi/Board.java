@@ -6,9 +6,15 @@ import java.util.HashSet;
 public class Board {
 
     private final Disk[][] board;
-    private final int boardSize = 8;
+    private int boardSize;
+    private final static int DEFAULT_BOARD_SIZE = 8;
 
     public Board() {
+        this(DEFAULT_BOARD_SIZE);
+    }
+
+    public Board(int boardSize) {
+        this.boardSize = boardSize;
         board = new Disk[boardSize][boardSize];
     }
 
