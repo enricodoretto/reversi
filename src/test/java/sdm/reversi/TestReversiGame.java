@@ -133,10 +133,29 @@ public class TestReversiGame {
         assertThrows(IllegalArgumentException.class, () ->game.makeMove(Coordinate.parseCoordinate(blackDiskCoordinate)));
     }
 
-    @Test
+    /*@Test
     void blackDiskHasNoMoves() {
         Game game = new ReversiGame("Bob", "Alice");
         game.makeMove(Coordinate.parseCoordinate("4C"));
+    }*/
 
+    @Test
+    void initializeReversiGameWithAllWhiteBoard(){
+        Board board = new Board();
+        for(int rows=0; rows<8; rows++){
+            for(int columns=0; columns<8; columns++){
+                board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(rows,columns));
+            }
+        }
+        Game game = new ReversiGame("Bob", "Alice", board);
+        String initializedReversiBoard = "WWWWWWWW\n" +
+                "WWWWWWWW\n" +
+                "WWWWWWWW\n" +
+                "WWWWWWWW\n" +
+                "WWWWWWWW\n" +
+                "WWWWWWWW\n" +
+                "WWWWWWWW\n" +
+                "WWWWWWWW";
+        assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
 }

@@ -8,6 +8,11 @@ public class ReversiGame extends Game {
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
+    public ReversiGame(String player1Name, String player2Name, Board customBoard) {
+        super(player1Name, player2Name, customBoard);
+        allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
+    }
+
     @Override
     protected void initializeBoard() {
         board = new Board();

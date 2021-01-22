@@ -19,6 +19,11 @@ public abstract class Game {
         this.currentPlayer = player1;
     }
 
+    public Game(String player1Name, String player2Name, Board customBoard){
+        this(player1Name, player2Name);
+        board = customBoard;
+    }
+
     /*public Game(String player1Name, String player2Name, String customBoard){
         this(player1Name,player2Name);
         this.board = Board.parseBoard(customBoard);
