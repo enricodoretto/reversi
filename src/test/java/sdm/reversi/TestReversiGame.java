@@ -87,10 +87,17 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         assertNull(game.getDisksToFlip("3C"));
     }
+
     @Test
     void blackIn3EReturnsNoCoordinatesToFlip(){
         Game game = new ReversiGame("Bob", "Alice");
         assertNull(game.getDisksToFlip("3E"));
+    }
+
+    @Test
+    void blackIn6DReturnsNoCoordinatesToFlip(){
+        Game game = new ReversiGame("Bob", "Alice");
+        assertNull(game.getDisksToFlip("6D"));
     }
 
 }
