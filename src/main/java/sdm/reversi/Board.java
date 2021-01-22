@@ -1,7 +1,6 @@
 package sdm.reversi;
 
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 public class Board {
 
@@ -14,7 +13,7 @@ public class Board {
     }
 
     public Board(int boardSize) {
-        if(boardSize % 2 != 0 || boardSize < 4 || boardSize > 26) throw new IllegalArgumentException();
+        if (boardSize % 2 != 0 || boardSize < 4 || boardSize > 26) throw new IllegalArgumentException();
         this.boardSize = boardSize;
         board = new Disk[boardSize][boardSize];
     }
@@ -92,5 +91,20 @@ public class Board {
             }
         }
         return representation;
+    }
+
+    public Disk.Color getColorWithMoreDisks() {
+        Map<Disk.Color, Integer> diskColorCounters = new HashMap<>();
+        diskColorCounters.put(Disk.Color.BLACK,0);
+        diskColorCounters.put(Disk.Color.WHITE,0);
+        for (int row = 0; row < boardSize; row++) {
+            for (int column = 0; column < boardSize; column++) {
+                if (board[row][column] == null) {
+                    continue;
+                }
+                diskColorCounters.put(board[row][column].getSideUp(), diskColorCounters.get(board[row][column].getSideUp()) + 1);
+            }
+        }
+        return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 }

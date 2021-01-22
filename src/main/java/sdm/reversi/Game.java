@@ -50,6 +50,18 @@ public abstract class Game {
         return false;
     }
 
+    public Player getWinner(){
+        if(!isOver()){
+            return null;
+        }
+        Disk.Color winnerColor = board.getColorWithMoreDisks();
+        if(winnerColor == Disk.Color.BLACK){
+            return player1;
+        }else{
+            return player2;
+        }
+
+    }
     public void makeMove(Coordinate coordinate) {
         if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
             throw new IllegalArgumentException();
