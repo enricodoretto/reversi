@@ -84,7 +84,7 @@ public class TestReversiGame {
     }
 
     @Test
-    void validPositionFirstBlackMove(){
+    void validPositionsFirstBlackMove(){
         Game game = new ReversiGame("Bob", "Alice");
         Map<Coordinate, Set<Coordinate>> possibleDisksToFlip = Map.of(
                 Coordinate.parseCoordinate("3D"), Set.of(Coordinate.parseCoordinate("4D")),
