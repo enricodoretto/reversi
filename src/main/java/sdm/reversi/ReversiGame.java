@@ -1,5 +1,8 @@
 package sdm.reversi;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
@@ -52,6 +55,41 @@ public class ReversiGame extends Game {
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
                 return true;
             }
+        }
+    }
+
+    private List<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
+            return null;
+        }
+        List<Coordinate> disksToFlipInADirection = new ArrayList<>();
+        while (true) {
+            coordinate = coordinate.getShiftedCoordinate(shiftDirection);
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+                return null;
+            }
+            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return disksToFlipInADirection;
+            }
+            disksToFlipInADirection.add(coordinate);
+        }
+    }
+
+    public List<Coordinate> getDisksToFlip(Coordinate coordinate) {
+        try {
+            if (!board.isCellEmpty(coordinate)) {
+                return null;
+            }
+            List<Coordinate> disksToFlip = new ArrayList<>();
+            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
+                List<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
+                if (disksToFlipInAValidDirection != null) {
+                    disksToFlip.addAll(disksToFlipInAValidDirection);
+                }
+            }
+            return disksToFlip;
+        } catch (IllegalArgumentException e) {
+            return null;
         }
     }
 

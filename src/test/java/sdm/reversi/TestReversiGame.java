@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestReversiGame {
@@ -59,8 +61,16 @@ public class TestReversiGame {
     }*/
     @ParameterizedTest
     @CsvSource("6D,6F,3E,3C")
-    void InvalidDiagonalFirstMove(String stringCoordinate){
+    void invalidDiagonalFirstMove(String stringCoordinate){
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove(stringCoordinate));
+    }
+
+    @Test
+    void blackIn6EReturns5EToFlip(){
+        Game game = new ReversiGame("Bob", "Alice");
+        Coordinate coordinateToFlip = Coordinate.parseCoordinate("5E");
+        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
+        assertEquals(coordinatesToFlip, game.getDisksToFlip("6E"));
     }
 }
