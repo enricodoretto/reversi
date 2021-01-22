@@ -20,8 +20,7 @@ public class TestBoard {
     public void putDiskInEmptyCell(String stringCoordinate){
         Board board = new Board();
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
-        Disk disk = new Disk(Disk.Color.BLACK);
-        assertTrue(board.putDisk(disk, coordinate));
+        assertTrue(board.putDisk(Disk.Color.BLACK, coordinate));
     }
 
     @ParameterizedTest
