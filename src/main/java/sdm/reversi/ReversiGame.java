@@ -20,7 +20,7 @@ public class ReversiGame extends Game {
 
     @Override
     public boolean isValidMove(Coordinate coordinate) {
-        try{
+        try {
             if (!board.isCellEmpty(coordinate)) {
                 return false;
             }
@@ -31,50 +31,49 @@ public class ReversiGame extends Game {
                     checkIfAUpLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
                     checkIfAUpRightMoveIsValid(coordinate, currentPlayer.getColor())) ||
                     checkIfADownLeftMoveIsValid(coordinate, currentPlayer.getColor()) ||
-                    checkIfADownRightMoveIsValid(coordinate, currentPlayer.getColor());}
-        catch (IllegalArgumentException e){
+                    checkIfADownRightMoveIsValid(coordinate, currentPlayer.getColor());
+        } catch (IllegalArgumentException e) {
             return false;
         }
     }
 
+    private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(shiftDirection)) ||
+                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
+    }
+
     private boolean cellBelowHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.DOWN)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.DOWN)) == diskColor);
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.DOWN);
     }
 
     private boolean cellAboveHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.UP)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.UP)) == diskColor);
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.UP);
     }
 
     private boolean cellRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.RIGHT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.RIGHT)) == diskColor);
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.RIGHT);
     }
 
     private boolean cellLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.LEFT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.LEFT)) == diskColor);
+
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.LEFT);
     }
 
     private boolean cellUpLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.UP_LEFT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.UP_LEFT)) == diskColor);
+
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.UP_LEFT);
     }
 
     private boolean cellUpRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.UP_RIGHT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.UP_RIGHT)) == diskColor);
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.UP_RIGHT);
     }
 
     private boolean cellDownLeftHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_LEFT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_LEFT)) == diskColor);
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.DOWN_LEFT);
     }
 
     private boolean cellDownRightHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_RIGHT)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(ShiftDirection.DOWN_RIGHT)) == diskColor);
+        return shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, ShiftDirection.DOWN_RIGHT);
     }
 
     private boolean checkIfAVerticalUpMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
@@ -141,7 +140,7 @@ public class ReversiGame extends Game {
         }
     }
 
-    private boolean checkIfAUpLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+    private boolean checkIfAUpLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
         if (!cellUpLeftHasDiskWithDifferentColor(coordinate, diskColor)) {
             return false;
         }
@@ -157,7 +156,7 @@ public class ReversiGame extends Game {
         }
     }
 
-    private boolean checkIfAUpRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+    private boolean checkIfAUpRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
         if (!cellUpRightHasDiskWithDifferentColor(coordinate, diskColor)) {
             return false;
         }
@@ -173,7 +172,7 @@ public class ReversiGame extends Game {
         }
     }
 
-    private boolean checkIfADownLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+    private boolean checkIfADownLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
         if (!cellDownLeftHasDiskWithDifferentColor(coordinate, diskColor)) {
             return false;
         }
@@ -189,7 +188,7 @@ public class ReversiGame extends Game {
         }
     }
 
-    private boolean checkIfADownRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor){
+    private boolean checkIfADownRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
         if (!cellDownRightHasDiskWithDifferentColor(coordinate, diskColor)) {
             return false;
         }
