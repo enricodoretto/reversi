@@ -159,8 +159,8 @@ public class TestReversiGame {
         Board board = new Board();
         for(int row=0; row<8; row++){
             for(int column=0; column<8; column++){
-                if(row == 2 && column == 3 ){ board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(row,column));}
-                board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(row,column));
+                if(row == 2 && column == 3 ){ board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));}
+                board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
