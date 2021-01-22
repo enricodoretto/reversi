@@ -83,28 +83,5 @@ public class TestReversiGame {
         assertNull(game.getDisksToFlip(blackDiskPosition));
     }
 
-    @Test
-    void blackIn6FReturnsNoCoordinatesToFlip() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertNull(game.getDisksToFlip("6F"));
-    }
-
-    @Test
-    void blackIn3CReturnsNoCoordinatesToFlip() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertNull(game.getDisksToFlip("3C"));
-    }
-
-    @Test
-    void blackIn3EReturnsNoCoordinatesToFlip() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertNull(game.getDisksToFlip("3E"));
-    }
-
-    @Test
-    void blackIn6DReturnsNoCoordinatesToFlip() {
-        Game game = new ReversiGame("Bob", "Alice");
-        assertNull(game.getDisksToFlip("6D"));
-    }
 
 }
