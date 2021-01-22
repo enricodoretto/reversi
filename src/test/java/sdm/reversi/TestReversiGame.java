@@ -81,4 +81,12 @@ public class TestReversiGame {
         List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
         assertEquals(coordinatesToFlip, game.getDisksToFlip("5F"));
     }
+
+    @Test
+    void blackIn4CReturns4DToFlip(){
+        Game game = new ReversiGame("Bob", "Alice");
+        Coordinate coordinateToFlip = Coordinate.parseCoordinate("4D");
+        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
+        assertEquals(coordinatesToFlip, game.getDisksToFlip("4C"));
+    }
 }
