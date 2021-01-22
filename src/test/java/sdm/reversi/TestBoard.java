@@ -103,8 +103,7 @@ public class TestBoard {
                             "--------\n" +
                             "--------";
         Board board = new Board();
-        Disk whiteDisk = new Disk(Disk.Color.WHITE);
-        board.putDisk(whiteDisk,Coordinate.parseCoordinate("1A"));
+        board.putDisk(Disk.Color.WHITE,Coordinate.parseCoordinate("1A"));
         assertEquals(emptyBoard, board.toString());
     }
 
