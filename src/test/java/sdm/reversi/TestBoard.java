@@ -54,9 +54,8 @@ public class TestBoard {
     @CsvSource({"11C", "0A", "4I"})
     public void cantPutDiskInCellOutOfBoard(String stringCoordinate){
         Board board = new Board();
-        Disk disk = new Disk(Disk.Color.BLACK);
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
-        assertThrows(IllegalArgumentException.class, () -> board.putDisk(disk,coordinate));
+        assertThrows(IllegalArgumentException.class, () -> board.putDisk(Disk.Color.BLACK,coordinate));
     }
 
     @ParameterizedTest
