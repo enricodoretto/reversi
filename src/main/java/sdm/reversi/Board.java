@@ -3,7 +3,7 @@ package sdm.reversi;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Board implements Iterable<Coordinate>{
+public class Board implements Iterable<Coordinate> {
 
     private final Disk[][] board;
     private final int boardSize;
@@ -19,11 +19,12 @@ public class Board implements Iterable<Coordinate>{
         board = new Disk[boardSize][boardSize];
     }
 
-    public Iterator<Coordinate> iterator(){
+    public Iterator<Coordinate> iterator() {
         return new Iterator<>() {
 
             private int currentRowIndex = 0;
             private int currentColumnIndex = 0;
+
             @Override
             public boolean hasNext() {
                 return currentRowIndex < boardSize && currentColumnIndex < boardSize;
@@ -32,11 +33,10 @@ public class Board implements Iterable<Coordinate>{
             @Override
             public Coordinate next() {
                 Coordinate nextCoordinate = new Coordinate(currentRowIndex, currentColumnIndex);
-                if(currentColumnIndex == boardSize-1){
+                if (currentColumnIndex == boardSize - 1) {
                     currentRowIndex++;
                     currentColumnIndex = 0;
-                }
-                else{
+                } else {
                     currentColumnIndex++;
                 }
                 return nextCoordinate;
@@ -116,15 +116,14 @@ public class Board implements Iterable<Coordinate>{
 
     public Disk.Color getColorWithMoreDisks() {
         Map<Disk.Color, Integer> diskColorCounters = new HashMap<>();
-        diskColorCounters.put(Disk.Color.BLACK,0);
-        diskColorCounters.put(Disk.Color.WHITE,0);
-        for (int row = 0; row < boardSize; row++) {
-            for (int column = 0; column < boardSize; column++) {
-                if (board[row][column] == null) {
-                    continue;
-                }
-                diskColorCounters.put(board[row][column].getSideUp(), diskColorCounters.get(board[row][column].getSideUp()) + 1);
+        diskColorCounters.put(Disk.Color.BLACK, 0);
+        diskColorCounters.put(Disk.Color.WHITE, 0);
+        for (Coordinate coordinate : this) {
+            if (board[coordinate.getRow()][coordinate.getColumn()] == null) {
+                continue;
             }
+            diskColorCounters.put(board[coordinate.getRow()][coordinate.getColumn()].getSideUp(),
+                    diskColorCounters.get(board[coordinate.getRow()][coordinate.getColumn()].getSideUp()) + 1);
         }
         return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
