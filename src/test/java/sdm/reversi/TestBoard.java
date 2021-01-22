@@ -80,6 +80,11 @@ public class TestBoard {
         assertDoesNotThrow(() -> {Board board = new Board(6);});
     }
 
+    @Test
+    void canBuildBoardOfSize12() {
+        assertDoesNotThrow(() -> {Board board = new Board(12);});
+    }
+
 
 
     @Test
