@@ -55,35 +55,4 @@ public class ReversiGame extends Game {
         }
     }
 
-    private boolean checkIfAVerticalUpMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.UP);
-    }
-
-    private boolean checkIfAVerticalDownMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.DOWN);
-    }
-
-    private boolean checkIfAHorizontalRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.RIGHT);
-    }
-
-    private boolean checkIfAHorizontalLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.LEFT);
-    }
-
-    private boolean checkIfAUpLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.UP_LEFT);
-    }
-
-    private boolean checkIfAUpRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.UP_RIGHT);
-    }
-
-    private boolean checkIfADownLeftMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.DOWN_LEFT);
-    }
-
-    private boolean checkIfADownRightMoveIsValid(Coordinate coordinate, Disk.Color diskColor) {
-        return checkIfMoveInADirectionIsValid(coordinate, diskColor, ShiftDirection.DOWN_RIGHT);
-    }
 }
