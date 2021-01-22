@@ -47,4 +47,5 @@ public class Coordinate {
     public int hashCode() {
         return Objects.hash(row, column);
     }
+
 }

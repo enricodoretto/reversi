@@ -37,7 +37,8 @@ public class Board {
     }
 
     public void flipDisk(Coordinate coordinate){
-        flipDisk(coordinate);
+        if (!isValidIndex(coordinate.getRow()) || !isValidIndex(coordinate.getColumn())) throw new IllegalArgumentException();
+        board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate){

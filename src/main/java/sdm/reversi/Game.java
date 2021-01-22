@@ -19,33 +19,34 @@ public abstract class Game {
         this.currentPlayer = player1;
     }
 
-    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves(){
+    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         calculatePlayerPossibleMoves();
         return allowedMovesForCurrentPlayer;
     }
 
-    private void calculatePlayerPossibleMoves(){
+    private void calculatePlayerPossibleMoves() {
         Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
-        for(Coordinate coordinate : board.getBoardCoordinates()){
+        for (Coordinate coordinate : board.getBoardCoordinates()) {
             Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
-            if(disksToFlipForCoordinate != null) {
+            if (disksToFlipForCoordinate != null) {
                 validCoordinates.put(coordinate, disksToFlipForCoordinate);
             }
         }
-        allowedMovesForCurrentPlayer = validCoordinates.size()==0 ? null : validCoordinates;
+        allowedMovesForCurrentPlayer = validCoordinates.size() == 0 ? null : validCoordinates;
     }
 
-    /*public boolean makeMove(Coordinate coordinate) {
-        Set<Coordinate> coordinatesOfDisksToFlip = getDisksToFlip(coordinate);
-        if (coordinatesOfDisksToFlip!=null) {
-            board.putDisk(currentPlayer.getColor(), coordinate);
-            for(Coordinate coordinateOfDiskToFlip : coordinatesOfDisksToFlip){
-                board.flipDisk(coordinateOfDiskToFlip);
-            }
-            currentPlayer = (currentPlayer == player1) ? player2 : player1;
-            return true;
-        } else return false;
-    }*/
+    public void makeMove(Coordinate coordinate) {
+        if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
+            throw new IllegalArgumentException();
+        }
+        board.putDisk(currentPlayer.getColor(), coordinate);
+        for (Coordinate coordinateOfDiskToFlip : allowedMovesForCurrentPlayer.get(coordinate)) {
+            board.flipDisk(coordinateOfDiskToFlip);
+        }
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+        calculatePlayerPossibleMoves();
+        // we will need to check if this is null
+    }
 
     public Player getPlayer1() {
         return player1;
