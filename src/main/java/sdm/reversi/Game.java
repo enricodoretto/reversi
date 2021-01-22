@@ -24,11 +24,6 @@ public abstract class Game {
         board = customBoard;
     }
 
-    /*public Game(String player1Name, String player2Name, String customBoard){
-        this(player1Name,player2Name);
-        this.board = Board.parseBoard(customBoard);
-    }*/
-
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         calculatePlayerPossibleMoves();
         return allowedMovesForCurrentPlayer;
@@ -58,7 +53,7 @@ public abstract class Game {
     }
 
     public boolean areThereAvailableMoves(){
-        return allowedMovesForCurrentPlayer.size() == 0 ? false : true;
+        return !(allowedMovesForCurrentPlayer == null);
     }
 
     private void changeTurn() {

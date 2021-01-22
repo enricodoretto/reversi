@@ -19,10 +19,6 @@ public class Board {
         board = new Disk[boardSize][boardSize];
     }
 
-    /*public static Board parseBoard(String customBoard) {
-
-    }*/
-
     public Collection<Coordinate> getBoardCoordinates() {
         Collection<Coordinate> boardCoordinates = new HashSet<>();
         for (int row = 0; row < boardSize; row++) {

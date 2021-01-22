@@ -133,18 +133,12 @@ public class TestReversiGame {
         assertThrows(IllegalArgumentException.class, () ->game.makeMove(Coordinate.parseCoordinate(blackDiskCoordinate)));
     }
 
-    /*@Test
-    void blackDiskHasNoMoves() {
-        Game game = new ReversiGame("Bob", "Alice");
-        game.makeMove(Coordinate.parseCoordinate("4C"));
-    }*/
-
     @Test
     void initializeReversiGameWithAllWhiteBoard(){
         Board board = new Board();
-        for(int rows=0; rows<8; rows++){
-            for(int columns=0; columns<8; columns++){
-                board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(rows,columns));
+        for(int row=0; row<8; row++){
+            for(int column=0; column<8; column++){
+                board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(row,column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
@@ -158,4 +152,19 @@ public class TestReversiGame {
                 "WWWWWWWW";
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
+
+
+    @Test
+    void blackDiskHasNoMovesWithCustomBoardWithOnlyOneBlackDiskIn3D() {
+        Board board = new Board();
+        for(int row=0; row<8; row++){
+            for(int column=0; column<8; column++){
+                if(row == 2 && column == 3 ){ board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(row,column));}
+                board.putDisk(new Disk(Disk.Color.WHITE), new Coordinate(row,column));
+            }
+        }
+        Game game = new ReversiGame("Bob", "Alice", board);
+        assertFalse(game.areThereAvailableMoves());
+    }
+
 }
