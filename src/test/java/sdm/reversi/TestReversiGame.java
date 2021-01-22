@@ -41,14 +41,14 @@ public class TestReversiGame {
 
     @ParameterizedTest
     @CsvSource("6E,3D,5F")
-    void validFirstMove(String coordinate){
+    void validFirstMove(String coordinate) {
         Game game = new ReversiGame("Bob", "Alice");
         assertTrue(game.isValidMove(coordinate));
     }
 
     @ParameterizedTest
     @CsvSource("5D,6D,3E")
-    void invalidFirstMove(String coordinate){
+    void invalidFirstMove(String coordinate) {
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove(coordinate));
     }
@@ -61,41 +61,48 @@ public class TestReversiGame {
     }*/
     @ParameterizedTest
     @CsvSource("6D,6F,3E,3C")
-    void invalidDiagonalFirstMove(String stringCoordinate){
+    void invalidDiagonalFirstMove(String stringCoordinate) {
         Game game = new ReversiGame("Bob", "Alice");
         assertFalse(game.isValidMove(stringCoordinate));
     }
 
 
     @ParameterizedTest
-    @CsvSource({"6E,5E", "5F,5E","4C,4D","3D,4D"})
-    void validFirstBlackMoveReturnsCoordinatesToFlip(String blackDiskPosition, String expectedDiskCoordinateToFlip){
+    @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
+    void validFirstBlackMoveReturnsCoordinatesToFlip(String blackDiskPosition, String expectedDiskCoordinateToFlip) {
         Game game = new ReversiGame("Bob", "Alice");
         Coordinate coordinateToFlip = Coordinate.parseCoordinate(expectedDiskCoordinateToFlip);
         List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
         assertEquals(coordinatesToFlip, game.getDisksToFlip(blackDiskPosition));
     }
 
+    @ParameterizedTest
+    @CsvSource("6F,6D, 3E, 3C ")
+    void invalidFirstBlackMoveReturnsNoCoordinatesToFlip(String blackDiskPosition) {
+        Game game = new ReversiGame("Bob", "Alice");
+        assertNull(game.getDisksToFlip(blackDiskPosition));
+    }
+
     @Test
-    void blackIn6FReturnsNoCoordinatesToFlip(){
+    void blackIn6FReturnsNoCoordinatesToFlip() {
         Game game = new ReversiGame("Bob", "Alice");
         assertNull(game.getDisksToFlip("6F"));
     }
 
     @Test
-    void blackIn3CReturnsNoCoordinatesToFlip(){
+    void blackIn3CReturnsNoCoordinatesToFlip() {
         Game game = new ReversiGame("Bob", "Alice");
         assertNull(game.getDisksToFlip("3C"));
     }
 
     @Test
-    void blackIn3EReturnsNoCoordinatesToFlip(){
+    void blackIn3EReturnsNoCoordinatesToFlip() {
         Game game = new ReversiGame("Bob", "Alice");
         assertNull(game.getDisksToFlip("3E"));
     }
 
     @Test
-    void blackIn6DReturnsNoCoordinatesToFlip(){
+    void blackIn6DReturnsNoCoordinatesToFlip() {
         Game game = new ReversiGame("Bob", "Alice");
         assertNull(game.getDisksToFlip("6D"));
     }
