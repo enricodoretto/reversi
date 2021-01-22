@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -72,7 +74,7 @@ public class TestReversiGame {
     void validFirstBlackMoveReturnsCoordinatesToFlip(String blackDiskPosition, String expectedDiskCoordinateToFlip) {
         Game game = new ReversiGame("Bob", "Alice");
         Coordinate coordinateToFlip = Coordinate.parseCoordinate(expectedDiskCoordinateToFlip);
-        List<Coordinate> coordinatesToFlip = List.of(coordinateToFlip);
+        Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
         assertEquals(coordinatesToFlip, game.getDisksToFlip(blackDiskPosition));
     }
 

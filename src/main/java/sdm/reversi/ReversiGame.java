@@ -1,7 +1,9 @@
 package sdm.reversi;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ReversiGame extends Game {
 
@@ -58,11 +60,11 @@ public class ReversiGame extends Game {
         }
     }
 
-    private List<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+    private Set<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
         if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return null;
         }
-        List<Coordinate> disksToFlipInADirection = new ArrayList<>();
+        Set<Coordinate> disksToFlipInADirection = new HashSet<>();
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
             if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
@@ -75,14 +77,14 @@ public class ReversiGame extends Game {
         }
     }
 
-    public List<Coordinate> getDisksToFlip(Coordinate coordinate) {
+    public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
         try {
             if (!board.isCellEmpty(coordinate)) {
                 return null;
             }
-            List<Coordinate> disksToFlip = new ArrayList<>();
+            Set<Coordinate> disksToFlip = new HashSet<>();
             for (ShiftDirection shiftDirection : ShiftDirection.values()) {
-                List<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
+                Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
                 if (disksToFlipInAValidDirection != null) {
                     disksToFlip.addAll(disksToFlipInAValidDirection);
                 }

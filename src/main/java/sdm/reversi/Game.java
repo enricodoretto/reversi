@@ -1,6 +1,7 @@
 package sdm.reversi;
 
 import java.util.List;
+import java.util.Set;
 
 public abstract class Game {
     private Player player1;
@@ -43,12 +44,12 @@ public abstract class Game {
         return isValidMove(coordinate);
     }
 
-    public List<Coordinate> getDisksToFlip(String stringCoordinate) {
+    public Set<Coordinate> getDisksToFlip(String stringCoordinate) {
         Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
         return getDisksToFlip(coordinate);
     }
 
     public abstract boolean isValidMove(Coordinate coordinate);
 
-    public abstract List<Coordinate> getDisksToFlip(Coordinate coordinate);
+    public abstract Set<Coordinate> getDisksToFlip(Coordinate coordinate);
 }
