@@ -82,5 +82,11 @@ public class TestReversiGame {
         assertNull(game.getDisksToFlip("6F"));
     }
 
+    @Test
+    void blackIn3CReturnsNoCoordinatesToFlip(){
+        Game game = new ReversiGame("Bob", "Alice");
+        assertNull(game.getDisksToFlip("3C"));
+    }
+
 
 }
