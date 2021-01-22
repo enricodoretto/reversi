@@ -12,7 +12,7 @@ sdm/reversi/Disk.java
 sdm/reversi/Board.java
  sdm.reversi.Board
  sdm.reversi.Board$1
-sdm/reversi/Game.java
- sdm.reversi.Game
 sdm/reversi/ReversiGame.java
  sdm.reversi.ReversiGame
+sdm/reversi/Game.java
+ sdm.reversi.Game
