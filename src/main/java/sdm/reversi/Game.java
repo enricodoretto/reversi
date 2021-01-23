@@ -102,7 +102,7 @@ public abstract class Game {
         return isValidMove(coordinate);
     }
 
-    public Set<Coordinate> getDisksToFlip(String stringCoordinate) {
+    public Set<Coordinate> getDisksToFlip(String stringCoordinate){
         Coordinate coordinate = new Coordinate(stringCoordinate);
         return getDisksToFlip(coordinate);
     }
