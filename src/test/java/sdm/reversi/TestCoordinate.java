@@ -24,4 +24,12 @@ public class TestCoordinate {
         assertEquals(coordinate, Coordinate.parseCoordinate(inputCoordinate));
     }
 
+    @Test
+    void checkIf1AStringIsValidCoordinateUsingStringConstructor(){
+        Coordinate coordinate = new Coordinate("1A");
+        assertAll(
+                () -> assertEquals(0, coordinate.getRow()),
+                () -> assertEquals(0, coordinate.getColumn())
+        );
+    }
 }

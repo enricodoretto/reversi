@@ -15,6 +15,11 @@ public class Coordinate {
         this(row - 1, Character.toUpperCase(column)- 'A');
     }
 
+    public Coordinate(String inputCoordinate){
+        this.row = Character.getNumericValue(inputCoordinate.charAt(0)) - 1;
+        this.column = inputCoordinate.toUpperCase().charAt(1) - 'A';
+    }
+
     public int getRow() {
         return row;
     }
