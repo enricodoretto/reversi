@@ -93,11 +93,11 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice");
         game.makeMove(Coordinate.parseCoordinate("3D"));
         assertAll(
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("3D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4E"))),
-                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5E")))
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("3D"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4D"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("5D"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4E"))),
+                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(new Coordinate("5E")))
         );
     }
 
