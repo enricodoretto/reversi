@@ -12,10 +12,10 @@ public class Coordinate {
     }
 
     public Coordinate(int row, char column) {
-        this(row - 1, Character.toUpperCase(column)- 'A');
+        this(row - 1, Character.toUpperCase(column) - 'A');
     }
 
-    public Coordinate(String inputCoordinate){
+    public Coordinate(String inputCoordinate) {
         this.row = Character.getNumericValue(inputCoordinate.charAt(0)) - 1;
         this.column = inputCoordinate.toUpperCase().charAt(1) - 'A';
     }
@@ -28,14 +28,8 @@ public class Coordinate {
         return column;
     }
 
-    public static Coordinate parseCoordinate(String inputCoordinate) {
-        int row = Character.getNumericValue(inputCoordinate.charAt(0));
-        char column = inputCoordinate.charAt(1);
-        return new Coordinate(row, column);
-    }
-
-    public Coordinate getShiftedCoordinate(ShiftDirection shiftDirection){
-        return new Coordinate(row+shiftDirection.getRowShift(), column+shiftDirection.getColumnShift());
+    public Coordinate getShiftedCoordinate(ShiftDirection shiftDirection) {
+        return new Coordinate(row + shiftDirection.getRowShift(), column + shiftDirection.getColumnShift());
     }
 
     @Override
