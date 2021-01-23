@@ -32,4 +32,13 @@ public class TestCoordinate {
                 () -> assertEquals(0, coordinate.getColumn())
         );
     }
+
+    @Test
+    void checkIf5EStringIsValidCoordinateUsingStringConstructor(){
+        Coordinate coordinate = new Coordinate("5E");
+        assertAll(
+                () -> assertEquals(4, coordinate.getRow()),
+                () -> assertEquals(4, coordinate.getColumn())
+        );
+    }
 }
