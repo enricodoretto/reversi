@@ -80,10 +80,10 @@ public class TestReversiGame {
     void validPositionsFirstBlackMove() {
         Game game = new ReversiGame("Bob", "Alice");
         Map<Coordinate, Set<Coordinate>> possibleDisksToFlip = Map.of(
-                Coordinate.parseCoordinate("3D"), Set.of(Coordinate.parseCoordinate("4D")),
-                Coordinate.parseCoordinate("4C"), Set.of(Coordinate.parseCoordinate("4D")),
-                Coordinate.parseCoordinate("6E"), Set.of(Coordinate.parseCoordinate("5E")),
-                Coordinate.parseCoordinate("5F"), Set.of(Coordinate.parseCoordinate("5E"))
+                new Coordinate("3D"), Set.of(new Coordinate("4D")),
+                new Coordinate("4C"), Set.of(new Coordinate("4D")),
+                new Coordinate("6E"), Set.of(new Coordinate("5E")),
+                new Coordinate("5F"), Set.of(new Coordinate("5E"))
         );
         assertEquals(possibleDisksToFlip, game.getPlayerPossibleMoves());
     }
