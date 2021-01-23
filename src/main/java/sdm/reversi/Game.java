@@ -98,12 +98,12 @@ public abstract class Game {
     protected abstract void initializeBoard();
 
     public boolean isValidMove(String stringCoordinate) {
-        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        Coordinate coordinate = new Coordinate(stringCoordinate);
         return isValidMove(coordinate);
     }
 
     public Set<Coordinate> getDisksToFlip(String stringCoordinate) {
-        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        Coordinate coordinate = new Coordinate(stringCoordinate);
         return getDisksToFlip(coordinate);
     }
 
