@@ -41,4 +41,13 @@ public class TestCoordinate {
                 () -> assertEquals(4, coordinate.getColumn())
         );
     }
+
+    @Test
+    void checkIf3DStringIsValidCoordinateUsingStringConstructor(){
+        Coordinate coordinate = new Coordinate("3D");
+        assertAll(
+                () -> assertEquals(2, coordinate.getRow()),
+                () -> assertEquals(3, coordinate.getColumn())
+        );
+    }
 }
