@@ -12,7 +12,7 @@ public class TestBoard {
     @CsvSource({"0A", "2Z", "10L"})
     public void checkingIfEmptyCellOutsideBoardIsNotPossible(String stringCoordinate){
         Board board = new Board();
-        assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(Coordinate.parseCoordinate(stringCoordinate)));
+        assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(new Coordinate(stringCoordinate)));
     }
 
     @ParameterizedTest
