@@ -45,7 +45,7 @@ public class TestBoard {
     @CsvSource({"1A", "5F", "8H"})
     public void cantPutDiskInNonEmptyCellDelegatingDiskCreation(String stringCoordinate){
         Board board = new Board();
-        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        Coordinate coordinate = new Coordinate(stringCoordinate);
         board.putDisk(Disk.Color.BLACK,coordinate);
         assertFalse(board.putDisk(Disk.Color.BLACK, coordinate));
     }
