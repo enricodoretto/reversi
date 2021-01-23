@@ -23,31 +23,4 @@ public class TestCoordinate {
         Coordinate coordinate = new Coordinate(row, column);
         assertEquals(coordinate, new Coordinate(inputCoordinate));
     }
-
-    @Test
-    void checkIf1AStringIsValidCoordinateUsingStringConstructor(){
-        Coordinate coordinate = new Coordinate("1A");
-        assertAll(
-                () -> assertEquals(0, coordinate.getRow()),
-                () -> assertEquals(0, coordinate.getColumn())
-        );
-    }
-
-    @Test
-    void checkIf5EStringIsValidCoordinateUsingStringConstructor(){
-        Coordinate coordinate = new Coordinate("5E");
-        assertAll(
-                () -> assertEquals(4, coordinate.getRow()),
-                () -> assertEquals(4, coordinate.getColumn())
-        );
-    }
-
-    @Test
-    void checkIf3DStringIsValidCoordinateUsingStringConstructor(){
-        Coordinate coordinate = new Coordinate("3D");
-        assertAll(
-                () -> assertEquals(2, coordinate.getRow()),
-                () -> assertEquals(3, coordinate.getColumn())
-        );
-    }
 }
