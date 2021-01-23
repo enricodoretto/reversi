@@ -21,7 +21,7 @@ public class TestCoordinate {
     @CsvSource({"1,A,1A", "5,E,5E", "3,D,3D", "8,H,8H"})
     void ifAValidInputStringIsValidCoordinate(int row, char column, String inputCoordinate){
         Coordinate coordinate = new Coordinate(row, column);
-        assertEquals(coordinate, Coordinate.parseCoordinate(inputCoordinate));
+        assertEquals(coordinate, new Coordinate(inputCoordinate));
     }
 
     @Test
