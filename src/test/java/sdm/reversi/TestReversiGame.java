@@ -130,7 +130,7 @@ public class TestReversiGame {
     @CsvSource("1A, 10H, 3C")
     void cantMakeIllegalFirstMove(String blackDiskCoordinate) {
         Game game = new ReversiGame("Bob", "Alice");
-        assertThrows(IllegalArgumentException.class, () ->game.makeMove(Coordinate.parseCoordinate(blackDiskCoordinate)));
+        assertThrows(IllegalArgumentException.class, () ->game.makeMove(new Coordinate(blackDiskCoordinate)));
     }
 
     @Test
