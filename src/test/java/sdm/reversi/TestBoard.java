@@ -133,8 +133,8 @@ public class TestBoard {
                             "--------\n" +
                             "-------B";
         Board board = new Board();
-        board.putDisk(Disk.Color.WHITE,Coordinate.parseCoordinate("1A"));
-        board.putDisk(Disk.Color.BLACK,Coordinate.parseCoordinate("8H"));
+        board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
+        board.putDisk(Disk.Color.BLACK,new Coordinate("8H"));
         assertEquals(emptyBoard, board.toString());
     }
 
