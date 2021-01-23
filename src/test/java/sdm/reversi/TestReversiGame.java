@@ -117,13 +117,13 @@ public class TestReversiGame {
     @Test
     void blackIn4CFlipsDiskIn4D() {
         Game game = new ReversiGame("Bob", "Alice");
-        game.makeMove(Coordinate.parseCoordinate("4C"));
+        game.makeMove(new Coordinate("4C"));
         assertAll(
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4C"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("4E"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5D"))),
-                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(Coordinate.parseCoordinate("5E")))
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4C"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4D"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4E"))),
+                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("5D"))),
+                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(new Coordinate("5E")))
         );
     }
     @ParameterizedTest
