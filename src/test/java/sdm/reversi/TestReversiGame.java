@@ -64,7 +64,7 @@ public class TestReversiGame {
     @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
     void validFirstBlackMoveReturnsCoordinatesToFlip(String blackDiskPosition, String expectedDiskCoordinateToFlip) {
         Game game = new ReversiGame("Bob", "Alice");
-        Coordinate coordinateToFlip = Coordinate.parseCoordinate(expectedDiskCoordinateToFlip);
+        Coordinate coordinateToFlip = new Coordinate(expectedDiskCoordinateToFlip);
         Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
         assertEquals(coordinatesToFlip, game.getDisksToFlip(blackDiskPosition));
     }
