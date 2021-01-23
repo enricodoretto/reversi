@@ -62,7 +62,7 @@ public class TestBoard {
     @CsvSource({"11C", "0A", "4I"})
     public void cantPutDiskInCellOutOfBoardDelegatingDiskCreation(String stringCoordinate){
         Board board = new Board();
-        Coordinate coordinate = Coordinate.parseCoordinate(stringCoordinate);
+        Coordinate coordinate = new Coordinate(stringCoordinate);
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(Disk.Color.BLACK,coordinate));
     }
 
