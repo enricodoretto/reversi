@@ -1,18 +1,18 @@
-sdm/reversi/Disk.java
- sdm.reversi.Disk
- sdm.reversi.Disk$Color
+sdm/reversi/Board.java
+ sdm.reversi.Board
+ sdm.reversi.Board$1
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/Player.java
  sdm.reversi.Player
-sdm/reversi/ShiftDirection.java
- sdm.reversi.ShiftDirection
-sdm/reversi/Board.java
- sdm.reversi.Board
- sdm.reversi.Board$1
 sdm/reversi/ReversiGame.java
  sdm.reversi.ReversiGame
+sdm/reversi/Disk.java
+ sdm.reversi.Disk
+ sdm.reversi.Disk$Color
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+sdm/reversi/ShiftDirection.java
+ sdm.reversi.ShiftDirection
 sdm/reversi/Game.java
  sdm.reversi.Game
