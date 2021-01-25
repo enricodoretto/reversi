@@ -6,7 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestBoardInitialization {
+public class TestBoardCreation {
 
     @ParameterizedTest
     @CsvSource({"4", "8", "26"})
