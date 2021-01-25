@@ -43,7 +43,7 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public void flipDisk(Coordinate coordinate) {
-        if (!isValidIndex(coordinate.getRow()) || !isValidIndex(coordinate.getColumn()))
+        if (!isValidCell(coordinate))
             throw new IllegalArgumentException();
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
