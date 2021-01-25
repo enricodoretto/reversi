@@ -21,6 +21,17 @@ public class TestBoardIsRepresented {
         assertEquals(emptyBoard, board.toString());
     }
 
+    @Test
+    public void asStringOfDashesReadFromFileWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A() throws URISyntaxException, IOException {
+
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("whiteIn1A8x8Board");
+        String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
+
+
+        Board board = new Board();
+        board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
+        assertEquals(boardRepresentation, board.toString());
+    }
 
     @Test
     public void asStringOfDashesWhenEmpty(){
