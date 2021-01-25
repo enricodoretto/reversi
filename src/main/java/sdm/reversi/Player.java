@@ -3,8 +3,8 @@ package sdm.reversi;
 import java.util.Objects;
 
 public class Player {
-    private String name;
-    private Disk.Color color;
+    private final String name;
+    private final Disk.Color color;
     private boolean inStall;
 
     public Player(String name, Disk.Color color) {
