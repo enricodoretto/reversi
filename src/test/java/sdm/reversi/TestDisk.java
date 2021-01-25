@@ -26,7 +26,7 @@ public class TestDisk {
 
     @ParameterizedTest
     @CsvSource({"BLACK, B", "WHITE, W"})
-    public void diskRepresentedAsString(Disk.Color color, String representation){
+    public void isRepresentedAsInitialLetterOfItsSideUpColor(Disk.Color color, String representation){
         Disk disk = new Disk(color);
         assertEquals(representation, disk.toString());
     }
