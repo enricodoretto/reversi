@@ -1,6 +1,5 @@
 package sdm.reversi;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -33,15 +32,15 @@ public class TestBoardIsRepresented {
         assertEquals(boardRepresentation, board.toString());
     }
 
-    @Test
-    public void asStringOfDashesWithInitialWWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H() throws URISyntaxException, IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("whiteIn1AblackIn8H8x8Board");
+    @ParameterizedTest
+    @CsvSource({"whiteIn1AblackIn4D8x8Board, 8", "whiteIn1AblackIn4D4x4Board, 4", "whiteIn1AblackIn4D16x16Board, 16"})
+    public void asStringOfDashesWithInitialWWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H(String fileName, int size) throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
-        Board board = new Board();
+        Board board = new Board(size);
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
-        board.putDisk(Disk.Color.BLACK,new Coordinate("8H"));
+        board.putDisk(Disk.Color.BLACK,new Coordinate("4D"));
         assertEquals(boardRepresentation, board.toString());
     }
-
 
 }
