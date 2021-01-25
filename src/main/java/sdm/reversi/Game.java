@@ -83,10 +83,6 @@ public abstract class Game {
         // we will need to check if this is null
     }
 
-    public boolean areThereAvailableMoves(){
-        return !(currentPlayer.isInStall());
-    }
-
     private void changeTurn() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
         calculatePlayerPossibleMoves();

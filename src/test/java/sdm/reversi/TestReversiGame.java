@@ -155,7 +155,7 @@ public class TestReversiGame {
 
 
     @Test
-    void blackDiskHasNoMovesWithCustomBoardWithOnlyOneBlackDiskIn3D() {
+    void blackIsInStallWithCustomBoardWithOnlyOneBlackDiskIn3D() {
         Board board = new Board();
         for(int row=0; row<8; row++){
             for(int column=0; column<8; column++){
@@ -164,7 +164,7 @@ public class TestReversiGame {
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
-        assertFalse(game.areThereAvailableMoves());
+        assertTrue(game.getPlayer1().isInStall());
     }
 
     @Test
