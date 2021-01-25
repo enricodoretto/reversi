@@ -139,7 +139,7 @@ public abstract class Game {
         }
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return false;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
@@ -155,7 +155,7 @@ public abstract class Game {
         Set<Coordinate> disksToFlipInADirection = new HashSet<>();
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
                 return null;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {

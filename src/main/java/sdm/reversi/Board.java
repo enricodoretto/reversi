@@ -33,7 +33,7 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public boolean isValidCell(Coordinate coordinate) {
-        return !isValidIndex(coordinate.getRow()) || !isValidIndex(coordinate.getColumn());
+        return isValidIndex(coordinate.getRow()) && isValidIndex(coordinate.getColumn());
     }
 
     public boolean putDisk(Disk.Color diskColor, Coordinate coordinate){
