@@ -1,6 +1,7 @@
 package sdm.reversi;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Board implements Iterable<Coordinate> {
 
@@ -94,17 +95,10 @@ public class Board implements Iterable<Coordinate> {
 
     @Override
     public String toString() {
-        //to improve
-        StringBuilder representation = new StringBuilder();
-        for (int row = 0; row < size; row++) {
-            for (int column = 0; column < size; column++) {
-                representation.append(isCellEmpty(row, column) ? "-" : board[row][column].toString());
-            }
-            if (row != size - 1) {
-                representation.append("\n");
-            }
-        }
-        return representation.toString();
+        return Arrays.stream(board).map(row -> Arrays.toString(row)
+                .replace("null","-")
+                .replaceAll("\\[|\\]|,", "")
+                .replace(" ", "")).collect(Collectors.joining("\n"));
     }
 
     public Disk.Color getColorWithMoreDisks() {
