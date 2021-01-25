@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBoardIsRepresented {
 
-    @Test void asStringOfDashesReadFromFileWhenEmpty() throws IOException, URISyntaxException {
+    @Test void asStringOfDashesWhenEmpty() throws IOException, URISyntaxException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("empty8x8Board");
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
 
@@ -22,7 +22,7 @@ public class TestBoardIsRepresented {
     }
 
     @Test
-    public void asStringOfDashesReadFromFileWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A() throws URISyntaxException, IOException {
+    public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A() throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("whiteIn1A8x8Board");
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board();
@@ -31,7 +31,7 @@ public class TestBoardIsRepresented {
     }
 
     @Test
-    public void asStringOfDashesReadFromFileWithInitialWWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H() throws URISyntaxException, IOException {
+    public void asStringOfDashesWithInitialWWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H() throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("whiteIn1AblackIn8H8x8Board");
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board();
