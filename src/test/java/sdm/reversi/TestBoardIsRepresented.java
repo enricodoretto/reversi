@@ -1,8 +1,9 @@
 package sdm.reversi;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -13,11 +14,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBoardIsRepresented {
 
-    @Test void asStringOfDashesWhenEmpty() throws IOException, URISyntaxException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("empty8x8Board");
+    @ParameterizedTest
+    @CsvSource({"empty8x8Board, 8", "empty4x4Board, 4", "empty16x16Board, 16"})
+    void asStringOfDashesWhenEmpty(String fileName, int size) throws IOException, URISyntaxException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
-
-        Board board = new Board();
+        Board board = new Board(size);
         assertEquals(emptyBoard, board.toString());
     }
 
