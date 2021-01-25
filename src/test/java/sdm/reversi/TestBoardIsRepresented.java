@@ -2,9 +2,25 @@ package sdm.reversi;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestBoardIsRepresented {
+
+    @Test void asStringOfDashesReadFromFileWhenEmpty() throws IOException, URISyntaxException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("empty8x8Board");
+        String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
+
+        Board board = new Board();
+        assertEquals(emptyBoard, board.toString());
+    }
+
 
     @Test
     public void asStringOfDashesWhenEmpty(){
