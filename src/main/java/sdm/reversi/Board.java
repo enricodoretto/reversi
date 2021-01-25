@@ -1,22 +1,21 @@
 package sdm.reversi;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Board implements Iterable<Coordinate> {
 
     private final Disk[][] board;
-    private final int boardSize;
-    private final static int DEFAULT_BOARD_SIZE = 8;
+    private final int size;
+    private final static int DEFAULT_SIZE = 8;
 
     public Board() {
-        this(DEFAULT_BOARD_SIZE);
+        this(DEFAULT_SIZE);
     }
 
-    public Board(int boardSize) {
-        if (boardSize % 2 != 0 || boardSize < 4 || boardSize > 26) throw new IllegalArgumentException();
-        this.boardSize = boardSize;
-        board = new Disk[boardSize][boardSize];
+    public Board(int size) {
+        if (size % 2 != 0 || size < 4 || size > 26) throw new IllegalArgumentException();
+        this.size = size;
+        board = new Disk[size][size];
     }
 
     public Iterator<Coordinate> iterator() {
@@ -27,13 +26,13 @@ public class Board implements Iterable<Coordinate> {
 
             @Override
             public boolean hasNext() {
-                return currentRowIndex < boardSize && currentColumnIndex < boardSize;
+                return currentRowIndex < size && currentColumnIndex < size;
             }
 
             @Override
             public Coordinate next() {
                 Coordinate nextCoordinate = new Coordinate(currentRowIndex, currentColumnIndex);
-                if (currentColumnIndex == boardSize - 1) {
+                if (currentColumnIndex == size - 1) {
                     currentRowIndex++;
                     currentColumnIndex = 0;
                 } else {
@@ -87,7 +86,7 @@ public class Board implements Iterable<Coordinate> {
     }
 
     private boolean isValidIndex(int index) {
-        return index >= 0 && index <= boardSize - 1;
+        return index >= 0 && index <= size - 1;
     }
 
     public boolean isValidCell(Coordinate coordinate) {
@@ -98,11 +97,11 @@ public class Board implements Iterable<Coordinate> {
     public String toString() {
         //to improve
         StringBuilder representation = new StringBuilder();
-        for (int row = 0; row < boardSize; row++) {
-            for (int column = 0; column < boardSize; column++) {
+        for (int row = 0; row < size; row++) {
+            for (int column = 0; column < size; column++) {
                 representation.append(isCellEmpty(row, column) ? "-" : board[row][column].toString());
             }
-            if (row != boardSize - 1) {
+            if (row != size - 1) {
                 representation.append("\n");
             }
         }
