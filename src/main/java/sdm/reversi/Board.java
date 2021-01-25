@@ -19,6 +19,10 @@ public class Board implements Iterable<Coordinate> {
         board = new Disk[size][size];
     }
 
+    public int getSize() {
+        return size;
+    }
+
     public boolean isCellEmpty(Coordinate coordinate) {
         if (!isValidCell(coordinate)) {
             throw new IllegalArgumentException();
