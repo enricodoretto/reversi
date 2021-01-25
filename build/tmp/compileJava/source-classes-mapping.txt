@@ -7,11 +7,11 @@ sdm/reversi/Player.java
  sdm.reversi.Player
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+sdm/reversi/Main.java
+ sdm.reversi.Main
 sdm/reversi/Board.java
  sdm.reversi.Board
  sdm.reversi.Board$1
-sdm/reversi/Main.java
- sdm.reversi.Main
 sdm/reversi/ReversiGame.java
  sdm.reversi.ReversiGame
 sdm/reversi/Game.java

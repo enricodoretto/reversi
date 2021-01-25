@@ -55,6 +55,13 @@ public class Board implements Iterable<Coordinate> {
         return disk == null ? null : disk.getSideUp();
     }
 
+    public Disk.Color getColorWithMoreDisks() {
+        Map<Disk.Color, Long> diskColorCounters = Arrays.stream(board).flatMap(c -> Arrays.stream(c))
+                .filter(disk -> disk != null).collect(Collectors.groupingBy(
+                disk -> disk.getSideUp(), Collectors.counting()
+        ));
+        return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
+    }
 
     @Override
     public String toString() {
@@ -62,20 +69,6 @@ public class Board implements Iterable<Coordinate> {
                 .replace("null","-")
                 .replaceAll("\\[|\\]|,", "")
                 .replace(" ", "")).collect(Collectors.joining("\n"));
-    }
-
-    public Disk.Color getColorWithMoreDisks() {
-        Map<Disk.Color, Integer> diskColorCounters = new HashMap<>();
-        diskColorCounters.put(Disk.Color.BLACK, 0);
-        diskColorCounters.put(Disk.Color.WHITE, 0);
-        for (Coordinate coordinate : this) {
-            if (board[coordinate.getRow()][coordinate.getColumn()] == null) {
-                continue;
-            }
-            diskColorCounters.put(board[coordinate.getRow()][coordinate.getColumn()].getSideUp(),
-                    diskColorCounters.get(board[coordinate.getRow()][coordinate.getColumn()].getSideUp()) + 1);
-        }
-        return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 
     public Iterator<Coordinate> iterator() {
