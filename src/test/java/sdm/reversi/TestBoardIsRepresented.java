@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestBoardIsRepresented {
 
     @Test
-    public void emptyBoardRepresentedAsString(){
+    public void asStringOfDashesWhenEmpty(){
         String emptyBoard = """
                 --------
                 --------
@@ -22,8 +22,8 @@ public class TestBoardIsRepresented {
     }
 
     @Test
-    public void boardWithWhiteDiskInCell1ARepresentedAsString(){
-        String emptyBoard = """
+    public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(){
+        String boardRepresentation = """
                 W-------
                 --------
                 --------
@@ -34,12 +34,12 @@ public class TestBoardIsRepresented {
                 --------""";
         Board board = new Board();
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
-        assertEquals(emptyBoard, board.toString());
+        assertEquals(boardRepresentation, board.toString());
     }
 
     @Test
-    public void boardWithWhiteDiskInCell1AAndBlackDiskInCell8HRepresentedAsString(){
-        String emptyBoard = """
+    public void asStringOfDashesWithInitialWAndFinalBWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H(){
+        String boardRepresentation = """
                 W-------
                 --------
                 --------
@@ -51,7 +51,7 @@ public class TestBoardIsRepresented {
         Board board = new Board();
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
         board.putDisk(Disk.Color.BLACK,new Coordinate("8H"));
-        assertEquals(emptyBoard, board.toString());
+        assertEquals(boardRepresentation, board.toString());
     }
 
 }
