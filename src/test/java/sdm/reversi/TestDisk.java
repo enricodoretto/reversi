@@ -18,7 +18,7 @@ public class TestDisk {
 
     @ParameterizedTest
     @CsvSource({"BLACK, WHITE", "WHITE, BLACK"})
-    public void flipDisk(Disk.Color initialColor, Disk.Color flippedColor){
+    public void changesColorWhenFlipped(Disk.Color initialColor, Disk.Color flippedColor){
         Disk disk = new Disk(initialColor);
         disk.flip();
         assertEquals(flippedColor, disk.getSideUp());
