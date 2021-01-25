@@ -10,7 +10,7 @@ public class TestPlayer {
 
     @ParameterizedTest
     @CsvSource({"Bob, BLACK", "Alice, WHITE"})
-    public void createPlayerWithACertainColor(String name, Disk.Color color){
+    public void keepsAssignedNameAndColor(String name, Disk.Color color){
         Player player = new Player(name, color);
         assertAll(
                 () -> assertEquals(name, player.getName()),
