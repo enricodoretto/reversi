@@ -35,30 +35,28 @@ public class TestBoardIsRepresented {
 
     @Test
     public void asStringOfDashesWhenEmpty(){
-        String emptyBoard = """
-                --------
-                --------
-                --------
-                --------
-                --------
-                --------
-                --------
-                --------""";
+        String emptyBoard = "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------\n" +
+                            "--------" ;
         Board board = new Board();
         assertEquals(emptyBoard, board.toString());
     }
 
     @Test
     public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(){
-        String boardRepresentation = """
-                W-------
-                --------
-                --------
-                --------
-                --------
-                --------
-                --------
-                --------""";
+        String boardRepresentation = "W-------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------" ;
         Board board = new Board();
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
         assertEquals(boardRepresentation, board.toString());
@@ -66,15 +64,14 @@ public class TestBoardIsRepresented {
 
     @Test
     public void asStringOfDashesWithInitialWAndFinalBWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H(){
-        String boardRepresentation = """
-                W-------
-                --------
-                --------
-                --------
-                --------
-                --------
-                --------
-                -------B""";
+        String boardRepresentation = "W-------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "--------\n" +
+                                     "-------B"  ;
         Board board = new Board();
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
         board.putDisk(Disk.Color.BLACK,new Coordinate("8H"));
