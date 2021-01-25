@@ -25,4 +25,10 @@ public class TestBoardInitialization {
     public void failsWithOddSize(int boardSize){
         assertThrows(IllegalArgumentException.class, () -> new Board(boardSize));
     }
+
+    @ParameterizedTest
+    @CsvSource({"-4", "0", "2"})
+    public void failsWithSizeSmallerThan4(int boardSize){
+        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(boardSize);});
+    }
 }
