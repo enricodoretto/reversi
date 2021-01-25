@@ -8,13 +8,6 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestBoard {
 
     @ParameterizedTest
-    @CsvSource({"0A", "2Z", "10L"})
-    public void checkingIfEmptyCellOutsideBoardIsNotPossible(Coordinate coordinate){
-        Board board = new Board();
-        assertThrows(IllegalArgumentException.class, () -> board.isCellEmpty(coordinate));
-    }
-
-    @ParameterizedTest
     @CsvSource({"1A", "2A", "5C"})
     public void putDiskInEmptyCell(Coordinate coordinate){
         Board board = new Board();

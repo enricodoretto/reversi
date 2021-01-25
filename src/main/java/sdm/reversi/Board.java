@@ -72,7 +72,6 @@ public class Board implements Iterable<Coordinate> {
         return disk.getSideUp();
     }
 
-
     public boolean isCellEmpty(Coordinate coordinate) {
         return isCellEmpty(coordinate.getRow(), coordinate.getColumn());
     }
