@@ -52,10 +52,7 @@ public class Board implements Iterable<Coordinate> {
         if (!isValidCell(coordinate))
             throw new IllegalArgumentException();
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
-        if (disk == null) {
-            return null;
-        }
-        return disk.getSideUp();
+        return disk == null ? null : disk.getSideUp();
     }
 
 
