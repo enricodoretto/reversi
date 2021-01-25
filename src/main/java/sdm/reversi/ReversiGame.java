@@ -13,6 +13,11 @@ public class ReversiGame extends Game {
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
+    public ReversiGame(String player1Name, String player2Name, int boardSize) {
+        super(player1Name, player2Name, boardSize);
+        allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
+    }
+
     @Override
     protected void initializeBoard() {
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2-1, board.getSize()/2-1));
