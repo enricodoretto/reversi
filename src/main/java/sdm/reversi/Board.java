@@ -20,12 +20,10 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public boolean isCellEmpty(Coordinate coordinate) {
-        int row = coordinate.getRow();
-        int column = coordinate.getColumn();
         if (!isValidCell(coordinate)) {
             throw new IllegalArgumentException();
         }
-        return board[row][column] == null;
+        return board[coordinate.getRow()][coordinate.getColumn()] == null;
     }
 
     private boolean isValidIndex(int index) {
