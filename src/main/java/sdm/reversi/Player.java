@@ -5,6 +5,7 @@ import java.util.Objects;
 public class Player {
     private String name;
     private Disk.Color color;
+    private boolean inStall;
 
     public Player(String name, Disk.Color color) {
         this.name = name;
@@ -17,6 +18,13 @@ public class Player {
 
     public Disk.Color getColor() {
         return color;
+    }
+
+    public boolean isInStall() {
+        return inStall;
+    }
+    public void setInStall(boolean inStall) {
+        this.inStall = inStall;
     }
 
     @Override
