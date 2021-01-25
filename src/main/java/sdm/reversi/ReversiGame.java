@@ -15,7 +15,6 @@ public class ReversiGame extends Game {
 
     @Override
     protected void initializeBoard() {
-        board = new Board();
         board.putDisk(Disk.Color.WHITE, new Coordinate("4D"));
         board.putDisk(Disk.Color.WHITE, new Coordinate("5E"));
         board.putDisk(Disk.Color.BLACK, new Coordinate("4E"));

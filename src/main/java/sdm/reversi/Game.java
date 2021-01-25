@@ -14,6 +14,7 @@ public abstract class Game {
 
     public Game(String player1Name, String player2Name) {
         if (player1Name.equals(player2Name)) throw new IllegalArgumentException();
+        this.board = new Board();
         this.player1 = new Player(player1Name, Disk.Color.BLACK);
         this.player2 = new Player(player2Name, Disk.Color.WHITE);
         this.currentPlayer = player1;
