@@ -60,17 +60,6 @@ public class TestBoard {
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(Disk.Color.BLACK,coordinate));
     }
 
-    @ParameterizedTest
-    @CsvSource({"4", "6", "12"})
-    public void canBuildBoardOfDifferentSize(int boardSize){
-        assertDoesNotThrow(() -> {Board board = new Board(boardSize);});
-    }
-
-    @ParameterizedTest
-    @CsvSource({"5", "2", "30"})
-    public void cantBuildBoardOfIllegalSize(int boardSize){
-        assertThrows(IllegalArgumentException.class, () -> {Board board = new Board(boardSize);});
-    }
 
     @Test
     public void emptyBoardRepresentedAsString(){

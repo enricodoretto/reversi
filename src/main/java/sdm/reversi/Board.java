@@ -78,7 +78,7 @@ public class Board implements Iterable<Coordinate> {
         return isCellEmpty(coordinate.getRow(), coordinate.getColumn());
     }
 
-    public boolean isCellEmpty(int row, int column) {
+    private boolean isCellEmpty(int row, int column) {
         if (isValidIndex(row) && isValidIndex(column)) {
             return board[row][column] == null;
         } else {
