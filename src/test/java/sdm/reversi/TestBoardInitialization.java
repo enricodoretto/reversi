@@ -9,9 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class TestBoardInitialization {
 
     @ParameterizedTest
-    @CsvSource({"4", "6", "12"})
-    public void canBuildBoardOfDifferentSize(int boardSize){
-        assertDoesNotThrow(() -> {Board board = new Board(boardSize);});
+    @CsvSource({"4", "8", "26"})
+    public void succeedsWithEvenSizeBetween4And26(int boardSize){
+        assertDoesNotThrow(() -> new Board(boardSize));
     }
 
     @ParameterizedTest
