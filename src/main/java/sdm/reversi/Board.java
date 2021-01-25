@@ -35,8 +35,6 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public boolean putDisk(Disk.Color diskColor, Coordinate coordinate){
-        if (!isValidIndex(coordinate.getRow()) || !isValidIndex(coordinate.getColumn()))
-            throw new IllegalArgumentException();
         if (isCellEmpty(coordinate)) {
             board[coordinate.getRow()][coordinate.getColumn()] = new Disk(diskColor);
             return true;
