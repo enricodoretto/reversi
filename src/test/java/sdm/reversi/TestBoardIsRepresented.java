@@ -23,11 +23,12 @@ public class TestBoardIsRepresented {
         assertEquals(emptyBoard, board.toString());
     }
 
-    @Test
-    public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A() throws URISyntaxException, IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("whiteIn1A8x8Board");
+    @ParameterizedTest
+    @CsvSource({"whiteIn1A8x8Board, 8", "whiteIn1A4x4Board, 4", "whiteIn1A16x16Board, 16"})
+    public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(String fileName, int size) throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
-        Board board = new Board();
+        Board board = new Board(size);
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
         assertEquals(boardRepresentation, board.toString());
     }
