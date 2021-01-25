@@ -22,7 +22,7 @@ public class Board implements Iterable<Coordinate> {
     public boolean isCellEmpty(Coordinate coordinate) {
         int row = coordinate.getRow();
         int column = coordinate.getColumn();
-        if (!isValidIndex(row) || !isValidIndex(column)) {
+        if (!isValidCell(coordinate)) {
             throw new IllegalArgumentException();
         }
         return board[row][column] == null;
