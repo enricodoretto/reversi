@@ -64,6 +64,9 @@ public abstract class Game {
             return null;
         }
         Disk.Color winnerColor = board.getColorWithMoreDisks();
+        if(winnerColor == null){
+            return null;
+        }
         if(winnerColor == Disk.Color.BLACK){
             return player1;
         }else{

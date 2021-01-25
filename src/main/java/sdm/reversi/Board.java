@@ -60,6 +60,9 @@ public class Board implements Iterable<Coordinate> {
                 .filter(disk -> disk != null).collect(Collectors.groupingBy(
                 disk -> disk.getSideUp(), Collectors.counting()
         ));
+        if(diskColorCounters.get(Disk.Color.WHITE) == diskColorCounters.get(Disk.Color.BLACK)){
+            return null;
+        }
         return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 
