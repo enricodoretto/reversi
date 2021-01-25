@@ -49,6 +49,8 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
+        if (!isValidCell(coordinate))
+            throw new IllegalArgumentException();
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
         if (disk == null) {
             return null;
