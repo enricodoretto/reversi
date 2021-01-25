@@ -37,7 +37,15 @@ public abstract class Game {
                 validCoordinates.put(coordinate, disksToFlipForCoordinate);
             }
         }
-        allowedMovesForCurrentPlayer = validCoordinates.size() == 0 ? null : validCoordinates;
+        if(validCoordinates.size() == 0){
+            allowedMovesForCurrentPlayer = null;
+            currentPlayer.setInStall(true);
+        }
+        else{
+            allowedMovesForCurrentPlayer = validCoordinates;
+            currentPlayer.setInStall(false);
+        }
+
     }
 
     public boolean isOver(){
@@ -76,7 +84,7 @@ public abstract class Game {
     }
 
     public boolean areThereAvailableMoves(){
-        return !(allowedMovesForCurrentPlayer == null);
+        return !(currentPlayer.isInStall());
     }
 
     private void changeTurn() {

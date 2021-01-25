@@ -244,4 +244,5 @@ public class TestReversiGame {
         Game game = new ReversiGame("Bob", "Alice", board);
         assertEquals("Alice", game.getWinner().getName());
     }
+
 }
