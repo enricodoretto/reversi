@@ -71,7 +71,7 @@ public class Board implements Iterable<Coordinate> {
         return Arrays.stream(board).map(row -> Arrays.toString(row)
                 .replace("null","-")
                 .replaceAll("\\[|\\]|,", "")
-                .replace(" ", "")).collect(Collectors.joining("\n"));
+                .replace(" ", "")).collect(Collectors.joining(System.lineSeparator()));
     }
 
     public Iterator<Coordinate> iterator() {

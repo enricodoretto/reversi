@@ -4,7 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,13 +29,13 @@ public class TestReversiGame {
     @Test
     void initializeReversiBoard() {
         Game game = new ReversiGame("Bob", "Alice");
-        String initializedReversiBoard = "--------\n" +
-                "--------\n" +
-                "--------\n" +
-                "---WB---\n" +
-                "---BW---\n" +
-                "--------\n" +
-                "--------\n" +
+        String initializedReversiBoard = "--------" + System.lineSeparator() +
+                "--------" + System.lineSeparator() +
+                "--------" + System.lineSeparator() +
+                "---WB---" + System.lineSeparator() +
+                "---BW---" + System.lineSeparator() +
+                "--------" + System.lineSeparator() +
+                "--------" + System.lineSeparator() +
                 "--------";
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
@@ -126,29 +127,30 @@ public class TestReversiGame {
                 () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(new Coordinate("5E")))
         );
     }
+
     @ParameterizedTest
     @CsvSource("1A, 10H, 3C")
     void cantMakeIllegalFirstMove(String blackDiskCoordinate) {
         Game game = new ReversiGame("Bob", "Alice");
-        assertThrows(IllegalArgumentException.class, () ->game.makeMove(new Coordinate(blackDiskCoordinate)));
+        assertThrows(IllegalArgumentException.class, () -> game.makeMove(new Coordinate(blackDiskCoordinate)));
     }
 
     @Test
-    void initializeReversiGameWithAllWhiteBoard(){
+    void initializeReversiGameWithAllWhiteBoard() {
         Board board = new Board();
-        for(int row=0; row<8; row++){
-            for(int column=0; column<8; column++){
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));
+        for (int row = 0; row < 8; row++) {
+            for (int column = 0; column < 8; column++) {
+                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
-        String initializedReversiBoard = "WWWWWWWW\n" +
-                "WWWWWWWW\n" +
-                "WWWWWWWW\n" +
-                "WWWWWWWW\n" +
-                "WWWWWWWW\n" +
-                "WWWWWWWW\n" +
-                "WWWWWWWW\n" +
+        String initializedReversiBoard = "WWWWWWWW" + System.lineSeparator() +
+                "WWWWWWWW" + System.lineSeparator() +
+                "WWWWWWWW" + System.lineSeparator() +
+                "WWWWWWWW" + System.lineSeparator() +
+                "WWWWWWWW" + System.lineSeparator() +
+                "WWWWWWWW" + System.lineSeparator() +
+                "WWWWWWWW" + System.lineSeparator() +
                 "WWWWWWWW";
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
@@ -157,10 +159,12 @@ public class TestReversiGame {
     @Test
     void blackIsInStallWithCustomBoardWithOnlyOneBlackDiskIn3D() {
         Board board = new Board();
-        for(int row=0; row<8; row++){
-            for(int column=0; column<8; column++){
-                if(row == 2 && column == 3 ){ board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));}
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));
+        for (int row = 0; row < 8; row++) {
+            for (int column = 0; column < 8; column++) {
+                if (row == 2 && column == 3) {
+                    board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
+                }
+                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
@@ -170,9 +174,9 @@ public class TestReversiGame {
     @Test
     void gameWithFullWhiteBoardIsOver() {
         Board board = new Board();
-        for(int row=0; row<8; row++){
-            for(int column=0; column<8; column++){
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));
+        for (int row = 0; row < 8; row++) {
+            for (int column = 0; column < 8; column++) {
+                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
@@ -182,9 +186,9 @@ public class TestReversiGame {
     @Test
     void gameWithFullBlackBoardIsOver() {
         Board board = new Board();
-        for(int row=0; row<8; row++){
-            for(int column=0; column<8; column++){
-                board.putDisk(Disk.Color.BLACK, new Coordinate(row,column));
+        for (int row = 0; row < 8; row++) {
+            for (int column = 0; column < 8; column++) {
+                board.putDisk(Disk.Color.BLACK, new Coordinate(row, column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
@@ -194,14 +198,14 @@ public class TestReversiGame {
     @Test
     void gameWithHalfBlackAndHalfWhiteBoardHasNoWinner() {
         Board board = new Board();
-        for(int row=0; row<4; row++){
-            for(int column=0; column<8; column++){
-                board.putDisk(Disk.Color.BLACK, new Coordinate(row,column));
+        for (int row = 0; row < 4; row++) {
+            for (int column = 0; column < 8; column++) {
+                board.putDisk(Disk.Color.BLACK, new Coordinate(row, column));
             }
         }
-        for(int row=4; row<8; row++){
-            for(int column=0; column<8; column++){
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row,column));
+        for (int row = 4; row < 8; row++) {
+            for (int column = 0; column < 8; column++) {
+                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
             }
         }
         Game game = new ReversiGame("Bob", "Alice", board);
