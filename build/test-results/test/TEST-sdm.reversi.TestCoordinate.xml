@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestCoordinate" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:10:56" hostname="LAPTOP-KHLU3N1T" time="0.019">
+<testsuite name="sdm.reversi.TestCoordinate" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:13:22" hostname="LAPTOP-KHLU3N1T" time="0.02">
   <properties/>
   <testcase name="[1] 1, A, 1A" classname="sdm.reversi.TestCoordinate" time="0.001"/>
   <testcase name="[2] 5, E, 5E" classname="sdm.reversi.TestCoordinate" time="0.001"/>
-  <testcase name="[3] 3, D, 3D" classname="sdm.reversi.TestCoordinate" time="0.001"/>
-  <testcase name="[4] 8, H, 8H" classname="sdm.reversi.TestCoordinate" time="0.001"/>
+  <testcase name="[3] 3, D, 3D" classname="sdm.reversi.TestCoordinate" time="0.0"/>
+  <testcase name="[4] 8, H, 8H" classname="sdm.reversi.TestCoordinate" time="0.0"/>
   <testcase name="[1] 1, A, 0, 0" classname="sdm.reversi.TestCoordinate" time="0.005"/>
   <testcase name="[2] 2, D, 1, 3" classname="sdm.reversi.TestCoordinate" time="0.001"/>
-  <testcase name="[3] 3, C, 2, 2" classname="sdm.reversi.TestCoordinate" time="0.0"/>
+  <testcase name="[3] 3, C, 2, 2" classname="sdm.reversi.TestCoordinate" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

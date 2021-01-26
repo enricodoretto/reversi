@@ -26,6 +26,13 @@ public class TestOthelloMove {
     }
 
     @ParameterizedTest
+    @CsvSource("6C,1A,8H")
+    void isInvalidIfCellDoesNotHaveNeighborOfDifferentColor(Coordinate stringCoordinate) {
+        Game game = new OthelloGame("Bob", "Alice");
+        assertFalse(game.isValidMove(stringCoordinate));
+    }
+
+    @ParameterizedTest
     @CsvSource("6D,6F,3E,3C")
     void isInvalidIfDoesNotCauseDisksToFlip(Coordinate stringCoordinate) {
         Game game = new OthelloGame("Bob", "Alice");
