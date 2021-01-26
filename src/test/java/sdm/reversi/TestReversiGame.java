@@ -144,16 +144,9 @@ public class TestReversiGame {
     }
 
     @Test
-    void blackIsInStallWithCustomBoardWithOnlyOneBlackDiskIn3D() {
-        Board board = new Board();
-        for (int row = 0; row < 8; row++) {
-            for (int column = 0; column < 8; column++) {
-                if (row == 2 && column == 3) {
-                    board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
-                }
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
-            }
-        }
+    void blackIsInStallWithCustomBoardWithOnlyOneBlackDiskIn3D() throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
+        Board board = new Board(boardFile);
         Game game = new ReversiGame("Bob", "Alice", board);
         assertTrue(game.getPlayer1().isInStall());
     }
