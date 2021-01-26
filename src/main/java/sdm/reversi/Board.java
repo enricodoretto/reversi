@@ -78,6 +78,10 @@ public class Board implements Iterable<Coordinate> {
         return isCellValid(coordinate) && isCellEmpty(coordinate);
     }
 
+    public boolean isCellOccupied(Coordinate coordinate){
+        return isCellValid(coordinate) && !isCellEmpty(coordinate);
+    }
+
     private boolean isIndexValid(int index) {
         return index >= 0 && index <= board.length - 1;
     }
