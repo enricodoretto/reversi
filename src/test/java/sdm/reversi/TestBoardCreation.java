@@ -4,6 +4,12 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestBoardCreation {
@@ -17,6 +23,15 @@ public class TestBoardCreation {
     @Test
     public void succeedsWithNoSize(){
         assertDoesNotThrow(() -> new Board());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"empty8x8Board", "empty4x4Board", "empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})
+    void succeedsFromProperlyFormattedFile(String fileName) throws IOException, URISyntaxException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
+        Board board = new Board(boardFile);
+        assertEquals(emptyBoard, board.toString());
     }
 
     @ParameterizedTest
