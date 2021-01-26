@@ -56,33 +56,6 @@ public abstract class Game {
 
 
 
-
-
-
-    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
-        calculatePlayerPossibleMoves();
-        return allowedMovesForCurrentPlayer;
-    }
-
-    private void calculatePlayerPossibleMoves() {
-        Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
-        for (Coordinate coordinate : board) {
-            Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
-            if (disksToFlipForCoordinate != null) {
-                validCoordinates.put(coordinate, disksToFlipForCoordinate);
-            }
-        }
-        if(validCoordinates.size() == 0){
-            allowedMovesForCurrentPlayer = null;
-            currentPlayer.setInStall(true);
-        }
-        else{
-            allowedMovesForCurrentPlayer = validCoordinates;
-            currentPlayer.setInStall(false);
-        }
-
-    }
-
     public boolean isValidMove(String stringCoordinate) {
         Coordinate coordinate = new Coordinate(stringCoordinate);
         return isValidMove(coordinate);
@@ -186,7 +159,28 @@ public abstract class Game {
 
 
 
+    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
+        calculatePlayerPossibleMoves();
+        return allowedMovesForCurrentPlayer;
+    }
 
+    private void calculatePlayerPossibleMoves() {
+        Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
+        for (Coordinate coordinate : board) {
+            Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
+            if (disksToFlipForCoordinate != null) {
+                validCoordinates.put(coordinate, disksToFlipForCoordinate);
+            }
+        }
+        if(validCoordinates.size() == 0){
+            allowedMovesForCurrentPlayer = null;
+            currentPlayer.setInStall(true);
+        }
+        else{
+            allowedMovesForCurrentPlayer = validCoordinates;
+            currentPlayer.setInStall(false);
+        }
+    }
 
     public void makeMove(Coordinate coordinate) {
         if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
