@@ -95,9 +95,10 @@ public class TestOthelloMove {
         );
     }
 
+    // to add more test cases
     @ParameterizedTest
     @CsvSource("1A, 10H, 3C")
-    void cantMakeIllegalFirstMove(String blackDiskCoordinate) {
+    void cannotBeMadeIfNotValid(String blackDiskCoordinate) {
         Game game = new OthelloGame("Bob", "Alice");
         assertThrows(IllegalArgumentException.class, () -> game.makeMove(new Coordinate(blackDiskCoordinate)));
     }
