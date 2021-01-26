@@ -59,36 +59,9 @@ public class TestOthelloMove {
         assertNull(game.getDisksToFlip(blackDiskPosition));
     }
 
-
-
-    @Test
-    void blackIn3DFlipsDiskIn4D() {
-        Game game = new OthelloGame("Bob", "Alice");
-        game.makeMove(new Coordinate("3D"));
-        assertAll(
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("3D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("5D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4E"))),
-                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(new Coordinate("5E")))
-        );
-    }
-
-    @Test
-    void blackIn6EFlipsDiskIn5E() {
-        Game game = new OthelloGame("Bob", "Alice");
-        game.makeMove(new Coordinate("6E"));
-        assertAll(
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("6E"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("5E"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4E"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("5D"))),
-                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(new Coordinate("4D")))
-        );
-    }
-
     @ParameterizedTest
-    @CsvSource({"othello8x8Board,4C,othello8x8BoardAfterBlackIn4C"})
+    @CsvSource({"othello8x8Board,4C,othello8x8BoardAfterBlackIn4C",
+            "othello8x8Board,6E,othello8x8BoardAfterBlackIn6E",})
     void flipsDisksIfValid(String originalBoardFileName, Coordinate moveCoordinate, String expectedFinalBoardFileName) throws URISyntaxException, IOException {
         URL originalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(originalBoardFileName);
         URL finalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(expectedFinalBoardFileName);
