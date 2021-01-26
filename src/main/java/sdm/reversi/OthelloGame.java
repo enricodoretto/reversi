@@ -3,20 +3,20 @@ package sdm.reversi;
 import java.io.IOException;
 import java.net.URL;
 
-public class ReversiGame extends Game {
+public class OthelloGame extends Game {
 
-    public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
+    public OthelloGame(String player1Name, String player2Name) throws IllegalArgumentException {
         super(player1Name, player2Name);
         initializeBoard();
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
-    public ReversiGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
+    public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         super(player1Name, player2Name, boardFileURL);
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
-    public ReversiGame(String player1Name, String player2Name, int boardSize) {
+    public OthelloGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
         initializeBoard();
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
