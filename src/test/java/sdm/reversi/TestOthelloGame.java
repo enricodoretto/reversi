@@ -6,10 +6,24 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Map;
+import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestOthelloGame {
+
+    @Test
+    void suggestsValidPositionsForFirstBlackMove() {
+        Game game = new OthelloGame("Bob", "Alice");
+        Map<Coordinate, Set<Coordinate>> possibleDisksToFlip = Map.of(
+                new Coordinate("3D"), Set.of(new Coordinate("4D")),
+                new Coordinate("4C"), Set.of(new Coordinate("4D")),
+                new Coordinate("6E"), Set.of(new Coordinate("5E")),
+                new Coordinate("5F"), Set.of(new Coordinate("5E"))
+        );
+        assertEquals(possibleDisksToFlip, game.getPlayerPossibleMoves());
+    }
 
     //this name can be improved -> maybe parametrized test?
     @Test
