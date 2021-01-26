@@ -56,30 +56,31 @@ public abstract class Game {
         return getDisksToFlip(coordinate) != null ? true : false;
     }
 
+    // this will return a Move (coordinate + disksToFlip)
     public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
-        if (!board.isValidCell(coordinate) || !board.isCellEmpty(coordinate)) {
+        if (!board.isCellAvailable(coordinate)) {
             return null;
         }
         Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values())
-                .map(direction -> getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), direction))
+                .map(direction -> getDisksToFlipInADirection(coordinate, currentPlayer.getColor(), direction))
                 .filter(x -> x!=null).flatMap(Set::stream).collect(Collectors.toSet());
         return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
     private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        return board.isValidCell(coordinate.getShiftedCoordinate(shiftDirection)) &&
+        return board.isCellValid(coordinate.getShiftedCoordinate(shiftDirection)) &&
                 !board.isCellEmpty(coordinate.getShiftedCoordinate(shiftDirection)) &&
                 !(board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
     }
 
-    private Set<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+    private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
         if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return null;
         }
         Set<Coordinate> disksToFlipInADirection = new HashSet<>();
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
+            if (!board.isCellValid(coordinate) || board.isCellEmpty(coordinate)) {
                 return null;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {

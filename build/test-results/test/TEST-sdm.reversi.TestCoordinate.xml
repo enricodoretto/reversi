@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestCoordinate" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-26T15:22:43" hostname="LAPTOP-KHLU3N1T" time="0.018">
+<testsuite name="sdm.reversi.TestCoordinate" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-26T15:32:51" hostname="LAPTOP-KHLU3N1T" time="0.016">
   <properties/>
   <testcase name="[1] 1, A, 1A" classname="sdm.reversi.TestCoordinate" time="0.001"/>
   <testcase name="[2] 5, E, 5E" classname="sdm.reversi.TestCoordinate" time="0.001"/>

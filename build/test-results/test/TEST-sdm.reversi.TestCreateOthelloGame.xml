@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestCreateOthelloGame" tests="16" skipped="0" failures="0" errors="0" timestamp="2021-01-26T15:22:43" hostname="LAPTOP-KHLU3N1T" time="0.056">
+<testsuite name="sdm.reversi.TestCreateOthelloGame" tests="16" skipped="0" failures="0" errors="0" timestamp="2021-01-26T15:32:51" hostname="LAPTOP-KHLU3N1T" time="0.048">
   <properties/>
-  <testcase name="[1] allWhite8x8Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.005"/>
+  <testcase name="[1] allWhite8x8Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.004"/>
   <testcase name="[2] allBlack8x8Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.002"/>
   <testcase name="[3] othello4x4Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.003"/>
   <testcase name="[4] othello16x16Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.004"/>
@@ -11,12 +11,12 @@
   <testcase name="[1] Bob, Alice" classname="sdm.reversi.TestCreateOthelloGame" time="0.002"/>
   <testcase name="[2] Jack, John" classname="sdm.reversi.TestCreateOthelloGame" time="0.0"/>
   <testcase name="[3] Simon, Leonard" classname="sdm.reversi.TestCreateOthelloGame" time="0.001"/>
-  <testcase name="[1] 4, othello4x4Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.001"/>
+  <testcase name="[1] 4, othello4x4Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.002"/>
   <testcase name="[2] 8, othello8x8Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.002"/>
   <testcase name="[3] 16, othello16x16Board" classname="sdm.reversi.TestCreateOthelloGame" time="0.002"/>
   <testcase name="[1] Bob" classname="sdm.reversi.TestCreateOthelloGame" time="0.001"/>
-  <testcase name="[2] Alice" classname="sdm.reversi.TestCreateOthelloGame" time="0.0"/>
-  <testcase name="[3] John" classname="sdm.reversi.TestCreateOthelloGame" time="0.001"/>
+  <testcase name="[2] Alice" classname="sdm.reversi.TestCreateOthelloGame" time="0.001"/>
+  <testcase name="[3] John" classname="sdm.reversi.TestCreateOthelloGame" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

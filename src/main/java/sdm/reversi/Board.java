@@ -68,18 +68,22 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public boolean isCellEmpty(Coordinate coordinate) {
-        if (!isValidCell(coordinate)) {
+        if (!isCellValid(coordinate)) {
             throw new IllegalArgumentException();
         }
         return board[coordinate.getRow()][coordinate.getColumn()] == null;
     }
 
-    private boolean isValidIndex(int index) {
+    public boolean isCellAvailable(Coordinate coordinate){
+        return isCellValid(coordinate) && isCellEmpty(coordinate);
+    }
+
+    private boolean isIndexValid(int index) {
         return index >= 0 && index <= board.length - 1;
     }
 
-    public boolean isValidCell(Coordinate coordinate) {
-        return isValidIndex(coordinate.getRow()) && isValidIndex(coordinate.getColumn());
+    public boolean isCellValid(Coordinate coordinate) {
+        return isIndexValid(coordinate.getRow()) && isIndexValid(coordinate.getColumn());
     }
 
     public boolean putDisk(Disk.Color diskColor, Coordinate coordinate) {
@@ -91,7 +95,7 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public void flipDisk(Coordinate coordinate) {
-        if (!isValidCell(coordinate))
+        if (!isCellValid(coordinate))
             throw new IllegalArgumentException();
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
@@ -101,7 +105,7 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
-        if (!isValidCell(coordinate))
+        if (!isCellValid(coordinate))
             throw new IllegalArgumentException();
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
         return disk == null ? null : disk.getSideUp();
