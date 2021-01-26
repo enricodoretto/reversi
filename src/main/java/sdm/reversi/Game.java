@@ -80,11 +80,6 @@ public abstract class Game {
         }
     }
 
-    public Set<Coordinate> getDisksToFlip(String stringCoordinate){
-        Coordinate coordinate = new Coordinate(stringCoordinate);
-        return getDisksToFlip(coordinate);
-    }
-
     public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
         try {
             if (!board.isCellEmpty(coordinate)) {
