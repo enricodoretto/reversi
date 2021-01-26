@@ -13,6 +13,10 @@ public class Move {
         this.coordinatesOfDisksToFlip = coordinatesOfDisksToFlip;
     }
 
+    public Coordinate getCoordinate() {
+        return diskPosition;
+    }
+
     public Set<Coordinate> getCoordinatesOfDisksToFlip() {
         return coordinatesOfDisksToFlip;
     }

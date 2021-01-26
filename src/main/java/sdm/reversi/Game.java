@@ -63,7 +63,7 @@ public abstract class Game {
         }
         Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values())
                 .map(direction -> getDisksToFlipInADirection(coordinate, currentPlayer.getColor(), direction))
-                .filter(x -> x!=null).flatMap(Set::stream).collect(Collectors.toSet());
+                .filter(x -> x != null).flatMap(Set::stream).collect(Collectors.toSet());
         return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
@@ -90,7 +90,6 @@ public abstract class Game {
     }
 
 
-
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         // calculation will be moved to the play method
         calculatePlayerPossibleMoves();
@@ -98,13 +97,11 @@ public abstract class Game {
     }
 
     private void calculatePlayerPossibleMoves() {
-        Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
-        for (Coordinate coordinate : board.getAvailableCells()) {
-            Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
-            if (disksToFlipForCoordinate != null) {
-                validCoordinates.put(coordinate, disksToFlipForCoordinate);
-            }
-        }
+        Set<Move> moves = board.getAvailableCells().stream()
+                .map(coordinate -> new Move(coordinate, getDisksToFlip(coordinate)))
+                .filter(x -> x.getCoordinatesOfDisksToFlip() != null).collect(Collectors.toSet());
+        // this will be removed when we use moves
+        Map<Coordinate, Set<Coordinate>> validCoordinates = moves.stream().collect(Collectors.toMap(Move::getCoordinate, Move::getCoordinatesOfDisksToFlip));
         if (validCoordinates.size() == 0) {
             allowedMovesForCurrentPlayer = null;
             currentPlayer.setInStall(true);
