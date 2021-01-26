@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public abstract class Game {
     protected final Player player1;
@@ -58,13 +60,9 @@ public abstract class Game {
         if (!board.isValidCell(coordinate) || !board.isCellEmpty(coordinate)) {
             return null;
         }
-        Set<Coordinate> disksToFlip = new HashSet<>();
-        for (ShiftDirection shiftDirection : ShiftDirection.values()) {
-            Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
-            if (disksToFlipInAValidDirection != null) {
-                disksToFlip.addAll(disksToFlipInAValidDirection);
-            }
-        }
+        Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values())
+                .map(direction -> getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), direction))
+                .filter(x -> x!=null).flatMap(Set::stream).collect(Collectors.toSet());
         return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
