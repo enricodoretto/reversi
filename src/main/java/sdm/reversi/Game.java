@@ -30,7 +30,7 @@ public abstract class Game {
     public Game(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         this(player1Name, player2Name);
         board = new Board(boardFileURL);
-        if(board.getNumberOfDisks()<4){
+        if (board.getNumberOfDisks() < 4) {
             throw new IllegalArgumentException();
         }
     }
@@ -50,45 +50,28 @@ public abstract class Game {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public boolean isValidMove(Coordinate coordinate) {
-        return getDisksToFlip(coordinate)!=null ? true: false;
+        return getDisksToFlip(coordinate) != null ? true : false;
     }
 
     public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
-        try {
-            if (!board.isCellEmpty(coordinate)) {
-                return null;
-            }
-            Set<Coordinate> disksToFlip = new HashSet<>();
-            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
-                Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
-                if (disksToFlipInAValidDirection != null) {
-                    disksToFlip.addAll(disksToFlipInAValidDirection);
-                }
-            }
-            return disksToFlip.size() == 0 ? null : disksToFlip;
-        } catch (IllegalArgumentException e) {
+        if (!board.isValidCell(coordinate) || !board.isCellEmpty(coordinate)) {
             return null;
         }
+        Set<Coordinate> disksToFlip = new HashSet<>();
+        for (ShiftDirection shiftDirection : ShiftDirection.values()) {
+            Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
+            if (disksToFlipInAValidDirection != null) {
+                disksToFlip.addAll(disksToFlipInAValidDirection);
+            }
+        }
+        return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
     private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        return !(board.isCellEmpty(coordinate.getShiftedCoordinate(shiftDirection)) ||
-                board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
+        return board.isValidCell(coordinate.getShiftedCoordinate(shiftDirection)) &&
+                !board.isCellEmpty(coordinate.getShiftedCoordinate(shiftDirection)) &&
+                !(board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
     }
 
     private Set<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
@@ -109,29 +92,6 @@ public abstract class Game {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         calculatePlayerPossibleMoves();
         return allowedMovesForCurrentPlayer;
@@ -145,11 +105,10 @@ public abstract class Game {
                 validCoordinates.put(coordinate, disksToFlipForCoordinate);
             }
         }
-        if(validCoordinates.size() == 0){
+        if (validCoordinates.size() == 0) {
             allowedMovesForCurrentPlayer = null;
             currentPlayer.setInStall(true);
-        }
-        else{
+        } else {
             allowedMovesForCurrentPlayer = validCoordinates;
             currentPlayer.setInStall(false);
         }
@@ -174,17 +133,17 @@ public abstract class Game {
 
     public abstract boolean isOver();
 
-    public Player getWinner(){
-        if(!isOver()){
+    public Player getWinner() {
+        if (!isOver()) {
             return null;
         }
         Disk.Color winnerColor = board.getColorWithMoreDisks();
-        if(winnerColor == null){
+        if (winnerColor == null) {
             return null;
         }
-        if(winnerColor == Disk.Color.BLACK){
+        if (winnerColor == Disk.Color.BLACK) {
             return player1;
-        }else{
+        } else {
             return player2;
         }
     }
