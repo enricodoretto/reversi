@@ -53,7 +53,7 @@ public abstract class Game {
 
 
     public boolean isValidMove(Coordinate coordinate) {
-        return getDisksToFlip(coordinate) != null ? true : false;
+        return allowedMovesForCurrentPlayer.containsKey(coordinate);
     }
 
     // this will return a Move (coordinate + disksToFlip)
@@ -88,6 +88,7 @@ public abstract class Game {
             disksToFlipInADirection.add(coordinate);
         }
     }
+
 
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
