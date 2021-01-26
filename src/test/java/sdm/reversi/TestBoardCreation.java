@@ -43,6 +43,13 @@ public class TestBoardCreation {
     }
 
     @ParameterizedTest
+    @CsvSource({"wronglyFormatted8x7Board", "wronglyFormatted4x5Board", "wronglyFormattedBoardWithIrregularLengthLines"})
+    void failsFromWronglyFormattedFile(String fileName) {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assertThrows(IllegalArgumentException.class, () -> new Board(boardFile));
+    }
+
+    @ParameterizedTest
     @CsvSource({"nonExistingFile", "inventedFile"})
     void failsFromNonExistingFile(String fileName) {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);

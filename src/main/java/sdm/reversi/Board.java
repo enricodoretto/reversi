@@ -57,6 +57,9 @@ public class Board implements Iterable<Coordinate> {
                 }
                 row++;
             }
+            if(row!=size){
+                throw new IllegalArgumentException();
+            }
             this.size = size;
             this.board = localBoard;
         }
