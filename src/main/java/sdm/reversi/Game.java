@@ -65,19 +65,7 @@ public abstract class Game {
 
 
     public boolean isValidMove(Coordinate coordinate) {
-        try {
-            if (!board.isCellEmpty(coordinate)) {
-                return false;
-            }
-            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
-                if (checkIfMoveInADirectionIsValid(coordinate, currentPlayer.getColor(), shiftDirection)) {
-                    return true;
-                }
-            }
-            return false;
-        } catch (IllegalArgumentException e) {
-            return false;
-        }
+        return getDisksToFlip(coordinate)!=null ? true: false;
     }
 
     public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
