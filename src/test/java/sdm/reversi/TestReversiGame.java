@@ -4,6 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Set;
 
@@ -27,16 +32,10 @@ public class TestReversiGame {
     }
 
     @Test
-    void initializeReversiBoard() {
+    void initializeReversiBoard() throws URISyntaxException, IOException {
         Game game = new ReversiGame("Bob", "Alice");
-        String initializedReversiBoard = "--------" + System.lineSeparator() +
-                "--------" + System.lineSeparator() +
-                "--------" + System.lineSeparator() +
-                "---WB---" + System.lineSeparator() +
-                "---BW---" + System.lineSeparator() +
-                "--------" + System.lineSeparator() +
-                "--------" + System.lineSeparator() +
-                "--------";
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("reversi8x8Board");
+        String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
 
