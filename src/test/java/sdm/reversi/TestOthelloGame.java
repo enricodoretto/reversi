@@ -28,9 +28,10 @@ public class TestOthelloGame {
         assertTrue(game.isOver());
     }
 
-    @Test
-    void gameWithHalfBlackAndHalfWhiteBoardHasNoWinner() throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("first4RowsWhiteAndLast4RowsBlack8x8Board");
+    @ParameterizedTest
+    @CsvSource("first4RowsWhiteAndLast4RowsBlack8x8Board")
+    void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertNull(game.getWinner());
     }
