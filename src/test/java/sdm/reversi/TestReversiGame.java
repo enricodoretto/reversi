@@ -168,45 +168,17 @@ public class TestReversiGame {
     }
 
     @Test
-    void gameWithHalfBlackAndHalfWhiteBoardHasNoWinner() {
-        Board board = new Board();
-        for (int row = 0; row < 4; row++) {
-            for (int column = 0; column < 8; column++) {
-                board.putDisk(Disk.Color.BLACK, new Coordinate(row, column));
-            }
-        }
-        for (int row = 4; row < 8; row++) {
-            for (int column = 0; column < 8; column++) {
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
-            }
-        }
+    void gameWithHalfBlackAndHalfWhiteBoardHasNoWinner() throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("first4RowsWhiteAndLast4RowsBlack8x8Board");
+        Board board = new Board(boardFile);
         Game game = new ReversiGame("Bob", "Alice", board);
         assertNull(game.getWinner());
     }
 
     @Test
-    void gameWith2017FinalBoardIsOver() {
-        Board board = new Board();
-        board.putDisk(Disk.Color.WHITE, new Coordinate("1E"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("2E"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("2F"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3A"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3B"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3C"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3D"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3E"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3F"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("3G"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("4C"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("4D"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("4E"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("4F"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("5C"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("5D"));
-        board.putDisk(Disk.Color.WHITE, new Coordinate("5E"));
-        board.putDisk(Disk.Color.BLACK, new Coordinate("3H"));
-        board.putDisk(Disk.Color.BLACK, new Coordinate("4H"));
-        board.putDisk(Disk.Color.BLACK, new Coordinate("5H"));
+    void gameWith2017FinalBoardIsOver() throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("reversi2017FinalBoard");
+        Board board = new Board(boardFile);
         Game game = new ReversiGame("Bob", "Alice", board);
         assertTrue(game.isOver());
     }
