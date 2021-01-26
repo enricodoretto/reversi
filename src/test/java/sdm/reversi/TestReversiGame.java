@@ -152,13 +152,9 @@ public class TestReversiGame {
     }
 
     @Test
-    void gameWithFullWhiteBoardIsOver() {
-        Board board = new Board();
-        for (int row = 0; row < 8; row++) {
-            for (int column = 0; column < 8; column++) {
-                board.putDisk(Disk.Color.WHITE, new Coordinate(row, column));
-            }
-        }
+    void gameWithFullWhiteBoardIsOver() throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhite8x8Board");
+        Board board = new Board(boardFile);
         Game game = new ReversiGame("Bob", "Alice", board);
         assertTrue(game.isOver());
     }
