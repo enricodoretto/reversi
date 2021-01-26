@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestOthelloMove" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:13:22" hostname="LAPTOP-KHLU3N1T" time="0.045">
+<testsuite name="sdm.reversi.TestOthelloMove" tests="14" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:14:26" hostname="LAPTOP-KHLU3N1T" time="0.042">
   <properties/>
   <testcase name="[1] 6C" classname="sdm.reversi.TestOthelloMove" time="0.003"/>
-  <testcase name="blackIn4CFlipsDiskIn4D()" classname="sdm.reversi.TestOthelloMove" time="0.002"/>
+  <testcase name="blackIn4CFlipsDiskIn4D()" classname="sdm.reversi.TestOthelloMove" time="0.005"/>
   <testcase name="validPositionsFirstBlackMove()" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
   <testcase name="[1] 5D" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
   <testcase name="[1] 6F" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
-  <testcase name="blackIn6EFlipsDiskIn5E()" classname="sdm.reversi.TestOthelloMove" time="0.004"/>
+  <testcase name="blackIn6EFlipsDiskIn5E()" classname="sdm.reversi.TestOthelloMove" time="0.002"/>
   <testcase name="blackIn3DFlipsDiskIn4D()" classname="sdm.reversi.TestOthelloMove" time="0.002"/>
-  <testcase name="[1] 1A" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
+  <testcase name="[1] 1A" classname="sdm.reversi.TestOthelloMove" time="0.002"/>
   <testcase name="[1] 6E, 5E" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
   <testcase name="[2] 5F, 5E" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
-  <testcase name="[3] 4C, 4D" classname="sdm.reversi.TestOthelloMove" time="0.0"/>
+  <testcase name="[3] 4C, 4D" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
   <testcase name="[4] 3D, 4D" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
-  <testcase name="[1] 6E" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
-  <testcase name="[1] 6D" classname="sdm.reversi.TestOthelloMove" time="0.001"/>
+  <testcase name="[1] 6E" classname="sdm.reversi.TestOthelloMove" time="0.0"/>
+  <testcase name="[1] 3C" classname="sdm.reversi.TestOthelloMove" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

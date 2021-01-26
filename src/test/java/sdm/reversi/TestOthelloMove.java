@@ -33,7 +33,7 @@ public class TestOthelloMove {
     }
 
     @ParameterizedTest
-    @CsvSource("6D,6F,3E,3C")
+    @CsvSource("3C,6F")
     void isInvalidIfDoesNotCauseDisksToFlip(Coordinate stringCoordinate) {
         Game game = new OthelloGame("Bob", "Alice");
         assertFalse(game.isValidMove(stringCoordinate));
