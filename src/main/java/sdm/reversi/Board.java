@@ -96,6 +96,10 @@ public class Board implements Iterable<Coordinate> {
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
 
+    public long getNumberOfDisks(){
+        return Arrays.stream(board).flatMap(Arrays::stream).filter(c -> c != null).count();
+    }
+
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
         if (!isValidCell(coordinate))
             throw new IllegalArgumentException();

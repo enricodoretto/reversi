@@ -35,12 +35,18 @@ public class TestCreateReversiGame {
 
     @ParameterizedTest
     @CsvSource({"allWhite8x8Board", "allBlack8x8Board","reversi4x4Board", "reversi16x16Board"})
-    void succeedsWithValidCustomBoard(String fileName) throws URISyntaxException, IOException {
+    void succeedsWithCustomBoardWithAtLeastFourDisks(String fileName) throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
-        Board board = new Board(boardFile);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"empty4x4Board", "empty8x8Board","empty16x16Board"})
+    void failsWithCustomBoardWithLessThanFourDisks(String fileName) throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assertThrows(IllegalArgumentException.class, () -> new ReversiGame("Bob", "Alice", boardFile));
     }
 
     @ParameterizedTest
