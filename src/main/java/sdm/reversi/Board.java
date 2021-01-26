@@ -2,16 +2,12 @@ package sdm.reversi;
 
 import java.io.*;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Board implements Iterable<Coordinate> {
 
     private final Disk[][] board;
-    private final int size;
     private final static int DEFAULT_SIZE = 8;
 
     public Board() {
@@ -20,23 +16,19 @@ public class Board implements Iterable<Coordinate> {
 
     public Board(int size) {
         if (size % 2 != 0 || size < 4 || size > 26) throw new IllegalArgumentException();
-        this.size = size;
         board = new Disk[size][size];
     }
 
-    public Board(URL fileURL) throws IOException {
-        if(fileURL==null){
-         throw new FileNotFoundException();
-        }
-        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream()))) {
+    private static Disk[][] readBoard(BufferedReader bufferedReader) throws IOException{
+        try (bufferedReader) {
             String line;
             int row = 0;
             int size = 0;
-            Disk[][] localBoard = null;
+            Disk[][] board = null;
             while ((line = bufferedReader.readLine()) != null) {
-                if (localBoard == null) {
+                if (board == null) {
                     size = line.length();
-                    localBoard = new Disk[size][size];
+                    board = new Disk[size][size];
                 }
                 if(line.length()!=size || row>=size){
                     throw new IllegalArgumentException();
@@ -44,10 +36,10 @@ public class Board implements Iterable<Coordinate> {
                 for (int col = 0; col < size; col++) {
                     switch (line.charAt(col)) {
                         case 'B':
-                            localBoard[row][col] = new Disk(Disk.Color.BLACK);
+                            board[row][col] = new Disk(Disk.Color.BLACK);
                             break;
                         case 'W':
-                            localBoard[row][col] = new Disk(Disk.Color.WHITE);
+                            board[row][col] = new Disk(Disk.Color.WHITE);
                             break;
                         case '-':
                             break;
@@ -60,13 +52,19 @@ public class Board implements Iterable<Coordinate> {
             if(row!=size){
                 throw new IllegalArgumentException();
             }
-            this.size = size;
-            this.board = localBoard;
+            return board;
         }
     }
 
+    public Board(URL fileURL) throws IOException {
+        if(fileURL==null){
+         throw new FileNotFoundException();
+        }
+        board = readBoard(new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream())));
+    }
+
     public int getSize() {
-        return size;
+        return board.length;
     }
 
     public boolean isCellEmpty(Coordinate coordinate) {
@@ -77,7 +75,7 @@ public class Board implements Iterable<Coordinate> {
     }
 
     private boolean isValidIndex(int index) {
-        return index >= 0 && index <= size - 1;
+        return index >= 0 && index <= board.length - 1;
     }
 
     public boolean isValidCell(Coordinate coordinate) {
@@ -106,11 +104,11 @@ public class Board implements Iterable<Coordinate> {
     }
 
     public Disk.Color getColorWithMoreDisks() {
-        Map<Disk.Color, Long> diskColorCounters = Arrays.stream(board).flatMap(c -> Arrays.stream(c))
-                .filter(disk -> disk != null).collect(Collectors.groupingBy(
-                        disk -> disk.getSideUp(), Collectors.counting()
+        Map<Disk.Color, Long> diskColorCounters = Arrays.stream(board).flatMap(Arrays::stream)
+                .filter(Objects::nonNull).collect(Collectors.groupingBy(
+                        Disk::getSideUp, Collectors.counting()
                 ));
-        if (diskColorCounters.get(Disk.Color.WHITE) == diskColorCounters.get(Disk.Color.BLACK)) {
+        if (diskColorCounters.get(Disk.Color.WHITE).equals(diskColorCounters.get(Disk.Color.BLACK))) {
             return null;
         }
         return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
@@ -132,13 +130,13 @@ public class Board implements Iterable<Coordinate> {
 
             @Override
             public boolean hasNext() {
-                return currentRowIndex < size && currentColumnIndex < size;
+                return currentRowIndex < board.length && currentColumnIndex < board.length;
             }
 
             @Override
             public Coordinate next() {
                 Coordinate nextCoordinate = new Coordinate(currentRowIndex, currentColumnIndex);
-                if (currentColumnIndex == size - 1) {
+                if (currentColumnIndex == board.length - 1) {
                     currentRowIndex++;
                     currentColumnIndex = 0;
                 } else {
