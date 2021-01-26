@@ -91,21 +91,6 @@ public abstract class Game {
                 board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
     }
 
-    private boolean checkIfMoveInADirectionIsValid(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
-            return false;
-        }
-        while (true) {
-            coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (!board.isValidCell(coordinate) || board.isCellEmpty(coordinate)) {
-                return false;
-            }
-            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
-                return true;
-            }
-        }
-    }
-
     private Set<Coordinate> getDisksToFlipInAValidDirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
         if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return null;

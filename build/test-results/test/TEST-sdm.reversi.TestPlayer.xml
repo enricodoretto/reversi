@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestPlayer" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-26T15:08:46" hostname="LAPTOP-KHLU3N1T" time="0.003">
+<testsuite name="sdm.reversi.TestPlayer" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-26T15:10:00" hostname="LAPTOP-KHLU3N1T" time="0.003">
   <properties/>
   <testcase name="[1] Bob, BLACK" classname="sdm.reversi.TestPlayer" time="0.001"/>
-  <testcase name="[2] Alice, WHITE" classname="sdm.reversi.TestPlayer" time="0.0"/>
+  <testcase name="[2] Alice, WHITE" classname="sdm.reversi.TestPlayer" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
