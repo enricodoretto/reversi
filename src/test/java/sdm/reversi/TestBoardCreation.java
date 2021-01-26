@@ -36,8 +36,15 @@ public class TestBoardCreation {
     }
 
     @ParameterizedTest
+    @CsvSource({"illegal8x8Board", "illegal4x4Board", "illegal16x16Board"})
+    void failsFromFileWithIllegalCharacters(String fileName) {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assertThrows(IllegalArgumentException.class, () -> new Board(boardFile));
+    }
+
+    @ParameterizedTest
     @CsvSource({"nonExistingFile", "inventedFile"})
-    void failsFromNonExistingFile(String fileName) throws IOException, URISyntaxException {
+    void failsFromNonExistingFile(String fileName) {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         assertThrows(FileNotFoundException.class, () -> new Board(boardFile));
     }
