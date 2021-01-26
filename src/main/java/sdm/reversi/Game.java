@@ -68,8 +68,7 @@ public abstract class Game {
     }
 
     private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        return board.isCellValid(coordinate.getShiftedCoordinate(shiftDirection)) &&
-                !board.isCellEmpty(coordinate.getShiftedCoordinate(shiftDirection)) &&
+        return board.isCellOccupied(coordinate.getShiftedCoordinate(shiftDirection)) &&
                 !(board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
     }
 
@@ -80,7 +79,7 @@ public abstract class Game {
         Set<Coordinate> disksToFlipInADirection = new HashSet<>();
         while (true) {
             coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (!board.isCellValid(coordinate) || board.isCellEmpty(coordinate)) {
+            if (!board.isCellOccupied(coordinate)) {
                 return null;
             }
             if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
