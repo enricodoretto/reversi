@@ -8,8 +8,8 @@ import java.util.Map;
 import java.util.Set;
 
 public abstract class Game {
-    private final Player player1;
-    private final Player player2;
+    protected final Player player1;
+    protected final Player player2;
     protected Board board;
     protected Player currentPlayer;
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
@@ -201,21 +201,12 @@ public abstract class Game {
         // we will need to check if this is null
     }
 
-    private void changeTurn() {
+    protected void changeTurn() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
         calculatePlayerPossibleMoves();
     }
 
-    public boolean isOver(){
-        if(allowedMovesForCurrentPlayer == null ){
-            changeTurn();
-            if (allowedMovesForCurrentPlayer == null){
-                return true;
-            }
-        }
-        return false;
-
-    }
+    public abstract boolean isOver();
 
     public Player getWinner(){
         if(!isOver()){

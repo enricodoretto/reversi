@@ -14,7 +14,7 @@ sdm/reversi/Disk.java
 sdm/reversi/Board.java
  sdm.reversi.Board
  sdm.reversi.Board$1
-sdm/reversi/Game.java
- sdm.reversi.Game
 sdm/reversi/OthelloGame.java
  sdm.reversi.OthelloGame
+sdm/reversi/Game.java
+ sdm.reversi.Game

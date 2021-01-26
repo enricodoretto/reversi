@@ -30,4 +30,16 @@ public class OthelloGame extends Game {
         board.putDisk(Disk.Color.BLACK, new Coordinate(board.getSize()/2, board.getSize()/2-1));
     }
 
+    @Override
+    public boolean isOver(){
+        //return player1.isInStall() && player2.isInStall();
+        if(allowedMovesForCurrentPlayer == null ){
+            changeTurn();
+            if (allowedMovesForCurrentPlayer == null){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
