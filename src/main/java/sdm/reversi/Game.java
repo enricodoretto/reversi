@@ -92,13 +92,14 @@ public abstract class Game {
 
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
+        // calculation will be moved to the play method
         calculatePlayerPossibleMoves();
         return allowedMovesForCurrentPlayer;
     }
 
     private void calculatePlayerPossibleMoves() {
         Map<Coordinate, Set<Coordinate>> validCoordinates = new HashMap<>();
-        for (Coordinate coordinate : board) {
+        for (Coordinate coordinate : board.getAvailableCells()) {
             Set<Coordinate> disksToFlipForCoordinate = getDisksToFlip(coordinate);
             if (disksToFlipForCoordinate != null) {
                 validCoordinates.put(coordinate, disksToFlipForCoordinate);

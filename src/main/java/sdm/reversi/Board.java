@@ -5,7 +5,7 @@ import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Board implements Iterable<Coordinate> {
+public class Board {
 
     private final Disk[][] board;
     private final static int DEFAULT_SIZE = 8;
@@ -82,6 +82,18 @@ public class Board implements Iterable<Coordinate> {
         return isCellValid(coordinate) && !isCellEmpty(coordinate);
     }
 
+    public Collection<Coordinate> getAvailableCells(){
+        Collection<Coordinate> coordinates = new HashSet<>();
+        for(int i=0; i<board.length; i++){
+            for(int j=0; j<board[0].length; j++){
+                Coordinate coordinate = new Coordinate(i, j);
+                if(isCellAvailable(coordinate))
+                    coordinates.add(coordinate);
+            }
+        }
+        return coordinates;
+    }
+
     private boolean isIndexValid(int index) {
         return index >= 0 && index <= board.length - 1;
     }
@@ -132,36 +144,6 @@ public class Board implements Iterable<Coordinate> {
                 .replace("null", "-")
                 .replaceAll("\\[|\\]|,", "")
                 .replace(" ", "")).collect(Collectors.joining(System.lineSeparator()));
-    }
-
-    public Iterator<Coordinate> iterator() {
-        return new Iterator<>() {
-
-            private int currentRowIndex = 0;
-            private int currentColumnIndex = 0;
-
-            @Override
-            public boolean hasNext() {
-                return currentRowIndex < board.length && currentColumnIndex < board.length;
-            }
-
-            @Override
-            public Coordinate next() {
-                Coordinate nextCoordinate = new Coordinate(currentRowIndex, currentColumnIndex);
-                if (currentColumnIndex == board.length - 1) {
-                    currentRowIndex++;
-                    currentColumnIndex = 0;
-                } else {
-                    currentColumnIndex++;
-                }
-                return nextCoordinate;
-            }
-
-            @Override
-            public void remove() {
-                throw new UnsupportedOperationException();
-            }
-        };
     }
 
 }

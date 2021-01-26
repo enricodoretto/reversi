@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java" afterDir="false" />
@@ -154,21 +155,29 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611674597107">
+    <state x="270" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1611675991349">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611674597107" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611674597106">
+    <state x="270" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1611675991349" />
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611676024723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611674597106" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611674597106">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611676024723" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611676024723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611674597106" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611674597106">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611676024723" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611676024723">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611674597106" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611676024723" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611676024723">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611676024723" />
+    <state x="469" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1611675130671">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="469" y="160" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1611675130670" />
   </component>
 </project>
