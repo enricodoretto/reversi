@@ -33,9 +33,10 @@ public class TestCreateReversiGame {
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
 
-    @Test
-    void initializeReversiGameWithAllWhiteBoard() throws URISyntaxException, IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhite8x8Board");
+    @ParameterizedTest
+    @CsvSource({"allWhite8x8Board", "allBlack8x8Board","reversi4x4Board", "reversi16x16Board"})
+    void succeedsWithValidCustomBoard(String fileName) throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(boardFile);
         Game game = new ReversiGame("Bob", "Alice", board);
