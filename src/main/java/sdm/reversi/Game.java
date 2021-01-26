@@ -28,6 +28,37 @@ public abstract class Game {
         board = customBoard;
     }
 
+    protected abstract void initializeBoard();
+
+    public String getBoardRepresentation() {
+        return board.toString();
+    }
+
+    public Player getPlayer1() {
+        return player1;
+    }
+
+    public Player getPlayer2() {
+        return player2;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         calculatePlayerPossibleMoves();
         return allowedMovesForCurrentPlayer;
@@ -51,63 +82,6 @@ public abstract class Game {
         }
 
     }
-
-    public boolean isOver(){
-        if(allowedMovesForCurrentPlayer == null ){
-            changeTurn();
-            if (allowedMovesForCurrentPlayer == null){
-                return true;
-            }
-        }
-        return false;
-
-    }
-
-    public Player getWinner(){
-        if(!isOver()){
-            return null;
-        }
-        Disk.Color winnerColor = board.getColorWithMoreDisks();
-        if(winnerColor == null){
-            return null;
-        }
-        if(winnerColor == Disk.Color.BLACK){
-            return player1;
-        }else{
-            return player2;
-        }
-
-    }
-    public void makeMove(Coordinate coordinate) {
-        if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
-            throw new IllegalArgumentException();
-        }
-        board.putDisk(currentPlayer.getColor(), coordinate);
-        for (Coordinate coordinateOfDiskToFlip : allowedMovesForCurrentPlayer.get(coordinate)) {
-            board.flipDisk(coordinateOfDiskToFlip);
-        }
-        changeTurn();
-        // we will need to check if this is null
-    }
-
-    private void changeTurn() {
-        currentPlayer = (currentPlayer == player1) ? player2 : player1;
-        calculatePlayerPossibleMoves();
-    }
-
-    public Player getPlayer1() {
-        return player1;
-    }
-
-    public Player getPlayer2() {
-        return player2;
-    }
-
-    public String getBoardRepresentation() {
-        return board.toString();
-    }
-
-    protected abstract void initializeBoard();
 
     public boolean isValidMove(String stringCoordinate) {
         Coordinate coordinate = new Coordinate(stringCoordinate);
@@ -187,6 +161,73 @@ public abstract class Game {
             return disksToFlip.size() == 0 ? null : disksToFlip;
         } catch (IllegalArgumentException e) {
             return null;
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public void makeMove(Coordinate coordinate) {
+        if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
+            throw new IllegalArgumentException();
+        }
+        board.putDisk(currentPlayer.getColor(), coordinate);
+        for (Coordinate coordinateOfDiskToFlip : allowedMovesForCurrentPlayer.get(coordinate)) {
+            board.flipDisk(coordinateOfDiskToFlip);
+        }
+        changeTurn();
+        // we will need to check if this is null
+    }
+
+    private void changeTurn() {
+        currentPlayer = (currentPlayer == player1) ? player2 : player1;
+        calculatePlayerPossibleMoves();
+    }
+
+    public boolean isOver(){
+        if(allowedMovesForCurrentPlayer == null ){
+            changeTurn();
+            if (allowedMovesForCurrentPlayer == null){
+                return true;
+            }
+        }
+        return false;
+
+    }
+
+    public Player getWinner(){
+        if(!isOver()){
+            return null;
+        }
+        Disk.Color winnerColor = board.getColorWithMoreDisks();
+        if(winnerColor == null){
+            return null;
+        }
+        if(winnerColor == Disk.Color.BLACK){
+            return player1;
+        }else{
+            return player2;
         }
     }
 }
