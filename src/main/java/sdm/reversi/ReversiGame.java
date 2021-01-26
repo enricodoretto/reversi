@@ -10,11 +10,13 @@ public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name, Board customBoard) {
         super(player1Name, player2Name, customBoard);
+        initializeBoard();
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
     public ReversiGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
+        initializeBoard();
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 

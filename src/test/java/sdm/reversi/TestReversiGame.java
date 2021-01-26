@@ -31,10 +31,11 @@ public class TestReversiGame {
         assertThrows(IllegalArgumentException.class, () -> new ReversiGame(playerName, playerName));
     }
 
-    @Test
-    void initializeReversiBoard() throws URISyntaxException, IOException {
-        Game game = new ReversiGame("Bob", "Alice");
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("reversi8x8Board");
+    @ParameterizedTest
+    @CsvSource({"4, reversi4x4Board", "8, reversi8x8Board", "16, reversi16x16Board"})
+    void initializeReversiBoard(int boardSize, String fileName) throws URISyntaxException, IOException {
+        Game game = new ReversiGame("Bob", "Alice", boardSize);
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
