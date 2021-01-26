@@ -114,11 +114,9 @@ public abstract class Game {
             throw new IllegalArgumentException();
         }
         board.putDisk(currentPlayer.getColor(), coordinate);
-        for (Coordinate coordinateOfDiskToFlip : allowedMovesForCurrentPlayer.get(coordinate)) {
-            board.flipDisk(coordinateOfDiskToFlip);
-        }
+        allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
+        // this will need to be moved
         changeTurn();
-        // we will need to check if this is null
     }
 
     protected void changeTurn() {
