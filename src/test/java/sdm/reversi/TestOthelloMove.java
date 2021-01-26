@@ -41,7 +41,7 @@ public class TestOthelloMove {
 
     @ParameterizedTest
     @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
-    void validFirstBlackMoveReturnsCoordinatesToFlip(Coordinate blackDiskPosition, Coordinate coordinateToFlip) {
+    void returnsCoordinatesToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) {
         Game game = new OthelloGame("Bob", "Alice");
         Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
         assertEquals(coordinatesToFlip, game.getDisksToFlip(blackDiskPosition));
