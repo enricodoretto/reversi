@@ -16,17 +16,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestReversiGame {
 
-
-
-    @Test
-    void initializeReversiGameWithAllWhiteBoard() throws URISyntaxException, IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhite8x8Board");
-        String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
-        Board board = new Board(boardFile);
-        Game game = new ReversiGame("Bob", "Alice", board);
-        assertEquals(initializedReversiBoard, game.getBoardRepresentation());
-    }
-
     @Test
     void blackIsInStallWithCustomBoardWithOnlyOneBlackDiskIn3D() throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");

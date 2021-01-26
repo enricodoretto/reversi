@@ -1,5 +1,6 @@
 package sdm.reversi;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -29,6 +30,15 @@ public class TestCreateReversiGame {
         Game game = new ReversiGame("Bob", "Alice", boardSize);
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
+        assertEquals(initializedReversiBoard, game.getBoardRepresentation());
+    }
+
+    @Test
+    void initializeReversiGameWithAllWhiteBoard() throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhite8x8Board");
+        String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
+        Board board = new Board(boardFile);
+        Game game = new ReversiGame("Bob", "Alice", board);
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
 
