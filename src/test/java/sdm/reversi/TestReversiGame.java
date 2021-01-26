@@ -19,14 +19,7 @@ public class TestReversiGame {
 
 
 
-    @ParameterizedTest
-    @CsvSource({"4, reversi4x4Board", "8, reversi8x8Board", "16, reversi16x16Board"})
-    void initializeReversiBoard(int boardSize, String fileName) throws URISyntaxException, IOException {
-        Game game = new ReversiGame("Bob", "Alice", boardSize);
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
-        String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
-        assertEquals(initializedReversiBoard, game.getBoardRepresentation());
-    }
+
 
     @ParameterizedTest
     @CsvSource("6E,3D,5F")
