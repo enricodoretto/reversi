@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -32,6 +33,13 @@ public class TestBoardCreation {
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(boardFile);
         assertEquals(emptyBoard, board.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"nonExistingFile", "inventedFile"})
+    void failsFromNonExistingFile(String fileName) throws IOException, URISyntaxException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assertThrows(FileNotFoundException.class, () -> new Board(boardFile));
     }
 
     @ParameterizedTest

@@ -24,7 +24,10 @@ public class Board implements Iterable<Coordinate> {
         board = new Disk[size][size];
     }
 
-    public Board(URL fileURL)  {
+    public Board(URL fileURL) throws IOException {
+        if(fileURL==null){
+         throw new FileNotFoundException();
+        }
         try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream()))) {
             String line;
             int row = 0;
@@ -56,8 +59,6 @@ public class Board implements Iterable<Coordinate> {
             }
             this.size = size;
             this.board = localBoard;
-        }catch (IOException e){
-            throw new IllegalArgumentException();
         }
     }
 
