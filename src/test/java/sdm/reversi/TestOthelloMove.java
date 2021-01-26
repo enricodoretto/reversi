@@ -49,7 +49,7 @@ public class TestOthelloMove {
 
     @ParameterizedTest
     @CsvSource("6F,6D, 3E, 3C ")
-    void invalidFirstBlackMoveReturnsNoCoordinatesToFlip(Coordinate blackDiskPosition) {
+    void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) {
         Game game = new OthelloGame("Bob", "Alice");
         assertNull(game.getDisksToFlip(blackDiskPosition));
     }
