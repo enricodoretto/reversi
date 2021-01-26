@@ -39,7 +39,7 @@ public class TestCreateReversiGame {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(boardFile);
-        Game game = new ReversiGame("Bob", "Alice", board);
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
         assertEquals(initializedReversiBoard, game.getBoardRepresentation());
     }
 

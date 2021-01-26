@@ -7,14 +7,14 @@ sdm/reversi/Move.java
  sdm.reversi.Move
 sdm/reversi/Player.java
  sdm.reversi.Player
-sdm/reversi/ReversiGame.java
- sdm.reversi.ReversiGame
+sdm/reversi/ShiftDirection.java
+ sdm.reversi.ShiftDirection
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
-sdm/reversi/ShiftDirection.java
- sdm.reversi.ShiftDirection
+sdm/reversi/ReversiGame.java
+ sdm.reversi.ReversiGame
 sdm/reversi/Game.java
  sdm.reversi.Game

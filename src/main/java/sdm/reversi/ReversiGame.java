@@ -1,5 +1,8 @@
 package sdm.reversi;
 
+import java.io.IOException;
+import java.net.URL;
+
 public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
@@ -8,9 +11,8 @@ public class ReversiGame extends Game {
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 
-    public ReversiGame(String player1Name, String player2Name, Board customBoard) {
-        super(player1Name, player2Name, customBoard);
-        initializeBoard();
+    public ReversiGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
+        super(player1Name, player2Name, boardFileURL);
         allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
     }
 

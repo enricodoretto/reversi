@@ -1,5 +1,7 @@
 package sdm.reversi;
 
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -20,7 +22,11 @@ public abstract class Game {
         this(player1Name, player2Name, new Board());
     }
 
-    public Game(String player1Name, String player2Name, Board customBoard){
+    public Game(String player1Name, String player2Name, URL boardFileURL) throws IOException {
+        this(player1Name, player2Name, new Board(boardFileURL));
+    }
+
+    private Game(String player1Name, String player2Name, Board customBoard){
         if (player1Name.equals(player2Name)) throw new IllegalArgumentException();
         player1 = new Player(player1Name, Disk.Color.BLACK);
         player2 = new Player(player2Name, Disk.Color.WHITE);
