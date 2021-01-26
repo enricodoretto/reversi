@@ -61,7 +61,8 @@ public class TestOthelloMove {
 
     @ParameterizedTest
     @CsvSource({"othello8x8Board,4C,othello8x8BoardAfterBlackIn4C",
-            "othello8x8Board,6E,othello8x8BoardAfterBlackIn6E",})
+            "othello8x8Board,6E,othello8x8BoardAfterBlackIn6E",
+            "othello8x8CustomBoard1,6F,othello8x8CustomBoard1AfterBlackIn6F"})
     void flipsDisksIfValid(String originalBoardFileName, Coordinate moveCoordinate, String expectedFinalBoardFileName) throws URISyntaxException, IOException {
         URL originalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(originalBoardFileName);
         URL finalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(expectedFinalBoardFileName);

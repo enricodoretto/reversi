@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestOthelloMove" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:49:42" hostname="MBP-di-Enrico-2.lan" time="0.051">
+<testsuite name="sdm.reversi.TestOthelloMove" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:55:51" hostname="MBP-di-Enrico-2.lan" time="0.052">
   <properties/>
-  <testcase name="[1] othello8x8Board, 4C, othello8x8BoardAfterBlackIn4C" classname="sdm.reversi.TestOthelloMove" time="0.045"/>
+  <testcase name="[1] othello8x8Board, 4C, othello8x8BoardAfterBlackIn4C" classname="sdm.reversi.TestOthelloMove" time="0.04"/>
   <testcase name="[2] othello8x8Board, 6E, othello8x8BoardAfterBlackIn6E" classname="sdm.reversi.TestOthelloMove" time="0.004"/>
+  <testcase name="[3] othello8x8CustomBoard1, 6F, othello8x8CustomBoard1AfterBlackIn6F" classname="sdm.reversi.TestOthelloMove" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
