@@ -11,7 +11,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestCreateOthelloGame {
+public class TestOthelloGameCreation {
 
     @ParameterizedTest
     @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
