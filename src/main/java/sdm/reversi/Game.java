@@ -63,15 +63,6 @@ public abstract class Game {
 
 
 
-    public boolean isValidMove(String stringCoordinate) {
-        Coordinate coordinate = new Coordinate(stringCoordinate);
-        return isValidMove(coordinate);
-    }
-
-    public Set<Coordinate> getDisksToFlip(String stringCoordinate){
-        Coordinate coordinate = new Coordinate(stringCoordinate);
-        return getDisksToFlip(coordinate);
-    }
 
     public boolean isValidMove(Coordinate coordinate) {
         try {
@@ -86,6 +77,29 @@ public abstract class Game {
             return false;
         } catch (IllegalArgumentException e) {
             return false;
+        }
+    }
+
+    public Set<Coordinate> getDisksToFlip(String stringCoordinate){
+        Coordinate coordinate = new Coordinate(stringCoordinate);
+        return getDisksToFlip(coordinate);
+    }
+
+    public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
+        try {
+            if (!board.isCellEmpty(coordinate)) {
+                return null;
+            }
+            Set<Coordinate> disksToFlip = new HashSet<>();
+            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
+                Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
+                if (disksToFlipInAValidDirection != null) {
+                    disksToFlip.addAll(disksToFlipInAValidDirection);
+                }
+            }
+            return disksToFlip.size() == 0 ? null : disksToFlip;
+        } catch (IllegalArgumentException e) {
+            return null;
         }
     }
 
@@ -126,23 +140,7 @@ public abstract class Game {
         }
     }
 
-    public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
-        try {
-            if (!board.isCellEmpty(coordinate)) {
-                return null;
-            }
-            Set<Coordinate> disksToFlip = new HashSet<>();
-            for (ShiftDirection shiftDirection : ShiftDirection.values()) {
-                Set<Coordinate> disksToFlipInAValidDirection = getDisksToFlipInAValidDirection(coordinate, currentPlayer.getColor(), shiftDirection);
-                if (disksToFlipInAValidDirection != null) {
-                    disksToFlip.addAll(disksToFlipInAValidDirection);
-                }
-            }
-            return disksToFlip.size() == 0 ? null : disksToFlip;
-        } catch (IllegalArgumentException e) {
-            return null;
-        }
-    }
+
 
 
 
