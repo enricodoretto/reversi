@@ -11,9 +11,9 @@ sdm/reversi/Player.java
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
-sdm/reversi/OthelloGame.java
- sdm.reversi.OthelloGame
 sdm/reversi/Move.java
  sdm.reversi.Move
+sdm/reversi/OthelloGame.java
+ sdm.reversi.OthelloGame
 sdm/reversi/Game.java
  sdm.reversi.Game

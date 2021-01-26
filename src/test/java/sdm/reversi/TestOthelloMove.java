@@ -13,21 +13,21 @@ public class TestOthelloMove {
 
     @ParameterizedTest
     @CsvSource("6E,3D,5F")
-    void validFirstMove(Coordinate coordinate) {
+    void isValidIfCellIsAvailableAndHasNeighborOfDifferentColorAndCausesDisksToFlip(Coordinate coordinate) {
         Game game = new OthelloGame("Bob", "Alice");
         assertTrue(game.isValidMove(coordinate));
     }
 
     @ParameterizedTest
-    @CsvSource("5D,6D,3E")
-    void invalidFirstMove(Coordinate coordinate) {
+    @CsvSource("5D,5F,4D,4E")
+    void isInvalidIfCellIsAlreadyFull(Coordinate coordinate) {
         Game game = new OthelloGame("Bob", "Alice");
         assertFalse(game.isValidMove(coordinate));
     }
 
     @ParameterizedTest
     @CsvSource("6D,6F,3E,3C")
-    void invalidDiagonalFirstMove(Coordinate stringCoordinate) {
+    void isInvalidIfDoesNotCauseDisksToFlip(Coordinate stringCoordinate) {
         Game game = new OthelloGame("Bob", "Alice");
         assertFalse(game.isValidMove(stringCoordinate));
     }

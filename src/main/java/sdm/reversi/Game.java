@@ -102,7 +102,7 @@ public abstract class Game {
                 .filter(x -> x.getCoordinatesOfDisksToFlip() != null).collect(Collectors.toSet());
         // this will be removed when we use moves
         Map<Coordinate, Set<Coordinate>> validCoordinates = moves.stream().collect(Collectors.toMap(Move::getCoordinate, Move::getCoordinatesOfDisksToFlip));
-        if (validCoordinates.size() == 0) {
+        if (moves.size() == 0) {
             allowedMovesForCurrentPlayer = null;
             currentPlayer.setInStall(true);
         } else {
@@ -112,7 +112,7 @@ public abstract class Game {
     }
 
     public void makeMove(Coordinate coordinate) {
-        if (!allowedMovesForCurrentPlayer.containsKey(coordinate)) {
+        if (!isValidMove(coordinate)) {
             throw new IllegalArgumentException();
         }
         board.putDisk(currentPlayer.getColor(), coordinate);
