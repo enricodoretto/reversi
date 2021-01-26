@@ -4,6 +4,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Set;
 
@@ -82,18 +87,19 @@ public class TestOthelloMove {
         );
     }
 
-    @Test
-    void blackIn4CFlipsDiskIn4D() {
-        Game game = new OthelloGame("Bob", "Alice");
-        game.makeMove(new Coordinate("4C"));
-        assertAll(
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4C"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4D"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("4E"))),
-                () -> assertEquals(Disk.Color.BLACK, game.board.getDiskColorFromCoordinate(new Coordinate("5D"))),
-                () -> assertEquals(Disk.Color.WHITE, game.board.getDiskColorFromCoordinate(new Coordinate("5E")))
-        );
+    @ParameterizedTest
+    @CsvSource({"othello8x8Board,4C,othello8x8BoardAfterBlackIn4C"})
+    void flipsDisksIfValid(String originalBoardFileName, Coordinate moveCoordinate, String expectedFinalBoardFileName) throws URISyntaxException, IOException {
+        URL originalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(originalBoardFileName);
+        URL finalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(expectedFinalBoardFileName);
+        String finalOthelloBoard = Files.readString(Paths.get(finalBoardFile.toURI()));
+
+        Game game = new OthelloGame("Bob", "Alice", originalBoardFile);
+        game.makeMove(moveCoordinate);
+
+        assertEquals(finalOthelloBoard, game.getBoardRepresentation());
     }
+
 
     // to add more test cases
     @ParameterizedTest
