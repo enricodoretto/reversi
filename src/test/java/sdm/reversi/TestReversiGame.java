@@ -17,11 +17,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestReversiGame {
 
 
-    @ParameterizedTest
-    @CsvSource({"Bob", "Alice", "John"})
-    void failedToCreateGameWithBothPlayersWithSameName(String playerName) {
-        assertThrows(IllegalArgumentException.class, () -> new ReversiGame(playerName, playerName));
-    }
+
 
     @ParameterizedTest
     @CsvSource({"4, reversi4x4Board", "8, reversi8x8Board", "16, reversi16x16Board"})
