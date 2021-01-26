@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestPlayer" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:17:46" hostname="LAPTOP-KHLU3N1T" time="0.002">
+<testsuite name="sdm.reversi.TestPlayer" tests="2" skipped="0" failures="0" errors="0" timestamp="2021-01-26T16:21:12" hostname="LAPTOP-KHLU3N1T" time="0.002">
   <properties/>
   <testcase name="[1] Bob, BLACK" classname="sdm.reversi.TestPlayer" time="0.001"/>
   <testcase name="[2] Alice, WHITE" classname="sdm.reversi.TestPlayer" time="0.0"/>

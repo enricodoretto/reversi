@@ -8,18 +8,18 @@ public class OthelloGame extends Game {
     public OthelloGame(String player1Name, String player2Name) throws IllegalArgumentException {
         super(player1Name, player2Name);
         initializeBoard();
-        allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
+        calculatePlayerPossibleMoves();
     }
 
     public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         super(player1Name, player2Name, boardFileURL);
-        allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
+        calculatePlayerPossibleMoves();
     }
 
     public OthelloGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
         initializeBoard();
-        allowedMovesForCurrentPlayer=getPlayerPossibleMoves();
+        calculatePlayerPossibleMoves();
     }
 
     @Override

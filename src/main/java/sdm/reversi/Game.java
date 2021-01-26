@@ -91,12 +91,10 @@ public abstract class Game {
 
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
-        // calculation will be moved to the play method
-        calculatePlayerPossibleMoves();
         return allowedMovesForCurrentPlayer;
     }
 
-    private void calculatePlayerPossibleMoves() {
+    protected void calculatePlayerPossibleMoves() {
         Set<Move> moves = board.getAvailableCells().stream()
                 .map(coordinate -> new Move(coordinate, getDisksToFlip(coordinate)))
                 .filter(x -> x.getCoordinatesOfDisksToFlip() != null).collect(Collectors.toSet());

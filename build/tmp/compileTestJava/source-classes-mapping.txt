@@ -12,7 +12,7 @@ sdm/reversi/TestBoardCreation.java
  sdm.reversi.TestBoardCreation
 sdm/reversi/TestOthelloGame.java
  sdm.reversi.TestOthelloGame
-sdm/reversi/TestCreateOthelloGame.java
- sdm.reversi.TestCreateOthelloGame
 sdm/reversi/TestOthelloMove.java
  sdm.reversi.TestOthelloMove
+sdm/reversi/TestCreateOthelloGame.java
+ sdm.reversi.TestCreateOthelloGame

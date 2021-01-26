@@ -35,7 +35,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Move.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Move.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/OthelloGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/OthelloGame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardCreation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardIsRepresented.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardIsRepresented.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestCoordinate.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestCoordinate.html" afterDir="false" />
@@ -57,10 +57,9 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPlayer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPlayer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPuttingDiskIn.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPuttingDiskIn.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Move.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Move.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/OthelloGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/OthelloGame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,22 +192,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="270" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1611675991349" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611676833686">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1611678070729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611676833686" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611676833686">
+    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611678070729" />
+    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1611678070729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611676833686" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611676833686">
+    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611678070729" />
+    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1611678070729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611676833686" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611676833686">
+    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611678070729" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1611678070729">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611676833686" />
+    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611678070729" />
     <state x="469" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1611675130671">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
