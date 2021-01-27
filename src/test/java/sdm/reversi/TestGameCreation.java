@@ -6,12 +6,6 @@ import sdm.reversi.game.Game;
 import sdm.reversi.game.OthelloGame;
 import sdm.reversi.game.ReversiGame;
 
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TestGameCreation {
@@ -26,6 +20,15 @@ public class TestGameCreation {
                 () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), othelloGame.getPlayer2()),
                 () -> assertEquals(new Player(player1Name, Disk.Color.BLACK), reversiGame.getPlayer1()),
                 () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), reversiGame.getPlayer2())
+        );
+    }
+
+    @ParameterizedTest
+    @CsvSource({"Bob", "Alice", "John"})
+    void failsWithBothPlayersWithSameName(String playerName) {
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class, () -> new OthelloGame(playerName, playerName)),
+                () -> assertThrows(IllegalArgumentException.class, () -> new ReversiGame(playerName, playerName))
         );
     }
 

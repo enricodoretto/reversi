@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-<title>Test results - TestGameCreation</title>
+<title>Test results - TestOthelloGameCreation</title>
 <link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
 <link href="../css/style.css" rel="stylesheet" type="text/css"/>
 <script src="../js/report.js" type="text/javascript"></script>
 </head>
 <body>
 <div id="content">
-<h1>TestGameCreation</h1>
+<h1>TestOthelloGameCreation</h1>
 <div class="breadcrumbs">
 <a href="../index.html">all</a> &gt; 
-<a href="../packages/sdm.reversi.html">sdm.reversi</a> &gt; TestGameCreation</div>
+<a href="../packages/sdm.reversi.html">sdm.reversi</a> &gt; TestOthelloGameCreation</div>
 <div id="summary">
 <table>
 <tr>
@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">6</div>
+<div class="counter">10</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.014s</div>
+<div class="counter">0.018s</div>
 <p>duration</p>
 </div>
 </td>
@@ -76,39 +76,63 @@
 </tr>
 </thead>
 <tr>
-<td class="success">[1] Bob</td>
-<td class="success">failsWithBothPlayersWithSameName(String)[1]</td>
+<td class="success">[1] empty4x4Board</td>
+<td class="success">failsWithCustomBoardWithLessThanFourDisks(String)[1]</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">[2] Alice</td>
-<td class="success">failsWithBothPlayersWithSameName(String)[2]</td>
-<td class="success">0s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">[3] John</td>
-<td class="success">failsWithBothPlayersWithSameName(String)[3]</td>
+<td class="success">[2] empty8x8Board</td>
+<td class="success">failsWithCustomBoardWithLessThanFourDisks(String)[2]</td>
 <td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">[1] Bob, Alice</td>
-<td class="success">withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String, String)[1]</td>
-<td class="success">0.007s</td>
+<td class="success">[3] empty16x16Board</td>
+<td class="success">failsWithCustomBoardWithLessThanFourDisks(String)[3]</td>
+<td class="success">0.001s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">[2] Jack, John</td>
-<td class="success">withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String, String)[2]</td>
+<td class="success">[1] 4, othello4x4Board</td>
+<td class="success">initializesTheBoardCorrectly(int, String)[1]</td>
 <td class="success">0.002s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
-<td class="success">[3] Simon, Leonard</td>
-<td class="success">withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String, String)[3]</td>
+<td class="success">[2] 8, othello8x8Board</td>
+<td class="success">initializesTheBoardCorrectly(int, String)[2]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] 16, othello16x16Board</td>
+<td class="success">initializesTheBoardCorrectly(int, String)[3]</td>
+<td class="success">0.001s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[1] allWhite8x8Board</td>
+<td class="success">succeedsWithCustomBoardWithAtLeastFourDisks(String)[1]</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[2] allBlack8x8Board</td>
+<td class="success">succeedsWithCustomBoardWithAtLeastFourDisks(String)[2]</td>
 <td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[3] othello4x4Board</td>
+<td class="success">succeedsWithCustomBoardWithAtLeastFourDisks(String)[3]</td>
+<td class="success">0.002s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">[4] othello16x16Board</td>
+<td class="success">succeedsWithCustomBoardWithAtLeastFourDisks(String)[4]</td>
+<td class="success">0.003s</td>
 <td class="success">passed</td>
 </tr>
 </table>

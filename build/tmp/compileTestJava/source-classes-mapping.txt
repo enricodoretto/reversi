@@ -18,7 +18,7 @@ sdm/reversi/TestBoardIsRepresented.java
  sdm.reversi.TestBoardIsRepresented
 sdm/reversi/TestReversiGame.java
  sdm.reversi.TestReversiGame
-sdm/reversi/TestOthelloGameCreation.java
- sdm.reversi.TestOthelloGameCreation
 sdm/reversi/TestGameCreation.java
  sdm.reversi.TestGameCreation
+sdm/reversi/TestOthelloGameCreation.java
+ sdm.reversi.TestOthelloGameCreation

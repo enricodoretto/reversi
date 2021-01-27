@@ -15,8 +15,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestOthelloGameCreation {
 
-
-
     @ParameterizedTest
     @CsvSource({"4, othello4x4Board", "8, othello8x8Board", "16, othello16x16Board"})
     void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
@@ -40,12 +38,6 @@ public class TestOthelloGameCreation {
     void failsWithCustomBoardWithLessThanFourDisks(String fileName) {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         assertThrows(IllegalArgumentException.class, () -> new OthelloGame("Bob", "Alice", boardFile));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"Bob", "Alice", "John"})
-    void failsWithBothPlayersWithSameName(String playerName) {
-        assertThrows(IllegalArgumentException.class, () -> new OthelloGame(playerName, playerName));
     }
 
 }
