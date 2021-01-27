@@ -4,8 +4,8 @@ sdm/reversi/TestPlayer.java
  sdm.reversi.TestPlayer
 sdm/reversi/TestCoordinate.java
  sdm.reversi.TestCoordinate
-sdm/reversi/game/TestOthelloMove.java
- sdm.reversi.game.TestOthelloMove
+sdm/reversi/board/TestBoardCreation.java
+ sdm.reversi.board.TestBoardCreation
 sdm/reversi/game/TestOthelloGame.java
  sdm.reversi.game.TestOthelloGame
 sdm/reversi/game/TestOthelloGameCreation.java
@@ -22,5 +22,5 @@ sdm/reversi/game/TestOthelloPlay.java
  sdm.reversi.game.TestOthelloPlay
 sdm/reversi/game/TestReversiGameCreation.java
  sdm.reversi.game.TestReversiGameCreation
-sdm/reversi/board/TestBoardCreation.java
- sdm.reversi.board.TestBoardCreation
+sdm/reversi/game/TestOthelloMove.java
+ sdm.reversi.game.TestOthelloMove

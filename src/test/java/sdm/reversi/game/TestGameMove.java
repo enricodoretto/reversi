@@ -4,8 +4,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
 import sdm.reversi.board.TestBoardIsRepresented;
-import sdm.reversi.game.Game;
-import sdm.reversi.game.OthelloGame;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -16,13 +14,16 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestOthelloMove {
+public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource("6E,3D,5F")
-    void isValidIfCellIsAvailableAndHasNeighborOfDifferentColorAndCausesDisksToFlip(Coordinate coordinate) {
-        Game game = new OthelloGame("Bob", "Alice");
-        assertTrue(game.isValidMove(coordinate));
+    void isValidIfCellIsAvailableAndHasNeighborOfDifferentColorAndCausesDisksToFlip(Coordinate coordinate) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        assertAll(() -> assertTrue(othelloGame.isValidMove(coordinate)),
+                () -> assertTrue(reversiGame.isValidMove(coordinate)));
     }
 
     @ParameterizedTest
@@ -76,8 +77,6 @@ public class TestOthelloMove {
         assertEquals(finalOthelloBoard, game.getBoardRepresentation());
     }
 
-
-    // to add more test cases
     @ParameterizedTest
     @CsvSource("1A, 10H, 3C")
     void cannotBeMadeIfNotValid(String blackDiskCoordinate) {
