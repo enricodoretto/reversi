@@ -30,7 +30,7 @@ public class TestOthelloGame {
 
     @Test
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D() throws IOException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("fullBoards/allWhiteAndOneBlackIn3D8x8Board");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.getPlayer1().isInStall());
@@ -46,7 +46,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("allWhite8x8Board, allBlack8x8Board, /tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board")
+    @CsvSource("fullBoards/allWhite8x8Board, allBlack8x8Board, /tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
@@ -72,7 +72,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello2017FinalBoard, othello4x4BoardWonByWhite, othello8x8BoardWonByWhite")
+    @CsvSource("othello2017FinalBoard, fullBoards/othello4x4BoardWonByWhite, fullBoards/othello8x8BoardWonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
@@ -81,7 +81,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello4x4BoardWonByBlack, othello8x8BoardWonByBlack")
+    @CsvSource("fullBoards/othello4x4BoardWonByBlack, fullBoards/othello8x8BoardWonByBlack")
     void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);

@@ -23,7 +23,7 @@ public class TestOthelloGameCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"allWhite8x8Board", "allBlack8x8Board", "othello4x4Board", "othello16x16Board"})
+    @CsvSource({"fullBoards/allWhite8x8Board", "fullBoards/allBlack8x8Board", "othello4x4Board", "othello16x16Board"})
     void succeedsWithCustomBoardWithAtLeastFourDisks(String fileName) throws URISyntaxException, IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));

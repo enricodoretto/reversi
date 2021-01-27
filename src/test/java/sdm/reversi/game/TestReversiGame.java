@@ -15,7 +15,7 @@ public class TestReversiGame {
 
     @Test
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3DAndIsOver() throws IOException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("fullBoards/allWhiteAndOneBlackIn3D8x8Board");
         Game game = new ReversiGame("Bob", "Alice", boardFile);
         assertAll(
                 () -> assertTrue(game.getPlayer1().isInStall()),
@@ -36,7 +36,7 @@ public class TestReversiGame {
     }
 
     @ParameterizedTest
-    @CsvSource("allWhite8x8Board, allBlack8x8Board, first4RowsWhiteAndLast4RowsBlack8x8Board")
+    @CsvSource("fullBoards/allWhite8x8Board, fullBoards/allBlack8x8Board, tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
@@ -62,7 +62,7 @@ public class TestReversiGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello2017FinalBoard, othello4x4BoardWonByWhite, othello8x8BoardWonByWhite")
+    @CsvSource("othello2017FinalBoard, fullBoards/othello4x4BoardWonByWhite, fullBoards/othello8x8BoardWonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
@@ -71,7 +71,7 @@ public class TestReversiGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello4x4BoardWonByBlack, othello8x8BoardWonByBlack")
+    @CsvSource("fullBoards/othello4x4BoardWonByBlack, fullBoards/othello8x8BoardWonByBlack")
     void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
