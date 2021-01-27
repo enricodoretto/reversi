@@ -37,4 +37,11 @@ public class TestReversiInitialMove {
         Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
         assertDoesNotThrow(() -> reversiGame.makeMove(coordinate));
     }
+
+    @ParameterizedTest
+    @CsvSource({"8, 3D", "4, 1A", "10, 7H"})
+    void cannotBeMadeOutsideCentralSquare(int boardSize, Coordinate coordinate) {
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
+        assertThrows(IllegalArgumentException.class, () -> reversiGame.makeMove(coordinate));
+    }
 }
