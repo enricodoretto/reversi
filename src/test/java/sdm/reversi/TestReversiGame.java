@@ -18,10 +18,10 @@ public class TestReversiGame {
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3DAndIsOver() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
         Game game = new ReversiGame("Bob", "Alice", boardFile);
-        game.play();
         assertAll(
-                () -> game.getPlayer1().isInStall(),
-                () -> game.isOver());
+                () -> assertTrue(game.getPlayer1().isInStall()),
+                () -> assertFalse(game.getPlayer2().isInStall()),
+                () -> assertTrue(game.isOver()));
     }
 
     @ParameterizedTest
@@ -30,7 +30,10 @@ public class TestReversiGame {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
         game.play();
-        assertTrue(game.isOver());
+        assertAll(
+                () -> assertTrue(game.getPlayer1().isInStall()),
+                () -> assertFalse(game.getPlayer2().isInStall()),
+                () -> assertTrue(game.isOver()));
     }
 
     /*@ParameterizedTest
