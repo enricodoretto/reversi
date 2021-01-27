@@ -69,9 +69,12 @@ public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource("6F,6D, 3E, 3C ")
-    void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) {
-        Game game = new OthelloGame("Bob", "Alice");
-        assertNull(game.getDisksToFlip(blackDiskPosition));
+    void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        assertAll(() -> assertNull(othelloGame.getDisksToFlip(blackDiskPosition)),
+                () -> assertNull(reversiGame.getDisksToFlip(blackDiskPosition)));
     }
 
     @ParameterizedTest
