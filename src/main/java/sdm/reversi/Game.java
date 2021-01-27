@@ -1,13 +1,12 @@
 package sdm.reversi;
 
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public abstract class Game implements Playable{
+public abstract class Game implements Playable {
     protected final Player player1;
     protected final Player player2;
     protected Board board;
@@ -137,22 +136,20 @@ public abstract class Game implements Playable{
     public Player play() {
         Scanner scanner = new Scanner(System.in);
         while (!isOver()) {
-            // System.out.println(allowedMovesForCurrentPlayer);
             System.out.printf("%s's turn%n", currentPlayer.getName());
-            while (true) {
-                if(currentPlayer.isInStall()){
-                    System.out.println("Sorry you can make no moves!");
-                    changeTurn();
-                    break;
-                }
-                try {
-                    String coordinateOfDesiredMove = scanner.nextLine();
-                    Coordinate coordinate = new Coordinate(coordinateOfDesiredMove);
-                    makeMove(coordinate);
-                    break;
-                } catch (IllegalArgumentException e) {
-                    System.out.println("Invalid move, please write another one");
-                    continue;
+            if (currentPlayer.isInStall()) {
+                System.out.println("Sorry you can make no moves!");
+            } else {
+                // System.out.println(allowedMovesForCurrentPlayer);
+                while (true) {
+                    try {
+                        String coordinateOfDesiredMove = scanner.nextLine();
+                        makeMove(new Coordinate(coordinateOfDesiredMove));
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("Invalid move, please write another one");
+                        continue;
+                    }
                 }
             }
             changeTurn();

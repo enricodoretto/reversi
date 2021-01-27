@@ -38,17 +38,17 @@ public class TestOthelloPlay {
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
-    /*@Test
+    @Test
     void makesSkipTurnIfThereAreNoAvailableMoves() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello4x4BoardBlackCantMove");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         String moves = "3B" + System.lineSeparator();
-        String messages = String.format("%s's turn%nSorry you can make no moves!%n%s's turn%n", "Bob", "Alice");
+        String messages = String.format("%s's turn%nSorry you can make no moves!%n%s's turn%n%s's turn%nSorry you can make no moves!%n", "Bob", "Alice", "Bob");
         ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
         System.setIn(bais);
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         assertAll(() -> assertEquals("Alice", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
-    }*/
+    }
 }

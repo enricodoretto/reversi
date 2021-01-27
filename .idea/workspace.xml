@@ -23,7 +23,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/resources/othello4x4BoardBlackCantMove" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
@@ -35,8 +34,8 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Board.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/TestOthelloPlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/TestOthelloPlay.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardCreation.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardIsRepresented.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestBoardIsRepresented.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestCoordinate.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestCoordinate.html" afterDir="false" />
@@ -60,12 +59,8 @@
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPlayer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPlayer.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPuttingDiskIn.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPuttingDiskIn.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/OthelloGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/OthelloGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/TestOthelloGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/TestOthelloGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/TestOthelloPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/TestOthelloPlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -143,44 +138,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Gradle.reversi [test]">
-    <configuration name="TestOthelloGame.gameWith2017FinalBoardIsWonByAlice" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestOthelloGame.gameWith2017FinalBoardIsWonByAlice&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestOthelloGame.withBoardNotFullAndAPlayerNotInStallIsNotOver" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestOthelloGame.withBoardNotFullAndAPlayerNotInStallIsNotOver&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
     <configuration name="TestOthelloGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -219,6 +176,44 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="TestOthelloPlay.makesSkipTurnIfThereAreNoAvailableMoves" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestOthelloPlay.makesSkipTurnIfThereAreNoAvailableMoves&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="reversi [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -240,11 +235,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestOthelloPlay.makesSkipTurnIfThereAreNoAvailableMoves" />
+        <item itemvalue="Gradle.reversi [test]" />
+        <item itemvalue="Gradle.TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid" />
         <item itemvalue="Gradle.TestOthelloPlay.isOverAfterTwoMoves" />
         <item itemvalue="Gradle.TestOthelloGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner" />
-        <item itemvalue="Gradle.TestOthelloGame.gameWith2017FinalBoardIsWonByAlice" />
-        <item itemvalue="Gradle.reversi [test]" />
-        <item itemvalue="Gradle.TestOthelloGame.withBoardNotFullAndAPlayerNotInStallIsNotOver" />
       </list>
     </recent_temporary>
   </component>
@@ -285,41 +280,52 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611741162992" />
-    <state width="1493" height="298" key="GridCell.Tab.0.bottom" timestamp="1611743290116">
+    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1611744071913">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="298" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611743290116" />
-    <state width="1493" height="298" key="GridCell.Tab.0.center" timestamp="1611743290116">
+    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611744071913" />
+    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1611744071912">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="298" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611743290116" />
-    <state width="1493" height="298" key="GridCell.Tab.0.left" timestamp="1611743290115">
+    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611744071912" />
+    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1611744071912">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="298" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611743290115" />
-    <state width="1493" height="298" key="GridCell.Tab.0.right" timestamp="1611743290116">
+    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611744071912" />
+    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1611744071913">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="298" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611743290116" />
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1611742970330">
+    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611744071913" />
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1611743777133">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611742970330" />
-    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1611742970330">
+    <state width="1493" height="261" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611743777133" />
+    <state width="1493" height="261" key="GridCell.Tab.1.center" timestamp="1611743777132">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611742970330" />
-    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1611742970330">
+    <state width="1493" height="261" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1611743777132" />
+    <state width="1493" height="261" key="GridCell.Tab.1.left" timestamp="1611743777132">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611742970330" />
-    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1611742970330">
+    <state width="1493" height="261" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1611743777132" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right" timestamp="1611743777132">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611742970330" />
+    <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1611743777132" />
     <state width="775" height="419" key="XDebugger.FullValuePopup" timestamp="1611742898465">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="775" height="419" key="XDebugger.FullValuePopup/0.0.1536.824@0.0.1536.824" timestamp="1611742898465" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/Game.java</url>
+          <line>136</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
