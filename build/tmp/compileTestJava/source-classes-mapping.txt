@@ -1,26 +1,26 @@
-sdm/reversi/TestOthelloGame.java
- sdm.reversi.TestOthelloGame
+sdm/reversi/TestPlayer.java
+ sdm.reversi.TestPlayer
 sdm/reversi/TestOthelloMove.java
  sdm.reversi.TestOthelloMove
-sdm/reversi/TestOthelloPlay.java
- sdm.reversi.TestOthelloPlay
+sdm/reversi/TestReversiGameCreation.java
+ sdm.reversi.TestReversiGameCreation
 sdm/reversi/TestPuttingDiskIn.java
  sdm.reversi.TestPuttingDiskIn
+sdm/reversi/TestOthelloGameCreation.java
+ sdm.reversi.TestOthelloGameCreation
+sdm/reversi/TestBoardIsRepresented.java
+ sdm.reversi.TestBoardIsRepresented
+sdm/reversi/TestDisk.java
+ sdm.reversi.TestDisk
+sdm/reversi/TestGameCreation.java
+ sdm.reversi.TestGameCreation
+sdm/reversi/TestOthelloPlay.java
+ sdm.reversi.TestOthelloPlay
 sdm/reversi/TestBoardCreation.java
  sdm.reversi.TestBoardCreation
 sdm/reversi/TestCoordinate.java
  sdm.reversi.TestCoordinate
-sdm/reversi/TestDisk.java
- sdm.reversi.TestDisk
-sdm/reversi/TestPlayer.java
- sdm.reversi.TestPlayer
-sdm/reversi/TestBoardIsRepresented.java
- sdm.reversi.TestBoardIsRepresented
 sdm/reversi/TestReversiGame.java
  sdm.reversi.TestReversiGame
-sdm/reversi/TestGameCreation.java
- sdm.reversi.TestGameCreation
-sdm/reversi/TestOthelloGameCreation.java
- sdm.reversi.TestOthelloGameCreation
-sdm/reversi/TestReversiGameCreation.java
- sdm.reversi.TestReversiGameCreation
+sdm/reversi/TestOthelloGame.java
+ sdm.reversi.TestOthelloGame

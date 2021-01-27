@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestReversiGameCreation" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:54:02" hostname="LAPTOP-KHLU3N1T" time="0.006">
+<testsuite name="sdm.reversi.TestReversiGameCreation" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-01-27T12:00:47" hostname="MBP-di-Enrico-2.lan" time="0.008">
   <properties/>
-  <testcase name="[1] 4, empty4x4Board" classname="sdm.reversi.TestReversiGameCreation" time="0.001"/>
-  <testcase name="[2] 8, empty8x8Board" classname="sdm.reversi.TestReversiGameCreation" time="0.001"/>
+  <testcase name="[1] 4, empty4x4Board" classname="sdm.reversi.TestReversiGameCreation" time="0.003"/>
+  <testcase name="[2] 8, empty8x8Board" classname="sdm.reversi.TestReversiGameCreation" time="0.002"/>
   <testcase name="[3] 16, empty16x16Board" classname="sdm.reversi.TestReversiGameCreation" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
