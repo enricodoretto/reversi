@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -62,17 +62,13 @@ public abstract class Game {
         }
         Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values())
                 .map(direction -> getDisksToFlipInADirection(coordinate, currentPlayer.getColor(), direction))
-                .filter(x -> x != null).flatMap(Set::stream).collect(Collectors.toSet());
+                .filter(Objects::nonNull).flatMap(Set::stream).collect(Collectors.toSet());
         return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
-    private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        return board.isCellOccupied(coordinate.getShiftedCoordinate(shiftDirection)) &&
-                !(board.getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
-    }
 
     private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
+        if (!board.shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return null;
         }
         Set<Coordinate> disksToFlipInADirection = new HashSet<>();
@@ -95,9 +91,8 @@ public abstract class Game {
 
     protected void calculatePlayerPossibleMoves() {
         Map<Coordinate, Set<Coordinate>> validCoordinates = board.getAvailableCells().stream()
-                .flatMap(c -> {
-                    Coordinate coordinate = c;
-                    Set<Coordinate> disksToFlip = getDisksToFlip(c);
+                .flatMap(coordinate -> {
+                    Set<Coordinate> disksToFlip = getDisksToFlip(coordinate);
                     return coordinate != null && disksToFlip != null ?
                             Stream.of(Map.entry(coordinate, disksToFlip)) : null;
                 }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));

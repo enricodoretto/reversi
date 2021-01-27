@@ -1,5 +1,6 @@
-sdm/reversi/Board.java
- sdm.reversi.Board
+sdm/reversi/Disk.java
+ sdm.reversi.Disk
+ sdm.reversi.Disk$Color
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/ShiftDirection.java
@@ -8,9 +9,8 @@ sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
 sdm/reversi/Player.java
  sdm.reversi.Player
-sdm/reversi/Disk.java
- sdm.reversi.Disk
- sdm.reversi.Disk$Color
+sdm/reversi/Board.java
+ sdm.reversi.Board
 sdm/reversi/OthelloGame.java
  sdm.reversi.OthelloGame
 sdm/reversi/Game.java

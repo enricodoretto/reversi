@@ -138,6 +138,11 @@ public class Board {
         return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
     }
 
+    public boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        return isCellOccupied(coordinate.getShiftedCoordinate(shiftDirection)) &&
+                !(getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
+    }
+
     @Override
     public String toString() {
         return Arrays.stream(board).map(row -> Arrays.toString(row)
