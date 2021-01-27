@@ -131,15 +131,8 @@ public class Board {
         return disk == null ? null : disk.getSideUp();
     }
 
-    public Disk.Color getColorWithMoreDisks() {
-        Map<Disk.Color, Long> diskColorCounters = Arrays.stream(board).flatMap(Arrays::stream)
-                .filter(Objects::nonNull).collect(Collectors.groupingBy(
-                        Disk::getSideUp, Collectors.counting()
-                ));
-        if (diskColorCounters.get(Disk.Color.WHITE).equals(diskColorCounters.get(Disk.Color.BLACK))) {
-            return null;
-        }
-        return Collections.max(diskColorCounters.entrySet(), Map.Entry.comparingByValue()).getKey();
+    public int getNumberOfDisksForColor(Disk.Color color){
+        return (int)Arrays.stream(board).flatMap(Arrays::stream).filter(d -> d!=null && d.getSideUp().equals(color)).count();
     }
 
     public boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {

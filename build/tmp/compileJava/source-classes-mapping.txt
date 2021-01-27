@@ -7,10 +7,10 @@ sdm/reversi/ShiftDirection.java
  sdm.reversi.ShiftDirection
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
-sdm/reversi/Player.java
- sdm.reversi.Player
 sdm/reversi/Playable.java
  sdm.reversi.Playable
+sdm/reversi/Player.java
+ sdm.reversi.Player
 sdm/reversi/Board.java
  sdm.reversi.Board
 sdm/reversi/OthelloGame.java

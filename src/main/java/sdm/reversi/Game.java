@@ -108,7 +108,12 @@ public abstract class Game implements Playable {
         }
         board.putDisk(currentPlayer.getColor(), coordinate);
         allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
-        // update score for both players
+        updatePlayersScore();
+    }
+
+    protected void updatePlayersScore(){
+        player1.setScore(board.getNumberOfDisksForColor(player1.getColor()));
+        player2.setScore(board.getNumberOfDisksForColor(player2.getColor()));
     }
 
     protected void changeTurn() {
@@ -119,18 +124,10 @@ public abstract class Game implements Playable {
     public abstract boolean isOver();
 
     public Player getWinner() {
-        if (!isOver()) {
+        if(!isOver() || player1.getScore() == player2.getScore()){
             return null;
         }
-        Disk.Color winnerColor = board.getColorWithMoreDisks();
-        if (winnerColor == null) {
-            return null;
-        }
-        if (winnerColor == Disk.Color.BLACK) {
-            return player1;
-        } else {
-            return player2;
-        }
+        return player1.getScore() > player2.getScore() ? player1 : player2;
     }
 
     @Override

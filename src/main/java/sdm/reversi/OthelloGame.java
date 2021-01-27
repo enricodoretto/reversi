@@ -9,17 +9,20 @@ public class OthelloGame extends Game {
         super(player1Name, player2Name);
         initializeBoard();
         calculatePlayerPossibleMoves();
+        updatePlayersScore();
     }
 
     public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         super(player1Name, player2Name, boardFileURL);
         calculatePlayerPossibleMoves();
+        updatePlayersScore();
     }
 
     public OthelloGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
         initializeBoard();
         calculatePlayerPossibleMoves();
+        updatePlayersScore();
     }
 
     @Override
