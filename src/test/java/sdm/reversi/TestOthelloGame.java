@@ -27,7 +27,6 @@ public class TestOthelloGame {
         assertEquals(possibleDisksToFlip, game.getPlayerPossibleMoves());
     }
 
-    //this name can be improved -> maybe parametrized test?
     @Test
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
@@ -56,7 +55,7 @@ public class TestOthelloGame {
 
     @ParameterizedTest
     @CsvSource("othello8x8Board, othello4x4Board, othello16x16Board")
-    void withBoardNotFullAndAPlayerNotInStallIsNotOver(String boardFileName) throws IOException {
+    void withBoardNotFullAndPlayersNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertFalse(game.isOver());
@@ -71,12 +70,13 @@ public class TestOthelloGame {
         assertNull(game.getWinner());
     }
 
-    @Test
-    void gameWith2017FinalBoardIsWonByAlice() throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello2017FinalBoard");
+    @ParameterizedTest
+    @CsvSource("othello2017FinalBoard, othello4x4BoardWonByWhite")
+    void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
-        assertEquals("Alice", game.getWinner().getName());
+        assertEquals(Disk.Color.WHITE, game.getWinner().getColor());
     }
 
 

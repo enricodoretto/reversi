@@ -40,7 +40,7 @@ public class TestReversiGame {
     @CsvSource("allWhite8x8Board, allBlack8x8Board, first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.isOver());
     }
@@ -49,7 +49,7 @@ public class TestReversiGame {
     @CsvSource("othello8x8Board, othello4x4Board, othello16x16Board")
     void withBoardNotFullAndAPlayerNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
         assertFalse(game.isOver());
     }
 
@@ -57,7 +57,7 @@ public class TestReversiGame {
     @CsvSource("first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
         game.play();
         assertNull(game.getWinner());
     }

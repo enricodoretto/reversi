@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sdm.reversi.TestOthelloGame" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:33:55" hostname="LAPTOP-KHLU3N1T" time="0.051">
+  <properties/>
+  <testcase name="[1] othello2017FinalBoard" classname="sdm.reversi.TestOthelloGame" time="0.051"/>
+  <system-out><![CDATA[Bob's turn
+Sorry you can make no moves!
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

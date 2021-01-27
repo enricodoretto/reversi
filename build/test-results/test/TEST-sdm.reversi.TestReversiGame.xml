@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestReversiGame" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:27:30" hostname="LAPTOP-KHLU3N1T" time="0.049">
-  <properties/>
-  <testcase name="[1] first4RowsWhiteAndLast4RowsBlack8x8Board" classname="sdm.reversi.TestReversiGame" time="0.049"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
