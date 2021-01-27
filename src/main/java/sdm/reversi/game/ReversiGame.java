@@ -1,24 +1,27 @@
-package sdm.reversi;
+package sdm.reversi.game;
+
+import sdm.reversi.Coordinate;
+import sdm.reversi.Disk;
 
 import java.io.IOException;
 import java.net.URL;
 
-public class OthelloGame extends Game {
+public class ReversiGame extends Game {
 
-    public OthelloGame(String player1Name, String player2Name) throws IllegalArgumentException {
+    public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
         super(player1Name, player2Name);
         initializeBoard();
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }
 
-    public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
+    public ReversiGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         super(player1Name, player2Name, boardFileURL);
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }
 
-    public OthelloGame(String player1Name, String player2Name, int boardSize) {
+    public ReversiGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
         initializeBoard();
         calculatePlayerPossibleMoves();
@@ -35,7 +38,7 @@ public class OthelloGame extends Game {
 
     @Override
     public boolean isOver(){
-        return board.isFull() || (player1.isInStall() && player2.isInStall());
+        return board.isFull() || player1.isInStall() || player2.isInStall();
     }
 
 }

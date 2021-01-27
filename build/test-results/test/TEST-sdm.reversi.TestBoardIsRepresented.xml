@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestBoardIsRepresented" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:03:32" hostname="LAPTOP-KHLU3N1T" time="0.025">
+<testsuite name="sdm.reversi.TestBoardIsRepresented" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:20:57" hostname="LAPTOP-KHLU3N1T" time="0.028">
   <properties/>
-  <testcase name="[1] empty8x8Board, 8" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
+  <testcase name="[1] empty8x8Board, 8" classname="sdm.reversi.TestBoardIsRepresented" time="0.001"/>
   <testcase name="[2] empty4x4Board, 4" classname="sdm.reversi.TestBoardIsRepresented" time="0.001"/>
-  <testcase name="[3] empty16x16Board, 16" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
-  <testcase name="[1] whiteIn1AblackIn4D8x8Board, 8" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
-  <testcase name="[2] whiteIn1AblackIn4D4x4Board, 4" classname="sdm.reversi.TestBoardIsRepresented" time="0.001"/>
-  <testcase name="[3] whiteIn1AblackIn4D16x16Board, 16" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
-  <testcase name="[1] whiteIn1A8x8Board, 8" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
+  <testcase name="[3] empty16x16Board, 16" classname="sdm.reversi.TestBoardIsRepresented" time="0.003"/>
+  <testcase name="[1] whiteIn1AblackIn4D8x8Board, 8" classname="sdm.reversi.TestBoardIsRepresented" time="0.001"/>
+  <testcase name="[2] whiteIn1AblackIn4D4x4Board, 4" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
+  <testcase name="[3] whiteIn1AblackIn4D16x16Board, 16" classname="sdm.reversi.TestBoardIsRepresented" time="0.001"/>
+  <testcase name="[1] whiteIn1A8x8Board, 8" classname="sdm.reversi.TestBoardIsRepresented" time="0.001"/>
   <testcase name="[2] whiteIn1A4x4Board, 4" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
-  <testcase name="[3] whiteIn1A16x16Board, 16" classname="sdm.reversi.TestBoardIsRepresented" time="0.002"/>
+  <testcase name="[3] whiteIn1A16x16Board, 16" classname="sdm.reversi.TestBoardIsRepresented" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,4 +1,6 @@
-package sdm.reversi;
+package sdm.reversi.game;
+
+import sdm.reversi.*;
 
 import java.io.IOException;
 import java.net.URL;

@@ -5,38 +5,26 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.game.Game;
 import sdm.reversi.game.OthelloGame;
+import sdm.reversi.game.ReversiGame;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Map;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TestOthelloGame {
+public class TestReversiGame {
 
     @Test
-    void suggestsValidPositionsForFirstBlackMove() {
-        Game game = new OthelloGame("Bob", "Alice");
-        Map<Coordinate, Set<Coordinate>> possibleDisksToFlip = Map.of(
-                new Coordinate("3D"), Set.of(new Coordinate("4D")),
-                new Coordinate("4C"), Set.of(new Coordinate("4D")),
-                new Coordinate("6E"), Set.of(new Coordinate("5E")),
-                new Coordinate("5F"), Set.of(new Coordinate("5E"))
-        );
-        assertEquals(possibleDisksToFlip, game.getPlayerPossibleMoves());
-    }
-
-    //this name can be improved -> maybe parametrized test?
-    @Test
-    void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D() throws IOException {
+    void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3DAndIsOver() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
         game.play();
-        assertTrue(game.getPlayer1().isInStall());
+        assertAll(
+                () -> game.getPlayer1().isInStall(),
+                () -> game.isOver());
     }
 
-    @ParameterizedTest
+    /*@ParameterizedTest
     @CsvSource("othello2011FinalBoard, othello2017FinalBoard")
     void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
@@ -77,7 +65,7 @@ public class TestOthelloGame {
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertEquals("Alice", game.getWinner().getName());
-    }
+    }*/
 
 
 }

@@ -1,6 +1,8 @@
 package sdm.reversi;
 
 import org.junit.jupiter.api.Test;
+import sdm.reversi.game.Game;
+import sdm.reversi.game.OthelloGame;
 
 import java.io.*;
 import java.net.URL;
