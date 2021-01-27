@@ -10,13 +10,15 @@ sdm/reversi/TestBoardCreation.java
  sdm.reversi.TestBoardCreation
 sdm/reversi/TestCoordinate.java
  sdm.reversi.TestCoordinate
-sdm/reversi/TestOthelloGameCreation.java
- sdm.reversi.TestOthelloGameCreation
+sdm/reversi/TestDisk.java
+ sdm.reversi.TestDisk
 sdm/reversi/TestPlayer.java
  sdm.reversi.TestPlayer
 sdm/reversi/TestBoardIsRepresented.java
  sdm.reversi.TestBoardIsRepresented
-sdm/reversi/TestDisk.java
- sdm.reversi.TestDisk
 sdm/reversi/TestReversiGame.java
  sdm.reversi.TestReversiGame
+sdm/reversi/TestOthelloGameCreation.java
+ sdm.reversi.TestOthelloGameCreation
+sdm/reversi/TestGameCreation.java
+ sdm.reversi.TestGameCreation

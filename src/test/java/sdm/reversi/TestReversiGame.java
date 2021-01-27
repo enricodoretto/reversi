@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.game.Game;
-import sdm.reversi.game.OthelloGame;
 import sdm.reversi.game.ReversiGame;
 
 import java.io.IOException;
@@ -79,14 +78,5 @@ public class TestReversiGame {
         game.play();
         assertEquals(Disk.Color.BLACK, game.getWinner().getColor());
     }
-
-    /*@Test
-    void gameWith2017FinalBoardIsWonByAlice() throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello2017FinalBoard");
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
-        game.play();
-        assertEquals("Alice", game.getWinner().getName());
-    }*/
-
 
 }

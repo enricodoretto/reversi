@@ -15,15 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TestOthelloGameCreation {
 
-    @ParameterizedTest
-    @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
-    void withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String player1Name, String player2Name) {
-        Game game = new OthelloGame(player1Name, player2Name);
-        assertAll(
-                () -> assertEquals(new Player(player1Name, Disk.Color.BLACK), game.getPlayer1()),
-                () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), game.getPlayer2())
-        );
-    }
+
 
     @ParameterizedTest
     @CsvSource({"4, othello4x4Board", "8, othello8x8Board", "16, othello16x16Board"})
