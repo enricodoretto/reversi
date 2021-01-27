@@ -32,7 +32,7 @@ public class TestOthelloGameCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"empty4x4Board", "empty8x8Board","empty16x16Board"})
+    @CsvSource({"emptyBoards/empty4x4Board", "emptyBoards/empty8x8Board", "emptyBoards/empty16x16Board"})
     void failsWithCustomBoardWithLessThanFourDisks(String fileName) {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         assertThrows(IllegalArgumentException.class, () -> new OthelloGame("Bob", "Alice", boardFile));

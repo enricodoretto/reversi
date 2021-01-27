@@ -28,7 +28,7 @@ public class TestBoardCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"empty8x8Board", "empty4x4Board", "empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})
+    @CsvSource({"emptyBoards/empty8x8Board", "emptyBoards/empty4x4Board", "emptyBoards/empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})
     void succeedsFromProperlyFormattedFile(String fileName) throws IOException, URISyntaxException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
@@ -37,14 +37,14 @@ public class TestBoardCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"illegal8x8Board", "illegal4x4Board", "illegal16x16Board"})
+    @CsvSource({"invalidBoards/illegal8x8Board", "invalidBoards/illegal4x4Board", "invalidBoards/illegal16x16Board"})
     void failsFromFileWithIllegalCharacters(String fileName) {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         assertThrows(IllegalArgumentException.class, () -> new Board(boardFile));
     }
 
     @ParameterizedTest
-    @CsvSource({"wronglyFormatted8x7Board", "wronglyFormatted4x5Board", "wronglyFormattedBoardWithIrregularLengthLines"})
+    @CsvSource({"invalidBoards/wronglyFormatted8x7Board", "invalidBoards/wronglyFormatted4x5Board", "invalidBoards/wronglyFormattedBoardWithIrregularLengthLines"})
     void failsFromWronglyFormattedFile(String fileName) {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         assertThrows(IllegalArgumentException.class, () -> new Board(boardFile));

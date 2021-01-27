@@ -17,7 +17,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestBoardIsRepresented {
 
     @ParameterizedTest
-    @CsvSource({"empty8x8Board, 8", "empty4x4Board, 4", "empty16x16Board, 16"})
+    @CsvSource({"emptyBoards/empty8x8Board, 8", "emptyBoards/empty4x4Board, 4", "emptyBoards/empty16x16Board, 16"})
     void asStringOfDashesWhenEmpty(String fileName, int size) throws IOException, URISyntaxException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
