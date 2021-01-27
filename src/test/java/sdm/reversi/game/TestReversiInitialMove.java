@@ -8,8 +8,7 @@ import sdm.reversi.Coordinate;
 import java.util.*;
 import java.util.stream.Collectors;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestReversiInitialMove {
 
@@ -30,5 +29,12 @@ public class TestReversiInitialMove {
     void isNotAllowedOutsideCentralSquare(int boardSize, String coordinate) {
         Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
         assertFalse(reversiGame.allowedMovesForCurrentPlayer.containsKey(coordinate));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"8, 4D", "4, 3C", "10, 6E"})
+    void canBeMadeInCentralSquare(int boardSize, Coordinate coordinate) {
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
+        assertDoesNotThrow(() -> reversiGame.makeMove(coordinate));
     }
 }
