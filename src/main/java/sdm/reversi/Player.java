@@ -6,6 +6,7 @@ public class Player {
     private final String name;
     private final Disk.Color color;
     private boolean inStall;
+    private int score;
 
     public Player(String name, Disk.Color color) {
         this.name = name;
@@ -26,6 +27,9 @@ public class Player {
     public void setInStall(boolean inStall) {
         this.inStall = inStall;
     }
+
+    public int getScore() {return score;}
+    public void setScore(int score) {this.score = score;}
 
     @Override
     public boolean equals(Object o) {

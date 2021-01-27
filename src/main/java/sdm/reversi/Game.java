@@ -108,6 +108,7 @@ public abstract class Game implements Playable {
         }
         board.putDisk(currentPlayer.getColor(), coordinate);
         allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
+        // update score for both players
     }
 
     protected void changeTurn() {
