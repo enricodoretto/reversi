@@ -2,10 +2,10 @@ package sdm.reversi;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,7 +56,6 @@ public abstract class Game {
         return allowedMovesForCurrentPlayer.containsKey(coordinate);
     }
 
-    // this will return a Move (coordinate + disksToFlip)
     public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
         if (!board.isCellAvailable(coordinate)) {
             return null;
@@ -95,12 +94,14 @@ public abstract class Game {
     }
 
     protected void calculatePlayerPossibleMoves() {
-        Set<Move> moves = board.getAvailableCells().stream()
-                .map(coordinate -> new Move(coordinate, getDisksToFlip(coordinate)))
-                .filter(x -> x.getCoordinatesOfDisksToFlip() != null).collect(Collectors.toSet());
-        // this will be removed when we use moves
-        Map<Coordinate, Set<Coordinate>> validCoordinates = moves.stream().collect(Collectors.toMap(Move::getCoordinate, Move::getCoordinatesOfDisksToFlip));
-        if (moves.size() == 0) {
+        Map<Coordinate, Set<Coordinate>> validCoordinates = board.getAvailableCells().stream()
+                .flatMap(c -> {
+                    Coordinate coordinate = c;
+                    Set<Coordinate> disksToFlip = getDisksToFlip(c);
+                    return coordinate != null && disksToFlip != null ?
+                            Stream.of(Map.entry(coordinate, disksToFlip)) : null;
+                }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        if (validCoordinates.size() == 0) {
             allowedMovesForCurrentPlayer = null;
             currentPlayer.setInStall(true);
         } else {

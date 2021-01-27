@@ -1,18 +1,18 @@
-sdm/reversi/TestOthelloGame.java
- sdm.reversi.TestOthelloGame
+sdm/reversi/TestBoardIsRepresented.java
+ sdm.reversi.TestBoardIsRepresented
 sdm/reversi/TestPuttingDiskIn.java
  sdm.reversi.TestPuttingDiskIn
 sdm/reversi/TestBoardCreation.java
  sdm.reversi.TestBoardCreation
 sdm/reversi/TestCoordinate.java
  sdm.reversi.TestCoordinate
-sdm/reversi/TestPlayer.java
- sdm.reversi.TestPlayer
-sdm/reversi/TestOthelloGameCreation.java
- sdm.reversi.TestOthelloGameCreation
-sdm/reversi/TestBoardIsRepresented.java
- sdm.reversi.TestBoardIsRepresented
 sdm/reversi/TestDisk.java
  sdm.reversi.TestDisk
+sdm/reversi/TestPlayer.java
+ sdm.reversi.TestPlayer
+sdm/reversi/TestOthelloGame.java
+ sdm.reversi.TestOthelloGame
+sdm/reversi/TestOthelloGameCreation.java
+ sdm.reversi.TestOthelloGameCreation
 sdm/reversi/TestOthelloMove.java
  sdm.reversi.TestOthelloMove
