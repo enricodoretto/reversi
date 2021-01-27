@@ -24,7 +24,7 @@ public class TestReversiGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello2011FinalBoard, othello2017FinalBoard")
+    @CsvSource("finishedGameBoards/othello2011FinalBoard, finishedGameBoards/othello2017FinalBoard")
     void withOnePlayerInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
@@ -62,7 +62,7 @@ public class TestReversiGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello2017FinalBoard, fullBoards/othello4x4BoardWonByWhite, fullBoards/othello8x8BoardWonByWhite")
+    @CsvSource("finishedGameBoards/othello2017FinalBoard, fullBoards/othello4x4BoardWonByWhite, fullBoards/othello8x8BoardWonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
