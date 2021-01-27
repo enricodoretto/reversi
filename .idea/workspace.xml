@@ -23,9 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitialMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,26 +121,24 @@
       <recent name="sdm.reversi.game" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.reversi [test]">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="Gradle.TestReversiInitial.fourMovesCanBeMadeInCentralSquareParam">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestGameMove.flipsDisksIfValid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestReversiInitial.fourMovesCanBeMadeInCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestGameMove.flipsDisksIfValid&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitial.fourMovesCanBeMadeInCentralSquare&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -146,12 +154,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestReversiInitialMove.canBeMadeInCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestReversiInitial.fourMovesCanBeMadeInCentralSquareParam" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitialMove.canBeMadeInCentralSquare&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitial.fourMovesCanBeMadeInCentralSquareParam&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -167,12 +175,12 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestReversiInitialMove.canOnlyBeMadeInCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestReversiInitial.moveCannotBeMadeOutsideCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitialMove.canOnlyBeMadeInCentralSquare&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitial.moveCannotBeMadeOutsideCentralSquare&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -188,23 +196,23 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestReversiInitialMove.isNotAllowedOutsideCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="reversi [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitialMove.isNotAllowedOutsideCentralSquare&quot;" />
+        <option name="scriptParameters" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":test" />
+            <option value="clean" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
@@ -232,11 +240,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestReversiInitial.fourMovesCanBeMadeInCentralSquareParam" />
+        <item itemvalue="Gradle.TestReversiInitial.fourMovesCanBeMadeInCentralSquare" />
         <item itemvalue="Gradle.reversi [test]" />
-        <item itemvalue="Gradle.TestReversiInitialMove.canBeMadeInCentralSquare" />
-        <item itemvalue="Gradle.TestReversiInitialMove.isNotAllowedOutsideCentralSquare" />
-        <item itemvalue="Gradle.TestReversiInitialMove.canOnlyBeMadeInCentralSquare" />
-        <item itemvalue="Gradle.TestGameMove.flipsDisksIfValid" />
+        <item itemvalue="Gradle.TestReversiInitial.moveCannotBeMadeOutsideCentralSquare" />
+        <item itemvalue="Gradle.reversi [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -250,6 +258,7 @@
       <updated>1611671536341</updated>
       <workItem from="1611671540792" duration="1898000" />
       <workItem from="1611734608389" duration="891000" />
+      <workItem from="1611764209423" duration="397000" />
     </task>
     <servers />
   </component>
@@ -267,5 +276,16 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

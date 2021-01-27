@@ -49,14 +49,13 @@ public class TestReversiInitial {
         assertThrows(IllegalArgumentException.class, () -> reversiGame.makeMove(coordinate));
     }
 
-    @Test
-    void fourMovesCanBeMadeInCentralSquare() throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello4x4BoardTwoMovesMissing");
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
-        String moves = "4D" + System.lineSeparator() + "4E" + System.lineSeparator() +
-                "5D" + System.lineSeparator() + "5E" + System.lineSeparator() + "q" + System.lineSeparator();
-        ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
+    @ParameterizedTest
+    @CsvSource({"8, 4D-4E-5D-5E-q-", "4, 2B-2C-3B-3C-q-", "10, 5E-5F-6E-6F-q-"})
+    void fourMovesCanBeMadeInCentralSquareParam(int boardSize, String gameSequence) throws IOException {
+        Game game = new OthelloGame("Bob", "Alice", boardSize);
+        ByteArrayInputStream bais = new ByteArrayInputStream(gameSequence.replace("-",System.lineSeparator()).getBytes());
         System.setIn(bais);
         assertDoesNotThrow(() -> game.play());
     }
+
 }
