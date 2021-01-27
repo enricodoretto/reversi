@@ -24,10 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/OthelloGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/OthelloGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/ReversiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/ReversiGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitialMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitial.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,7 +111,7 @@
       <recent name="sdm.reversi.game" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TestReversiInitialMove.canBeMadeInCentralSquare">
+  <component name="RunManager" selected="Gradle.reversi [test]">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -234,11 +232,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.reversi [test]" />
         <item itemvalue="Gradle.TestReversiInitialMove.canBeMadeInCentralSquare" />
         <item itemvalue="Gradle.TestReversiInitialMove.isNotAllowedOutsideCentralSquare" />
         <item itemvalue="Gradle.TestReversiInitialMove.canOnlyBeMadeInCentralSquare" />
         <item itemvalue="Gradle.TestGameMove.flipsDisksIfValid" />
-        <item itemvalue="Gradle.reversi [test]" />
       </list>
     </recent_temporary>
   </component>
@@ -269,23 +267,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1611761697671">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611761697671" />
-    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1611761697671">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611761697671" />
-    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1611761697671">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611761697671" />
-    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1611761697671">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611761697671" />
   </component>
 </project>
