@@ -28,9 +28,12 @@ public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource("5D,5F,4D,4E")
-    void isInvalidIfCellIsAlreadyFull(Coordinate coordinate) {
-        Game game = new OthelloGame("Bob", "Alice");
-        assertFalse(game.isValidMove(coordinate));
+    void isInvalidIfCellIsAlreadyFull(Coordinate coordinate) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
+                () -> assertFalse(reversiGame.isValidMove(coordinate)));
     }
 
     @ParameterizedTest
