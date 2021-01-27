@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.game.TestOthelloGame" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-01-27T15:00:20" hostname="LAPTOP-KHLU3N1T" time="0.039">
+<testsuite name="sdm.reversi.game.TestOthelloGame" tests="8" skipped="0" failures="0" errors="0" timestamp="2021-01-27T15:12:44" hostname="LAPTOP-KHLU3N1T" time="0.041">
   <properties/>
-  <testcase name="[1] othello2011FinalBoard" classname="sdm.reversi.game.TestOthelloGame" time="0.007"/>
-  <testcase name="[1] othello2017FinalBoard" classname="sdm.reversi.game.TestOthelloGame" time="0.003"/>
+  <testcase name="[1] othello2011FinalBoard" classname="sdm.reversi.game.TestOthelloGame" time="0.008"/>
+  <testcase name="[1] othello2017FinalBoard" classname="sdm.reversi.game.TestOthelloGame" time="0.002"/>
   <testcase name="suggestsValidPositionsForFirstBlackMove()" classname="sdm.reversi.game.TestOthelloGame" time="0.001"/>
-  <testcase name="[1] othello8x8Board" classname="sdm.reversi.game.TestOthelloGame" time="0.001"/>
+  <testcase name="[1] othello8x8Board" classname="sdm.reversi.game.TestOthelloGame" time="0.002"/>
   <testcase name="[1] allWhite8x8Board" classname="sdm.reversi.game.TestOthelloGame" time="0.002"/>
   <testcase name="[1] first4RowsWhiteAndLast4RowsBlack8x8Board" classname="sdm.reversi.game.TestOthelloGame" time="0.002"/>
   <testcase name="[1] othello4x4BoardWonByBlack" classname="sdm.reversi.game.TestOthelloGame" time="0.002"/>

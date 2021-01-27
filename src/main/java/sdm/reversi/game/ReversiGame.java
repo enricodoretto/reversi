@@ -42,15 +42,12 @@ public class ReversiGame extends Game {
             super.calculatePlayerPossibleMoves();
             return;
         }
-        /*Map<Coordinate, Set<Coordinate>> validCoordinates = Arrays.stream(initialMoves)
+        allowedMovesForCurrentPlayer = Arrays.stream(initialMoves)
                 .filter(c -> board.isCellAvailable(c))
-                .collect(Collectors.toMap(Function.identity(), new HashSet<>()));*/
-        allowedMovesForCurrentPlayer = new HashMap<>();
-        for(Coordinate coordinate : initialMoves){
-            if(board.isCellAvailable(coordinate)){
-                allowedMovesForCurrentPlayer.put(coordinate, new HashSet<>());
-            }
-        }
+                .collect(Collectors.toMap(
+                        coordinate -> coordinate,
+                        coordinate -> new HashSet<>()
+                ));
     }
 
     @Override
