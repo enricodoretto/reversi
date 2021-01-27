@@ -67,6 +67,10 @@ public class Board {
         return board.length;
     }
 
+    public boolean isFull(){
+        return Arrays.stream(board).flatMap(Arrays::stream).filter(c -> c == null).count()==0;
+    }
+
     public boolean isCellEmpty(Coordinate coordinate) {
         if (!isCellValid(coordinate)) {
             throw new IllegalArgumentException();

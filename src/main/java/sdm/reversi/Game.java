@@ -138,12 +138,12 @@ public abstract class Game implements Playable{
         Scanner scanner = new Scanner(System.in);
         while (!isOver()) {
             // System.out.println(allowedMovesForCurrentPlayer);
-            // read from input the coordinate of the move
             System.out.printf("%s's turn%n", currentPlayer.getName());
             while (true) {
-                if(allowedMovesForCurrentPlayer == null){
-                    //System.out.println(" sorry you can make no moves");
+                if(currentPlayer.isInStall()){
+                    System.out.println("Sorry you can make no moves!");
                     changeTurn();
+                    break;
                 }
                 try {
                     String coordinateOfDesiredMove = scanner.nextLine();

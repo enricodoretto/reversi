@@ -32,14 +32,7 @@ public class OthelloGame extends Game {
 
     @Override
     public boolean isOver(){
-        //return player1.isInStall() && player2.isInStall();
-        if(allowedMovesForCurrentPlayer == null ){
-            changeTurn();
-            if (allowedMovesForCurrentPlayer == null){
-                return true;
-            }
-        }
-        return false;
+        return board.isFull() || (player1.isInStall() && player2.isInStall());
     }
 
 }

@@ -30,6 +30,7 @@ public class TestOthelloGame {
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
+        game.play();
         assertTrue(game.getPlayer1().isInStall());
     }
 
@@ -38,6 +39,7 @@ public class TestOthelloGame {
     void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
+        game.play();
         assertTrue(game.isOver());
     }
 
@@ -46,12 +48,13 @@ public class TestOthelloGame {
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
+        game.play();
         assertTrue(game.isOver());
     }
 
     @ParameterizedTest
     @CsvSource("othello8x8Board, othello4x4Board, othello16x16Board")
-    void withBoardNotFullAndAPlayerNotInStallIsOver(String boardFileName) throws IOException {
+    void withBoardNotFullAndAPlayerNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertFalse(game.isOver());
@@ -62,6 +65,7 @@ public class TestOthelloGame {
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
+        game.play();
         assertNull(game.getWinner());
     }
 
@@ -69,6 +73,7 @@ public class TestOthelloGame {
     void gameWith2017FinalBoardIsWonByAlice() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello2017FinalBoard");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
+        game.play();
         assertEquals("Alice", game.getWinner().getName());
     }
 
