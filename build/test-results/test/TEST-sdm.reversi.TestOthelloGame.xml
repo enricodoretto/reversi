@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestOthelloGame" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-27T08:38:10" hostname="LAPTOP-KHLU3N1T" time="0.035">
+<testsuite name="sdm.reversi.TestOthelloGame" tests="7" skipped="0" failures="0" errors="0" timestamp="2021-01-27T08:40:08" hostname="LAPTOP-KHLU3N1T" time="0.036">
   <properties/>
   <testcase name="[1] othello2011FinalBoard" classname="sdm.reversi.TestOthelloGame" time="0.008"/>
-  <testcase name="suggestsValidPositionsForFirstBlackMove()" classname="sdm.reversi.TestOthelloGame" time="0.001"/>
-  <testcase name="gameWith2017FinalBoardIsWonByAlice()" classname="sdm.reversi.TestOthelloGame" time="0.006"/>
+  <testcase name="suggestsValidPositionsForFirstBlackMove()" classname="sdm.reversi.TestOthelloGame" time="0.003"/>
+  <testcase name="gameWith2017FinalBoardIsWonByAlice()" classname="sdm.reversi.TestOthelloGame" time="0.007"/>
   <testcase name="[1] othello8x8Board" classname="sdm.reversi.TestOthelloGame" time="0.003"/>
   <testcase name="[1] allWhite8x8Board" classname="sdm.reversi.TestOthelloGame" time="0.001"/>
   <testcase name="[1] first4RowsWhiteAndLast4RowsBlack8x8Board" classname="sdm.reversi.TestOthelloGame" time="0.002"/>
-  <testcase name="hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D()" classname="sdm.reversi.TestOthelloGame" time="0.002"/>
+  <testcase name="hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D()" classname="sdm.reversi.TestOthelloGame" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

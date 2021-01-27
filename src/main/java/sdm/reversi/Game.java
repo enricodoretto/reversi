@@ -116,8 +116,6 @@ public abstract class Game {
         }
         board.putDisk(currentPlayer.getColor(), coordinate);
         allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
-        // this will need to be moved
-        changeTurn();
     }
 
     protected void changeTurn() {
