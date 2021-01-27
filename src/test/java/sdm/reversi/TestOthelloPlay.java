@@ -22,7 +22,6 @@ public class TestOthelloPlay {
         System.setOut(new PrintStream(fakeStandardOutput));
         assertAll(() -> assertEquals("Bob", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
-        ;
     }
 
     @Test
@@ -30,8 +29,12 @@ public class TestOthelloPlay {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello4x4BoardTwoMovesMissing");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         String moves = "4C" + System.lineSeparator() + "4C" + System.lineSeparator() + "4D" + System.lineSeparator();
+        String messages = String.format("%s's turn%n%s's turn%nInvalid move, please write another one%n", "Bob", "Alice");
         ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
         System.setIn(bais);
-        assertEquals("Bob", game.play().getName());
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        assertAll(() -> assertEquals("Bob", game.play().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 }

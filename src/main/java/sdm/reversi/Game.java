@@ -139,19 +139,19 @@ public abstract class Game implements Playable{
         while (!isOver()) {
             // System.out.println(allowedMovesForCurrentPlayer);
             // read from input the coordinate of the move
+            System.out.printf("%s's turn%n", currentPlayer.getName());
             while (true) {
                 if(allowedMovesForCurrentPlayer == null){
                     //System.out.println(" sorry you can make no moves");
                     changeTurn();
                 }
-                System.out.printf("%s's turn%n", currentPlayer.getName());
                 try {
                     String coordinateOfDesiredMove = scanner.nextLine();
                     Coordinate coordinate = new Coordinate(coordinateOfDesiredMove);
                     makeMove(coordinate);
                     break;
                 } catch (IllegalArgumentException e) {
-                    //System.out.println("Invalid move, please specify another one");
+                    System.out.println("Invalid move, please write another one");
                     continue;
                 }
             }
