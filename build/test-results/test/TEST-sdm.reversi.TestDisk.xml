@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestDisk" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-01-27T14:39:22" hostname="MBP-di-Enrico-2.lan" time="0.017">
+<testsuite name="sdm.reversi.TestDisk" tests="6" skipped="0" failures="0" errors="0" timestamp="2021-01-27T15:00:20" hostname="LAPTOP-KHLU3N1T" time="0.019">
   <properties/>
   <testcase name="[1] BLACK" classname="sdm.reversi.TestDisk" time="0.001"/>
-  <testcase name="[2] WHITE" classname="sdm.reversi.TestDisk" time="0.0"/>
-  <testcase name="[1] BLACK, B" classname="sdm.reversi.TestDisk" time="0.0"/>
+  <testcase name="[2] WHITE" classname="sdm.reversi.TestDisk" time="0.001"/>
+  <testcase name="[1] BLACK, B" classname="sdm.reversi.TestDisk" time="0.001"/>
   <testcase name="[2] WHITE, W" classname="sdm.reversi.TestDisk" time="0.001"/>
   <testcase name="[1] BLACK, WHITE" classname="sdm.reversi.TestDisk" time="0.001"/>
   <testcase name="[2] WHITE, BLACK" classname="sdm.reversi.TestDisk" time="0.001"/>
