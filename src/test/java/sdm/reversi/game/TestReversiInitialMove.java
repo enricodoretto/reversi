@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class TestReversiInitialMove {
 
@@ -22,5 +23,12 @@ public class TestReversiInitialMove {
                         coordinate -> new HashSet<>()
                 ));
         assertEquals(expectedCoordinates, reversiGame.allowedMovesForCurrentPlayer);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"8, 6D", "4, 1A", "10, 2B"})
+    void isNotAllowedOutsideCentralSquare(int boardSize, String coordinate) {
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
+        assertFalse(reversiGame.allowedMovesForCurrentPlayer.containsKey(coordinate));
     }
 }
