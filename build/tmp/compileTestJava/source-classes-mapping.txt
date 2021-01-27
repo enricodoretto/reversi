@@ -22,3 +22,5 @@ sdm/reversi/TestGameCreation.java
  sdm.reversi.TestGameCreation
 sdm/reversi/TestOthelloGameCreation.java
  sdm.reversi.TestOthelloGameCreation
+sdm/reversi/TestReversiGameCreation.java
+ sdm.reversi.TestReversiGameCreation
