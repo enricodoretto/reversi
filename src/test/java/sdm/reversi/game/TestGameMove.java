@@ -38,9 +38,12 @@ public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource("6C,1A,8H")
-    void isInvalidIfCellDoesNotHaveNeighborOfDifferentColor(Coordinate stringCoordinate) {
-        Game game = new OthelloGame("Bob", "Alice");
-        assertFalse(game.isValidMove(stringCoordinate));
+    void isInvalidIfCellDoesNotHaveNeighborOfDifferentColor(Coordinate coordinate) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
+                () -> assertFalse(reversiGame.isValidMove(coordinate)));
     }
 
     @ParameterizedTest
