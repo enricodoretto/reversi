@@ -84,12 +84,13 @@ public class TestGameMove {
     void flipsDisksIfValid(String originalBoardFileName, Coordinate moveCoordinate, String expectedFinalBoardFileName) throws URISyntaxException, IOException {
         URL originalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(originalBoardFileName);
         URL finalBoardFile = TestBoardIsRepresented.class.getClassLoader().getResource(expectedFinalBoardFileName);
-        String finalOthelloBoard = Files.readString(Paths.get(finalBoardFile.toURI()));
-
-        Game game = new OthelloGame("Bob", "Alice", originalBoardFile);
-        game.makeMove(moveCoordinate);
-
-        assertEquals(finalOthelloBoard, game.getBoardRepresentation());
+        String finalBoard = Files.readString(Paths.get(finalBoardFile.toURI()));
+        Game othelloGame = new OthelloGame("Bob", "Alice", originalBoardFile);
+        othelloGame.makeMove(moveCoordinate);
+        Game reversiGame = new ReversiGame("Bob", "Alice", originalBoardFile);
+        reversiGame.makeMove(moveCoordinate);
+        assertAll(() -> assertEquals(finalBoard, othelloGame.getBoardRepresentation()),
+                () -> assertEquals(finalBoard, reversiGame.getBoardRepresentation()));
     }
 
     @ParameterizedTest

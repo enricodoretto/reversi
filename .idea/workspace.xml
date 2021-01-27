@@ -23,43 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestCoordinate.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestCoordinate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestDisk.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestDisk.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestPlayer.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.TestPlayer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.board.TestBoardCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.board.TestBoardCreation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.board.TestBoardIsRepresented.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.board.TestBoardIsRepresented.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.board.TestPuttingDiskIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.board.TestPuttingDiskIn.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestGameCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestGameCreation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloGame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloGameCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloGameCreation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloMove.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloMove.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloPlay.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestOthelloPlay.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestReversiGame.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestReversiGame.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestReversiGameCreation.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/classes/sdm.reversi.game.TestReversiGameCreation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.board.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.board.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestCoordinate.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestCoordinate.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestDisk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestDisk.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPlayer.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.TestPlayer.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.board.TestBoardCreation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.board.TestBoardCreation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.board.TestBoardIsRepresented.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.board.TestBoardIsRepresented.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.board.TestPuttingDiskIn.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.board.TestPuttingDiskIn.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestGameCreation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestGameCreation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloGame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloGame.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloGameCreation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloGameCreation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloMove.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloMove.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloPlay.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestOthelloPlay.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestReversiGame.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestReversiGame.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestReversiGameCreation.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-sdm.reversi.game.TestReversiGameCreation.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestGameMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestGameMove.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +103,7 @@
       <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.reversi [test]">
+  <component name="RunManager" selected="Gradle.TestGameMove.returnsNoCoordinatesToFlipIfInvalid">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -153,12 +117,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestGameCreation.withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestGameMove.isInvalidIfCellDoesNotHaveNeighborOfDifferentColor" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestGameCreation.withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestGameMove.isInvalidIfCellDoesNotHaveNeighborOfDifferentColor&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -169,15 +133,15 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestOthelloGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestGameMove.isInvalidIfCellIsAlreadyFull" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestOthelloGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestGameMove.isInvalidIfCellIsAlreadyFull&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -188,15 +152,15 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestOthelloGame.withMoreWhitesThanBlacksIsWonByWhite" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestGameMove.isInvalidIfDoesNotCauseDisksToFlip" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestOthelloGame.withMoreWhitesThanBlacksIsWonByWhite&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestGameMove.isInvalidIfDoesNotCauseDisksToFlip&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -207,15 +171,15 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestReversiGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestGameMove.returnsCoordinatesToFlipIfValid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.TestReversiGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner&quot;" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestGameMove.returnsCoordinatesToFlipIfValid&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -226,35 +190,35 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="reversi [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestGameMove.returnsNoCoordinatesToFlipIfInvalid" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestGameMove.returnsNoCoordinatesToFlipIfInvalid&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value="test" />
+            <option value=":test" />
           </list>
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TestOthelloGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner" />
-        <item itemvalue="Gradle.TestReversiGame.withEqualNumberOfBlackAndWhiteDisksHasNoWinner" />
-        <item itemvalue="Gradle.TestGameCreation.withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds" />
-        <item itemvalue="Gradle.reversi [test]" />
-        <item itemvalue="Gradle.TestOthelloGame.withMoreWhitesThanBlacksIsWonByWhite" />
+        <item itemvalue="Gradle.TestGameMove.returnsNoCoordinatesToFlipIfInvalid" />
+        <item itemvalue="Gradle.TestGameMove.returnsCoordinatesToFlipIfValid" />
+        <item itemvalue="Gradle.TestGameMove.isInvalidIfDoesNotCauseDisksToFlip" />
+        <item itemvalue="Gradle.TestGameMove.isInvalidIfCellDoesNotHaveNeighborOfDifferentColor" />
+        <item itemvalue="Gradle.TestGameMove.isInvalidIfCellIsAlreadyFull" />
       </list>
     </recent_temporary>
   </component>
@@ -287,22 +251,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1611756850494">
+    <state width="1493" height="256" key="GridCell.Tab.0.bottom" timestamp="1611757819927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611756850494" />
-    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1611756850494">
+    <state width="1493" height="256" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611757819927" />
+    <state width="1493" height="256" key="GridCell.Tab.0.center" timestamp="1611757819927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611756850494" />
-    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1611756850494">
+    <state width="1493" height="256" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611757819927" />
+    <state width="1493" height="256" key="GridCell.Tab.0.left" timestamp="1611757819927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611756850494" />
-    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1611756850494">
+    <state width="1493" height="256" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611757819927" />
+    <state width="1493" height="256" key="GridCell.Tab.0.right" timestamp="1611757819927">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611756850494" />
+    <state width="1493" height="256" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611757819927" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1611749319799">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
