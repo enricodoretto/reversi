@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.game.TestGameMove" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-01-27T14:32:55" hostname="LAPTOP-KHLU3N1T" time="0.088">
+<testsuite name="sdm.reversi.game.TestGameMove" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-27T14:34:27" hostname="LAPTOP-KHLU3N1T" time="0.091">
   <properties/>
-  <testcase name="[1] othello8x8Board, 4C, othello8x8BoardAfterBlackIn4C" classname="sdm.reversi.game.TestGameMove" time="0.07"/>
-  <testcase name="[2] othello8x8Board, 6E, othello8x8BoardAfterBlackIn6E" classname="sdm.reversi.game.TestGameMove" time="0.007"/>
-  <testcase name="[3] othello8x8CustomBoard1, 6F, othello8x8CustomBoard1AfterBlackIn6F" classname="sdm.reversi.game.TestGameMove" time="0.007"/>
+  <testcase name="[1] 1A" classname="sdm.reversi.game.TestGameMove" time="0.091"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

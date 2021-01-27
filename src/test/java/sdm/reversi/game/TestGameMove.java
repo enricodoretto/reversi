@@ -95,8 +95,11 @@ public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource("1A, 10H, 3C")
-    void cannotBeMadeIfNotValid(String blackDiskCoordinate) {
-        Game game = new OthelloGame("Bob", "Alice");
-        assertThrows(IllegalArgumentException.class, () -> game.makeMove(new Coordinate(blackDiskCoordinate)));
+    void cannotBeMadeIfNotValid(String blackDiskCoordinate) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        assertAll(() -> assertThrows(IllegalArgumentException.class, () -> othelloGame.makeMove(new Coordinate(blackDiskCoordinate))),
+                () -> assertThrows(IllegalArgumentException.class, () -> reversiGame.makeMove(new Coordinate(blackDiskCoordinate))));
     }
 }
