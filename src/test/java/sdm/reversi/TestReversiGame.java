@@ -53,7 +53,7 @@ public class TestReversiGame {
         assertFalse(game.isOver());
     }
 
-    /*@ParameterizedTest
+    @ParameterizedTest
     @CsvSource("first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
@@ -62,7 +62,7 @@ public class TestReversiGame {
         assertNull(game.getWinner());
     }
 
-    @Test
+    /*@Test
     void gameWith2017FinalBoardIsWonByAlice() throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello2017FinalBoard");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
