@@ -8,8 +8,7 @@ import sdm.reversi.game.OthelloGame;
 import java.io.*;
 import java.net.URL;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestOthelloPlay {
 
@@ -54,4 +53,16 @@ public class TestOthelloPlay {
         assertAll(() -> assertEquals("Alice", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
+
+    @Test
+    void isOverWhenPlayerQuits() throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        String moves = "q" + System.lineSeparator();
+        ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
+        System.setIn(bais);
+        game.play();
+        assertTrue(game.isOver());
+    }
+
 }

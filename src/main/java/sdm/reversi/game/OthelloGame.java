@@ -37,7 +37,7 @@ public class OthelloGame extends Game {
 
     @Override
     public boolean isOver(){
-        return board.isFull() || (player1.isInStall() && player2.isInStall());
+        return super.isOver() || (player1.isInStall() && player2.isInStall());
     }
 
 }

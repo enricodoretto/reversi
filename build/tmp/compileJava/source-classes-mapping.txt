@@ -8,8 +8,8 @@ sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/Player.java
  sdm.reversi.Player
-sdm/reversi/game/Playable.java
- sdm.reversi.game.Playable
+sdm/reversi/game/ReversiGame.java
+ sdm.reversi.game.ReversiGame
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
@@ -17,5 +17,5 @@ sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
 sdm/reversi/ShiftDirection.java
  sdm.reversi.ShiftDirection
-sdm/reversi/game/ReversiGame.java
- sdm.reversi.game.ReversiGame
+sdm/reversi/game/Playable.java
+ sdm.reversi.game.Playable

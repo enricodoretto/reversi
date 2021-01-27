@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.game.TestReversiInitialMove" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-01-27T15:38:27" hostname="LAPTOP-KHLU3N1T" time="0.052">
+<testsuite name="sdm.reversi.game.TestReversiInitialMove" tests="12" skipped="0" failures="0" errors="0" timestamp="2021-01-27T16:04:45" hostname="MBP-di-Enrico-2.lan" time="0.022">
   <properties/>
-  <testcase name="[1] 8, 3D" classname="sdm.reversi.game.TestReversiInitialMove" time="0.045"/>
+  <testcase name="[1] 8, 4D" classname="sdm.reversi.game.TestReversiInitialMove" time="0.001"/>
+  <testcase name="[2] 4, 3C" classname="sdm.reversi.game.TestReversiInitialMove" time="0.0"/>
+  <testcase name="[3] 10, 6E" classname="sdm.reversi.game.TestReversiInitialMove" time="0.0"/>
+  <testcase name="[1] 8, 3D" classname="sdm.reversi.game.TestReversiInitialMove" time="0.0"/>
   <testcase name="[2] 4, 1A" classname="sdm.reversi.game.TestReversiInitialMove" time="0.001"/>
   <testcase name="[3] 10, 7H" classname="sdm.reversi.game.TestReversiInitialMove" time="0.001"/>
+  <testcase name="[1] 8, 6D" classname="sdm.reversi.game.TestReversiInitialMove" time="0.001"/>
+  <testcase name="[2] 4, 1A" classname="sdm.reversi.game.TestReversiInitialMove" time="0.0"/>
+  <testcase name="[3] 10, 2B" classname="sdm.reversi.game.TestReversiInitialMove" time="0.002"/>
+  <testcase name="[1] 8, 4D-4E-5D-5E" classname="sdm.reversi.game.TestReversiInitialMove" time="0.001"/>
+  <testcase name="[2] 4, 2B-2C-3B-3C" classname="sdm.reversi.game.TestReversiInitialMove" time="0.0"/>
+  <testcase name="[3] 10, 5E-5F-6E-6F" classname="sdm.reversi.game.TestReversiInitialMove" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

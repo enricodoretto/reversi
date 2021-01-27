@@ -23,7 +23,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitialMove.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiInitialMove.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/OthelloGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/OthelloGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/ReversiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/ReversiGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +56,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="reversi" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="reversi" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -133,7 +143,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="TestReversiInitialMove.canBeMadeInCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -152,7 +164,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="TestReversiInitialMove.canOnlyBeMadeInCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -171,7 +185,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="TestReversiInitialMove.isNotAllowedOutsideCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -190,7 +206,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="reversi [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -209,7 +227,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>

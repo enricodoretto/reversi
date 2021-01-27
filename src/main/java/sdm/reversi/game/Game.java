@@ -15,6 +15,7 @@ public abstract class Game implements Playable {
     protected Player currentPlayer;
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
+    protected boolean isQuit;
 
     public Game(String player1Name, String player2Name, int boardSize) {
         this(player1Name, player2Name);
@@ -124,7 +125,9 @@ public abstract class Game implements Playable {
         calculatePlayerPossibleMoves();
     }
 
-    public abstract boolean isOver();
+    public boolean isOver(){
+        return  isQuit || board.isFull();
+    };
 
     public Player getWinner() {
         if(!isOver() || player1.getScore() == player2.getScore()){
@@ -145,6 +148,10 @@ public abstract class Game implements Playable {
                 while (true) {
                     try {
                         String coordinateOfDesiredMove = scanner.nextLine();
+                        if(coordinateOfDesiredMove.equalsIgnoreCase("q")){
+                            isQuit = true;
+                            break;
+                        }
                         makeMove(new Coordinate(coordinateOfDesiredMove));
                         break;
                     } catch (IllegalArgumentException e) {
