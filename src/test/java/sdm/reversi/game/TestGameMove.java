@@ -48,9 +48,12 @@ public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource("3C,6F")
-    void isInvalidIfDoesNotCauseDisksToFlip(Coordinate stringCoordinate) {
-        Game game = new OthelloGame("Bob", "Alice");
-        assertFalse(game.isValidMove(stringCoordinate));
+    void isInvalidIfDoesNotCauseDisksToFlip(Coordinate coordinate) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
+                () -> assertFalse(reversiGame.isValidMove(coordinate)));
     }
 
     @ParameterizedTest
