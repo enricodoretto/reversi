@@ -24,16 +24,16 @@ public class TestReversiGame {
                 () -> game.isOver());
     }
 
-    /*@ParameterizedTest
+    @ParameterizedTest
     @CsvSource("othello2011FinalBoard, othello2017FinalBoard")
     void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.isOver());
     }
 
-    @ParameterizedTest
+    /*@ParameterizedTest
     @CsvSource("allWhite8x8Board, allBlack8x8Board, first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);

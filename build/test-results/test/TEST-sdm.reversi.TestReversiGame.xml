@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestReversiGame" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:20:57" hostname="LAPTOP-KHLU3N1T" time="0.003">
+<testsuite name="sdm.reversi.TestReversiGame" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:21:49" hostname="LAPTOP-KHLU3N1T" time="0.044">
   <properties/>
-  <testcase name="hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3DAndIsOver()" classname="sdm.reversi.TestReversiGame" time="0.003"/>
+  <testcase name="[1] othello2011FinalBoard" classname="sdm.reversi.TestReversiGame" time="0.044"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
