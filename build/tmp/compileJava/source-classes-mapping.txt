@@ -2,20 +2,20 @@ sdm/reversi/Board.java
  sdm.reversi.Board
 sdm/reversi/Main.java
  sdm.reversi.Main
-sdm/reversi/game/Playable.java
- sdm.reversi.game.Playable
-sdm/reversi/ShiftDirection.java
- sdm.reversi.ShiftDirection
-sdm/reversi/Player.java
- sdm.reversi.Player
-sdm/reversi/Coordinate.java
- sdm.reversi.Coordinate
-sdm/reversi/Disk.java
- sdm.reversi.Disk
- sdm.reversi.Disk$Color
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
 sdm/reversi/game/Game.java
  sdm.reversi.game.Game
+sdm/reversi/Player.java
+ sdm.reversi.Player
 sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
+sdm/reversi/Disk.java
+ sdm.reversi.Disk
+ sdm.reversi.Disk$Color
+sdm/reversi/Coordinate.java
+ sdm.reversi.Coordinate
+sdm/reversi/ShiftDirection.java
+ sdm.reversi.ShiftDirection
+sdm/reversi/game/Playable.java
+ sdm.reversi.game.Playable

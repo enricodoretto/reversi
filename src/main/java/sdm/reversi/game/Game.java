@@ -14,6 +14,7 @@ public abstract class Game implements Playable {
     protected Board board;
     protected Player currentPlayer;
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
+    protected int numberOfMoves;
 
     public Game(String player1Name, String player2Name, int boardSize) {
         this(player1Name, player2Name);
@@ -34,6 +35,7 @@ public abstract class Game implements Playable {
         if (board.getNumberOfDisks() < 4) {
             throw new IllegalArgumentException();
         }
+        numberOfMoves = (int)board.getNumberOfDisks();
     }
 
     public String getBoardRepresentation() {
@@ -109,6 +111,7 @@ public abstract class Game implements Playable {
         board.putDisk(currentPlayer.getColor(), coordinate);
         allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
         updatePlayersScore();
+        numberOfMoves ++;
     }
 
     protected void updatePlayersScore(){
@@ -146,7 +149,6 @@ public abstract class Game implements Playable {
                         break;
                     } catch (IllegalArgumentException e) {
                         System.out.println("Invalid move, please write another one");
-                        continue;
                     }
                 }
             }

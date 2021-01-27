@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sdm.reversi.game.TestReversiGameCreation" tests="3" skipped="0" failures="0" errors="0" timestamp="2021-01-27T14:39:22" hostname="MBP-di-Enrico-2.lan" time="0.009">
+  <properties/>
+  <testcase name="[1] 4, empty4x4Board" classname="sdm.reversi.game.TestReversiGameCreation" time="0.002"/>
+  <testcase name="[2] 8, empty8x8Board" classname="sdm.reversi.game.TestReversiGameCreation" time="0.002"/>
+  <testcase name="[3] 16, empty16x16Board" classname="sdm.reversi.game.TestReversiGameCreation" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
