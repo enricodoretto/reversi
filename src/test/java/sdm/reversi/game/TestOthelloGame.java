@@ -6,9 +6,6 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
-import sdm.reversi.board.TestBoardIsRepresented;
-import sdm.reversi.game.Game;
-import sdm.reversi.game.OthelloGame;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,7 +30,7 @@ public class TestOthelloGame {
 
     @Test
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3D() throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("allWhiteAndOneBlackIn3D8x8Board");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.getPlayer1().isInStall());
@@ -42,7 +39,7 @@ public class TestOthelloGame {
     @ParameterizedTest
     @CsvSource("othello2011FinalBoard, othello2017FinalBoard")
     void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.isOver());
@@ -51,7 +48,7 @@ public class TestOthelloGame {
     @ParameterizedTest
     @CsvSource("allWhite8x8Board, allBlack8x8Board, first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.isOver());
@@ -60,7 +57,7 @@ public class TestOthelloGame {
     @ParameterizedTest
     @CsvSource("othello8x8Board, othello4x4Board, othello16x16Board")
     void withBoardNotFullAndPlayersNotInStallIsNotOver(String boardFileName) throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertFalse(game.isOver());
     }
@@ -68,7 +65,7 @@ public class TestOthelloGame {
     @ParameterizedTest
     @CsvSource("first4RowsWhiteAndLast4RowsBlack8x8Board, first4ColumnsWhiteAndLast4ColumnsBlack8x8Board, chequered4x4Board")
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertNull(game.getWinner());
@@ -77,7 +74,7 @@ public class TestOthelloGame {
     @ParameterizedTest
     @CsvSource("othello2017FinalBoard, othello4x4BoardWonByWhite, othello8x8BoardWonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         Assertions.assertEquals(Disk.Color.WHITE, game.getWinner().getColor());
@@ -86,7 +83,7 @@ public class TestOthelloGame {
     @ParameterizedTest
     @CsvSource("othello4x4BoardWonByBlack, othello8x8BoardWonByBlack")
     void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertEquals(Disk.Color.BLACK, game.getWinner().getColor());

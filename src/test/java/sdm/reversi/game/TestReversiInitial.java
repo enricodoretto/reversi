@@ -1,14 +1,11 @@
 package sdm.reversi.game;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
-import sdm.reversi.board.TestBoardIsRepresented;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
