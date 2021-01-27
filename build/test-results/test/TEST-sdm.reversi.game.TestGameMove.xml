@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.game.TestGameMove" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-01-27T14:27:52" hostname="LAPTOP-KHLU3N1T" time="0.056">
+<testsuite name="sdm.reversi.game.TestGameMove" tests="4" skipped="0" failures="0" errors="0" timestamp="2021-01-27T14:29:17" hostname="LAPTOP-KHLU3N1T" time="0.086">
   <properties/>
-  <testcase name="[1] 3C" classname="sdm.reversi.game.TestGameMove" time="0.056"/>
+  <testcase name="[1] 6E, 5E" classname="sdm.reversi.game.TestGameMove" time="0.058"/>
+  <testcase name="[2] 5F, 5E" classname="sdm.reversi.game.TestGameMove" time="0.006"/>
+  <testcase name="[3] 4C, 4D" classname="sdm.reversi.game.TestGameMove" time="0.006"/>
+  <testcase name="[4] 3D, 4D" classname="sdm.reversi.game.TestGameMove" time="0.007"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

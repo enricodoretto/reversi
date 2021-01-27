@@ -58,10 +58,13 @@ public class TestGameMove {
 
     @ParameterizedTest
     @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
-    void returnsCoordinatesToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) {
-        Game game = new OthelloGame("Bob", "Alice");
+    void returnsCoordinatesToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) throws IOException {
+        Game othelloGame = new OthelloGame("Bob", "Alice");
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource("othello8x8Board");
+        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
         Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
-        assertEquals(coordinatesToFlip, game.getDisksToFlip(blackDiskPosition));
+        assertAll(() -> assertEquals(coordinatesToFlip, othelloGame.getDisksToFlip(blackDiskPosition)),
+                () -> assertEquals(coordinatesToFlip, reversiGame.getDisksToFlip(blackDiskPosition)));
     }
 
     @ParameterizedTest
