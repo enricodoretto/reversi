@@ -1,15 +1,13 @@
 package sdm.reversi;
 
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public abstract class Game {
+public abstract class Game implements Playable{
     protected final Player player1;
     protected final Player player2;
     protected Board board;
@@ -133,5 +131,27 @@ public abstract class Game {
         } else {
             return player2;
         }
+    }
+
+    @Override
+    public Player play() {
+        Scanner scanner = new Scanner(System.in);
+        while (!isOver()) {
+            // System.out.println(allowedMovesForCurrentPlayer);
+            // read from input the coordinate of the move
+            while (true) {
+                try {
+                    String coordinateOfDesiredMove = scanner.nextLine();
+                    Coordinate coordinate = new Coordinate(coordinateOfDesiredMove);
+                    makeMove(coordinate);
+                    break;
+                } catch (IllegalArgumentException e) {
+                    //System.out.println("Invalid move, please specify another one");
+                    continue;
+                }
+            }
+            changeTurn();
+        }
+        return getWinner();
     }
 }
