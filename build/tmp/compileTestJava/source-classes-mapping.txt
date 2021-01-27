@@ -1,5 +1,5 @@
-sdm/reversi/TestReversiGame.java
- sdm.reversi.TestReversiGame
+sdm/reversi/TestOthelloGame.java
+ sdm.reversi.TestOthelloGame
 sdm/reversi/TestOthelloMove.java
  sdm.reversi.TestOthelloMove
 sdm/reversi/TestOthelloPlay.java
@@ -18,5 +18,5 @@ sdm/reversi/TestBoardIsRepresented.java
  sdm.reversi.TestBoardIsRepresented
 sdm/reversi/TestDisk.java
  sdm.reversi.TestDisk
-sdm/reversi/TestOthelloGame.java
- sdm.reversi.TestOthelloGame
+sdm/reversi/TestReversiGame.java
+ sdm.reversi.TestReversiGame
