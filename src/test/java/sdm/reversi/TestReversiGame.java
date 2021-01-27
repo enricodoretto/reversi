@@ -26,7 +26,7 @@ public class TestReversiGame {
 
     @ParameterizedTest
     @CsvSource("othello2011FinalBoard, othello2017FinalBoard")
-    void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
+    void withOnePlayerInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new ReversiGame("Bob", "Alice", boardFile);
         game.play();
@@ -36,7 +36,7 @@ public class TestReversiGame {
                 () -> assertTrue(game.isOver()));
     }
 
-    /*@ParameterizedTest
+    @ParameterizedTest
     @CsvSource("allWhite8x8Board, allBlack8x8Board, first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
@@ -45,7 +45,7 @@ public class TestReversiGame {
         assertTrue(game.isOver());
     }
 
-    @ParameterizedTest
+    /*@ParameterizedTest
     @CsvSource("othello8x8Board, othello4x4Board, othello16x16Board")
     void withBoardNotFullAndAPlayerNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
