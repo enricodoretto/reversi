@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="sdm.reversi.TestBoardCreation" tests="28" skipped="0" failures="0" errors="0" timestamp="2021-01-27T11:38:07" hostname="LAPTOP-KHLU3N1T" time="0.145">
+  <properties/>
+  <testcase name="[1] 4" classname="sdm.reversi.TestBoardCreation" time="0.037"/>
+  <testcase name="[2] 8" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[3] 26" classname="sdm.reversi.TestBoardCreation" time="0.0"/>
+  <testcase name="[1] 5" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[1] nonExistingFile" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[2] inventedFile" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[1] illegal8x8Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[2] illegal4x4Board" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[3] illegal16x16Board" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[1] 28" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[2] 30" classname="sdm.reversi.TestBoardCreation" time="0.0"/>
+  <testcase name="[3] 64" classname="sdm.reversi.TestBoardCreation" time="0.0"/>
+  <testcase name="[1] -4" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[2] 0" classname="sdm.reversi.TestBoardCreation" time="0.0"/>
+  <testcase name="[3] 2" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="succeedsWithNoSize()" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[1] wronglyFormatted8x7Board" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[2] wronglyFormatted4x5Board" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[3] wronglyFormattedBoardWithIrregularLengthLines" classname="sdm.reversi.TestBoardCreation" time="0.001"/>
+  <testcase name="[1] empty8x8Board" classname="sdm.reversi.TestBoardCreation" time="0.009"/>
+  <testcase name="[2] empty4x4Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[3] empty16x16Board" classname="sdm.reversi.TestBoardCreation" time="0.003"/>
+  <testcase name="[4] whiteIn1A8x8Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[5] whiteIn1A4x4Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[6] whiteIn1A16x16Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[7] whiteIn1AblackIn4D8x8Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[8] whiteIn1AblackIn4D4x4Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <testcase name="[9] whiteIn1AblackIn4D16x16Board" classname="sdm.reversi.TestBoardCreation" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -71,12 +71,21 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othello2017FinalBoard, othello4x4BoardWonByWhite")
+    @CsvSource("othello2017FinalBoard, othello4x4BoardWonByWhite, othello8x8BoardWonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertEquals(Disk.Color.WHITE, game.getWinner().getColor());
+    }
+
+    @ParameterizedTest
+    @CsvSource("othello4x4BoardWonByBlack, othello8x8BoardWonByBlack")
+    void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(boardFileName);
+        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        game.play();
+        assertEquals(Disk.Color.BLACK, game.getWinner().getColor());
     }
 
 
