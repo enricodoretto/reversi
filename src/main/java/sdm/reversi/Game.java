@@ -140,6 +140,11 @@ public abstract class Game implements Playable{
             // System.out.println(allowedMovesForCurrentPlayer);
             // read from input the coordinate of the move
             while (true) {
+                if(allowedMovesForCurrentPlayer == null){
+                    //System.out.println(" sorry you can make no moves");
+                    changeTurn();
+                }
+                System.out.printf("%s's turn%n", currentPlayer.getName());
                 try {
                     String coordinateOfDesiredMove = scanner.nextLine();
                     Coordinate coordinate = new Coordinate(coordinateOfDesiredMove);
