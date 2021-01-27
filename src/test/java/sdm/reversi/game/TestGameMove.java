@@ -77,8 +77,8 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource({"othelloInitialBoards/othello8x8Board,4C,othello8x8BoardAfterBlackIn4C",
-            "othelloInitialBoards/othello8x8Board,6E,othello8x8BoardAfterBlackIn6E",
+    @CsvSource({"othelloInitialBoards/othello8x8Board,4C,othelloBoardsAfterOneMove/othello8x8BoardAfterBlackIn4C",
+            "othelloInitialBoards/othello8x8Board,6E,othelloBoardsAfterOneMove/othello8x8BoardAfterBlackIn6E",
             "othello8x8CustomBoard1,6F,othello8x8CustomBoard1AfterBlackIn6F"})
     void flipsDisksIfValid(String originalBoardFileName, Coordinate moveCoordinate, String expectedFinalBoardFileName) throws URISyntaxException, IOException {
         URL originalBoardFile = Thread.currentThread().getContextClassLoader().getResource(originalBoardFileName);

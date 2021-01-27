@@ -20,9 +20,9 @@ sdm/reversi/game/TestGameCreation.java
  sdm.reversi.game.TestGameCreation
 sdm/reversi/board/TestPuttingDiskIn.java
  sdm.reversi.board.TestPuttingDiskIn
-sdm/reversi/game/TestGameMove.java
- sdm.reversi.game.TestGameMove
-sdm/reversi/game/TestOthelloGame.java
- sdm.reversi.game.TestOthelloGame
 sdm/reversi/game/TestReversiGame.java
  sdm.reversi.game.TestReversiGame
+sdm/reversi/game/TestOthelloGame.java
+ sdm.reversi.game.TestOthelloGame
+sdm/reversi/game/TestGameMove.java
+ sdm.reversi.game.TestGameMove
