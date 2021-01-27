@@ -18,9 +18,11 @@ sdm/reversi/game/TestOthelloPlay.java
  sdm.reversi.game.TestOthelloPlay
 sdm/reversi/game/TestGameMove.java
  sdm.reversi.game.TestGameMove
+sdm/reversi/game/TestReversiGameCreation.java
+ sdm.reversi.game.TestReversiGameCreation
 sdm/reversi/game/TestGameCreation.java
  sdm.reversi.game.TestGameCreation
 sdm/reversi/game/TestReversiGame.java
  sdm.reversi.game.TestReversiGame
-sdm/reversi/game/TestReversiGameCreation.java
- sdm.reversi.game.TestReversiGameCreation
+sdm/reversi/game/TestReversiInitialMove.java
+ sdm.reversi.game.TestReversiInitialMove
