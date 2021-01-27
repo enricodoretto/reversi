@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="sdm.reversi.TestPuttingDiskIn" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-01-27T12:00:47" hostname="MBP-di-Enrico-2.lan" time="0.016">
+<testsuite name="sdm.reversi.TestPuttingDiskIn" tests="9" skipped="0" failures="0" errors="0" timestamp="2021-01-27T12:06:57" hostname="LAPTOP-KHLU3N1T" time="0.017">
   <properties/>
-  <testcase name="[1] 11C" classname="sdm.reversi.TestPuttingDiskIn" time="0.002"/>
+  <testcase name="[1] 11C" classname="sdm.reversi.TestPuttingDiskIn" time="0.001"/>
   <testcase name="[2] 0A" classname="sdm.reversi.TestPuttingDiskIn" time="0.0"/>
   <testcase name="[3] 4I" classname="sdm.reversi.TestPuttingDiskIn" time="0.001"/>
   <testcase name="[1] 1A" classname="sdm.reversi.TestPuttingDiskIn" time="0.001"/>
-  <testcase name="[2] 5F" classname="sdm.reversi.TestPuttingDiskIn" time="0.001"/>
+  <testcase name="[2] 5F" classname="sdm.reversi.TestPuttingDiskIn" time="0.0"/>
   <testcase name="[3] 8H" classname="sdm.reversi.TestPuttingDiskIn" time="0.0"/>
   <testcase name="[1] 1A" classname="sdm.reversi.TestPuttingDiskIn" time="0.001"/>
   <testcase name="[2] 2A" classname="sdm.reversi.TestPuttingDiskIn" time="0.0"/>

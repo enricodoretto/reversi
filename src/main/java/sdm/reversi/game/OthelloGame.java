@@ -28,7 +28,6 @@ public class OthelloGame extends Game {
         updatePlayersScore();
     }
 
-    @Override
     protected void initializeBoard() {
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2-1, board.getSize()/2-1));
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2,board.getSize()/2));

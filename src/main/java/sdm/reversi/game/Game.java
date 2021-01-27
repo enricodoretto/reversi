@@ -36,8 +36,6 @@ public abstract class Game implements Playable {
         }
     }
 
-    protected abstract void initializeBoard();
-
     public String getBoardRepresentation() {
         return board.toString();
     }

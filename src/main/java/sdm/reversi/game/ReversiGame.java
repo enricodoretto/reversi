@@ -7,7 +7,6 @@ public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name) throws IllegalArgumentException {
         super(player1Name, player2Name);
-        initializeBoard();
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }
@@ -20,13 +19,8 @@ public class ReversiGame extends Game {
 
     public ReversiGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
-        initializeBoard();
         calculatePlayerPossibleMoves();
         updatePlayersScore();
-    }
-
-    @Override
-    protected void initializeBoard() {
     }
 
     @Override
