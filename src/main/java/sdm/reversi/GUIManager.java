@@ -11,12 +11,15 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 public class GUIManager extends JFrame implements IOManager, ActionListener {
     private JLabel player1Name, player2Name, player1Score, player2Score, currentPlayerName;
     private JPanel[][] graphicBoard;
     private final static int FRAME_SIZE = 700;
     private int diskRadius;
+    private int boardSize;
+
     //private boolean[][] diskIsPresent;
     //private int numberOfMoves = 0;
     private ArrayList<Point> points;
@@ -25,7 +28,6 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void updateGame(Game game) {
-
     }
 
     @Override
@@ -35,96 +37,53 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void startTurn(String message) {
-
     }
 
     @Override
     public void illegalMove(String message) {
-
     }
 
     @Override
     public void initialize(Game game) {
-
-        //to divide in different methods
-
-        graphicBoard = new JPanel[game.getBoard().getSize()][game.getBoard().getSize()];
+        boardSize = game.getBoard().getSize();
+        graphicBoard = new JPanel[boardSize][boardSize];
         //diskIsPresent = new boolean[dimensionBoard][dimensionBoard];
         points = new ArrayList<>();
-        diskRadius = (FRAME_SIZE/game.getBoard().getSize())/2;
-
-        player1Name = new JLabel(game.getPlayer1().getName(), JLabel.CENTER);
-        player2Name = new JLabel(game.getPlayer2().getName(), JLabel.CENTER);
-        player1Score = new JLabel(game.getPlayer1().getScore() + "", JLabel.CENTER); // conversione da int con un metodo che vede il numero di dischi
-        player2Score = new JLabel(game.getPlayer2().getScore() + "", JLabel.CENTER);
-
-        player1Name.setFont(new Font("Tahoma", Font.BOLD, 30));
-        player1Score.setFont(new Font("Tahoma", Font.BOLD, 60));
-        player2Name.setFont(new Font("Tahoma", Font.BOLD, 30));
-        player2Score.setFont(new Font("Tahoma", Font.BOLD, 60));
+        diskRadius = (FRAME_SIZE / boardSize) / 2;
 
         //TopPanel topPanel = new TopPanel();
         //add(topPanel.getTopPanel(), BorderLayout.NORTH);
 
+        JPanel statisticsPanel = createStatisticsPanel(game);
         JPanel container = new JPanel(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        JPanel statisticsPanel = new JPanel(new BorderLayout());
-        statisticsPanel.setPreferredSize(new Dimension(300, FRAME_SIZE));
-        statisticsPanel.setBackground(Color.decode("#b0b0b0"));
-        statisticsPanel.setBorder(new EmptyBorder(0,25,0,25));
-        player1Name.setForeground(Color.BLACK);
-        player1Score.setForeground(Color.BLACK);
-        player2Name.setForeground(Color.WHITE);
-        player2Score.setForeground(Color.WHITE);
-
-        // to move in class fields
-        JButton mainMenuButton = new JButton("Main Menu");
-        mainMenuButton.setMaximumSize(new Dimension(30,10));
-        mainMenuButton.addActionListener(this);
-
-        //to move with other players
-        currentPlayerName = new JLabel(game.getCurrentPlayer().getName()+"'s Turn", JLabel.CENTER);
-        currentPlayerName.setBorder(new EmptyBorder(50, 0, 50, 0));
-        currentPlayerName.setFont(new Font("Tahoma", Font.BOLD, 30));
-
-        statisticsPanel.add(currentPlayerName, BorderLayout.NORTH);
-
-        JPanel playerStatisticsPanel = new JPanel(new GridLayout(4,1));
-        playerStatisticsPanel.setBackground(Color.decode("#b0b0b0"));
-        playerStatisticsPanel.add(player1Name);
-        playerStatisticsPanel.add(player1Score);
-        playerStatisticsPanel.add(player2Name);
-        playerStatisticsPanel.add(player2Score);
-        statisticsPanel.add(playerStatisticsPanel, BorderLayout.CENTER);
-        statisticsPanel.add(mainMenuButton, BorderLayout.SOUTH);
-        c.gridy = 0;
-        c.gridx = 0;
-        container.add(statisticsPanel, c);
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridx = 0;
+        container.add(statisticsPanel, gridBagConstraints);
         container.setBackground(Color.decode("#b0b0b0"));
 
         JPanel boardPanel = new JPanel(new BorderLayout());
-        JPanel board = createGridPanel(game, this);
+        boardPanel.add(createGridPanel(game, this), BorderLayout.CENTER);
 
-        JPanel rowPanel = new JPanel(new GridLayout(game.getBoard().getSize(),1));
-        rowPanel.setBorder(new EmptyBorder(0,10,0,10));
-        rowPanel.setPreferredSize(new Dimension(30 ,FRAME_SIZE));
-        rowPanel.setBackground(Color.decode("#b0b0b0"));
+        JPanel yAxisPanel = new JPanel(new GridLayout(boardSize, 1));
+        yAxisPanel.setBorder(new EmptyBorder(0, 10, 0, 10));
+        yAxisPanel.setPreferredSize(new Dimension(30, FRAME_SIZE));
+        yAxisPanel.setBackground(Color.decode("#b0b0b0"));
 
-        boardPanel.add(board, BorderLayout.CENTER);
-        JPanel columPanel = new JPanel(new GridLayout(1, game.getBoard().getSize()+1));
+        JPanel xAxisPanel = new JPanel(new GridLayout(1, boardSize + 1));
+        xAxisPanel.setBorder(new EmptyBorder(0, 30, 0, 0));
+        xAxisPanel.setBackground(Color.decode("#b0b0b0"));
 
-        columPanel.setBorder(new EmptyBorder(0, 30, 0,0));
-        columPanel.setBackground(Color.decode("#b0b0b0"));
-        for(int i = 0; i < game.getBoard().getSize(); i++){
-            char coloumValue = (char) (i+65);
-            columPanel.add(new JLabel(Character.toString(coloumValue), JLabel.CENTER));
-            rowPanel.add(new JLabel((i+1)+""));
-        }
-        boardPanel.add(columPanel, BorderLayout.NORTH);
-        boardPanel.add(rowPanel, BorderLayout.WEST);
+        IntStream.range(0, boardSize).forEach(index -> {
+            xAxisPanel.add(new JLabel(String.format("%c", index + 'A'), JLabel.CENTER));
+            yAxisPanel.add(new JLabel(String.format("%d", index + 1)));
+        });
 
-        ++c.gridx;
-        container.add(boardPanel, c);
+        boardPanel.add(xAxisPanel, BorderLayout.NORTH);
+        boardPanel.add(yAxisPanel, BorderLayout.WEST);
+
+        ++gridBagConstraints.gridx;
+        container.add(boardPanel, gridBagConstraints);
 
         add(container);
         setResizable(false);
@@ -135,9 +94,9 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     }
 
     private JPanel createGridPanel(Game game, final JFrame frame) {
-        JPanel boardPanel = new JPanel(new GridLayout(game.getBoard().getSize(), game.getBoard().getSize()));
-        for (int indexRow = 0; indexRow < game.getBoard().getSize(); indexRow++) {
-            for (int indexColumn = 0; indexColumn < game.getBoard().getSize(); indexColumn++) {
+        JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
+        for (int indexRow = 0; indexRow < boardSize; indexRow++) {
+            for (int indexColumn = 0; indexColumn < boardSize; indexColumn++) {
                 graphicBoard[indexRow][indexColumn] = new JPanel() {
                     @Override
                     public void paintComponent(Graphics g) {
@@ -176,6 +135,48 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         return boardPanel;
     }
 
+    private JPanel createStatisticsPanel(Game game) {
+        JPanel statisticsPanel = new JPanel(new BorderLayout());
+        statisticsPanel.setPreferredSize(new Dimension(300, FRAME_SIZE));
+        statisticsPanel.setBackground(Color.decode("#b0b0b0"));
+        statisticsPanel.setBorder(new EmptyBorder(0, 25, 0, 25));
+
+        player1Name = new JLabel(game.getPlayer1().getName(), JLabel.CENTER);
+        player2Name = new JLabel(game.getPlayer2().getName(), JLabel.CENTER);
+        player1Score = new JLabel(game.getPlayer1().getScore() + "", JLabel.CENTER); // conversione da int con un metodo che vede il numero di dischi
+        player2Score = new JLabel(game.getPlayer2().getScore() + "", JLabel.CENTER);
+        currentPlayerName = new JLabel(game.getCurrentPlayer().getName() + "'s Turn", JLabel.CENTER);
+
+        player1Name.setFont(new Font("Tahoma", Font.BOLD, 30));
+        player1Score.setFont(new Font("Tahoma", Font.BOLD, 60));
+        player2Name.setFont(new Font("Tahoma", Font.BOLD, 30));
+        player2Score.setFont(new Font("Tahoma", Font.BOLD, 60));
+        currentPlayerName.setFont(new Font("Tahoma", Font.BOLD, 30));
+
+        player1Name.setForeground(Color.BLACK);
+        player1Score.setForeground(Color.BLACK);
+        player2Name.setForeground(Color.WHITE);
+        player2Score.setForeground(Color.WHITE);
+
+        currentPlayerName.setBorder(new EmptyBorder(50, 0, 50, 0));
+
+        // to move in class fields
+        JButton mainMenuButton = new JButton("Main Menu");
+        mainMenuButton.setMaximumSize(new Dimension(30, 10));
+        mainMenuButton.addActionListener(this);
+
+        statisticsPanel.add(currentPlayerName, BorderLayout.NORTH);
+        JPanel playerStatisticsPanel = new JPanel(new GridLayout(4, 1));
+        playerStatisticsPanel.setBackground(Color.decode("#b0b0b0"));
+        playerStatisticsPanel.add(player1Name);
+        playerStatisticsPanel.add(player1Score);
+        playerStatisticsPanel.add(player2Name);
+        playerStatisticsPanel.add(player2Score);
+        statisticsPanel.add(playerStatisticsPanel, BorderLayout.CENTER);
+        statisticsPanel.add(mainMenuButton, BorderLayout.SOUTH);
+
+        return statisticsPanel;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
