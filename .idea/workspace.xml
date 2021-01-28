@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -265,7 +266,7 @@
       <workItem from="1611671540792" duration="1898000" />
       <workItem from="1611734608389" duration="891000" />
       <workItem from="1611764209423" duration="397000" />
-      <workItem from="1611820543281" duration="12422000" />
+      <workItem from="1611820543281" duration="12617000" />
     </task>
     <servers />
   </component>

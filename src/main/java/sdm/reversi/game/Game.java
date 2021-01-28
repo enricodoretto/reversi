@@ -144,11 +144,13 @@ public abstract class Game implements Playable {
         //printInitialBoard();
         while (!isOver()) {
             ioManager.updateBoard(board);
-            System.out.printf("%s's turn: ", currentPlayer.getName());
+            String startTurnMessage = String.format("%s's turn: ", currentPlayer.getName());
             if (currentPlayer.isInStall()) {
-                System.out.println("sorry you can make no moves!");
+                startTurnMessage += "sorry you can make no moves!";
+                ioManager.startTurn(startTurnMessage);
             } else {
-                System.out.println(String.join(" ", allowedMovesForCurrentPlayer.keySet().stream().map(x -> x.toString()).sorted().collect(Collectors.toList())));
+                startTurnMessage += String.join(" ", allowedMovesForCurrentPlayer.keySet().stream().map(x -> x.toString()).sorted().collect(Collectors.toList()));
+                ioManager.startTurn(startTurnMessage);
                 while (true) {
                     try {
                         String coordinateOfDesiredMove = ioManager.getMoveFromPlayer();
