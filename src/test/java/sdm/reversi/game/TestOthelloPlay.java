@@ -64,19 +64,17 @@ public class TestOthelloPlay {
         assertTrue(game.isOver());
     }
 
-    /*@Test
-    void full4x4GameWonByBob(){
+    @Test
+    void full4x4GameWonByBob() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthello4x4");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4GameWonByBob");
         Game game = new OthelloGame("Bob", "Alice", 4);
-        String moves = "1B" + System.lineSeparator() + "4A" + System.lineSeparator()
-                + "3A" + System.lineSeparator() + "4B" + System.lineSeparator() + "1C" + System.lineSeparator()
-                + "1D" + System.lineSeparator() + "q" + System.lineSeparator();
-        String messages = String.format("%s's turn%n%s's turn%nInvalid move, please write another one%n%s's turn%n%s's turn%n%s's turn%n%s's turn%n",
-                "Bob", "Alice", "Bob", "Alice", "Bob", "Alice", "Bob", "Alice", "Bob");
-        ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
-        System.setIn(bais);
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         assertAll(() -> assertEquals("Bob", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
-    }*/
+    }
+
 }
