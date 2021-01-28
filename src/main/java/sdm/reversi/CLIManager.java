@@ -11,7 +11,7 @@ public class CLIManager implements IOManager{
 
     @Override
     public void updateGame(Game game) {
-        System.out.println(game.getBoardRepresentation());
+        System.out.println(game.getBoard());
     }
 
     @Override
@@ -25,7 +25,7 @@ public class CLIManager implements IOManager{
 
     @Override
     public void initialize(Game game){
-        System.out.println(game.getBoardRepresentation());
+        System.out.println(game.getBoard());
     }
 
     @Override

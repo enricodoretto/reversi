@@ -41,8 +41,8 @@ public abstract class Game implements Playable {
         numberOfMoves = (int)board.getNumberOfDisks();
     }
 
-    public String getBoardRepresentation() {
-        return board.toString();
+    public Board getBoard() {
+        return board;
     }
 
     public Player getPlayer1() {

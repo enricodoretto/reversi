@@ -88,8 +88,8 @@ public class TestGameMove {
         othelloGame.makeMove(moveCoordinate);
         Game reversiGame = new ReversiGame("Bob", "Alice", originalBoardFile);
         reversiGame.makeMove(moveCoordinate);
-        assertAll(() -> assertEquals(finalBoard, othelloGame.getBoardRepresentation()),
-                () -> assertEquals(finalBoard, reversiGame.getBoardRepresentation()));
+        assertAll(() -> assertEquals(finalBoard, othelloGame.getBoard().toString()),
+                () -> assertEquals(finalBoard, reversiGame.getBoard().toString()));
     }
 
     @ParameterizedTest

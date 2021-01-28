@@ -19,7 +19,7 @@ public class TestOthelloGameCreation {
         Game game = new OthelloGame("Bob", "Alice", boardSize);
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
-        assertEquals(initializedOthelloBoard, game.getBoardRepresentation());
+        assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }
 
     @ParameterizedTest
@@ -28,7 +28,7 @@ public class TestOthelloGameCreation {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
         Game game = new OthelloGame("Bob", "Alice", boardFile);
-        assertEquals(initializedOthelloBoard, game.getBoardRepresentation());
+        assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }
 
     @ParameterizedTest

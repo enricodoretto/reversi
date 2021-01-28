@@ -17,6 +17,8 @@ sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
 sdm/reversi/game/Game.java
  sdm.reversi.game.Game
+sdm/reversi/GUIManager.java
+ sdm.reversi.GUIManager
 sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
 sdm/reversi/CLIManager.java

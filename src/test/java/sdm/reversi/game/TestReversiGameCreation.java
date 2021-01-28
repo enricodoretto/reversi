@@ -19,7 +19,7 @@ public class TestReversiGameCreation {
         Game game = new ReversiGame("Bob", "Alice", boardSize);
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
-        assertEquals(initializedOthelloBoard, game.getBoardRepresentation());
+        assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }
 
 }
