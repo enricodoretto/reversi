@@ -1,0 +1,31 @@
+----
+-WB-
+-BW-
+----
+Bob's turn: 1B 2A 3D 4C
+-B--
+-BB-
+-BW-
+----
+Alice's turn: 1A 1C 3A
+Invalid move, please write another one
+-B--
+-BB-
+WWW-
+----
+Bob's turn: 4A 4B 4C 4D
+-B--
+-BB-
+WBW-
+-B--
+Alice's turn: 1A 1C
+-BW-
+-WW-
+WBW-
+-B--
+Bob's turn: 1D 2D 3D
+-BBB
+-WB-
+WBW-
+-B--
+Alice's turn: 2D
