@@ -16,11 +16,16 @@ public abstract class Game implements Playable {
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
     protected boolean isQuit;
-    private final IOManager ioManager;
+    private IOManager ioManager;
 
     public Game(String player1Name, String player2Name, int boardSize) {
         this(player1Name, player2Name);
         board = new Board(boardSize);
+    }
+
+    public Game(String player1Name, String player2Name, IOManager ioManager) {
+        this(player1Name,player2Name);
+        this.ioManager = ioManager;
     }
 
     public Game(String player1Name, String player2Name) {
@@ -53,6 +58,9 @@ public abstract class Game implements Playable {
         return player2;
     }
 
+    public Player getCurrentPlayer() {
+        return currentPlayer;
+    }
 
     public boolean isValidMove(Coordinate coordinate) {
         return allowedMovesForCurrentPlayer.containsKey(coordinate);

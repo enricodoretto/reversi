@@ -2,6 +2,7 @@ package sdm.reversi.game;
 
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
+import sdm.reversi.IOManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +18,13 @@ public class OthelloGame extends Game {
 
     public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         super(player1Name, player2Name, boardFileURL);
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
+
+    public OthelloGame(String player1Name, String player2Name, IOManager ioManager) {
+        super(player1Name,player2Name, ioManager);
+        initializeBoard();
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }
