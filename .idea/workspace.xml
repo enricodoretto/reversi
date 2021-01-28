@@ -23,39 +23,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/test/resources/gameInputs/movesForIsOverAfterTwoMoves" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/gameLog/expectedGameLogOthello4x4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/gameLog/logOfIsOverAfterTwoMoves" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloGame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloGameCreation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloGameCreation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestReversiGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestReversiGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloPlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloPlay.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/allBlack8x8Board" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/allWhite8x8Board" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/allWhiteAndOneBlackIn3D8x8Board" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/othello4x4BoardWonByBlack" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/othello4x4BoardWonByWhite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/othello8x8BoardWonByBlack" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/test/othello8x8BoardWonByWhite" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloGameCreation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloGameCreation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/allBlack8x8Board" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/allBlack8x8Board" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/allWhite8x8Board" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/allWhite8x8Board" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/allWhiteAndOneBlackIn3D8x8Board" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/allWhiteAndOneBlackIn3D8x8Board" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/othello4x4BoardWonByBlack" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/othello4x4BoardWonByBlack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/othello4x4BoardWonByWhite" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/othello4x4BoardWonByWhite" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/othello8x8BoardWonByBlack" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/othello8x8BoardWonByBlack" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/othello8x8BoardWonByWhite" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/fullBoards/othello8x8BoardWonByWhite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +71,12 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="reversi" type="f1a62948:ProjectNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="reversi" type="f1a62948:ProjectNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -126,23 +119,23 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources" />
+      <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/test/resources/gameLog" />
       <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources\fullBoards" />
       <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources\tieGameBoards" />
       <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources\invalidBoards" />
       <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources\emptyBoards" />
-      <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="sdm.reversi" />
       <recent name="sdm.reversi.game" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/test/resources" />
-      <recent name="C:\Users\Giorgia Nadizar\IdeaProjects\reversi\src\test\resources" />
-    </key>
   </component>
-  <component name="RunManager" selected="Gradle.reversi [test]">
+  <component name="RunManager" selected="Gradle.TestOthelloPlay.isOverAfterTwoMoves">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -153,6 +146,48 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="TestOthelloPlay.full4x4GameWonByBob" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestOthelloPlay.full4x4GameWonByBob&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="TestOthelloPlay.isOverAfterTwoMoves" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestOthelloPlay.isOverAfterTwoMoves&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
     </configuration>
     <configuration name="TestReversiInitial.fourMovesCanBeMadeInCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -170,7 +205,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="TestReversiInitial.fourMovesCanBeMadeInCentralSquareParam" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -189,45 +226,9 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestReversiInitial.moveCannotBeMadeOutsideCentralSquare" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;sdm.reversi.game.TestReversiInitial.moveCannotBeMadeOutsideCentralSquare&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="reversi [clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value="clean" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <configuration name="reversi [test]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -246,16 +247,18 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.TestOthelloPlay.isOverAfterTwoMoves" />
+        <item itemvalue="Gradle.TestOthelloPlay.full4x4GameWonByBob" />
+        <item itemvalue="Gradle.reversi [test]" />
         <item itemvalue="Gradle.TestReversiInitial.fourMovesCanBeMadeInCentralSquareParam" />
         <item itemvalue="Gradle.TestReversiInitial.fourMovesCanBeMadeInCentralSquare" />
-        <item itemvalue="Gradle.reversi [test]" />
-        <item itemvalue="Gradle.TestReversiInitial.moveCannotBeMadeOutsideCentralSquare" />
-        <item itemvalue="Gradle.reversi [clean]" />
       </list>
     </recent_temporary>
   </component>
@@ -270,6 +273,7 @@
       <workItem from="1611671540792" duration="1898000" />
       <workItem from="1611734608389" duration="891000" />
       <workItem from="1611764209423" duration="397000" />
+      <workItem from="1611820543281" duration="2671000" />
     </task>
     <servers />
   </component>
@@ -288,28 +292,6 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="549" y="154" key="FileChooserDialogImpl" timestamp="1611765124244">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="549" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1611765124244" />
-    <state width="1493" height="184" key="GridCell.Tab.0.bottom" timestamp="1611769568026">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1611769568026" />
-    <state width="1493" height="184" key="GridCell.Tab.0.center" timestamp="1611769568026">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1611769568026" />
-    <state width="1493" height="184" key="GridCell.Tab.0.left" timestamp="1611769568025">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1611769568025" />
-    <state width="1493" height="184" key="GridCell.Tab.0.right" timestamp="1611769568026">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="184" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1611769568026" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -317,6 +299,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java</url>
           <line>140</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java</url>
+          <line>150</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
