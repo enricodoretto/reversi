@@ -16,7 +16,7 @@ public abstract class Game implements Playable {
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
     protected boolean isQuit;
-    private IOManager ioManager;
+    private final IOManager ioManager;
 
     public Game(String player1Name, String player2Name, int boardSize) {
         this(player1Name, player2Name);
@@ -129,7 +129,7 @@ public abstract class Game implements Playable {
 
     public boolean isOver(){
         return  isQuit || board.isFull();
-    };
+    }
 
     public Player getWinner() {
         if(!isOver() || player1.getScore() == player2.getScore()){
@@ -148,7 +148,7 @@ public abstract class Game implements Playable {
                 startTurnMessage += "sorry you can make no moves!";
                 ioManager.startTurn(startTurnMessage);
             } else {
-                startTurnMessage += String.join(" ", allowedMovesForCurrentPlayer.keySet().stream().map(x -> x.toString()).sorted().collect(Collectors.toList()));
+                startTurnMessage += allowedMovesForCurrentPlayer.keySet().stream().map(Coordinate::toString).sorted().collect(Collectors.joining(" "));
                 ioManager.startTurn(startTurnMessage);
                 while (true) {
                     try {

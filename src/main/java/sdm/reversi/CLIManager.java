@@ -4,7 +4,8 @@ import java.util.Scanner;
 
 public class CLIManager implements IOManager{
 
-    private Scanner scanner = new Scanner(System.in);
+    private static final String QUIT_COMMAND = "q";
+    private  final Scanner scanner = new Scanner(System.in);
 
     @Override
     public void updateBoard(Board board) {
@@ -14,7 +15,7 @@ public class CLIManager implements IOManager{
     @Override
     public Coordinate getMoveFromPlayer() {
         String coordinateOfDesiredMove = scanner.nextLine();
-        if(coordinateOfDesiredMove.equalsIgnoreCase("q")){
+        if(coordinateOfDesiredMove.equalsIgnoreCase(QUIT_COMMAND)){
             return null;
         }
         return new Coordinate(coordinateOfDesiredMove);
