@@ -15,11 +15,11 @@ sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
 sdm/reversi/IOManager.java
  sdm.reversi.IOManager
+sdm/reversi/CLIManager.java
+ sdm.reversi.CLIManager
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
 sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
-sdm/reversi/CLIManager.java
- sdm.reversi.CLIManager

@@ -159,7 +159,7 @@ public abstract class Game implements Playable {
                         makeMove(new Coordinate(coordinateOfDesiredMove));
                         break;
                     } catch (IllegalArgumentException e) {
-                        System.out.println("Invalid move, please write another one");
+                        ioManager.illegalMove("Invalid move, please write another one");
                     }
                 }
             }
