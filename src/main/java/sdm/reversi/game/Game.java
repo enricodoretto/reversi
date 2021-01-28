@@ -157,7 +157,7 @@ public abstract class Game implements Playable {
                             break;
                         }
                         makeMove(coordinateOfDesiredMove);
-                        ioManager.updateBoard(board);
+                        ioManager.updateGame(this);
                         break;
                     } catch (IllegalArgumentException e) {
                         ioManager.illegalMove("Invalid move, please write another one");

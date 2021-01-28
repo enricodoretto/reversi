@@ -4,7 +4,7 @@ import sdm.reversi.game.Game;
 
 public interface IOManager {
 
-    void updateBoard(Board board);
+    void updateGame(Game game);
     Coordinate getMoveFromPlayer();
     void startTurn(String message);
     void illegalMove(String message);

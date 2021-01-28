@@ -10,8 +10,8 @@ public class CLIManager implements IOManager{
     private  final Scanner scanner = new Scanner(System.in);
 
     @Override
-    public void updateBoard(Board board) {
-        System.out.println(board);
+    public void updateGame(Game game) {
+        System.out.println(game.getBoardRepresentation());
     }
 
     @Override
