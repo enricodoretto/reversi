@@ -157,13 +157,13 @@ public abstract class Game implements Playable {
                             break;
                         }
                         makeMove(coordinateOfDesiredMove);
+                        ioManager.updateBoard(board);
                         break;
                     } catch (IllegalArgumentException e) {
                         ioManager.illegalMove("Invalid move, please write another one");
                     }
                 }
             }
-            ioManager.updateBoard(board);
             changeTurn();
         }
         return getWinner();
