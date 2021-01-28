@@ -57,10 +57,9 @@ public class TestOthelloPlay {
     @Test
     void isOverWhenPlayerQuits() throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
-        String moves = "q" + System.lineSeparator();
-        ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
-        System.setIn(bais);
+        System.setIn(inputMoveFile.openStream());
         game.play();
         assertTrue(game.isOver());
     }
