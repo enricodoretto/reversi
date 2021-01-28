@@ -1,31 +1,51 @@
 ----
--WB-
--BW-
 ----
-Bob's turn: 1B 2A 3D 4C
+----
+----
+Bob's turn: 2B 2C 3B 3C
+----
 -B--
--BB-
--BW-
 ----
-Alice's turn: 1A 1C 3A
+----
+Alice's turn: 2C 3B 3C
 Invalid move, please write another one
+----
 -B--
+--W-
+----
+Bob's turn: 2C 3B
+----
 -BB-
-WWW-
+--W-
+----
+Alice's turn: 3B
+----
+-BB-
+-WW-
 ----
 Bob's turn: 4A 4B 4C 4D
--B--
+----
 -BB-
-WBW-
--B--
-Alice's turn: 1A 1C
 -BW-
--WW-
-WBW-
 -B--
-Bob's turn: 1D 2D 3D
--BBB
+Alice's turn: 1A 1C 3A
+W---
 -WB-
-WBW-
+-BW-
 -B--
-Alice's turn: 2D
+Bob's turn: 1B 2A 2D 3D 4C
+WB--
+-BB-
+-BW-
+-B--
+Alice's turn: 1C 3A
+WB--
+-BB-
+WWW-
+-B--
+Bob's turn: 2D 4A 4C 4D
+WB--
+-BB-
+WWB-
+-BB-
+Alice's turn: 1C 1D 3D 4D

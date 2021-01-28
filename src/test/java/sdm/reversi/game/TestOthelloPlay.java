@@ -67,7 +67,7 @@ public class TestOthelloPlay {
     @Test
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthello4x4");
-        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4GameWonByBob");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameWonByBob");
         Game game = new OthelloGame("Bob", "Alice", 4);
         String messages = Files.readString(Paths.get(logFile.toURI()));
         System.setIn(inputMoveFile.openStream());

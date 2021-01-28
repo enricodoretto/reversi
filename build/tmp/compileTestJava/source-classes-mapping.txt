@@ -26,3 +26,5 @@ sdm/reversi/board/TestBoardCreation.java
  sdm.reversi.board.TestBoardCreation
 sdm/reversi/game/TestOthelloPlay.java
  sdm.reversi.game.TestOthelloPlay
+sdm/reversi/game/TestReversiPlay.java
+ sdm.reversi.game.TestReversiPlay
