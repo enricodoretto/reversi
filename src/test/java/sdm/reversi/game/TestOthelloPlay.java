@@ -27,13 +27,13 @@ public class TestOthelloPlay {
     }
 
     @Test
-    void requiresMoveRepetitionIfGivenMoveIsInvalid() throws IOException {
+    void requiresMoveRepetitionIfGivenMoveIsInvalid() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfRequiresMoveRepetitionIfGivenMoveIsInvalid");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForRequiresMoveRepetitionIfGivenMoveIsInvalid");
         Game game = new OthelloGame("Bob", "Alice", boardFile);
-        String moves = "4C" + System.lineSeparator() + "4C" + System.lineSeparator() + "4D" + System.lineSeparator();
-        String messages = String.format("%s's turn%n%s's turn%nInvalid move, please write another one%n", "Bob", "Alice");
-        ByteArrayInputStream bais = new ByteArrayInputStream(moves.getBytes());
-        System.setIn(bais);
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         assertAll(() -> assertEquals("Bob", game.play().getName()),
