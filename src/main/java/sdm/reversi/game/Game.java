@@ -16,6 +16,7 @@ public abstract class Game implements Playable {
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
     protected boolean isQuit;
+    private IOManager ioManager;
 
     public Game(String player1Name, String player2Name, int boardSize) {
         this(player1Name, player2Name);
@@ -28,6 +29,7 @@ public abstract class Game implements Playable {
         player2 = new Player(player2Name, Disk.Color.WHITE);
         currentPlayer = player1;
         board = new Board();
+        ioManager = new CLIManager();
     }
 
     public Game(String player1Name, String player2Name, URL boardFileURL) throws IOException {
@@ -139,8 +141,10 @@ public abstract class Game implements Playable {
     @Override
     public Player play() {
         Scanner scanner = new Scanner(System.in);
+        //printInitialBoard();
         while (!isOver()) {
-            System.out.println(board);
+            //System.out.println(board);
+            ioManager.updateBoard(board);
             System.out.printf("%s's turn: ", currentPlayer.getName());
             if (currentPlayer.isInStall()) {
                 System.out.println("sorry you can make no moves!");
@@ -160,6 +164,7 @@ public abstract class Game implements Playable {
                     }
                 }
             }
+            //updateBoard()
             changeTurn();
         }
         return getWinner();

@@ -19,3 +19,7 @@ sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
+sdm/reversi/CLIManager.java
+ sdm.reversi.CLIManager
+sdm/reversi/IOManager.java
+ sdm.reversi.IOManager

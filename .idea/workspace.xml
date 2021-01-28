@@ -23,23 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8443b0d0-19f9-4a92-809b-ffb2139de468" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/CLIManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/IOManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloPlay.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/sdm/reversi/game/TestOthelloPlay.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestOthelloPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/sdm/reversi/game/TestReversiPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/gameInputs/movesFor4x4ReversiGameWonByBob" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gameInputs/movesFor4x4ReversiGameWonByBob" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/gameLog/expectedGameLogReversi4x4" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gameLog/expectedGameLogReversi4x4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +94,14 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="ProjectId" id="1nbvJWJDDUGtXX6552CoJDXjGki" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -135,7 +138,7 @@
       <recent name="sdm.reversi.game" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TestReversiPlay.full4x4GameWonByBob">
+  <component name="RunManager" selected="Gradle.reversi [test]">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -254,8 +257,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TestReversiPlay.full4x4GameWonByBob" />
         <item itemvalue="Gradle.reversi [test]" />
+        <item itemvalue="Gradle.TestReversiPlay.full4x4GameWonByBob" />
         <item itemvalue="Gradle.TestOthelloPlay.full4x4GameWonByBob" />
         <item itemvalue="Gradle.TestOthelloPlay.makesSkipTurnIfThereAreNoAvailableMoves" />
         <item itemvalue="Gradle.TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid" />
@@ -273,7 +276,7 @@
       <workItem from="1611671540792" duration="1898000" />
       <workItem from="1611734608389" duration="891000" />
       <workItem from="1611764209423" duration="397000" />
-      <workItem from="1611820543281" duration="8608000" />
+      <workItem from="1611820543281" duration="11876000" />
     </task>
     <servers />
   </component>
@@ -297,8 +300,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java</url>
-          <line>140</line>
+          <line>142</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java</url>
+          <line>134</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java</url>
+          <line>51</line>
+          <properties class="sdm.reversi.game.Game" method="getPlayer2">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
