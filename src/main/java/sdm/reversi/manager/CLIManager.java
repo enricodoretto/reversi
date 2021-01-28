@@ -1,10 +1,12 @@
-package sdm.reversi;
+package sdm.reversi.manager;
 
+import sdm.reversi.Coordinate;
 import sdm.reversi.game.Game;
+import sdm.reversi.manager.IOManager;
 
 import java.util.Scanner;
 
-public class CLIManager implements IOManager{
+public class CLIManager implements IOManager {
 
     private static final String QUIT_COMMAND = "q";
     private  final Scanner scanner = new Scanner(System.in);

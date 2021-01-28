@@ -1,5 +1,6 @@
-package sdm.reversi;
+package sdm.reversi.manager;
 
+import sdm.reversi.Coordinate;
 import sdm.reversi.game.Game;
 
 public interface IOManager {

@@ -1,6 +1,8 @@
 package sdm.reversi.game;
 
 import sdm.reversi.*;
+import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.IOManager;
 
 import java.io.IOException;
 import java.net.URL;

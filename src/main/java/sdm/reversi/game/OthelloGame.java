@@ -2,7 +2,7 @@ package sdm.reversi.game;
 
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
-import sdm.reversi.IOManager;
+import sdm.reversi.manager.IOManager;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,5 +1,8 @@
-package sdm.reversi;
+package sdm.reversi.manager;
 
+import sdm.reversi.Coordinate;
+import sdm.reversi.Disk;
+import sdm.reversi.gui.TitleBar;
 import sdm.reversi.game.Game;
 
 import javax.swing.*;
@@ -47,12 +50,11 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     public void initialize(Game game) {
         boardSize = game.getBoard().getSize();
         graphicBoard = new JPanel[boardSize][boardSize];
-        //diskIsPresent = new boolean[dimensionBoard][dimensionBoard];
         points = new ArrayList<>();
         diskRadius = (FRAME_SIZE / boardSize) / 2;
 
-        //TopPanel topPanel = new TopPanel();
-        //add(topPanel.getTopPanel(), BorderLayout.NORTH);
+        TitleBar titleBar = new TitleBar();
+        add(titleBar.getTitleBar(), BorderLayout.NORTH);
 
         JPanel statisticsPanel = createStatisticsPanel(game);
         JPanel container = new JPanel(new GridBagLayout());
@@ -69,22 +71,18 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         yAxisPanel.setBorder(new EmptyBorder(0, 10, 0, 10));
         yAxisPanel.setPreferredSize(new Dimension(30, FRAME_SIZE));
         yAxisPanel.setBackground(Color.decode("#b0b0b0"));
-
         JPanel xAxisPanel = new JPanel(new GridLayout(1, boardSize + 1));
         xAxisPanel.setBorder(new EmptyBorder(0, 30, 0, 0));
         xAxisPanel.setBackground(Color.decode("#b0b0b0"));
-
         IntStream.range(0, boardSize).forEach(index -> {
             xAxisPanel.add(new JLabel(String.format("%c", index + 'A'), JLabel.CENTER));
             yAxisPanel.add(new JLabel(String.format("%d", index + 1)));
         });
-
         boardPanel.add(xAxisPanel, BorderLayout.NORTH);
         boardPanel.add(yAxisPanel, BorderLayout.WEST);
 
-        ++gridBagConstraints.gridx;
+        gridBagConstraints.gridx++;
         container.add(boardPanel, gridBagConstraints);
-
         add(container);
         setResizable(false);
         setUndecorated(true);
@@ -119,7 +117,12 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
                 graphicBoard[indexRow][indexColumn].addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-/*                        if(isValidMove(indexR, indexC, dimensionBoard, frame)){
+/*
+                        if(nextMove == null){
+                            nextMove = new Coordinate(indexR, indexC);
+                        }
+
+                        if(isValidMove(indexR, indexC, dimensionBoard, frame)){
                             doMove(indexR, indexC, dimensionBoard, frame);
                         }else{
                             JOptionPane.showMessageDialog(frame, "Invalid First Position");
