@@ -10,7 +10,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public abstract class Game implements Playable {
+public abstract class Game {
     protected final Player player1;
     protected final Player player2;
     protected Board board;
@@ -148,7 +148,6 @@ public abstract class Game implements Playable {
         return player1.getScore() > player2.getScore() ? player1 : player2;
     }
 
-    @Override
     public Player play() {
         ioManager.initialize(this);
         while (!isOver()) {
