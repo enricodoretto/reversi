@@ -1,5 +1,7 @@
 package sdm.reversi;
 
+import sdm.reversi.game.Game;
+
 import java.util.Scanner;
 
 public class CLIManager implements IOManager{
@@ -19,6 +21,11 @@ public class CLIManager implements IOManager{
             return null;
         }
         return new Coordinate(coordinateOfDesiredMove);
+    }
+
+    @Override
+    public void initialize(Game game){
+        System.out.println(game.getBoardRepresentation());
     }
 
     @Override

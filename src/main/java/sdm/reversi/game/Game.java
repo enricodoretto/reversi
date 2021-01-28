@@ -140,9 +140,8 @@ public abstract class Game implements Playable {
 
     @Override
     public Player play() {
-        //printInitialBoard();
+        ioManager.initialize(this);
         while (!isOver()) {
-            ioManager.updateBoard(board);
             String startTurnMessage = String.format("%s's turn: ", currentPlayer.getName());
             if (currentPlayer.isInStall()) {
                 startTurnMessage += "sorry you can make no moves!";
@@ -164,7 +163,7 @@ public abstract class Game implements Playable {
                     }
                 }
             }
-            //updateBoard()
+            ioManager.updateBoard(board);
             changeTurn();
         }
         return getWinner();

@@ -10,8 +10,6 @@ sdm/reversi/Player.java
  sdm.reversi.Player
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
-sdm/reversi/IOManager.java
- sdm.reversi.IOManager
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
@@ -23,3 +21,5 @@ sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
 sdm/reversi/CLIManager.java
  sdm.reversi.CLIManager
+sdm/reversi/IOManager.java
+ sdm.reversi.IOManager
