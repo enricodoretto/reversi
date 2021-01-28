@@ -140,6 +140,7 @@ public abstract class Game implements Playable {
     public Player play() {
         Scanner scanner = new Scanner(System.in);
         while (!isOver()) {
+            System.out.println(board);
             System.out.printf("%s's turn: ", currentPlayer.getName());
             if (currentPlayer.isInStall()) {
                 System.out.println("sorry you can make no moves!");

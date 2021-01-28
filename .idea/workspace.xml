@@ -29,21 +29,14 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.7/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Coordinate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/Coordinate.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/sdm/reversi/game/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/sdm.reversi.game.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileTestJava/source-classes-mapping.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/Coordinate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/Coordinate.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/sdm/reversi/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/gameLog/logOfIsOverAfterTwoMoves" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gameLog/logOfIsOverAfterTwoMoves" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/resources/gameLog/logOfMakesSkipTurnIfThereAreNoAvailableMoves" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/gameLog/logOfMakesSkipTurnIfThereAreNoAvailableMoves" afterDir="false" />
@@ -143,7 +136,7 @@
       <recent name="sdm.reversi.game" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid">
+  <component name="RunManager" selected="Gradle.TestOthelloPlay.makesSkipTurnIfThereAreNoAvailableMoves">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -262,10 +255,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid" />
-        <item itemvalue="Gradle.reversi [test]" />
         <item itemvalue="Gradle.TestOthelloPlay.makesSkipTurnIfThereAreNoAvailableMoves" />
+        <item itemvalue="Gradle.TestOthelloPlay.requiresMoveRepetitionIfGivenMoveIsInvalid" />
         <item itemvalue="Gradle.TestOthelloPlay.isOverAfterTwoMoves" />
+        <item itemvalue="Gradle.reversi [test]" />
         <item itemvalue="Gradle.TestOthelloPlay.full4x4GameWonByBob" />
       </list>
     </recent_temporary>
@@ -281,7 +274,7 @@
       <workItem from="1611671540792" duration="1898000" />
       <workItem from="1611734608389" duration="891000" />
       <workItem from="1611764209423" duration="397000" />
-      <workItem from="1611820543281" duration="5849000" />
+      <workItem from="1611820543281" duration="6117000" />
     </task>
     <servers />
   </component>
