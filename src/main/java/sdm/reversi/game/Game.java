@@ -143,7 +143,6 @@ public abstract class Game implements Playable {
         Scanner scanner = new Scanner(System.in);
         //printInitialBoard();
         while (!isOver()) {
-            //System.out.println(board);
             ioManager.updateBoard(board);
             System.out.printf("%s's turn: ", currentPlayer.getName());
             if (currentPlayer.isInStall()) {
@@ -152,7 +151,7 @@ public abstract class Game implements Playable {
                 System.out.println(String.join(" ", allowedMovesForCurrentPlayer.keySet().stream().map(x -> x.toString()).sorted().collect(Collectors.toList())));
                 while (true) {
                     try {
-                        String coordinateOfDesiredMove = scanner.nextLine();
+                        String coordinateOfDesiredMove = ioManager.getMoveFromPlayer();
                         if(coordinateOfDesiredMove.equalsIgnoreCase("q")){
                             isQuit = true;
                             break;

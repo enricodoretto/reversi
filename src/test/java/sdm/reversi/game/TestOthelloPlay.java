@@ -18,10 +18,10 @@ public class TestOthelloPlay {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
         String messages = Files.readString(Paths.get(logFile.toURI()));
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertAll(() -> assertEquals("Bob", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
@@ -31,11 +31,11 @@ public class TestOthelloPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfRequiresMoveRepetitionIfGivenMoveIsInvalid");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForRequiresMoveRepetitionIfGivenMoveIsInvalid");
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
         String messages = Files.readString(Paths.get(logFile.toURI()));
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertAll(() -> assertEquals("Bob", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
@@ -45,11 +45,11 @@ public class TestOthelloPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardBlackCantMove");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfMakesSkipTurnIfThereAreNoAvailableMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForMakesSkipTurnIfThereAreNoAvailableMoves");
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
         String messages = Files.readString(Paths.get(logFile.toURI()));
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new OthelloGame("Bob", "Alice", boardFile);
         assertAll(() -> assertEquals("Alice", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
@@ -58,8 +58,8 @@ public class TestOthelloPlay {
     void isOverWhenPlayerQuits() throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
         System.setIn(inputMoveFile.openStream());
+        Game game = new OthelloGame("Bob", "Alice", boardFile);
         game.play();
         assertTrue(game.isOver());
     }
@@ -68,11 +68,11 @@ public class TestOthelloPlay {
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthello4x4");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameWonByBob");
-        Game game = new OthelloGame("Bob", "Alice", 4);
         String messages = Files.readString(Paths.get(logFile.toURI()));
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new OthelloGame("Bob", "Alice", 4);
         assertAll(() -> assertEquals("Bob", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }

@@ -49,9 +49,9 @@ public class TestReversiInitial {
     @ParameterizedTest
     @CsvSource({"8, 4D-4E-5D-5E-q-", "4, 2B-2C-3B-3C-q-", "10, 5E-5F-6E-6F-q-"})
     void fourMovesCanBeMadeInCentralSquareParam(int boardSize, String gameSequence) throws IOException {
-        Game game = new OthelloGame("Bob", "Alice", boardSize);
         ByteArrayInputStream bais = new ByteArrayInputStream(gameSequence.replace("-",System.lineSeparator()).getBytes());
         System.setIn(bais);
+        Game game = new ReversiGame("Bob", "Alice", boardSize);
         assertDoesNotThrow(() -> game.play());
     }
 

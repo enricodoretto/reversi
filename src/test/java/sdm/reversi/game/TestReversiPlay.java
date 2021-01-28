@@ -19,11 +19,11 @@ public class TestReversiPlay {
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogReversi4x4");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4ReversiGameWonByBob");
-        Game game = new ReversiGame("Bob", "Alice", 4);
         String messages = Files.readString(Paths.get(logFile.toURI()));
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new ReversiGame("Bob", "Alice", 4);
         assertAll(() -> assertEquals("Bob", game.play().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }

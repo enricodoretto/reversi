@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class CLIManager implements IOManager{
 
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
 
     @Override
     public void updateBoard(Board board) {
