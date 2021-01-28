@@ -12,8 +12,12 @@ public class CLIManager implements IOManager{
     }
 
     @Override
-    public String getMoveFromPlayer() {
-        return scanner.nextLine();
+    public Coordinate getMoveFromPlayer() {
+        String coordinateOfDesiredMove = scanner.nextLine();
+        if(coordinateOfDesiredMove.equalsIgnoreCase("q")){
+            return null;
+        }
+        return new Coordinate(coordinateOfDesiredMove);
     }
 
     @Override

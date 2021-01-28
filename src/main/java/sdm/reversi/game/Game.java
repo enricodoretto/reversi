@@ -140,7 +140,6 @@ public abstract class Game implements Playable {
 
     @Override
     public Player play() {
-        Scanner scanner = new Scanner(System.in);
         //printInitialBoard();
         while (!isOver()) {
             ioManager.updateBoard(board);
@@ -153,12 +152,12 @@ public abstract class Game implements Playable {
                 ioManager.startTurn(startTurnMessage);
                 while (true) {
                     try {
-                        String coordinateOfDesiredMove = ioManager.getMoveFromPlayer();
-                        if(coordinateOfDesiredMove.equalsIgnoreCase("q")){
-                            isQuit = true;
+                        Coordinate coordinateOfDesiredMove = ioManager.getMoveFromPlayer();
+                        if(coordinateOfDesiredMove==null){
+                            isQuit=true;
                             break;
                         }
-                        makeMove(new Coordinate(coordinateOfDesiredMove));
+                        makeMove(coordinateOfDesiredMove);
                         break;
                     } catch (IllegalArgumentException e) {
                         ioManager.illegalMove("Invalid move, please write another one");
