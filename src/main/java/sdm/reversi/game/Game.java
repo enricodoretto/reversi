@@ -140,11 +140,11 @@ public abstract class Game implements Playable {
     public Player play() {
         Scanner scanner = new Scanner(System.in);
         while (!isOver()) {
-            System.out.printf("%s's turn%n", currentPlayer.getName());
+            System.out.printf("%s's turn: ", currentPlayer.getName());
             if (currentPlayer.isInStall()) {
-                System.out.println("Sorry you can make no moves!");
+                System.out.println("sorry you can make no moves!");
             } else {
-                // System.out.println(allowedMovesForCurrentPlayer);
+                System.out.println(String.join(" ", allowedMovesForCurrentPlayer.keySet().stream().map(x -> x.toString()).sorted().collect(Collectors.toList())));
                 while (true) {
                     try {
                         String coordinateOfDesiredMove = scanner.nextLine();

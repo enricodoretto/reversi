@@ -45,4 +45,9 @@ public class Coordinate {
         return Objects.hash(row, column);
     }
 
+
+    @Override
+    public String toString() {
+        return String.format("%d%c",row +1, column + 'A');
+    }
 }
