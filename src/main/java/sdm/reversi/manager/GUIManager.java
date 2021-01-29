@@ -1,5 +1,6 @@
 package sdm.reversi.manager;
 
+import sdm.reversi.Board;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
 import sdm.reversi.Player;
@@ -49,6 +50,9 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void updateGame(Game game) {
+        player1Score.setText(String.format("%d",game.getPlayer1().getScore()));
+        player2Score.setText(String.format("%d", game.getPlayer2().getScore()));
+        updateGridPanel(game.getBoard());
     }
 
     @Override
@@ -67,6 +71,16 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void illegalMove(String message) {
+    }
+
+    private void updateGridPanel(Board board) {
+        for (int i = 0; i < boardSize; i++) {
+            for (int j = 0; j < boardSize; j++) {
+                Coordinate coordinate = new Coordinate(i, j);
+                graphicBoard[i][j].setColor(board.getDiskColorFromCoordinate(coordinate));
+                graphicBoard[i][j].repaint();
+            }
+        }
     }
 
     @Override
