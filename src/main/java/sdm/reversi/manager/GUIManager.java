@@ -2,7 +2,6 @@ package sdm.reversi.manager;
 
 import sdm.reversi.Board;
 import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
 import sdm.reversi.Player;
 import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.TitleBar;
@@ -16,7 +15,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.IntStream;
 
@@ -24,14 +22,8 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     private JLabel player1Name, player2Name, player1Score, player2Score, currentPlayerName;
     private DiskPanel[][] graphicBoard;
     private final static int FRAME_SIZE = 700;
-    private int diskRadius;
     private int boardSize;
     private Coordinate nextMove;
-
-    //private boolean[][] diskIsPresent;
-    //private int numberOfMoves = 0;
-    private ArrayList<Point> points;
-    //private boolean currentColor; //check color of player
 
     @Override
     public void startTurn(Player currentPlayer) {
@@ -92,8 +84,6 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     public void initialize(Game game) {
         boardSize = game.getBoard().getSize();
         graphicBoard = new DiskPanel[boardSize][boardSize];
-        points = new ArrayList<>();
-        diskRadius = (FRAME_SIZE / boardSize) / 2;
 
         TitleBar titleBar = new TitleBar();
         add(titleBar.getTitleBar(), BorderLayout.NORTH);
@@ -107,7 +97,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         container.setBackground(Color.decode("#b0b0b0"));
 
         JPanel boardPanel = new JPanel(new BorderLayout());
-        boardPanel.add(createGridPanel(game, this), BorderLayout.CENTER);
+        boardPanel.add(createGridPanel(game), BorderLayout.CENTER);
 
         JPanel yAxisPanel = new JPanel(new GridLayout(boardSize, 1));
         yAxisPanel.setBorder(new EmptyBorder(0, 10, 0, 10));
@@ -133,7 +123,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         setVisible(true);
     }
 
-    private JPanel createGridPanel(Game game, final JFrame frame) {
+    private JPanel createGridPanel(Game game) {
         JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
         DiskPanel.setRadius(FRAME_SIZE / boardSize / 4);
         for (int indexRow = 0; indexRow < boardSize; indexRow++) {
@@ -168,8 +158,8 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
         player1Name = new JLabel(game.getPlayer1().getName(), JLabel.CENTER);
         player2Name = new JLabel(game.getPlayer2().getName(), JLabel.CENTER);
-        player1Score = new JLabel(game.getPlayer1().getScore() + "", JLabel.CENTER); // conversione da int con un metodo che vede il numero di dischi
-        player2Score = new JLabel(game.getPlayer2().getScore() + "", JLabel.CENTER);
+        player1Score = new JLabel(String.format("%d", game.getPlayer1().getScore()), JLabel.CENTER);
+        player2Score = new JLabel(String.format("%d", game.getPlayer2().getScore()), JLabel.CENTER);
         currentPlayerName = new JLabel(game.getCurrentPlayer().getName() + "'s Turn", JLabel.CENTER);
 
         player1Name.setFont(new Font("Tahoma", Font.BOLD, 30));

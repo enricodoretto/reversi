@@ -1,6 +1,5 @@
 package sdm.reversi.gui;
 
-import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
 
 import javax.swing.*;
