@@ -7,26 +7,26 @@ sdm/reversi/Disk.java
  sdm.reversi.Disk$Color
 sdm/reversi/Player.java
  sdm.reversi.Player
-sdm/reversi/Board.java
- sdm.reversi.Board
+sdm/reversi/Main.java
+ sdm.reversi.Main
 sdm/reversi/gui/TitleBar.java
  sdm.reversi.gui.TitleBar
 sdm/reversi/ShiftDirection.java
  sdm.reversi.ShiftDirection
-sdm/reversi/Coordinate.java
- sdm.reversi.Coordinate
-sdm/reversi/manager/IOManager.java
- sdm.reversi.manager.IOManager
+sdm/reversi/Board.java
+ sdm.reversi.Board
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
-sdm/reversi/game/ReversiGame.java
- sdm.reversi.game.ReversiGame
+sdm/reversi/manager/GUIManager.java
+ sdm.reversi.manager.GUIManager
+ sdm.reversi.manager.GUIManager$1
 sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/manager/CLIManager.java
  sdm.reversi.manager.CLIManager
-sdm/reversi/Main.java
- sdm.reversi.Main
-sdm/reversi/manager/GUIManager.java
- sdm.reversi.manager.GUIManager
- sdm.reversi.manager.GUIManager$1
+sdm/reversi/game/ReversiGame.java
+ sdm.reversi.game.ReversiGame
+sdm/reversi/manager/IOManager.java
+ sdm.reversi.manager.IOManager
+sdm/reversi/Coordinate.java
+ sdm.reversi.Coordinate

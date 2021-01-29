@@ -1,6 +1,8 @@
 package sdm.reversi;
 
 import java.util.Objects;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Coordinate {
     private final int row;
@@ -16,8 +18,17 @@ public class Coordinate {
     }
 
     public Coordinate(String inputCoordinate) {
-        this.row = Character.getNumericValue(inputCoordinate.charAt(0)) - 1;
-        this.column = inputCoordinate.toUpperCase().charAt(1) - 'A';
+        try {
+            Matcher matcher = Pattern.compile("\\d+").matcher(inputCoordinate);
+            matcher.find();
+            this.row = Integer.parseInt(matcher.group()) - 1;
+            this.column = inputCoordinate.toUpperCase().charAt(matcher.group().length()) - 'A';
+        }
+        catch (NullPointerException | IndexOutOfBoundsException |
+                IllegalStateException | IllegalArgumentException e){
+            throw new IllegalArgumentException();
+        }
+
     }
 
     public int getRow() {
