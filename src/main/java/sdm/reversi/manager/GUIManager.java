@@ -3,9 +3,9 @@ package sdm.reversi.manager;
 import sdm.reversi.Board;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Player;
+import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.TitleBar;
-import sdm.reversi.game.Game;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.IntStream;
 
@@ -38,7 +39,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void suggestMoves(Collection<Coordinate> moves) {
-        for(Coordinate suggestedMove : moves){
+        for (Coordinate suggestedMove : moves) {
             graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()]
                     .suggest(currentPlayerName.getForeground());
             graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()].repaint();
@@ -47,7 +48,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void updateGame(Game game) {
-        player1Score.setText(String.format("%d",game.getPlayer1().getScore()));
+        player1Score.setText(String.format("%d", game.getPlayer1().getScore()));
         player2Score.setText(String.format("%d", game.getPlayer2().getScore()));
         updateGridPanel(game.getBoard());
     }
@@ -126,24 +127,27 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     private JPanel createGridPanel(Game game) {
         JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
         DiskPanel.setRadius(FRAME_SIZE / boardSize / 4);
-        for (int indexRow = 0; indexRow < boardSize; indexRow++) {
-            for (int indexColumn = 0; indexColumn < boardSize; indexColumn++) {
-                graphicBoard[indexRow][indexColumn] = new DiskPanel(
-                        game.getBoard().getDiskColorFromCoordinate(new Coordinate(indexRow, indexColumn)));
-                graphicBoard[indexRow][indexColumn].setBorder(new LineBorder(Color.BLACK, 2));
-                graphicBoard[indexRow][indexColumn].setBackground(Color.decode("#0E6B0E"));
-                final int indexR = indexRow, indexC = indexColumn;
-                graphicBoard[indexRow][indexColumn].addMouseListener(new MouseAdapter() {
-                    @Override
-                    public void mouseClicked(MouseEvent e) {
-                        if(nextMove == null){
-                            nextMove = new Coordinate(indexR, indexC);
-                        }
-                    }
-                });
-                boardPanel.add(graphicBoard[indexRow][indexColumn]);
-            }
-        }
+
+        IntStream.range(0, boardSize).forEach(row -> {
+                    IntStream.range(0, boardSize).forEach(column -> {
+                                graphicBoard[row][column] = new DiskPanel(
+                                        game.getBoard().getDiskColorFromCoordinate(new Coordinate(row, column)));
+                                graphicBoard[row][column].setBorder(new LineBorder(Color.BLACK, 2));
+                                graphicBoard[row][column].setBackground(Color.decode("#0E6B0E"));
+                                graphicBoard[row][column].addMouseListener(new MouseAdapter() {
+                                    @Override
+                                    public void mouseClicked(MouseEvent e) {
+                                        if (nextMove == null) {
+                                            nextMove = new Coordinate(row, column);
+                                        }
+                                    }
+                                });
+                                boardPanel.add(graphicBoard[row][column]);
+                            }
+                    );
+                }
+        );
+
         boardPanel.setPreferredSize(new Dimension(700, 700));
         boardPanel.setBackground(Color.BLACK);
 
