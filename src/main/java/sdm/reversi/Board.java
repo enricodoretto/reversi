@@ -68,7 +68,7 @@ public class Board {
     }
 
     public boolean isFull(){
-        return Arrays.stream(board).flatMap(Arrays::stream).filter(c -> c == null).count()==0;
+        return Arrays.stream(board).flatMap(Arrays::stream).noneMatch(Objects::isNull);
     }
 
     public boolean isCellEmpty(Coordinate coordinate) {
@@ -121,7 +121,7 @@ public class Board {
     }
 
     public long getNumberOfDisks(){
-        return Arrays.stream(board).flatMap(Arrays::stream).filter(c -> c != null).count();
+        return Arrays.stream(board).flatMap(Arrays::stream).filter(Objects::nonNull).count();
     }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
@@ -144,7 +144,7 @@ public class Board {
     public String toString() {
         return Arrays.stream(board).map(row -> Arrays.toString(row)
                 .replace("null", "-")
-                .replaceAll("\\[|\\]|,", "")
+                .replaceAll("[\\[\\],]", "")
                 .replace(" ", "")).collect(Collectors.joining(System.lineSeparator()));
     }
 
