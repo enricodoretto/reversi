@@ -50,7 +50,11 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void suggestMoves(Collection<Coordinate> moves) {
-
+        for(Coordinate suggestedMove : moves){
+            graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()]
+                    .suggest();
+            graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()].repaint();
+        }
     }
 
     @Override

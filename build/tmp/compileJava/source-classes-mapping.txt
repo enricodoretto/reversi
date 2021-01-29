@@ -21,10 +21,10 @@ sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/manager/CLIManager.java
  sdm.reversi.manager.CLIManager
-sdm/reversi/gui/DiskPanel.java
- sdm.reversi.gui.DiskPanel
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/manager/GUIManager.java
  sdm.reversi.manager.GUIManager
  sdm.reversi.manager.GUIManager$1
+sdm/reversi/gui/DiskPanel.java
+ sdm.reversi.gui.DiskPanel
