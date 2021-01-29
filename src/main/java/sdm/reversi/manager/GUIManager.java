@@ -5,6 +5,7 @@ import sdm.reversi.Coordinate;
 import sdm.reversi.Player;
 import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;
+import sdm.reversi.gui.DraggableFrame;
 import sdm.reversi.gui.TitleBar;
 
 import javax.swing.*;
@@ -15,7 +16,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.IntStream;
 
@@ -69,6 +69,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void illegalMove(String message) {
+        JOptionPane.showMessageDialog(this, message);
     }
 
     private void updateGridPanel(Board board) {
@@ -83,6 +84,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void initialize(Game game) {
+        new DraggableFrame(this);
         boardSize = game.getBoard().getSize();
         graphicBoard = new DiskPanel[boardSize][boardSize];
 

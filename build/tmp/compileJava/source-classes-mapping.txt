@@ -1,6 +1,5 @@
-sdm/reversi/Disk.java
- sdm.reversi.Disk
- sdm.reversi.Disk$Color
+sdm/reversi/gui/DiskPanel.java
+ sdm.reversi.gui.DiskPanel
 sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/manager/CLIManager.java
@@ -19,10 +18,13 @@ sdm/reversi/ShiftDirection.java
  sdm.reversi.ShiftDirection
 sdm/reversi/Board.java
  sdm.reversi.Board
+sdm/reversi/Disk.java
+ sdm.reversi.Disk
+ sdm.reversi.Disk$Color
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
-sdm/reversi/gui/DiskPanel.java
- sdm.reversi.gui.DiskPanel
+sdm/reversi/gui/DraggableFrame.java
+ sdm.reversi.gui.DraggableFrame
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/manager/GUIManager.java
