@@ -5,8 +5,10 @@ import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -19,7 +21,7 @@ public class TestReversiInitial {
         Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
         Map<Coordinate, Set<Coordinate>> expectedCoordinates = Arrays.stream(coordinates.split("-"))
                 .collect(Collectors.toMap(
-                        stringCoordinate -> new Coordinate(stringCoordinate),
+                        Coordinate::new,
                         coordinate -> new HashSet<>()
                 ));
         assertEquals(expectedCoordinates, reversiGame.allowedMovesForCurrentPlayer);
@@ -27,7 +29,7 @@ public class TestReversiInitial {
 
     @ParameterizedTest
     @CsvSource({"8, 6D", "4, 1A", "10, 2B"})
-    void moveIsNotAllowedOutsideCentralSquare(int boardSize, String coordinate) {
+    void moveIsNotAllowedOutsideCentralSquare(int boardSize, Coordinate coordinate) {
         Game reversiGame = new ReversiGame("Bob", "Alice", boardSize);
         assertFalse(reversiGame.allowedMovesForCurrentPlayer.containsKey(coordinate));
     }
@@ -48,11 +50,11 @@ public class TestReversiInitial {
 
     @ParameterizedTest
     @CsvSource({"8, 4D-4E-5D-5E-q-", "4, 2B-2C-3B-3C-q-", "10, 5E-5F-6E-6F-q-"})
-    void fourMovesCanBeMadeInCentralSquareParam(int boardSize, String gameSequence) throws IOException {
+    void fourMovesCanBeMadeInCentralSquareParam(int boardSize, String gameSequence) {
         ByteArrayInputStream bais = new ByteArrayInputStream(gameSequence.replace("-",System.lineSeparator()).getBytes());
         System.setIn(bais);
         Game game = new ReversiGame("Bob", "Alice", boardSize);
-        assertDoesNotThrow(() -> game.play());
+        assertDoesNotThrow(game::play);
     }
 
 }
