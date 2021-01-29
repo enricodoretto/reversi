@@ -15,8 +15,8 @@ sdm/reversi/ShiftDirection.java
  sdm.reversi.ShiftDirection
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
-sdm/reversi/Main.java
- sdm.reversi.Main
+sdm/reversi/manager/IOManager.java
+ sdm.reversi.manager.IOManager
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
 sdm/reversi/manager/GUIManager.java
@@ -28,5 +28,5 @@ sdm/reversi/manager/CLIManager.java
  sdm.reversi.manager.CLIManager
 sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
-sdm/reversi/manager/IOManager.java
- sdm.reversi.manager.IOManager
+sdm/reversi/Main.java
+ sdm.reversi.Main

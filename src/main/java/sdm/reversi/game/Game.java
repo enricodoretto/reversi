@@ -25,6 +25,11 @@ public abstract class Game {
         board = new Board(boardSize);
     }
 
+    public Game(String player1Name, String player2Name, IOManager ioManager, int size) {
+        this(player1Name,player2Name, size);
+        this.ioManager = ioManager;
+    }
+
     public Game(String player1Name, String player2Name, IOManager ioManager) {
         this(player1Name,player2Name);
         this.ioManager = ioManager;

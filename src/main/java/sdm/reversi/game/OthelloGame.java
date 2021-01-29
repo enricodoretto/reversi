@@ -29,6 +29,12 @@ public class OthelloGame extends Game {
         updatePlayersScore();
     }
 
+    public OthelloGame(String player1Name, String player2Name, IOManager ioManager, int boardSize) {
+        super(player1Name,player2Name, ioManager, boardSize);
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
+
     public OthelloGame(String player1Name, String player2Name, int boardSize) {
         super(player1Name, player2Name, boardSize);
         initializeBoard();
