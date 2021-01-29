@@ -35,7 +35,12 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void startTurn(Player currentPlayer) {
-
+        currentPlayerName.setText(String.format("%s's turn", currentPlayer.getName()));
+        if(currentPlayer.getColor() == Disk.Color.BLACK){
+            currentPlayerName.setForeground(Color.BLACK);
+        } else {
+            currentPlayerName.setForeground(Color.WHITE);
+        }
     }
 
     @Override
