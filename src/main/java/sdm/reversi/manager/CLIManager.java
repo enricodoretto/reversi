@@ -29,6 +29,15 @@ public class CLIManager implements IOManager {
     }
 
     @Override
+    public void showWinner(Player player) {
+        if (player == null){
+            System.out.println("Tie!");
+            return;
+        }
+        System.out.println("The winner is " + player.getName());;
+    }
+
+    @Override
     public void suggestMoves(Collection<Coordinate> moves) {
         System.out.println(moves.stream().map(Coordinate::toString).sorted().collect(Collectors.joining(" ")));
     }

@@ -1,30 +1,30 @@
 sdm/reversi/gui/DiskPanel.java
  sdm.reversi.gui.DiskPanel
-sdm/reversi/game/Game.java
- sdm.reversi.game.Game
-sdm/reversi/manager/CLIManager.java
- sdm.reversi.manager.CLIManager
-sdm/reversi/Player.java
- sdm.reversi.Player
-sdm/reversi/game/ReversiGame.java
- sdm.reversi.game.ReversiGame
-sdm/reversi/gui/TitleBar.java
- sdm.reversi.gui.TitleBar
-sdm/reversi/manager/IOManager.java
- sdm.reversi.manager.IOManager
-sdm/reversi/Coordinate.java
- sdm.reversi.Coordinate
-sdm/reversi/ShiftDirection.java
- sdm.reversi.ShiftDirection
-sdm/reversi/Board.java
- sdm.reversi.Board
+sdm/reversi/gui/DraggableFrame.java
+ sdm.reversi.gui.DraggableFrame
 sdm/reversi/Disk.java
  sdm.reversi.Disk
  sdm.reversi.Disk$Color
+sdm/reversi/Player.java
+ sdm.reversi.Player
+sdm/reversi/Board.java
+ sdm.reversi.Board
+sdm/reversi/gui/TitleBar.java
+ sdm.reversi.gui.TitleBar
+sdm/reversi/ShiftDirection.java
+ sdm.reversi.ShiftDirection
+sdm/reversi/Coordinate.java
+ sdm.reversi.Coordinate
+sdm/reversi/manager/CLIManager.java
+ sdm.reversi.manager.CLIManager
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
-sdm/reversi/gui/DraggableFrame.java
- sdm.reversi.gui.DraggableFrame
+sdm/reversi/game/Game.java
+ sdm.reversi.game.Game
+sdm/reversi/manager/IOManager.java
+ sdm.reversi.manager.IOManager
+sdm/reversi/game/ReversiGame.java
+ sdm.reversi.game.ReversiGame
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/manager/GUIManager.java

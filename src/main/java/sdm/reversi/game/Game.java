@@ -148,7 +148,7 @@ public abstract class Game {
         return player1.getScore() > player2.getScore() ? player1 : player2;
     }
 
-    public Player play() {
+    public void play() {
         ioManager.initialize(this);
         while (!isOver()) {
             ioManager.startTurn(currentPlayer);
@@ -173,6 +173,7 @@ public abstract class Game {
             }
             changeTurn();
         }
-        return getWinner();
+        ioManager.showWinner(getWinner());
+        //return getWinner();
     }
 }

@@ -54,10 +54,15 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     }
 
     @Override
+    public void showWinner(Player player) {
+        JOptionPane.showMessageDialog(this, "The winner is " + player.getName());
+    }
+
+    @Override
     public Coordinate getMoveFromPlayer() {
         while (nextMove == null) {
             try {
-                Thread.sleep(100);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

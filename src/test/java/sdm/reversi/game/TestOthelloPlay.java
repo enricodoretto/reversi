@@ -22,7 +22,8 @@ public class TestOthelloPlay {
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         Game game = new OthelloGame("Bob", "Alice", boardFile);
-        assertAll(() -> assertEquals("Bob", game.play().getName()),
+        game.play();
+        assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
@@ -36,7 +37,8 @@ public class TestOthelloPlay {
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         Game game = new OthelloGame("Bob", "Alice", boardFile);
-        assertAll(() -> assertEquals("Bob", game.play().getName()),
+        game.play();
+        assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
@@ -50,7 +52,8 @@ public class TestOthelloPlay {
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         Game game = new OthelloGame("Bob", "Alice", boardFile);
-        assertAll(() -> assertEquals("Alice", game.play().getName()),
+        game.play();
+        assertAll(() -> assertEquals("Alice", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
@@ -73,7 +76,8 @@ public class TestOthelloPlay {
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         Game game = new OthelloGame("Bob", "Alice", 4);
-        assertAll(() -> assertEquals("Bob", game.play().getName()),
+        game.play();
+        assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 

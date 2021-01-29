@@ -15,5 +15,6 @@ public interface IOManager {
     void suggestMoves(Collection<Coordinate> moves);
     void illegalMove(String message);
     void initialize(Game game);
+    void showWinner(Player player);
 
 }

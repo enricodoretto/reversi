@@ -24,7 +24,8 @@ public class TestReversiPlay {
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         Game game = new ReversiGame("Bob", "Alice", 4);
-        assertAll(() -> assertEquals("Bob", game.play().getName()),
+        game.play();
+        assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
