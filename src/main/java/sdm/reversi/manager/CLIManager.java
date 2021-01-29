@@ -1,10 +1,12 @@
 package sdm.reversi.manager;
 
 import sdm.reversi.Coordinate;
+import sdm.reversi.Player;
 import sdm.reversi.game.Game;
-import sdm.reversi.manager.IOManager;
 
+import java.util.Collection;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class CLIManager implements IOManager {
 
@@ -14,6 +16,21 @@ public class CLIManager implements IOManager {
     @Override
     public void updateGame(Game game) {
         System.out.println(game.getBoard());
+    }
+
+    @Override
+    public void startTurn(Player currentPlayer) {
+        System.out.printf("%s's turn: ", currentPlayer.getName());
+    }
+
+    @Override
+    public void skipTurn() {
+        System.out.println("sorry you can make no moves!");
+    }
+
+    @Override
+    public void suggestMoves(Collection<Coordinate> moves) {
+        System.out.println(moves.stream().map(Coordinate::toString).sorted().collect(Collectors.joining(" ")));
     }
 
     @Override
@@ -28,11 +45,6 @@ public class CLIManager implements IOManager {
     @Override
     public void initialize(Game game){
         System.out.println(game.getBoard());
-    }
-
-    @Override
-    public void startTurn(String message) {
-        System.out.println(message);
     }
 
     @Override

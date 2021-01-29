@@ -11,6 +11,8 @@ sdm/reversi/Player.java
  sdm.reversi.Player
 sdm/reversi/Coordinate.java
  sdm.reversi.Coordinate
+sdm/reversi/gui/TitleBar.java
+ sdm.reversi.gui.TitleBar
 sdm/reversi/Main.java
  sdm.reversi.Main
 sdm/reversi/game/OthelloGame.java
@@ -25,7 +27,5 @@ sdm/reversi/manager/CLIManager.java
  sdm.reversi.manager.CLIManager
 sdm/reversi/game/ReversiGame.java
  sdm.reversi.game.ReversiGame
-sdm/reversi/gui/TitleBar.java
- sdm.reversi.gui.TitleBar
 sdm/reversi/manager/IOManager.java
  sdm.reversi.manager.IOManager

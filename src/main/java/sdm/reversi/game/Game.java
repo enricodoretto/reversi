@@ -152,13 +152,11 @@ public abstract class Game implements Playable {
     public Player play() {
         ioManager.initialize(this);
         while (!isOver()) {
-            String startTurnMessage = String.format("%s's turn: ", currentPlayer.getName());
+            ioManager.startTurn(currentPlayer);
             if (currentPlayer.isInStall()) {
-                startTurnMessage += "sorry you can make no moves!";
-                ioManager.startTurn(startTurnMessage);
+                ioManager.skipTurn();
             } else {
-                startTurnMessage += allowedMovesForCurrentPlayer.keySet().stream().map(Coordinate::toString).sorted().collect(Collectors.joining(" "));
-                ioManager.startTurn(startTurnMessage);
+                ioManager.suggestMoves(allowedMovesForCurrentPlayer.keySet());
                 while (true) {
                     try {
                         Coordinate coordinateOfDesiredMove = ioManager.getMoveFromPlayer();

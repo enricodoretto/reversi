@@ -2,6 +2,7 @@ package sdm.reversi.manager;
 
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
+import sdm.reversi.Player;
 import sdm.reversi.gui.TitleBar;
 import sdm.reversi.game.Game;
 
@@ -14,6 +15,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.stream.IntStream;
 
 public class GUIManager extends JFrame implements IOManager, ActionListener {
@@ -22,6 +24,21 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     private final static int FRAME_SIZE = 700;
     private int diskRadius;
     private int boardSize;
+
+    @Override
+    public void startTurn(Player currentPlayer) {
+
+    }
+
+    @Override
+    public void skipTurn() {
+
+    }
+
+    @Override
+    public void suggestMoves(Collection<Coordinate> moves) {
+
+    }
 
     //private boolean[][] diskIsPresent;
     //private int numberOfMoves = 0;
@@ -36,10 +53,6 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     @Override
     public Coordinate getMoveFromPlayer() {
         return null;
-    }
-
-    @Override
-    public void startTurn(String message) {
     }
 
     @Override
