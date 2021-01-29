@@ -31,11 +31,7 @@ public class DiskPanel extends JPanel {
             return;
         }
         show = true;
-        if (diskColor == Disk.Color.BLACK) {
-            color = Color.BLACK;
-        } else {
-            color = Color.WHITE;
-        }
+        color = diskColor.getGraphicalColor();
     }
 
     @Override
