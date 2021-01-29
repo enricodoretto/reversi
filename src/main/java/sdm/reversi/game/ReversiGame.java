@@ -1,15 +1,12 @@
 package sdm.reversi.game;
 
 import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
 import sdm.reversi.manager.IOManager;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.*;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class ReversiGame extends Game {
 

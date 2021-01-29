@@ -7,7 +7,7 @@ import java.awt.event.MouseMotionListener;
 
 public class DraggableFrame implements MouseListener, MouseMotionListener {
     private int  pressedX, pressedY;
-    private JFrame frame;
+    private final JFrame frame;
 
     public DraggableFrame(final JFrame frame) {
         this.frame = frame;
