@@ -25,6 +25,11 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     private int diskRadius;
     private int boardSize;
 
+    //private boolean[][] diskIsPresent;
+    //private int numberOfMoves = 0;
+    private ArrayList<Point> points;
+    //private boolean currentColor; //check color of player
+
     @Override
     public void startTurn(Player currentPlayer) {
 
@@ -39,12 +44,6 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     public void suggestMoves(Collection<Coordinate> moves) {
 
     }
-
-    //private boolean[][] diskIsPresent;
-    //private int numberOfMoves = 0;
-    private ArrayList<Point> points;
-    //private boolean currentColor; //check color of player
-
 
     @Override
     public void updateGame(Game game) {
