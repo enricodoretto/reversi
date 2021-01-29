@@ -167,13 +167,12 @@ public abstract class Game {
                         ioManager.updateGame(this);
                         break;
                     } catch (IllegalArgumentException e) {
-                        ioManager.illegalMove("Invalid move, please write another one");
+                        ioManager.illegalMove("Invalid move, please choose another one");
                     }
                 }
             }
             changeTurn();
         }
         ioManager.showWinner(getWinner());
-        //return getWinner();
     }
 }
