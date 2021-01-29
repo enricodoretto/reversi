@@ -1,6 +1,7 @@
 package sdm.reversi.board;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.ThrowingSupplier;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Board;
@@ -24,7 +25,7 @@ public class TestBoardCreation {
 
     @Test
     public void succeedsWithNoSize(){
-        assertDoesNotThrow(() -> new Board());
+        assertDoesNotThrow((ThrowingSupplier<Board>) Board::new);
     }
 
     @ParameterizedTest
