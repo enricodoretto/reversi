@@ -34,7 +34,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void skipTurn() {
-
+        JOptionPane.showMessageDialog(this, "Sorry you can make no moves!");
     }
 
     @Override
