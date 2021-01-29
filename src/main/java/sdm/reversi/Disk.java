@@ -1,9 +1,20 @@
 package sdm.reversi;
 
+import java.awt.*;
+
 public class Disk {
 
     public enum Color{
-        BLACK, WHITE
+        BLACK(java.awt.Color.BLACK), WHITE(java.awt.Color.WHITE);
+        private java.awt.Color graphicalColor;
+
+        Color(java.awt.Color graphicalColor) {
+            this.graphicalColor = graphicalColor;
+        }
+
+        public java.awt.Color getGraphicalColor() {
+            return graphicalColor;
+        }
     }
 
     private Color sideUp;
