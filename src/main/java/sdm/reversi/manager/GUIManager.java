@@ -36,11 +36,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     @Override
     public void startTurn(Player currentPlayer) {
         currentPlayerName.setText(String.format("%s's turn", currentPlayer.getName()));
-        if(currentPlayer.getColor() == Disk.Color.BLACK){
-            currentPlayerName.setForeground(Color.BLACK);
-        } else {
-            currentPlayerName.setForeground(Color.WHITE);
-        }
+        currentPlayerName.setForeground(currentPlayer.getColor().getGraphicalColor());
     }
 
     @Override
@@ -52,7 +48,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     public void suggestMoves(Collection<Coordinate> moves) {
         for(Coordinate suggestedMove : moves){
             graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()]
-                    .suggest();
+                    .suggest(currentPlayerName.getForeground());
             graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()].repaint();
         }
     }
@@ -145,7 +141,6 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
                         new Coordinate(indexRow, indexColumn),
                         game.getBoard().getDiskColorFromCoordinate(new Coordinate(indexRow, indexColumn)),
                         (FRAME_SIZE / boardSize));
-
                 graphicBoard[indexRow][indexColumn].setBorder(new LineBorder(Color.BLACK, 2));
                 graphicBoard[indexRow][indexColumn].setBackground(Color.decode("#0E6B0E"));
                 final int indexR = indexRow, indexC = indexColumn;

@@ -20,9 +20,9 @@ public class DiskPanel extends JPanel {
         setColor(diskColor);
     }
 
-    public void suggest(){
+    public void suggest(Color color){
         show = true;
-        color = Color.RED;
+        this.color = new Color(color.getRed(), color.getGreen(), color.getBlue(), 70);
     }
 
     public void setColor(Disk.Color diskColor) {
