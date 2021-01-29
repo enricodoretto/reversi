@@ -8,15 +8,15 @@ import java.awt.*;
 
 public class DiskPanel extends JPanel {
 
-    private final int radius;
+    private static int RADIUS;
     private Color color;
-    private final int x, y;
     private boolean show;
 
-    public DiskPanel(int radius, Coordinate coordinate, Disk.Color diskColor, int cellCenter) {
-        this.radius = radius;
-        x = coordinate.getRow() + cellCenter / 2 - radius / 2;
-        y = coordinate.getColumn() + cellCenter / 2 - radius / 2;
+    public static void setRadius(int radius){
+        RADIUS = radius;
+    }
+
+    public DiskPanel(Disk.Color diskColor) {
         setColor(diskColor);
     }
 
@@ -41,7 +41,7 @@ public class DiskPanel extends JPanel {
             Graphics2D g2 = (Graphics2D) g;
             g2.setColor(color);
             g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-            g2.fillOval(x, y, radius, radius);
+            g2.fillOval(RADIUS, RADIUS, RADIUS*2, RADIUS*2);
         }
     }
 }

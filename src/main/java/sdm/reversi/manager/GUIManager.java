@@ -135,12 +135,11 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     private JPanel createGridPanel(Game game, final JFrame frame) {
         JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
+        DiskPanel.setRadius(FRAME_SIZE / boardSize / 4);
         for (int indexRow = 0; indexRow < boardSize; indexRow++) {
             for (int indexColumn = 0; indexColumn < boardSize; indexColumn++) {
-                graphicBoard[indexRow][indexColumn] = new DiskPanel(diskRadius,
-                        new Coordinate(indexRow, indexColumn),
-                        game.getBoard().getDiskColorFromCoordinate(new Coordinate(indexRow, indexColumn)),
-                        (FRAME_SIZE / boardSize));
+                graphicBoard[indexRow][indexColumn] = new DiskPanel(
+                        game.getBoard().getDiskColorFromCoordinate(new Coordinate(indexRow, indexColumn)));
                 graphicBoard[indexRow][indexColumn].setBorder(new LineBorder(Color.BLACK, 2));
                 graphicBoard[indexRow][indexColumn].setBackground(Color.decode("#0E6B0E"));
                 final int indexR = indexRow, indexC = indexColumn;
