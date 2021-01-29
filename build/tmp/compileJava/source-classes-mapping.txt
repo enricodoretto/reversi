@@ -19,14 +19,14 @@ sdm/reversi/manager/IOManager.java
  sdm.reversi.manager.IOManager
 sdm/reversi/game/OthelloGame.java
  sdm.reversi.game.OthelloGame
-sdm/reversi/manager/GUIManager.java
- sdm.reversi.manager.GUIManager
- sdm.reversi.manager.GUIManager$1
+sdm/reversi/game/ReversiGame.java
+ sdm.reversi.game.ReversiGame
 sdm/reversi/game/Game.java
  sdm.reversi.game.Game
 sdm/reversi/manager/CLIManager.java
  sdm.reversi.manager.CLIManager
-sdm/reversi/game/ReversiGame.java
- sdm.reversi.game.ReversiGame
 sdm/reversi/Main.java
  sdm.reversi.Main
+sdm/reversi/manager/GUIManager.java
+ sdm.reversi.manager.GUIManager
+ sdm.reversi.manager.GUIManager$1

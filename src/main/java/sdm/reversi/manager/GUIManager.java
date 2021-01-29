@@ -109,10 +109,10 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
         JPanel yAxisPanel = new JPanel(new GridLayout(boardSize, 1));
         yAxisPanel.setBorder(new EmptyBorder(0, 10, 0, 10));
-        yAxisPanel.setPreferredSize(new Dimension(30, FRAME_SIZE));
+        yAxisPanel.setPreferredSize(new Dimension(50, FRAME_SIZE));
         yAxisPanel.setBackground(Color.decode("#b0b0b0"));
         JPanel xAxisPanel = new JPanel(new GridLayout(1, boardSize + 1));
-        xAxisPanel.setBorder(new EmptyBorder(0, 30, 0, 0));
+        xAxisPanel.setBorder(new EmptyBorder(0, 50, 0, 0));
         xAxisPanel.setBackground(Color.decode("#b0b0b0"));
         IntStream.range(0, boardSize).forEach(index -> {
             xAxisPanel.add(new JLabel(String.format("%c", index + 'A'), JLabel.CENTER));
