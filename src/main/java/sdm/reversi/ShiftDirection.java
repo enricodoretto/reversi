@@ -10,8 +10,8 @@ public enum ShiftDirection {
     DOWN_LEFT(1, -1),
     DOWN_RIGHT(1, 1);
 
-    private int rowShift;
-    private int columnShift;
+    private final int rowShift;
+    private final int columnShift;
 
     ShiftDirection(int rowShift, int columnShift) {
         this.rowShift = rowShift;
