@@ -3,6 +3,7 @@ package sdm.reversi.manager;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
 import sdm.reversi.Player;
+import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.TitleBar;
 import sdm.reversi.game.Game;
 
@@ -20,7 +21,7 @@ import java.util.stream.IntStream;
 
 public class GUIManager extends JFrame implements IOManager, ActionListener {
     private JLabel player1Name, player2Name, player1Score, player2Score, currentPlayerName;
-    private JPanel[][] graphicBoard;
+    private DiskPanel[][] graphicBoard;
     private final static int FRAME_SIZE = 700;
     private int diskRadius;
     private int boardSize;
@@ -61,7 +62,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     @Override
     public void initialize(Game game) {
         boardSize = game.getBoard().getSize();
-        graphicBoard = new JPanel[boardSize][boardSize];
+        graphicBoard = new DiskPanel[boardSize][boardSize];
         points = new ArrayList<>();
         diskRadius = (FRAME_SIZE / boardSize) / 2;
 
@@ -107,22 +108,11 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
         for (int indexRow = 0; indexRow < boardSize; indexRow++) {
             for (int indexColumn = 0; indexColumn < boardSize; indexColumn++) {
-                graphicBoard[indexRow][indexColumn] = new JPanel() {
-                    @Override
-                    public void paintComponent(Graphics g) {
-                        super.paintComponent(g);
-                        Graphics2D g2 = (Graphics2D) g;
-                        g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-                        for (Point point : points) {
-                            if (game.getCurrentPlayer().getColor() == Disk.Color.BLACK) {
-                                g2.setColor(Color.BLACK); //print fill oval
-                            } else {
-                                g2.setColor(Color.WHITE); //print fill oval
-                            }
-                            g2.fillOval(point.x, point.y, diskRadius, diskRadius);
-                        }
-                    }
-                };
+                graphicBoard[indexRow][indexColumn] = new DiskPanel(diskRadius,
+                        new Coordinate(indexRow, indexColumn),
+                        game.getBoard().getDiskColorFromCoordinate(new Coordinate(indexRow, indexColumn)),
+                        (FRAME_SIZE / boardSize));
+
                 graphicBoard[indexRow][indexColumn].setBorder(new LineBorder(Color.BLACK, 2));
                 graphicBoard[indexRow][indexColumn].setBackground(Color.decode("#0E6B0E"));
                 final int indexR = indexRow, indexC = indexColumn;
