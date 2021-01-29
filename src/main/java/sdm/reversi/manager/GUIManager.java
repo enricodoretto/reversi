@@ -25,6 +25,7 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     private final static int FRAME_SIZE = 700;
     private int diskRadius;
     private int boardSize;
+    private Coordinate nextMove;
 
     //private boolean[][] diskIsPresent;
     //private int numberOfMoves = 0;
@@ -52,7 +53,16 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public Coordinate getMoveFromPlayer() {
-        return null;
+        while (nextMove == null) {
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        Coordinate move = new Coordinate(nextMove.getRow(), nextMove.getColumn());
+        nextMove = null;
+        return move;
     }
 
     @Override
@@ -119,16 +129,9 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
                 graphicBoard[indexRow][indexColumn].addMouseListener(new MouseAdapter() {
                     @Override
                     public void mouseClicked(MouseEvent e) {
-/*
                         if(nextMove == null){
                             nextMove = new Coordinate(indexR, indexC);
                         }
-
-                        if(isValidMove(indexR, indexC, dimensionBoard, frame)){
-                            doMove(indexR, indexC, dimensionBoard, frame);
-                        }else{
-                            JOptionPane.showMessageDialog(frame, "Invalid First Position");
-                        }*/
                     }
                 });
                 boardPanel.add(graphicBoard[indexRow][indexColumn]);
