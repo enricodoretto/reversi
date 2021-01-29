@@ -20,21 +20,6 @@ public abstract class Game {
     protected boolean isQuit;
     private IOManager ioManager;
 
-    public Game(String player1Name, String player2Name, int boardSize) {
-        this(player1Name, player2Name);
-        board = new Board(boardSize);
-    }
-
-    public Game(String player1Name, String player2Name, IOManager ioManager, int size) {
-        this(player1Name,player2Name, size);
-        this.ioManager = ioManager;
-    }
-
-    public Game(String player1Name, String player2Name, IOManager ioManager) {
-        this(player1Name,player2Name);
-        this.ioManager = ioManager;
-    }
-
     public Game(String player1Name, String player2Name) {
         if (player1Name.equals(player2Name)) throw new IllegalArgumentException();
         player1 = new Player(player1Name, Disk.Color.BLACK);
@@ -44,6 +29,11 @@ public abstract class Game {
         ioManager = new CLIManager();
     }
 
+    public Game(String player1Name, String player2Name, int boardSize) {
+        this(player1Name, player2Name);
+        board = new Board(boardSize);
+    }
+
     public Game(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         this(player1Name, player2Name);
         board = new Board(boardFileURL);
@@ -51,6 +41,16 @@ public abstract class Game {
             throw new IllegalArgumentException();
         }
         numberOfMoves = (int)board.getNumberOfDisks();
+    }
+
+    public Game(String player1Name, String player2Name, IOManager ioManager) {
+        this(player1Name,player2Name);
+        this.ioManager = ioManager;
+    }
+
+    public Game(String player1Name, String player2Name, IOManager ioManager, int size) {
+        this(player1Name,player2Name, size);
+        this.ioManager = ioManager;
     }
 
     public Board getBoard() {

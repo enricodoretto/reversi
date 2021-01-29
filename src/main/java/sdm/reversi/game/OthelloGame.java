@@ -16,6 +16,13 @@ public class OthelloGame extends Game {
         updatePlayersScore();
     }
 
+    public OthelloGame(String player1Name, String player2Name, int boardSize) {
+        super(player1Name, player2Name, boardSize);
+        initializeBoard();
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
+
     public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
         super(player1Name, player2Name, boardFileURL);
         calculatePlayerPossibleMoves();
@@ -35,12 +42,6 @@ public class OthelloGame extends Game {
         updatePlayersScore();
     }
 
-    public OthelloGame(String player1Name, String player2Name, int boardSize) {
-        super(player1Name, player2Name, boardSize);
-        initializeBoard();
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
 
     protected void initializeBoard() {
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2-1, board.getSize()/2-1));
