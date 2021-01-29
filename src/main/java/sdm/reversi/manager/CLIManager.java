@@ -34,7 +34,7 @@ public class CLIManager implements IOManager {
             System.out.println("Tie!");
             return;
         }
-        System.out.println("The winner is " + player.getName());;
+        System.out.println("The winner is " + player.getName());
     }
 
     @Override

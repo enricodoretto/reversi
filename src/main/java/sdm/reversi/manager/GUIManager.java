@@ -20,7 +20,9 @@ import java.util.Collection;
 import java.util.stream.IntStream;
 
 public class GUIManager extends JFrame implements IOManager, ActionListener {
-    private JLabel player1Name, player2Name, player1Score, player2Score, currentPlayerName;
+    private JLabel player1Score;
+    private JLabel player2Score;
+    private JLabel currentPlayerName;
     private DiskPanel[][] graphicBoard;
     private final static int FRAME_SIZE = 700;
     private int boardSize;
@@ -135,24 +137,22 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
         DiskPanel.setRadius(FRAME_SIZE / boardSize / 4);
 
-        IntStream.range(0, boardSize).forEach(row -> {
-                    IntStream.range(0, boardSize).forEach(column -> {
-                                graphicBoard[row][column] = new DiskPanel(
-                                        game.getBoard().getDiskColorFromCoordinate(new Coordinate(row, column)));
-                                graphicBoard[row][column].setBorder(new LineBorder(Color.BLACK, 2));
-                                graphicBoard[row][column].setBackground(Color.decode("#0E6B0E"));
-                                graphicBoard[row][column].addMouseListener(new MouseAdapter() {
-                                    @Override
-                                    public void mouseClicked(MouseEvent e) {
-                                        if (nextMove == null) {
-                                            nextMove = new Coordinate(row, column);
-                                        }
-                                    }
-                                });
-                                boardPanel.add(graphicBoard[row][column]);
+        IntStream.range(0, boardSize).forEach(row -> IntStream.range(0, boardSize).forEach(column -> {
+                    graphicBoard[row][column] = new DiskPanel(
+                            game.getBoard().getDiskColorFromCoordinate(new Coordinate(row, column)));
+                    graphicBoard[row][column].setBorder(new LineBorder(Color.BLACK, 2));
+                    graphicBoard[row][column].setBackground(Color.decode("#0E6B0E"));
+                    graphicBoard[row][column].addMouseListener(new MouseAdapter() {
+                        @Override
+                        public void mouseClicked(MouseEvent e) {
+                            if (nextMove == null) {
+                                nextMove = new Coordinate(row, column);
                             }
-                    );
+                        }
+                    });
+                    boardPanel.add(graphicBoard[row][column]);
                 }
+                )
         );
 
         boardPanel.setPreferredSize(new Dimension(700, 700));
@@ -167,8 +167,8 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         statisticsPanel.setBackground(Color.decode("#b0b0b0"));
         statisticsPanel.setBorder(new EmptyBorder(0, 25, 0, 25));
 
-        player1Name = new JLabel(game.getPlayer1().getName(), JLabel.CENTER);
-        player2Name = new JLabel(game.getPlayer2().getName(), JLabel.CENTER);
+        JLabel player1Name = new JLabel(game.getPlayer1().getName(), JLabel.CENTER);
+        JLabel player2Name = new JLabel(game.getPlayer2().getName(), JLabel.CENTER);
         player1Score = new JLabel(String.format("%d", game.getPlayer1().getScore()), JLabel.CENTER);
         player2Score = new JLabel(String.format("%d", game.getPlayer2().getScore()), JLabel.CENTER);
         currentPlayerName = new JLabel(game.getCurrentPlayer().getName() + "'s Turn", JLabel.CENTER);
