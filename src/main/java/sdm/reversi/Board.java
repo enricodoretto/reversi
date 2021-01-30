@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Board {
 
@@ -86,16 +87,12 @@ public class Board {
         return isCellValid(coordinate) && !isCellEmpty(coordinate);
     }
 
-    public Collection<Coordinate> getAvailableCells(){
-        Collection<Coordinate> coordinates = new HashSet<>();
-        for(int i=0; i<board.length; i++){
-            for(int j=0; j<board[0].length; j++){
-                Coordinate coordinate = new Coordinate(i, j);
-                if(isCellAvailable(coordinate))
-                    coordinates.add(coordinate);
-            }
-        }
-        return coordinates;
+    public Collection<Coordinate> getAvailableCells() {
+        return IntStream.range(0, board.length).boxed()
+                .flatMap(x -> IntStream.range(0, board.length)
+                        .mapToObj(y -> new Coordinate(x, y))
+                        .filter(this::isCellAvailable))
+                .collect(Collectors.toSet());
     }
 
     private boolean isIndexValid(int index) {
