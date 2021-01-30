@@ -37,7 +37,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("finishedGameBoards/othello2011FinalBoard, finishedGameBoards/othello2017FinalBoard")
+    @CsvSource("finishedGameBoards/2011FinalBoard, finishedGameBoards/2017FinalBoard")
     void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
@@ -55,7 +55,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("othelloInitialBoards/othello8x8Board, othelloInitialBoards/othello4x4Board, othelloInitialBoards/othello16x16Board")
+    @CsvSource("initialBoards/othello8x8Board, othelloInitialBoards/othello4x4Board, othelloInitialBoards/othello16x16Board")
     void withBoardNotFullAndPlayersNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
@@ -72,7 +72,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("finishedGameBoards/othello2017FinalBoard, fullBoards/othello4x4BoardWonByWhite, fullBoards/othello8x8BoardWonByWhite")
+    @CsvSource("finishedGameBoards/2017FinalBoard, fullBoards/board4x4WonByWhite, fullBoards/board8x8WonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
@@ -81,7 +81,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("fullBoards/othello4x4BoardWonByBlack, fullBoards/othello8x8BoardWonByBlack")
+    @CsvSource("fullBoards/board4x4WonByBlack, fullBoards/board8x8WonByBlack")
     void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);

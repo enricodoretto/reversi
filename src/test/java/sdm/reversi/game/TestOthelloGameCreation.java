@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestOthelloGameCreation {
 
     @ParameterizedTest
-    @CsvSource({"4, othelloInitialBoards/othello4x4Board", "8, othelloInitialBoards/othello8x8Board", "16, othelloInitialBoards/othello16x16Board"})
+    @CsvSource({"4, initialBoards/othello4x4Board", "8, initialBoards/othello8x8Board", "16, initialBoards/othello16x16Board"})
     void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
         Game game = new OthelloGame("Bob", "Alice", boardSize);
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
@@ -23,7 +23,7 @@ public class TestOthelloGameCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"fullBoards/allWhite8x8Board", "fullBoards/allBlack8x8Board", "othelloInitialBoards/othello4x4Board", "othelloInitialBoards/othello16x16Board"})
+    @CsvSource({"fullBoards/allWhite8x8Board", "fullBoards/allBlack8x8Board", "initialBoards/othello4x4Board", "initialBoards/othello16x16Board"})
     void succeedsWithCustomBoardWithAtLeastFourDisks(String fileName) throws URISyntaxException, IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));

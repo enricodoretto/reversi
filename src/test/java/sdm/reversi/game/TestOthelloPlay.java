@@ -14,7 +14,7 @@ public class TestOthelloPlay {
 
     @Test
     void isOverAfterTwoMoves() throws IOException, URISyntaxException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -29,7 +29,7 @@ public class TestOthelloPlay {
 
     @Test
     void requiresMoveRepetitionIfGivenMoveIsInvalid() throws IOException, URISyntaxException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfRequiresMoveRepetitionIfGivenMoveIsInvalid");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForRequiresMoveRepetitionIfGivenMoveIsInvalid");
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -44,7 +44,7 @@ public class TestOthelloPlay {
 
     @Test
     void makesSkipTurnIfThereAreNoAvailableMoves() throws IOException, URISyntaxException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardBlackCantMove");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board4x4BlackCantMove");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfMakesSkipTurnIfThereAreNoAvailableMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForMakesSkipTurnIfThereAreNoAvailableMoves");
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -59,7 +59,7 @@ public class TestOthelloPlay {
 
     @Test
     void isOverWhenPlayerQuits() throws IOException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
         System.setIn(inputMoveFile.openStream());
         Game game = new OthelloGame("Bob", "Alice", boardFile);
