@@ -18,9 +18,9 @@ public class TestPuttingDiskIn {
     }
 
     @ParameterizedTest
-    @CsvSource({"1A", "5F", "8H"})
-    public void nonEmptyCellInside8x8BoardFails(Coordinate coordinate){
-        Board board = new Board();
+    @CsvSource({"8,1A", "8,8H", "4,1C", "4,2B", "22,22H", "22,16D"})
+    public void nonEmptyCellInsideBoardFails(int boardSize, Coordinate coordinate){
+        Board board = new Board(boardSize);
         board.putDisk(Disk.Color.BLACK,coordinate);
         assertFalse(board.putDisk(Disk.Color.BLACK, coordinate));
     }
