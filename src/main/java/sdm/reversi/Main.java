@@ -6,7 +6,6 @@ import sdm.reversi.game.ReversiGame;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GUIManager;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
@@ -29,13 +28,11 @@ public class Main {
         int boardSize = scanner.nextInt();
 
         Game game;
-        if(typeOfGame == 1){
-            game = new ReversiGame(player1Name,player2Name, new CLIManager(), boardSize);
+        if (typeOfGame == 1) {
+            game = new ReversiGame(player1Name, player2Name, new CLIManager(), boardSize);
+        } else {
+            game = new OthelloGame(player1Name, player2Name, new CLIManager(), boardSize);
         }
-        else{
-            game = new OthelloGame(player1Name,player2Name, new CLIManager(), boardSize);
-        }
-
         game.play();
 
     }

@@ -17,14 +17,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
+import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class GUIManager extends JFrame implements IOManager, ActionListener {
+
+    private final static int FRAME_SIZE = 700;
+
+    private Map<Coordinate, DiskPanel> graphicBoard;
     private JLabel player1Score;
     private JLabel player2Score;
     private JLabel currentPlayerName;
-    private DiskPanel[][] graphicBoard;
-    private final static int FRAME_SIZE = 700;
     private int boardSize;
     private Coordinate nextMove;
 
@@ -41,11 +45,10 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
 
     @Override
     public void suggestMoves(Collection<Coordinate> moves) {
-        for (Coordinate suggestedMove : moves) {
-            graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()]
-                    .suggest(currentPlayerName.getForeground());
-            graphicBoard[suggestedMove.getRow()][suggestedMove.getColumn()].repaint();
-        }
+        moves.forEach(move -> {
+            graphicBoard.get(move).suggest(currentPlayerName.getForeground());
+            graphicBoard.get(move).repaint();
+        });
     }
 
     @Override
@@ -80,20 +83,16 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
     }
 
     private void updateGridPanel(Board board) {
-        for (int i = 0; i < boardSize; i++) {
-            for (int j = 0; j < boardSize; j++) {
-                Coordinate coordinate = new Coordinate(i, j);
-                graphicBoard[i][j].setColor(board.getDiskColorFromCoordinate(coordinate));
-                graphicBoard[i][j].repaint();
-            }
-        }
+        graphicBoard.forEach((coordinate, panel) -> {
+            panel.setColor(board.getDiskColorFromCoordinate(coordinate));
+            panel.repaint();
+        });
     }
 
     @Override
     public void initialize(Game game) {
         new DraggableFrame(this);
         boardSize = game.getBoard().getSize();
-        graphicBoard = new DiskPanel[boardSize][boardSize];
 
         TitleBar titleBar = new TitleBar();
         add(titleBar.getTitleBar(), BorderLayout.NORTH);
@@ -137,23 +136,26 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
         JPanel boardPanel = new JPanel(new GridLayout(boardSize, boardSize));
         DiskPanel.setRadius(FRAME_SIZE / boardSize / 4);
 
-        IntStream.range(0, boardSize).forEach(row -> IntStream.range(0, boardSize).forEach(column -> {
-                    graphicBoard[row][column] = new DiskPanel(
-                            game.getBoard().getDiskColorFromCoordinate(new Coordinate(row, column)));
-                    graphicBoard[row][column].setBorder(new LineBorder(Color.BLACK, 2));
-                    graphicBoard[row][column].setBackground(Color.decode("#0E6B0E"));
-                    graphicBoard[row][column].addMouseListener(new MouseAdapter() {
-                        @Override
-                        public void mouseClicked(MouseEvent e) {
-                            if (nextMove == null) {
-                                nextMove = new Coordinate(row, column);
-                            }
-                        }
-                    });
-                    boardPanel.add(graphicBoard[row][column]);
-                }
-                )
-        );
+        graphicBoard =
+                IntStream.range(0, boardSize).boxed()
+                        .flatMap(x -> IntStream.range(0, boardSize)
+                                .mapToObj(y -> new Coordinate(x, y))
+                        )
+                        .collect(Collectors.toMap(c -> c, c -> {
+                            DiskPanel diskPanel = new DiskPanel(game.getBoard().getDiskColorFromCoordinate(c));
+                            diskPanel.setBorder(new LineBorder(Color.BLACK, 2));
+                            diskPanel.setBackground(Color.decode("#0E6B0E"));
+                            diskPanel.addMouseListener(new MouseAdapter() {
+                                @Override
+                                public void mouseClicked(MouseEvent e) {
+                                    if (nextMove == null) {
+                                        nextMove = c;
+                                    }
+                                }
+                            });
+                            boardPanel.add(diskPanel);
+                            return diskPanel;
+                        }));
 
         boardPanel.setPreferredSize(new Dimension(700, 700));
         boardPanel.setBackground(Color.BLACK);
