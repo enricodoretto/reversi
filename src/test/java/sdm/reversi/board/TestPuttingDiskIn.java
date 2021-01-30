@@ -26,9 +26,9 @@ public class TestPuttingDiskIn {
     }
 
     @ParameterizedTest
-    @CsvSource({"11C", "0A", "4I"})
-    public void cellOutside8x8BoardFails(Coordinate coordinate){
-        Board board = new Board();
+    @CsvSource({"8,11C", "8,0A", "4,5D", "4,4E", "26,27A", "26,0Z"})
+    public void cellOutsideBoardFails(int boardSize, Coordinate coordinate){
+        Board board = new Board(boardSize);
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(Disk.Color.BLACK,coordinate));
     }
 
