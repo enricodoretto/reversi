@@ -10,8 +10,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-import static org.junit.jupiter.api.Assertions.assertAll;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class TestReversiPlay {
 
@@ -58,6 +57,16 @@ public class TestReversiPlay {
         game.play();
         assertAll(() -> assertEquals("Alice", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
+    @Test
+    void isOverWhenPlayerQuits() throws IOException {
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othello4x4BoardTwoMovesMissing");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
+        System.setIn(inputMoveFile.openStream());
+        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        game.play();
+        assertTrue(game.isOver());
     }
 
     @Test
