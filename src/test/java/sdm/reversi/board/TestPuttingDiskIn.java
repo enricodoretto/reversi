@@ -11,9 +11,9 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestPuttingDiskIn {
 
     @ParameterizedTest
-    @CsvSource({"1A", "2A", "5C"})
-    public void emptyCellInside8x8BoardSucceeds(Coordinate coordinate){
-        Board board = new Board();
+    @CsvSource({"8,1A", "8,5C", "4,4D", "4,1C", "26,26Z", "26,15C"})
+    public void emptyCellInsideBoardSucceeds(int boardSize, Coordinate coordinate){
+        Board board = new Board(boardSize);
         assertTrue(board.putDisk(Disk.Color.BLACK, coordinate));
     }
 
@@ -30,6 +30,13 @@ public class TestPuttingDiskIn {
     public void cellOutside8x8BoardFails(Coordinate coordinate){
         Board board = new Board();
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(Disk.Color.BLACK,coordinate));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"1A", "2A", "4D"})
+    public void emptyCellInside4x4BoardSucceeds(Coordinate coordinate){
+        Board board = new Board();
+        assertTrue(board.putDisk(Disk.Color.BLACK, coordinate));
     }
 
 }
