@@ -63,7 +63,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board, tieGameBoards/first4ColumnsWhiteAndLast4ColumnsBlack8x8Board, tieGameBoards/chequered4x4Board")
+    @CsvSource("tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board, tieGameBoards/first4ColumnsWhiteAndLast4ColumnsBlack8x8Board, tieGameBoards/chequered4x4Board, tieGameBoards/chequered14x14Board")
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = new OthelloGame("Bob", "Alice", boardFile);
