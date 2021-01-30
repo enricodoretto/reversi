@@ -31,12 +31,5 @@ public class TestPuttingDiskIn {
         Board board = new Board(boardSize);
         assertThrows(IllegalArgumentException.class, () -> board.putDisk(Disk.Color.BLACK,coordinate));
     }
-
-    @ParameterizedTest
-    @CsvSource({"1A", "2A", "4D"})
-    public void emptyCellInside4x4BoardSucceeds(Coordinate coordinate){
-        Board board = new Board();
-        assertTrue(board.putDisk(Disk.Color.BLACK, coordinate));
-    }
-
+    
 }
