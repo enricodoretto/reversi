@@ -83,5 +83,19 @@ public class TestReversiPlay {
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
+    @Test
+    void full8x8GameWonByBob() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogFullReversi8x8");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiFullGame");
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        System.setIn(inputMoveFile.openStream());
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new ReversiGame("Bob", "Alice", 8);
+        game.play();
+        assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
 }
 
