@@ -67,7 +67,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("6F,6D, 3E, 3C ")
+    @CsvSource("6F,6D,3E,3C")
     void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
         Game othelloGame = new OthelloGame("Bob", "Alice");
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othelloInitialBoards/othello8x8Board");
@@ -93,7 +93,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("1A, 10H, 3C")
+    @CsvSource("1A,10H,3C")
     void cannotBeMadeIfNotValid(String blackDiskCoordinate) throws IOException {
         Game othelloGame = new OthelloGame("Bob", "Alice");
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("othelloInitialBoards/othello8x8Board");
