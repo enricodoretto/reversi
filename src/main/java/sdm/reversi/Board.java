@@ -106,12 +106,11 @@ public class Board {
         return isIndexValid(coordinate.getRow()) && isIndexValid(coordinate.getColumn());
     }
 
-    public boolean putDisk(Disk.Color diskColor, Coordinate coordinate) {
-        if (isCellEmpty(coordinate)) {
-            board[coordinate.getRow()][coordinate.getColumn()] = new Disk(diskColor);
-            return true;
+    public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
+        if (!isCellEmpty(coordinate)) {
+            throw new IllegalArgumentException();
         }
-        return false;
+        board[coordinate.getRow()][coordinate.getColumn()] = new Disk(diskColor);
     }
 
     public void flipDisk(Coordinate coordinate) {

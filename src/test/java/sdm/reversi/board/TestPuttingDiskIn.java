@@ -14,7 +14,7 @@ public class TestPuttingDiskIn {
     @CsvSource({"8,1A", "8,5C", "4,4D", "4,1C", "26,26Z", "26,15C"})
     public void emptyCellInsideBoardSucceeds(int boardSize, Coordinate coordinate){
         Board board = new Board(boardSize);
-        assertTrue(board.putDisk(Disk.Color.BLACK, coordinate));
+        assertDoesNotThrow(() -> board.putDisk(Disk.Color.BLACK, coordinate));
     }
 
     @ParameterizedTest
@@ -22,7 +22,7 @@ public class TestPuttingDiskIn {
     public void nonEmptyCellInsideBoardFails(int boardSize, Coordinate coordinate){
         Board board = new Board(boardSize);
         board.putDisk(Disk.Color.BLACK,coordinate);
-        assertFalse(board.putDisk(Disk.Color.BLACK, coordinate));
+        assertThrows(IllegalArgumentException.class ,() ->board.putDisk(Disk.Color.BLACK, coordinate));
     }
 
     @ParameterizedTest
