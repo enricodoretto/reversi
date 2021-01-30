@@ -29,9 +29,9 @@ public class Main {
 
         Game game;
         if (typeOfGame == 1) {
-            game = new ReversiGame(player1Name, player2Name, new CLIManager(), boardSize);
+            game = new ReversiGame(player1Name, player2Name, new GUIManager(), boardSize);
         } else {
-            game = new OthelloGame(player1Name, player2Name, new CLIManager(), boardSize);
+            game = new OthelloGame(player1Name, player2Name, new GUIManager(), boardSize);
         }
         game.play();
 

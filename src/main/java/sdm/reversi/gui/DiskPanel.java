@@ -3,6 +3,7 @@ package sdm.reversi.gui;
 import sdm.reversi.Disk;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 
 public class DiskPanel extends JPanel {
@@ -17,6 +18,8 @@ public class DiskPanel extends JPanel {
 
     public DiskPanel(Disk.Color diskColor) {
         setColor(diskColor);
+        super.setBorder(new LineBorder(Color.BLACK, 2));
+        super.setBackground(Color.decode("#0E6B0E"));
     }
 
     public void suggest(Color color){

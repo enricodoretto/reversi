@@ -10,7 +10,6 @@ import sdm.reversi.gui.TitleBar;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -143,8 +142,6 @@ public class GUIManager extends JFrame implements IOManager, ActionListener {
                         )
                         .collect(Collectors.toMap(c -> c, c -> {
                             DiskPanel diskPanel = new DiskPanel(game.getBoard().getDiskColorFromCoordinate(c));
-                            diskPanel.setBorder(new LineBorder(Color.BLACK, 2));
-                            diskPanel.setBackground(Color.decode("#0E6B0E"));
                             diskPanel.addMouseListener(new MouseAdapter() {
                                 @Override
                                 public void mouseClicked(MouseEvent e) {
