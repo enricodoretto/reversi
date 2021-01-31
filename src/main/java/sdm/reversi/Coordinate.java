@@ -18,6 +18,9 @@ public class Coordinate {
     }
 
     public Coordinate(String inputCoordinate) {
+        if(!Pattern.compile("^[0-9]{1}([0-9]{2})?[A-Za-z]{1}").matcher(inputCoordinate).find()){
+            throw new IllegalArgumentException();
+        }
         try {
             Matcher matcher = Pattern.compile("\\d+").matcher(inputCoordinate);
             matcher.find();
@@ -28,7 +31,6 @@ public class Coordinate {
                 IllegalStateException | IllegalArgumentException e){
             throw new IllegalArgumentException();
         }
-
     }
 
     public int getRow() {
