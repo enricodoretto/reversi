@@ -51,6 +51,13 @@ public class OthelloGame extends Game {
         updatePlayersScore();
     }
 
+    public OthelloGame(GameBuilder gameBuilder){
+        super(gameBuilder);
+        initializeBoard();
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
+
     protected void initializeBoard() {
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2-1, board.getSize()/2-1));
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2,board.getSize()/2));

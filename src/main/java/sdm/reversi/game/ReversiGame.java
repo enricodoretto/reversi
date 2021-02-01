@@ -52,6 +52,12 @@ public class ReversiGame extends Game {
         updatePlayersScore();
     }
 
+    public ReversiGame(GameBuilder gameBuilder){
+        super(gameBuilder);
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
+
     @Override
     protected void calculatePlayerPossibleMoves(){
         if(numberOfMoves>=4){

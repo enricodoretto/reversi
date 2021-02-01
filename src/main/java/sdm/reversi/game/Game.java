@@ -2,6 +2,7 @@ package sdm.reversi.game;
 
 import sdm.reversi.*;
 import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;
 import sdm.reversi.manager.NotificationsManager;
 import sdm.reversi.player.ComputerPlayer;
@@ -15,12 +16,78 @@ import java.util.stream.Stream;
 
 public abstract class Game {
     protected final Player player1;
-    protected final Player player2;
+    protected Player player2;
     protected Board board;
     protected Player currentPlayer;
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
     protected boolean isQuit;
+
+    public static class GameBuilder {
+        private final Player player1;
+        private Player player2;
+        private Board board;
+
+        private GameBuilder(String player1Name, GameManager gameManager){
+            player1 = new Player(player1Name, Disk.Color.BLACK, gameManager);
+        }
+
+        public static GameBuilder CLIGameBuilder(String player1Name) {
+            return new GameBuilder(player1Name, new CLIManager());
+        }
+
+        public static GameBuilder GUIGameBuilder(String player1Name) {
+            return new GameBuilder(player1Name, new GUIManager());
+        }
+
+        public GameBuilder withOpponent(String player2Name) {
+            if (player1.getName().equals(player2Name)) throw new IllegalArgumentException();
+            if (player2 != null) throw new IllegalArgumentException();
+            player2 = new Player(player2Name, Disk.Color.WHITE);
+            return this;
+        }
+
+        public GameBuilder withCPUOpponent() {
+            if (player2 != null) throw new IllegalArgumentException();
+            player2 = new ComputerPlayer(Disk.Color.WHITE);
+            return this;
+        }
+
+        public GameBuilder withBoardSize(int boardSize) {
+            if (board != null) throw new IllegalArgumentException();
+            board = new Board(boardSize);
+            return this;
+        }
+
+        public GameBuilder withCustomBoard(URL boardFileURL) throws IOException {
+            if (board != null) throw new IllegalArgumentException();
+            board = new Board(boardFileURL);
+            if (board.getNumberOfDisks() < 4) {
+                throw new IllegalArgumentException();
+            }
+            return this;
+        }
+
+        public Game buildReversi(){
+            if(player2 == null) throw new IllegalArgumentException();
+            if(board == null) board = new Board();
+            return new ReversiGame(this);
+        }
+
+        public Game buildOthello(){
+            if(player2 == null) throw new IllegalArgumentException();
+            if(board == null) board = new Board();
+            return new OthelloGame(this);
+        }
+    }
+
+    protected Game(GameBuilder gameBuilder){
+        player1 = gameBuilder.player1;
+        player2 = gameBuilder.player2;
+        currentPlayer = player1;
+        board = gameBuilder.board;
+        numberOfMoves = (int) board.getNumberOfDisks();
+    }
 
     public Game(String player1Name, String player2Name) {
         this(player1Name, player2Name, new CLIManager());
@@ -59,6 +126,7 @@ public abstract class Game {
         currentPlayer = player1;
         board = new Board();
     }
+
 
     public Board getBoard() {
         return board;
