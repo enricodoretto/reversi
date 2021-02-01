@@ -13,7 +13,7 @@ import java.net.Socket;
 import java.util.Collection;
 import java.util.HashSet;
 
-public class RemoteGameManager implements GameManager{
+public class RemoteGameManager implements GameManager {
 
     private static final int PORT_NUMBER = 10000;
     private final ObjectOutputStream objectOutputStream;
@@ -55,7 +55,8 @@ public class RemoteGameManager implements GameManager{
             objectOutputStream.writeObject(CommunicationProtocol.SKIP);
         } catch (IOException e) {
             e.printStackTrace();
-        }    }
+        }
+    }
 
     @Override
     public void showWinner(Player player) {
@@ -74,13 +75,14 @@ public class RemoteGameManager implements GameManager{
             objectOutputStream.writeObject(new HashSet<>(moves));
         } catch (IOException e) {
             e.printStackTrace();
-        }    }
+        }
+    }
 
     @Override
     public Coordinate getMoveFromPlayer() {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.GET_MOVE);
-            return (Coordinate)objectInputStream.readObject();
+            return (Coordinate) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
             return null;
@@ -107,7 +109,12 @@ public class RemoteGameManager implements GameManager{
         }
     }
 
-    public String getName(){
-        return "Alice";
+    public String getName() {
+        try {
+            return (String) objectInputStream.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -6,16 +6,19 @@ import sdm.reversi.manager.GameManager;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.Socket;
 
 public class Client {
     public static void main(String[] args) {
+        GameManager gameManager = new CLIManager();
+        String playerName = "Client Player";
         try (Socket socket = new Socket(InetAddress.getLocalHost(), 10000);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())
         ) {
-            GameManager gameManager = new CLIManager();
+            objectOutputStream.writeObject(playerName);
             CommunicationProtocol communicationProtocol;
             while ((communicationProtocol = (CommunicationProtocol) objectInputStream.readObject()
             ) != null) {
