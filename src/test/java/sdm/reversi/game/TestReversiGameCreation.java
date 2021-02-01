@@ -16,7 +16,7 @@ public class TestReversiGameCreation {
     @ParameterizedTest
     @CsvSource({"4, emptyBoards/empty4x4Board", "8, emptyBoards/empty8x8Board", "16, emptyBoards/empty16x16Board"})
     void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
-        Game game = new ReversiGame("Bob", "Alice", boardSize);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildReversi();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
