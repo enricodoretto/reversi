@@ -10,7 +10,7 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class Client {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         try (Socket socket = new Socket(InetAddress.getLocalHost(), 10000);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream());
@@ -19,9 +19,9 @@ public class Client {
             CommunicationProtocol communicationProtocol;
             while ((communicationProtocol = (CommunicationProtocol) objectInputStream.readObject()
             ) != null) {
-                communicationProtocol.act(gameManager, objectInputStream, objectOutputStream);
+                communicationProtocol.performAction(gameManager, objectInputStream, objectOutputStream);
             }
-        } catch (IOException e){
+        } catch (IOException | ClassNotFoundException e){
             e.printStackTrace();
         }
     }

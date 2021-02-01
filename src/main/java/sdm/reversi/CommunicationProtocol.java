@@ -14,58 +14,28 @@ public enum CommunicationProtocol implements Serializable {
 
     @SuppressWarnings("unchecked")
     SUGGEST(((gameManager, is, os) -> {
-        try {
-            gameManager.suggestMoves((Collection<Coordinate>) is.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        gameManager.suggestMoves((Collection<Coordinate>) is.readObject());
     })),
     ILLEGAL(((gameManager, is, os) -> {
-        try {
-            gameManager.illegalMove((String) is.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        gameManager.illegalMove((String) is.readObject());
     })),
     GET_MOVE(((gameManager, is, os) -> {
-        try {
-            os.writeObject(
-                    gameManager.getMoveFromPlayer()
-            );
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        os.writeObject(gameManager.getMoveFromPlayer());
     })),
     UPDATE(((gameManager, is, os) -> {
-        try {
-            gameManager.updateGame((Game) is.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        gameManager.updateGame((Game) is.readObject());
     })),
     START(((gameManager, is, os) -> {
-        try {
-            gameManager.startTurn((Player) is.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        gameManager.startTurn((Player) is.readObject());
     })),
     SKIP(((gameManager, is, os) -> {
         gameManager.skipTurn();
     })),
     INITIALIZE(((gameManager, is, os) -> {
-        try {
-            gameManager.initialize((Game) is.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        gameManager.initialize((Game) is.readObject());
     })),
     WINNER(((gameManager, is, os) -> {
-        try {
-            gameManager.showWinner((Player) is.readObject());
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
+        gameManager.showWinner((Player) is.readObject());
     }));
 
     private final TriConsumer<GameManager, ObjectInputStream, ObjectOutputStream> consumer;
@@ -74,7 +44,7 @@ public enum CommunicationProtocol implements Serializable {
         this.consumer = consumer;
     }
 
-    public void act(GameManager gameManager, ObjectInputStream is, ObjectOutputStream os) {
+    public void performAction(GameManager gameManager, ObjectInputStream is, ObjectOutputStream os) throws IOException, ClassNotFoundException {
         consumer.accept(gameManager, is, os);
     }
 }
