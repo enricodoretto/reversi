@@ -20,7 +20,7 @@ public class CLIManager implements GameManager {
 
     @Override
     public void startTurn(Player currentPlayer) {
-        System.out.printf("%s's turn:\n", currentPlayer.getName());
+        System.out.printf("%s's turn:%s", currentPlayer.getName(), System.lineSeparator());
     }
 
     @Override
@@ -34,7 +34,7 @@ public class CLIManager implements GameManager {
             System.out.println("Tie!");
             return;
         }
-        System.out.println("The winner is " + player.getName());
+        System.out.printf("The winner is %s%s", player.getName(), System.lineSeparator());
     }
 
     @Override
