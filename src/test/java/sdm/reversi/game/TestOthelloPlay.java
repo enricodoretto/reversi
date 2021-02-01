@@ -21,7 +21,7 @@ public class TestOthelloPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -36,7 +36,7 @@ public class TestOthelloPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -51,7 +51,7 @@ public class TestOthelloPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         game.play();
         assertAll(() -> assertEquals("Alice", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -62,7 +62,7 @@ public class TestOthelloPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
         System.setIn(inputMoveFile.openStream());
-        Game game = new OthelloGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         game.play();
         assertTrue(game.isOver());
     }
@@ -75,7 +75,7 @@ public class TestOthelloPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new OthelloGame("Bob", "Alice", 4);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(4).buildOthello();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
