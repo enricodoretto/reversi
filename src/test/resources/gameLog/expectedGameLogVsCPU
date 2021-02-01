@@ -6,7 +6,8 @@
 --------
 --------
 --------
-Bob's turn: 4D 4E 5D 5E
+Bob's turn:
+4D 4E 5D 5E
 --------
 --------
 --------
@@ -15,7 +16,8 @@ Bob's turn: 4D 4E 5D 5E
 --------
 --------
 --------
-CPU's turn: --------
+CPU's turn:
+--------
 --------
 --------
 ---BW---
@@ -23,7 +25,8 @@ CPU's turn: --------
 --------
 --------
 --------
-Bob's turn: 5D 5E
+Bob's turn:
+5D 5E
 --------
 --------
 --------
@@ -32,7 +35,8 @@ Bob's turn: 5D 5E
 --------
 --------
 --------
-CPU's turn: --------
+CPU's turn:
+--------
 --------
 --------
 ---BW---
@@ -40,7 +44,8 @@ CPU's turn: --------
 --------
 --------
 --------
-Bob's turn: 3E 4F 5C 6D
+Bob's turn:
+3E 4F 5C 6D
 --------
 --------
 ----B---
@@ -49,7 +54,8 @@ Bob's turn: 3E 4F 5C 6D
 --------
 --------
 --------
-CPU's turn: --------
+CPU's turn:
+--------
 --------
 ---WB---
 ---WB---
@@ -57,7 +63,8 @@ CPU's turn: --------
 --------
 --------
 --------
-Bob's turn: 2C 3C 4C 5C 6C
+Bob's turn:
+2C 3C 4C 5C 6C
 --------
 --------
 ---WB---
@@ -66,7 +73,8 @@ Bob's turn: 2C 3C 4C 5C 6C
 --------
 --------
 --------
-CPU's turn: --------
+CPU's turn:
+--------
 --------
 -W-WB---
 --WBB---
@@ -74,7 +82,8 @@ CPU's turn: --------
 --------
 --------
 --------
-Bob's turn: 2C 2D 3C 4B 5C 6C 6D
+Bob's turn:
+2C 2D 3C 4B 5C 6C 6D
 --------
 --------
 -W-WB---
@@ -83,7 +92,8 @@ Bob's turn: 2C 2D 3C 4B 5C 6C 6D
 ---B----
 --------
 --------
-CPU's turn: --------
+CPU's turn:
+--------
 --------
 -W-WWW--
 --WBB---
@@ -91,7 +101,8 @@ CPU's turn: --------
 ---B----
 --------
 --------
-Bob's turn: 2A 2C 2D 2E 2F 2G 4B
+Bob's turn:
+2A 2C 2D 2E 2F 2G 4B
 --------
 -----B--
 -W-WBW--
@@ -100,7 +111,8 @@ Bob's turn: 2A 2C 2D 2E 2F 2G 4B
 ---B----
 --------
 --------
-CPU's turn: -----W--
+CPU's turn:
+-----W--
 -----W--
 -W-WBW--
 --WBB---
@@ -108,7 +120,8 @@ CPU's turn: -----W--
 ---B----
 --------
 --------
-Bob's turn: 1G 2A 2C 2D 2G 3C 3G 4B
+Bob's turn:
+1G 2A 2C 2D 2G 3C 3G 4B
 -----W--
 B----W--
 -B-WBW--
@@ -117,7 +130,8 @@ B----W--
 ---B----
 --------
 --------
-CPU's turn: -----W--
+CPU's turn:
+-----W--
 B----W--
 -B-WBW--
 --WBB---
@@ -125,7 +139,8 @@ B----W--
 ---B----
 --------
 --------
-Bob's turn: 1G 2C 2D 2G 3C 3G 4B
+Bob's turn:
+1G 2C 2D 2G 3C 3G 4B
 -----W--
 B----WB-
 -B-WBB--
@@ -134,7 +149,8 @@ B----WB-
 ---B----
 --------
 --------
-CPU's turn: -----W--
+CPU's turn:
+-----W--
 B----WWW
 -B-WBB--
 --WBB---
@@ -142,7 +158,8 @@ B----WWW
 ---B----
 --------
 --------
-Bob's turn: 1G 1H 2C 2D 3C 4B
+Bob's turn:
+1G 1H 2C 2D 3C 4B
 -----W--
 B----WWW
 -BBBBB--
@@ -151,7 +168,8 @@ B----WWW
 ---B----
 --------
 --------
-CPU's turn: -----W--
+CPU's turn:
+-----W--
 B-W--WWW
 -BWBBB--
 --WBB---
@@ -159,7 +177,8 @@ B-W--WWW
 ---B----
 --------
 --------
-Bob's turn: 1B 1D 1G 1H 2B 4B 6A
+Bob's turn:
+1B 1D 1G 1H 2B 4B 6A
 -----W-B
 B-W--WBW
 -BWBBB--
@@ -168,7 +187,8 @@ B-W--WBW
 ---B----
 --------
 --------
-CPU's turn: -----W-B
+CPU's turn:
+-----W-B
 B-W-WWBW
 -BWWBB--
 --WBB---
@@ -176,7 +196,8 @@ B-W-WWBW
 ---B----
 --------
 --------
-Bob's turn: 1B 1D 1E 1G 2B 2D 3H 4B
+Bob's turn:
+1B 1D 1E 1G 2B 2D 3H 4B
 -----W-B
 B-W-WWBB
 -BWWBB-B
@@ -185,7 +206,8 @@ B-W-WWBB
 ---B----
 --------
 --------
-CPU's turn: -----W-B
+CPU's turn:
+-----W-B
 B-W-WWBB
 WWWWBB-B
 --WBB---
@@ -193,7 +215,8 @@ WWWWBB-B
 ---B----
 --------
 --------
-Bob's turn: 1B 1D 1E 1G 2B 2D 4A 4B
+Bob's turn:
+1B 1D 1E 1G 2B 2D 4A 4B
 -----W-B
 B-W-WWBB
 BWWWBB-B
@@ -202,7 +225,8 @@ B-WBB---
 ---B----
 --------
 --------
-CPU's turn: -----W-B
+CPU's turn:
+-----W-B
 B-W-WWBB
 BWWWWWWB
 B-WBB---
@@ -210,7 +234,8 @@ B-WBB---
 ---B----
 --------
 --------
-Bob's turn: 1B 1D 1E 1G 2B 2D 4B 4F 4G 6C
+Bob's turn:
+1B 1D 1E 1G 2B 2D 4B 4F 4G 6C
 -----W-B
 B-W-WWBB
 BWWWWWBB
@@ -219,7 +244,8 @@ B-WBB-B-
 ---B----
 --------
 --------
-CPU's turn: -----W-B
+CPU's turn:
+-----W-B
 B-W-WWBB
 BWWWWWBB
 B-WWWWB-
@@ -227,7 +253,8 @@ B-WWWWB-
 ---B----
 --------
 --------
-Bob's turn: 1D 1E 2B 2D 4B 6C
+Bob's turn:
+1D 1E 2B 2D 4B 6C
 -----W-B
 BBW-WWBB
 BWBWWWBB
@@ -236,7 +263,8 @@ B-WBWWB-
 ---B----
 --------
 --------
-CPU's turn: -W---W-B
+CPU's turn:
+-W---W-B
 BWW-WWBB
 BWBWWWBB
 B-WBWWB-
@@ -244,7 +272,8 @@ B-WBWWB-
 ---B----
 --------
 --------
-Bob's turn: 1A 1C 1D 1E 1G 2D 4B 5C 6C
+Bob's turn:
+1A 1C 1D 1E 1G 2D 4B 5C 6C
 -W---W-B
 BWW-WWBB
 BWBWWWBB
@@ -253,7 +282,8 @@ BBBBWWB-
 ---B----
 --------
 --------
-CPU's turn: -W---W-B
+CPU's turn:
+-W---W-B
 BWW-WWBB
 BWBWWWWB
 BBBBWWWW
@@ -261,7 +291,8 @@ BBBBWWWW
 ---B----
 --------
 --------
-Bob's turn: 1A 1C 1D 1E 1G 2D 5F 5G 5H 6A 6B 6C
+Bob's turn:
+1A 1C 1D 1E 1G 2D 5F 5G 5H 6A 6B 6C
 -W---W-B
 BWW-WWBB
 BWBWWWWB
@@ -270,7 +301,8 @@ BBBBWWWW
 -B-B----
 --------
 --------
-CPU's turn: -W---WWB
+CPU's turn:
+-W---WWB
 BWW-WWWB
 BWBWWWWB
 BBBBWWWW
@@ -278,7 +310,8 @@ BBBBWWWW
 -B-B----
 --------
 --------
-Bob's turn: 1A 1C 1D 1E 2D 5F 5H
+Bob's turn:
+1A 1C 1D 1E 2D 5F 5H
 -W---WWB
 BWW-WWWB
 BWBWWWWB
@@ -287,7 +320,8 @@ BBBBWWBW
 -B-B----
 --------
 --------
-CPU's turn: -W---WWB
+CPU's turn:
+-W---WWB
 BWW-WWWB
 BWWWWWWB
 BBWWWWBW
@@ -295,7 +329,8 @@ BBWWWWBW
 -B-B----
 --------
 --------
-Bob's turn: 1A 1C 1D 1E 2D 5H
+Bob's turn:
+1A 1C 1D 1E 2D 5H
 -W---WWB
 BWW-WWWB
 BWWWWWWB
@@ -304,7 +339,8 @@ BBWWWWBB
 -B-B----
 --------
 --------
-CPU's turn: -W---WWB
+CPU's turn:
+-W---WWB
 BWW-WWWB
 BWWWWWWB
 BWWWWWBB
@@ -312,7 +348,8 @@ WWWBBB-B
 -B-B----
 --------
 --------
-Bob's turn: 1A 1C 1D 1E 2D 6A 6C
+Bob's turn:
+1A 1C 1D 1E 2D 6A 6C
 -W---WWB
 BWW-WWWB
 BWWWWWWB
@@ -321,7 +358,8 @@ BWWBBB-B
 BB-B----
 --------
 --------
-CPU's turn: -W---WWB
+CPU's turn:
+-W---WWB
 BWW-WWWB
 BWWWWWWB
 BWWWWWWB
@@ -329,7 +367,8 @@ BWWWWWWB
 BB-B----
 --------
 --------
-Bob's turn: 1C 1D 1E 2D 6C 6E 6F
+Bob's turn:
+1C 1D 1E 2D 6C 6E 6F
 -W---WWB
 BWW-WWWB
 BWWWWWWB
@@ -338,7 +377,8 @@ BWWWWWBB
 BB-B-B--
 --------
 --------
-CPU's turn: -W---WWB
+CPU's turn:
+-W---WWB
 BWW-WWWB
 BWWWWWWB
 BWWWWWWB
@@ -346,7 +386,8 @@ BWWWWWWB
 BB-B-BW-
 --------
 --------
-Bob's turn: 1A 1C 1D 1E 2D 6C 6E 6H 7F
+Bob's turn:
+1A 1C 1D 1E 2D 6C 6E 6H 7F
 -W---WWB
 BWW-WWWB
 BWWWWWWB
@@ -355,7 +396,8 @@ BWWWWWWB
 BB-B-BB-
 -----B--
 --------
-CPU's turn: -W---WWB
+CPU's turn:
+-W---WWB
 BWW-WWWB
 BWWWWWWB
 BWWWWWWB
@@ -363,7 +405,8 @@ BWWWWWWB
 BW-B-BB-
 W----B--
 --------
-Bob's turn: 1A 1C 1D 1E 2D 6C 6E 7C 8A
+Bob's turn:
+1A 1C 1D 1E 2D 6C 6E 7C 8A
 -W---WWB
 BWW-WWWB
 BWWWWWWB
@@ -372,7 +415,8 @@ BWWWWWWB
 BB-B-BB-
 W-B--B--
 --------
-CPU's turn: WW---WWB
+CPU's turn:
+WW---WWB
 WWW-WWWB
 WWWWWWWB
 WWWWWWWB
@@ -380,7 +424,8 @@ WWWWWWWB
 WB-B-BB-
 W-B--B--
 --------
-Bob's turn: 1D 1E 2D 6C 6E
+Bob's turn:
+1D 1E 2D 6C 6E
 WW---WWB
 WWW-WWBB
 WWWWWBWB
@@ -389,7 +434,8 @@ WWWBWWWB
 WBBB-BB-
 W-B--B--
 --------
-CPU's turn: WW---WWB
+CPU's turn:
+WW---WWB
 WWW-WWBB
 WWWWWBWB
 WWWWBWWB
@@ -397,7 +443,8 @@ WWWWWWWB
 WWWWWBB-
 W-B--B--
 --------
-Bob's turn: 1C 1D 1E 2D 7B 7D 7E
+Bob's turn:
+1C 1D 1E 2D 7B 7D 7E
 WW---WWB
 WWW-WWBB
 WWWWWBWB
@@ -406,7 +453,8 @@ WWWWBWWB
 WWWWBBB-
 W-B-BB--
 --------
-CPU's turn: WW---WWB
+CPU's turn:
+WW---WWB
 WWW-WWBB
 WWWWWBWB
 WWWWBWWB
@@ -414,7 +462,8 @@ WWWWBWWB
 WWWWWWWW
 W-B-BB--
 --------
-Bob's turn: 1C 1D 1E 2D 7B 7D 7G 7H
+Bob's turn:
+1C 1D 1E 2D 7B 7D 7G 7H
 WW---WWB
 WWW-WWBB
 WWWWWBWB
@@ -423,7 +472,8 @@ WWWWBBWB
 WWWWWWBB
 W-B-BB-B
 --------
-CPU's turn: WW---WWB
+CPU's turn:
+WW---WWB
 WWW-WWBB
 WWWWWBWB
 WWWWBWWB
@@ -431,7 +481,8 @@ WWWWBBWB
 WWWWWWWB
 W-B-BBWB
 --------
-Bob's turn: 1C 1D 1E 2D 7B 7D 8F 8G 8H
+Bob's turn:
+1C 1D 1E 2D 7B 7D 8F 8G 8H
 WWB--WWB
 WWB-WWBB
 WWBWWBWB
@@ -440,7 +491,8 @@ WWBWBBWB
 WWBWWWWB
 W-B-BBWB
 --------
-CPU's turn: WWWW-WWB
+CPU's turn:
+WWWW-WWB
 WWW-WWBB
 WWBWWBWB
 WWBWBWWB
@@ -448,7 +500,8 @@ WWBWBBWB
 WWBWWWWB
 W-B-BBWB
 --------
-Bob's turn: 1E 2D 7D 8F 8G 8H
+Bob's turn:
+1E 2D 7D 8F 8G 8H
 WWWW-WWB
 WWWBBBBB
 WWBWBBWB
@@ -457,7 +510,8 @@ WWBWBBBB
 WWBWWWWB
 W-B-BBWB
 --------
-CPU's turn: WWWWWWWB
+CPU's turn:
+WWWWWWWB
 WWWWWWBB
 WWWWWBWB
 WWBWWBWB
@@ -465,7 +519,8 @@ WWBWWBBB
 WWBWWWWB
 W-B-BBWB
 --------
-Bob's turn: 7D 8F 8G
+Bob's turn:
+7D 8F 8G
 WWWWWWWB
 WWWWWWBB
 WWWWWBWB
@@ -474,7 +529,8 @@ WWBWWBBB
 WWBWWWWB
 W-B-BBBB
 -----B--
-CPU's turn: WWWWWWWB
+CPU's turn:
+WWWWWWWB
 WWWWWWBB
 WWWWWBWB
 WWBWWBWB
@@ -482,7 +538,8 @@ WWBWWBBB
 WWWWWWWB
 WWB-BBBB
 -----B--
-Bob's turn: 7D 8A
+Bob's turn:
+7D 8A
 WWWWWWWB
 WWWWWWBB
 WWWWWBWB
@@ -491,7 +548,8 @@ WWBBWBBB
 WWBWWWWB
 WBB-BBBB
 B----B--
-CPU's turn: WWWWWWWB
+CPU's turn:
+WWWWWWWB
 WWWWWWBB
 WWWWWBWB
 WWBWBBWB
@@ -499,7 +557,8 @@ WWBBWBBB
 WWWWWWWB
 WWWWBBBB
 B----B--
-Bob's turn: 8B 8C 8D
+Bob's turn:
+8B 8C 8D
 WWWWWWWB
 WWWWWWBB
 WWWWWBWB
@@ -508,7 +567,8 @@ WWBBWBBB
 WWBWBWWB
 WWBBBBBB
 B-B--B--
-CPU's turn: WWWWWWWB
+CPU's turn:
+WWWWWWWB
 WWWWWWBB
 WWWWWBWB
 WWBWBBWB

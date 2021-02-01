@@ -6,7 +6,8 @@
 --------
 --------
 --------
-Bob's turn: 4D 4E 5D 5E
+Bob's turn:
+4D 4E 5D 5E
 --------
 --------
 --------
@@ -15,7 +16,8 @@ Bob's turn: 4D 4E 5D 5E
 --------
 --------
 --------
-Alice's turn: 4E 5D 5E
+Alice's turn:
+4E 5D 5E
 --------
 --------
 --------
@@ -24,7 +26,8 @@ Alice's turn: 4E 5D 5E
 --------
 --------
 --------
-Bob's turn: 4E 5E
+Bob's turn:
+4E 5E
 --------
 --------
 --------
@@ -33,7 +36,8 @@ Bob's turn: 4E 5E
 --------
 --------
 --------
-Alice's turn: 4E
+Alice's turn:
+4E
 --------
 --------
 --------
@@ -42,7 +46,8 @@ Alice's turn: 4E
 --------
 --------
 --------
-Bob's turn: 3E 4F 5C 6D
+Bob's turn:
+3E 4F 5C 6D
 --------
 --------
 --------
@@ -51,7 +56,8 @@ Bob's turn: 3E 4F 5C 6D
 --------
 --------
 --------
-Alice's turn: 4C 6C 6E
+Alice's turn:
+4C 6C 6E
 --------
 --------
 --------
@@ -60,7 +66,8 @@ Alice's turn: 4C 6C 6E
 --------
 --------
 --------
-Bob's turn: 3B 3C 3D 3E 3F
+Bob's turn:
+3B 3C 3D 3E 3F
 --------
 --------
 -B------
@@ -69,7 +76,8 @@ Bob's turn: 3B 3C 3D 3E 3F
 --------
 --------
 --------
-Alice's turn: 4B 6B 6C 6D 6E 6F
+Alice's turn:
+4B 6B 6C 6D 6E 6F
 --------
 --------
 -B------
@@ -78,7 +86,8 @@ Alice's turn: 4B 6B 6C 6D 6E 6F
 --------
 --------
 --------
-Bob's turn: 3A 3C 3D 3E 3F 5B
+Bob's turn:
+3A 3C 3D 3E 3F 5B
 --------
 --------
 BB------
@@ -87,7 +96,8 @@ BB------
 --------
 --------
 --------
-Alice's turn: 2A 4A 6B 6C 6D 6E 6F
+Alice's turn:
+2A 4A 6B 6C 6D 6E 6F
 --------
 W-------
 BW------
@@ -96,7 +106,8 @@ BW------
 --------
 --------
 --------
-Bob's turn: 1A 2B 3C 3D 3E 3F 4F
+Bob's turn:
+1A 2B 3C 3D 3E 3F 4F
 B-------
 B-------
 BW------
@@ -105,7 +116,8 @@ BW------
 --------
 --------
 --------
-Alice's turn: 4A 5B 6B 6C 6D 6E 6F
+Alice's turn:
+4A 5B 6B 6C 6D 6E 6F
 B-------
 B-------
 BW------
@@ -114,7 +126,8 @@ WWWWW---
 --------
 --------
 --------
-Bob's turn: 3C 3D 3E 3F 5A
+Bob's turn:
+3C 3D 3E 3F 5A
 B-------
 B-------
 BBB-----
@@ -123,7 +136,8 @@ WWBBW---
 --------
 --------
 --------
-Alice's turn: 2B 2C 2D 6C 6D 6E
+Alice's turn:
+2B 2C 2D 6C 6D 6E
 B-------
 BW------
 BWB-----
@@ -132,7 +146,8 @@ WWBBW---
 --------
 --------
 --------
-Bob's turn: 1C 2C 3E 3F 4F 5A
+Bob's turn:
+1C 2C 3E 3F 4F 5A
 B-B-----
 BB------
 BWB-----
@@ -141,7 +156,8 @@ WWBBW---
 --------
 --------
 --------
-Alice's turn: 1B 2D 3D 6C 6D 6E
+Alice's turn:
+1B 2D 3D 6C 6D 6E
 BWB-----
 BW------
 BWB-----
@@ -150,7 +166,8 @@ WWBBW---
 --------
 --------
 --------
-Bob's turn: 2C 3E 3F 4F 5A
+Bob's turn:
+2C 3E 3F 4F 5A
 BWB-----
 BBB-----
 BWB-----
@@ -159,7 +176,8 @@ WWBBW---
 --------
 --------
 --------
-Alice's turn: 1D 2D 3D 6C 6D 6E
+Alice's turn:
+1D 2D 3D 6C 6D 6E
 BWWW----
 BBW-----
 BWB-----
@@ -168,7 +186,8 @@ WWBBW---
 --------
 --------
 --------
-Bob's turn: 1E 2D 3E 3F 4F 5A 5B
+Bob's turn:
+1E 2D 3E 3F 4F 5A 5B
 BBBBB---
 BBW-----
 BWB-----
@@ -177,7 +196,8 @@ WWBBW---
 --------
 --------
 --------
-Alice's turn: 2D 3D 6C 6D 6E
+Alice's turn:
+2D 3D 6C 6D 6E
 BBBBB---
 BBWW----
 BWW-----
@@ -186,7 +206,8 @@ WWBBW---
 --------
 --------
 --------
-Bob's turn: 2E 3D 3E 3F 4F 5A 5B
+Bob's turn:
+2E 3D 3E 3F 4F 5A 5B
 BBBBB---
 BBBBB---
 BWW-----
@@ -195,7 +216,8 @@ WWBBW---
 --------
 --------
 --------
-Alice's turn: 6C 6D 6E 6F
+Alice's turn:
+6C 6D 6E 6F
 BBBBB---
 BBBBB---
 BWW-----
@@ -204,7 +226,8 @@ WWWBW---
 --W-----
 --------
 --------
-Bob's turn: 3D 3E 4F 5A 5B 6B 6D 6E 7C
+Bob's turn:
+3D 3E 4F 5A 5B 6B 6D 6E 7C
 BBBBB---
 BBBBB---
 BBBB----
@@ -213,7 +236,8 @@ WWWBW---
 --W-----
 --------
 --------
-Alice's turn: 1F 3E 5F 6E
+Alice's turn:
+1F 3E 5F 6E
 BBBBBW--
 BBBBW---
 BBBW----
@@ -222,7 +246,8 @@ WWWBW---
 --W-----
 --------
 --------
-Bob's turn: 1G 2F 3E 3F 4F 5A 5B 5F 6B 6D 6E 7C
+Bob's turn:
+1G 2F 3E 3F 4F 5A 5B 5F 6B 6D 6E 7C
 BBBBBBB-
 BBBBW---
 BBBW----
@@ -231,7 +256,8 @@ WWWBW---
 --W-----
 --------
 --------
-Alice's turn: 3E 5F 6E
+Alice's turn:
+3E 5F 6E
 BBBBBBB-
 BBBBW---
 BBBW----
@@ -240,7 +266,8 @@ WWWBW---
 --W-W---
 --------
 --------
-Bob's turn: 2F 3E 3F 4F 5A 5B 5F 6B 6D 6F 7C 7F
+Bob's turn:
+2F 3E 3F 4F 5A 5B 5F 6B 6D 6F 7C 7F
 BBBBBBB-
 BBBBBB--
 BBBW----
@@ -249,7 +276,8 @@ WWWBW---
 --W-W---
 --------
 --------
-Alice's turn: 3E
+Alice's turn:
+3E
 BBBBBBB-
 BBBBBB--
 BBBWW---
@@ -258,7 +286,8 @@ WWWWW---
 --W-W---
 --------
 --------
-Bob's turn: 3F 4F 5A 5B 5F 6B 6D 6F 7C 7E 7F
+Bob's turn:
+3F 4F 5A 5B 5F 6B 6D 6F 7C 7E 7F
 BBBBBBB-
 BBBBBB--
 BBBWW---
@@ -267,7 +296,8 @@ WWBWW---
 --W-B---
 -----B--
 --------
-Alice's turn: 5B 6D 7E
+Alice's turn:
+5B 6D 7E
 BBBBBBB-
 BBBBBB--
 BBBWW---
@@ -276,7 +306,8 @@ WWBWW---
 --W-W---
 ----WB--
 --------
-Bob's turn: 3F 4F 5A 5B 5F 6B 6D 6F 7B 7C 7D 8E
+Bob's turn:
+3F 4F 5A 5B 5F 6B 6D 6F 7B 7C 7D 8E
 BBBBBBB-
 BBBBBB--
 BBBBBB--
@@ -285,7 +316,8 @@ WWBWB---
 --W-W---
 ----WB--
 --------
-Alice's turn: 2G 4F 6D 7G 8G
+Alice's turn:
+2G 4F 6D 7G 8G
 BBBBBBB-
 BBBBBB--
 BBBBBB--
@@ -294,7 +326,8 @@ WWBWB---
 --W-W---
 ----WWW-
 --------
-Bob's turn: 5A 5B 5F 6B 6D 6F 7B 7C 8E 8G
+Bob's turn:
+5A 5B 5F 6B 6D 6F 7B 7C 8E 8G
 BBBBBBB-
 BBBBBB--
 BBBBBB--
@@ -303,7 +336,8 @@ B-WBW---
 --W-W---
 ----WWW-
 --------
-Alice's turn: 2G 4F 6D
+Alice's turn:
+2G 4F 6D
 BBBBBBB-
 BBBBBBW-
 BBBBBW--
@@ -312,7 +346,8 @@ B-WWW---
 --W-W---
 ----WWW-
 --------
-Bob's turn: 2H 3G 3H 4F 4G 5F 6B 6D 6F 7C 8E 8G
+Bob's turn:
+2H 3G 3H 4F 4G 5F 6B 6D 6F 7C 8E 8G
 BBBBBBB-
 BBBBBBB-
 BBBBBBB-
@@ -321,7 +356,8 @@ B-WWW---
 --W-W---
 ----WWW-
 --------
-Alice's turn: 1H
+Alice's turn:
+1H
 BBBBBBBW
 BBBBBBW-
 BBBBBWB-
@@ -330,7 +366,8 @@ B-WWW---
 --W-W---
 ----WWW-
 --------
-Bob's turn: 2H 3H 4F 4G 5F 6B 6D 6F 7C 8E 8G
+Bob's turn:
+2H 3H 4F 4G 5F 6B 6D 6F 7C 8E 8G
 BBBBBBBW
 BBBBBBB-
 BBBBBWBB

@@ -20,12 +20,12 @@ public class CLIManager implements GameManager {
 
     @Override
     public void startTurn(Player currentPlayer) {
-        System.out.printf("%s's turn: ", currentPlayer.getName());
+        System.out.printf("%s's turn:\n", currentPlayer.getName());
     }
 
     @Override
     public void skipTurn() {
-        System.out.println("sorry you can make no moves!");
+        System.out.println("Sorry you can make no moves!");
     }
 
     @Override
