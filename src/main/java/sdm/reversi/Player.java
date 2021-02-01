@@ -10,7 +10,7 @@ public class Player {
     private final Disk.Color color;
     private boolean inStall;
     private int score;
-    private final GameManager gameManager;
+    public final GameManager gameManager;
 
     public Player(String name, Disk.Color color, GameManager gameManager){
         this.name = name;

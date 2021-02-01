@@ -3,6 +3,7 @@ package sdm.reversi.game;
 import sdm.reversi.*;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GameManager;
+import sdm.reversi.manager.NotificationsManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -153,30 +154,31 @@ public abstract class Game {
     }
 
     public void play() {
-        gameManager.initialize(this);
+        NotificationsManager notificationsManager = player1.gameManager.compose(player2.gameManager);
+        notificationsManager.initialize(this);
         while (!isOver()) {
-            gameManager.startTurn(currentPlayer);
+            notificationsManager.startTurn(currentPlayer);
             if (currentPlayer.isInStall()) {
-                gameManager.skipTurn();
+                notificationsManager.skipTurn();
             } else {
-                gameManager.suggestMoves(allowedMovesForCurrentPlayer.keySet());
+                currentPlayer.gameManager.suggestMoves(allowedMovesForCurrentPlayer.keySet());
                 while (true) {
                     try {
-                        Coordinate coordinateOfDesiredMove = gameManager.getMoveFromPlayer();
-                        if(coordinateOfDesiredMove==null){
-                            isQuit=true;
+                        Coordinate coordinateOfDesiredMove = currentPlayer.gameManager.getMoveFromPlayer();
+                        if (coordinateOfDesiredMove == null) {
+                            isQuit = true;
                             break;
                         }
                         makeMove(coordinateOfDesiredMove);
-                        gameManager.updateGame(this);
+                        notificationsManager.updateGame(this);
                         break;
                     } catch (IllegalArgumentException e) {
-                        gameManager.illegalMove("Invalid move, please choose another one");
+                        currentPlayer.gameManager.illegalMove("Invalid move, please choose another one");
                     }
                 }
             }
             changeTurn();
         }
-        gameManager.showWinner(getWinner());
+        notificationsManager.showWinner(getWinner());
     }
 }
