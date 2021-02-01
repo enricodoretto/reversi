@@ -19,7 +19,6 @@ public abstract class Game {
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
     protected boolean isQuit;
-    private GameManager gameManager;
 
     public Game(String player1Name, String player2Name) {
         this(player1Name, player2Name, new CLIManager());
@@ -45,7 +44,6 @@ public abstract class Game {
         player2 = new Player(player2Name, Disk.Color.WHITE, gameManager);
         currentPlayer = player1;
         board = new Board();
-        this.gameManager = gameManager;
     }
 
     public Game(String player1Name, String player2Name, GameManager gameManager, int size) {
