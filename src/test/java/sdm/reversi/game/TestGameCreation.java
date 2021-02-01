@@ -2,7 +2,6 @@ package sdm.reversi.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -10,15 +9,6 @@ import sdm.reversi.Disk;
 import sdm.reversi.player.Player;
 
 public class TestGameCreation {
-
-    @ParameterizedTest
-    @CsvSource({"Bob", "Alice", "John"})
-    void failsWithBothPlayersWithSameName(String playerName) {
-        assertAll(
-                () -> assertThrows(IllegalArgumentException.class, () -> new OthelloGame(playerName, playerName)),
-                () -> assertThrows(IllegalArgumentException.class, () -> new ReversiGame(playerName, playerName))
-        );
-    }
 
     @ParameterizedTest
     @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
