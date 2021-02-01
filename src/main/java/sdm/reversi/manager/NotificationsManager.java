@@ -5,11 +5,11 @@ import sdm.reversi.game.Game;
 
 public interface NotificationsManager {
 
-    void initialize(Game game);
-    void startTurn(Player currentPlayer);
-    void skipTurn();
-    void updateGame(Game game);
-    void showWinner(Player player);
+    default void initialize(Game game){}
+    default void startTurn(Player currentPlayer){}
+    default void skipTurn(){}
+    default void updateGame(Game game){}
+    default void showWinner(Player player){}
 
     default NotificationsManager compose(NotificationsManager other) {
         if (this.equals(other)) {
