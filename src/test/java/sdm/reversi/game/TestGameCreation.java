@@ -32,4 +32,13 @@ public class TestGameCreation {
                 () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), reversiGame.getPlayer2())
         );
     }
+
+    @ParameterizedTest
+    @CsvSource({"Bob", "Alice", "John"})
+    void failsWithBothPlayersWithSameNameWithGameBuilder(String playerName) {
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).buildOthello()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).buildReversi())
+        );
+    }
 }
