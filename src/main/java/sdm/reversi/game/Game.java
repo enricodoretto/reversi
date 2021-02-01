@@ -2,7 +2,7 @@ package sdm.reversi.game;
 
 import sdm.reversi.*;
 import sdm.reversi.manager.CLIManager;
-import sdm.reversi.manager.IOManager;
+import sdm.reversi.manager.GameManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -18,7 +18,7 @@ public abstract class Game {
     protected Map<Coordinate, Set<Coordinate>> allowedMovesForCurrentPlayer;
     protected int numberOfMoves;
     protected boolean isQuit;
-    private IOManager ioManager;
+    private GameManager gameManager;
 
     public Game(String player1Name, String player2Name) {
         if (player1Name.equals(player2Name)) throw new IllegalArgumentException();
@@ -26,7 +26,7 @@ public abstract class Game {
         player2 = new Player(player2Name, Disk.Color.WHITE);
         currentPlayer = player1;
         board = new Board();
-        ioManager = new CLIManager();
+        gameManager = new CLIManager();
     }
 
     public Game(String player1Name, String player2Name, int boardSize) {
@@ -43,14 +43,14 @@ public abstract class Game {
         numberOfMoves = (int)board.getNumberOfDisks();
     }
 
-    public Game(String player1Name, String player2Name, IOManager ioManager) {
+    public Game(String player1Name, String player2Name, GameManager gameManager) {
         this(player1Name,player2Name);
-        this.ioManager = ioManager;
+        this.gameManager = gameManager;
     }
 
-    public Game(String player1Name, String player2Name, IOManager ioManager, int size) {
+    public Game(String player1Name, String player2Name, GameManager gameManager, int size) {
         this(player1Name,player2Name, size);
-        this.ioManager = ioManager;
+        this.gameManager = gameManager;
     }
 
     public Board getBoard() {
@@ -154,30 +154,30 @@ public abstract class Game {
     }
 
     public void play() {
-        ioManager.initialize(this);
+        gameManager.initialize(this);
         while (!isOver()) {
-            ioManager.startTurn(currentPlayer);
+            gameManager.startTurn(currentPlayer);
             if (currentPlayer.isInStall()) {
-                ioManager.skipTurn();
+                gameManager.skipTurn();
             } else {
-                ioManager.suggestMoves(allowedMovesForCurrentPlayer.keySet());
+                gameManager.suggestMoves(allowedMovesForCurrentPlayer.keySet());
                 while (true) {
                     try {
-                        Coordinate coordinateOfDesiredMove = ioManager.getMoveFromPlayer();
+                        Coordinate coordinateOfDesiredMove = gameManager.getMoveFromPlayer();
                         if(coordinateOfDesiredMove==null){
                             isQuit=true;
                             break;
                         }
                         makeMove(coordinateOfDesiredMove);
-                        ioManager.updateGame(this);
+                        gameManager.updateGame(this);
                         break;
                     } catch (IllegalArgumentException e) {
-                        ioManager.illegalMove("Invalid move, please choose another one");
+                        gameManager.illegalMove("Invalid move, please choose another one");
                     }
                 }
             }
             changeTurn();
         }
-        ioManager.showWinner(getWinner());
+        gameManager.showWinner(getWinner());
     }
 }

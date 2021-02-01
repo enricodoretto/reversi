@@ -1,7 +1,7 @@
 package sdm.reversi.game;
 
 import sdm.reversi.Coordinate;
-import sdm.reversi.manager.IOManager;
+import sdm.reversi.manager.GameManager;
 
 import java.io.IOException;
 import java.net.URL;
@@ -34,14 +34,14 @@ public class ReversiGame extends Game {
         updatePlayersScore();
     }
 
-    public ReversiGame(String player1Name, String player2Name, IOManager ioManager) {
-        super(player1Name,player2Name, ioManager);
+    public ReversiGame(String player1Name, String player2Name, GameManager gameManager) {
+        super(player1Name,player2Name, gameManager);
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }
 
-    public ReversiGame(String player1Name, String player2Name, IOManager ioManager, int boardSize) {
-        super(player1Name,player2Name, ioManager, boardSize);
+    public ReversiGame(String player1Name, String player2Name, GameManager gameManager, int boardSize) {
+        super(player1Name,player2Name, gameManager, boardSize);
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }

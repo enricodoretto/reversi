@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class GUIManager extends JFrame implements IOManager, ActionListener {
+public class GUIManager extends JFrame implements GameManager, ActionListener {
 
     private final static int FRAME_SIZE = 700;
 

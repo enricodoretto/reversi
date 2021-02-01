@@ -8,7 +8,7 @@ import java.util.Collection;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class CLIManager implements IOManager {
+public class CLIManager implements GameManager {
 
     private static final String QUIT_COMMAND = "q";
     private  final Scanner scanner = new Scanner(System.in);
