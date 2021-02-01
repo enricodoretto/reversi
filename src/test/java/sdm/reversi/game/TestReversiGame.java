@@ -16,7 +16,7 @@ public class TestReversiGame {
     @Test
     void hasBlackInStallWithBoardWithOnlyOneBlackDiskIn3DAndIsOver() throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("fullBoards/allWhiteAndOneBlackIn3D8x8Board");
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(
                 () -> assertTrue(game.getPlayer1().isInStall()),
                 () -> assertFalse(game.getPlayer2().isInStall()),
@@ -27,7 +27,7 @@ public class TestReversiGame {
     @CsvSource("finishedGameBoards/2011FinalBoard, finishedGameBoards/2017FinalBoard")
     void withOnePlayerInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertAll(
                 () -> assertTrue(game.getPlayer1().isInStall()),
@@ -39,7 +39,7 @@ public class TestReversiGame {
     @CsvSource("fullBoards/allWhite8x8Board, fullBoards/allBlack8x8Board, tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board")
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertTrue(game.isOver());
     }
@@ -48,7 +48,7 @@ public class TestReversiGame {
     @CsvSource("initialBoards/othello8x8Board, othelloInitialBoards/othello4x4Board, othelloInitialBoards/othello16x16Board")
     void withBoardNotFullAndAPlayerNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertFalse(game.isOver());
     }
 
@@ -56,7 +56,7 @@ public class TestReversiGame {
     @CsvSource("tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board, tieGameBoards/first4ColumnsWhiteAndLast4ColumnsBlack8x8Board, tieGameBoards/chequered4x4Board")
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertNull(game.getWinner());
     }
@@ -65,7 +65,7 @@ public class TestReversiGame {
     @CsvSource("finishedGameBoards/2017FinalBoard, fullBoards/board4x4WonByWhite, fullBoards/board8x8WonByWhite")
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         Assertions.assertEquals(Disk.Color.WHITE, game.getWinner().getColor());
     }
@@ -74,7 +74,7 @@ public class TestReversiGame {
     @CsvSource("fullBoards/board4x4WonByBlack, fullBoards/board8x8WonByBlack")
     void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertEquals(Disk.Color.BLACK, game.getWinner().getColor());
     }
