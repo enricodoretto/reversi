@@ -27,9 +27,11 @@ public abstract class Game {
         private final Player player1;
         private Player player2;
         private Board board;
+        private GameManager gameManager;
 
         private GameBuilder(String player1Name, GameManager gameManager){
             player1 = new Player(player1Name, Disk.Color.BLACK, gameManager);
+            this.gameManager = gameManager;
         }
 
         public static GameBuilder CLIGameBuilder(String player1Name) {
@@ -43,7 +45,7 @@ public abstract class Game {
         public GameBuilder withOpponent(String player2Name) {
             if (player1.getName().equals(player2Name)) throw new IllegalArgumentException();
             if (player2 != null) throw new IllegalArgumentException();
-            player2 = new Player(player2Name, Disk.Color.WHITE);
+            player2 = new Player(player2Name, Disk.Color.WHITE, gameManager);
             return this;
         }
 
