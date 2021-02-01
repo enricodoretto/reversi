@@ -1,5 +1,8 @@
 package sdm.reversi;
 
+import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.GameManager;
+
 import java.util.Objects;
 
 public class Player {
@@ -7,10 +10,16 @@ public class Player {
     private final Disk.Color color;
     private boolean inStall;
     private int score;
+    private final GameManager gameManager;
 
-    public Player(String name, Disk.Color color) {
+    public Player(String name, Disk.Color color, GameManager gameManager){
         this.name = name;
         this.color = color;
+        this.gameManager = gameManager;
+    }
+
+    public Player(String name, Disk.Color color) {
+        this(name, color, new CLIManager());
     }
 
     public String getName() {
