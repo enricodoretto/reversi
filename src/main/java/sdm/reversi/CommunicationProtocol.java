@@ -12,7 +12,6 @@ import java.util.Collection;
 
 public enum CommunicationProtocol implements Serializable {
 
-    @SuppressWarnings("unchecked")
     SUGGEST(((gameManager, is, os) -> {
         gameManager.suggestMoves((Collection<Coordinate>) is.readObject());
     })),
