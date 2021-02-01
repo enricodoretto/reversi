@@ -1,13 +1,10 @@
 package sdm.reversi;
 
-import sdm.reversi.manager.CLIManager;
-import sdm.reversi.manager.GUIManager;
-import sdm.reversi.manager.GameManager;
+import sdm.reversi.manager.*;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintStream;
 import java.net.InetAddress;
 import java.net.Socket;
 

@@ -20,9 +20,8 @@ public class RemoteGameManager implements GameManager {
     private final ObjectInputStream objectInputStream;
 
     public RemoteGameManager() throws IOException {
-        Socket socket;
         try (ServerSocket serverSocket = new ServerSocket(PORT_NUMBER)) {
-            socket = serverSocket.accept();
+            Socket socket = serverSocket.accept();
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
         }
@@ -35,7 +34,6 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.writeObject(CommunicationProtocol.UPDATE);
             objectOutputStream.writeObject(game);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -45,7 +43,6 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.writeObject(CommunicationProtocol.START);
             objectOutputStream.writeObject(currentPlayer);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -54,7 +51,6 @@ public class RemoteGameManager implements GameManager {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.SKIP);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -64,7 +60,6 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.writeObject(CommunicationProtocol.WINNER);
             objectOutputStream.writeObject(player);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -74,7 +69,6 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.writeObject(CommunicationProtocol.SUGGEST);
             objectOutputStream.writeObject(new HashSet<>(moves));
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -84,7 +78,6 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.writeObject(CommunicationProtocol.GET_MOVE);
             return (Coordinate) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
             return null;
         }
     }
@@ -95,7 +88,6 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.writeObject(CommunicationProtocol.INITIALIZE);
             objectOutputStream.writeObject(game);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -104,7 +96,6 @@ public class RemoteGameManager implements GameManager {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.ILLEGAL);
         } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 
@@ -112,7 +103,6 @@ public class RemoteGameManager implements GameManager {
         try {
             return (String) objectInputStream.readObject();
         } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
             return null;
         }
     }
