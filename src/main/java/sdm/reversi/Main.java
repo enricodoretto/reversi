@@ -34,7 +34,7 @@ public class Main {
             game = new OthelloGame(player1Name, player2Name, new GUIManager(), boardSize);
         }
         game.play();*/
-        Game game = new ReversiGame("Bob", new CLIManager());
+        Game game = Game.GameBuilder.GUIGameBuilder("Bob").withCPUOpponent().buildReversi();
         game.play();
     }
 }
