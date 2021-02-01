@@ -10,6 +10,7 @@ public interface NotificationsManager {
     default void skipTurn(){}
     default void updateGame(Game game){}
     default void showWinner(Player player){}
+    default void notifyError(String message){}
 
     default NotificationsManager compose(NotificationsManager other) {
         if (this.equals(other)) {

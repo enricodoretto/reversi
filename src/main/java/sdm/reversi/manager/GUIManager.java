@@ -2,11 +2,11 @@ package sdm.reversi.manager;
 
 import sdm.reversi.Board;
 import sdm.reversi.Coordinate;
-import sdm.reversi.player.Player;
 import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.DraggableFrame;
 import sdm.reversi.gui.TitleBar;
+import sdm.reversi.player.Player;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -79,6 +79,11 @@ public class GUIManager extends JFrame implements GameManager, ActionListener {
     @Override
     public void illegalMove() {
         JOptionPane.showMessageDialog(this, "Invalid move, please choose another one");
+    }
+
+    @Override
+    public void notifyError(String message) {
+        JOptionPane.showMessageDialog(this, String.format("Error: %s", message));
     }
 
     private void updateGridPanel(Board board) {

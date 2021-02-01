@@ -1,6 +1,7 @@
 package sdm.reversi;
 
 import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class Client {
                 if(communicationProtocol.equals(CommunicationProtocol.WINNER)) break;
             }
         } catch (IOException | ClassNotFoundException e){
-            e.printStackTrace();
+            gameManager.notifyError("connection failed");
         }
     }
 }
