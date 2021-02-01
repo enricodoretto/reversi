@@ -29,7 +29,7 @@ public abstract class Game implements Serializable {
         private final Player player1;
         private Player player2;
         private Board board;
-        private GameManager gameManager;
+        private final GameManager gameManager;
 
         private GameBuilder(String player1Name, GameManager gameManager){
             player1 = new Player(player1Name, Disk.Color.BLACK, gameManager);

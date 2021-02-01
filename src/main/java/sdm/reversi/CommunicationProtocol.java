@@ -19,7 +19,14 @@ public enum CommunicationProtocol implements Serializable {
         gameManager.illegalMove((String) is.readObject());
     })),
     GET_MOVE(((gameManager, is, os) -> {
-        os.writeObject(gameManager.getMoveFromPlayer());
+        while (true) {
+            try {
+                os.writeObject(gameManager.getMoveFromPlayer());
+                break;
+            } catch (IllegalArgumentException e){
+                gameManager.illegalMove("You have written an illegal coordinate");
+            }
+        }
     })),
     UPDATE(((gameManager, is, os) -> {
         gameManager.updateGame((Game) is.readObject());
