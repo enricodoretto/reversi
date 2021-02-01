@@ -7,14 +7,16 @@ import sdm.reversi.manager.GameManager;
 import sdm.reversi.manager.NotificationsManager;
 import sdm.reversi.player.ComputerPlayer;
 import sdm.reversi.player.Player;
+import sdm.reversi.player.RemotePlayer;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public abstract class Game {
+public abstract class Game implements Serializable {
     protected final Player player1;
     protected Player player2;
     protected Board board;
@@ -52,6 +54,12 @@ public abstract class Game {
         public GameBuilder withCPUOpponent() {
             if (player2 != null) throw new IllegalArgumentException();
             player2 = new ComputerPlayer(Disk.Color.WHITE);
+            return this;
+        }
+
+        public GameBuilder withRemoteOpponent() throws IOException {
+            if (player2 != null) throw new IllegalArgumentException();
+            player2 = new RemotePlayer(Disk.Color.WHITE);
             return this;
         }
 

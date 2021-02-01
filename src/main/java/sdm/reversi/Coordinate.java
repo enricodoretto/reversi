@@ -1,10 +1,11 @@
 package sdm.reversi;
 
+import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Coordinate implements Comparable<Coordinate>{
+public class Coordinate implements Comparable<Coordinate>, Serializable {
     private final int row;
     private final int column;
 

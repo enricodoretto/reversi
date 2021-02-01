@@ -4,14 +4,15 @@ import sdm.reversi.Disk;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GameManager;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Player {
+public class Player implements Serializable {
     private final String name;
     private final Disk.Color color;
     private boolean inStall;
     private int score;
-    public final GameManager gameManager;
+    public transient final GameManager gameManager;
 
     public Player(String name, Disk.Color color, GameManager gameManager){
         this.name = name;

@@ -6,7 +6,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Board {
+public class Board implements Serializable{
 
     private final Disk[][] board;
     private final static int DEFAULT_SIZE = 8;

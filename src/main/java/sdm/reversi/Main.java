@@ -6,10 +6,11 @@ import sdm.reversi.game.ReversiGame;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GUIManager;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         /*Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the game!");
@@ -34,7 +35,7 @@ public class Main {
             game = new OthelloGame(player1Name, player2Name, new GUIManager(), boardSize);
         }
         game.play();*/
-        Game game = Game.GameBuilder.GUIGameBuilder("Bob").withCPUOpponent().buildReversi();
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withRemoteOpponent().buildReversi();
         game.play();
     }
 }

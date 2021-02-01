@@ -1,6 +1,8 @@
 package sdm.reversi;
 
-public class Disk {
+import java.io.Serializable;
+
+public class Disk implements Serializable {
 
     public enum Color{
         BLACK(java.awt.Color.BLACK), WHITE(java.awt.Color.WHITE);
