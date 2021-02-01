@@ -10,47 +10,6 @@ import java.net.URL;
 
 public class OthelloGame extends Game {
 
-    public OthelloGame(String player1Name, String player2Name) throws IllegalArgumentException {
-        super(player1Name, player2Name);
-        initializeBoard();
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
-
-    public OthelloGame(String player1Name, String player2Name, int boardSize) {
-        super(player1Name, player2Name, boardSize);
-        initializeBoard();
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
-
-    public OthelloGame(String player1Name, String player2Name, URL boardFileURL) throws IOException {
-        super(player1Name, player2Name, boardFileURL);
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
-
-    public OthelloGame(String player1Name, String player2Name, GameManager gameManager) {
-        super(player1Name,player2Name, gameManager);
-        initializeBoard();
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
-
-    public OthelloGame(String player1Name, String player2Name, GameManager gameManager, int boardSize) {
-        super(player1Name,player2Name, gameManager, boardSize);
-        initializeBoard();
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
-
-    public OthelloGame(String player, GameManager gameManager){
-        super(player, gameManager);
-        initializeBoard();
-        calculatePlayerPossibleMoves();
-        updatePlayersScore();
-    }
-
     public OthelloGame(GameBuilder gameBuilder){
         super(gameBuilder);
         if(board.getNumberOfDisks() == 0) initializeBoard();
