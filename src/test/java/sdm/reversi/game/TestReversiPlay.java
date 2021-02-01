@@ -24,7 +24,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -39,7 +39,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -54,7 +54,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertAll(() -> assertEquals("Alice", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -65,7 +65,7 @@ public class TestReversiPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
         System.setIn(inputMoveFile.openStream());
-        Game game = new ReversiGame("Bob", "Alice", boardFile);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
         assertTrue(game.isOver());
     }
@@ -78,7 +78,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new ReversiGame("Bob", "Alice", 4);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(4).buildReversi();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -92,7 +92,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new ReversiGame("Bob", "Alice", 8);
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildReversi();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
@@ -106,7 +106,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = new ReversiGame("Bob", new CLIManager());
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withCPUOpponent().buildReversi();
         game.play();
         assertAll(() -> assertEquals("CPU", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
