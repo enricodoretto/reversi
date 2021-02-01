@@ -1,7 +1,7 @@
 package sdm.reversi.manager;
 
 import sdm.reversi.Coordinate;
-import sdm.reversi.Player;
+import sdm.reversi.player.Player;
 import sdm.reversi.game.Game;
 
 import java.util.Collection;

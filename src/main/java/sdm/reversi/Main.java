@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        /*Scanner scanner = new Scanner(System.in);
 
         System.out.println("Welcome to the game!");
         System.out.println("What game do you want to play? \n" +
@@ -33,7 +33,8 @@ public class Main {
         } else {
             game = new OthelloGame(player1Name, player2Name, new GUIManager(), boardSize);
         }
+        game.play();*/
+        Game game = new ReversiGame("Bob", new CLIManager());
         game.play();
-
     }
 }

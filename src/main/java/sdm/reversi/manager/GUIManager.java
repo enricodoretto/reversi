@@ -2,7 +2,7 @@ package sdm.reversi.manager;
 
 import sdm.reversi.Board;
 import sdm.reversi.Coordinate;
-import sdm.reversi.Player;
+import sdm.reversi.player.Player;
 import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.DraggableFrame;

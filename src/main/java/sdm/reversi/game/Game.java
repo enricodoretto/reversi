@@ -4,6 +4,8 @@ import sdm.reversi.*;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GameManager;
 import sdm.reversi.manager.NotificationsManager;
+import sdm.reversi.player.ComputerPlayer;
+import sdm.reversi.player.Player;
 
 import java.io.IOException;
 import java.net.URL;
@@ -49,6 +51,13 @@ public abstract class Game {
     public Game(String player1Name, String player2Name, GameManager gameManager, int size) {
         this(player1Name, player2Name, gameManager);
         board = new Board(size);
+    }
+
+    public Game(String player, GameManager gameManager){
+        player1 = new Player(player, Disk.Color.BLACK, gameManager);
+        player2 = new ComputerPlayer(Disk.Color.WHITE);
+        currentPlayer = player1;
+        board = new Board();
     }
 
     public Board getBoard() {

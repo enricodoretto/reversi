@@ -1,6 +1,6 @@
 package sdm.reversi.manager;
 
-import sdm.reversi.Player;
+import sdm.reversi.player.Player;
 import sdm.reversi.game.Game;
 
 public interface NotificationsManager {

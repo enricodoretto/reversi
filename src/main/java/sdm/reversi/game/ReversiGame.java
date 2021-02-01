@@ -40,6 +40,12 @@ public class ReversiGame extends Game {
         updatePlayersScore();
     }
 
+    public ReversiGame(String player, GameManager gameManager){
+        super(player, gameManager);
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
+
     public ReversiGame(String player1Name, String player2Name, GameManager gameManager, int boardSize) {
         super(player1Name,player2Name, gameManager, boardSize);
         calculatePlayerPossibleMoves();

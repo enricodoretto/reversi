@@ -1,6 +1,7 @@
 package sdm.reversi.game;
 
 import org.junit.jupiter.api.Test;
+import sdm.reversi.manager.CLIManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -94,6 +95,20 @@ public class TestReversiPlay {
         Game game = new ReversiGame("Bob", "Alice", 8);
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
+    @Test
+    void full8x8GameVsCPUWonByCPU() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8GameVsCPU");
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        System.setIn(inputMoveFile.openStream());
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = new ReversiGame("Bob", new CLIManager());
+        game.play();
+        assertAll(() -> assertEquals("CPU", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 

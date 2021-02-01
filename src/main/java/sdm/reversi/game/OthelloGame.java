@@ -3,6 +3,7 @@ package sdm.reversi.game;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
 import sdm.reversi.manager.GameManager;
+import sdm.reversi.player.Player;
 
 import java.io.IOException;
 import java.net.URL;
@@ -43,6 +44,12 @@ public class OthelloGame extends Game {
         updatePlayersScore();
     }
 
+    public OthelloGame(String player, GameManager gameManager){
+        super(player, gameManager);
+        initializeBoard();
+        calculatePlayerPossibleMoves();
+        updatePlayersScore();
+    }
 
     protected void initializeBoard() {
         board.putDisk(Disk.Color.WHITE, new Coordinate(board.getSize()/2-1, board.getSize()/2-1));

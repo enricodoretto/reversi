@@ -4,7 +4,7 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Coordinate {
+public class Coordinate implements Comparable<Coordinate>{
     private final int row;
     private final int column;
 
@@ -43,6 +43,13 @@ public class Coordinate {
 
     public Coordinate getShiftedCoordinate(ShiftDirection shiftDirection) {
         return new Coordinate(row + shiftDirection.getRowShift(), column + shiftDirection.getColumnShift());
+    }
+
+    @Override
+    public int compareTo(Coordinate o) {
+        int compareRow = Integer.compare(this.row, o.row);
+        if(compareRow != 0) return compareRow;
+        return Integer.compare(this.column, o.column);
     }
 
     @Override
