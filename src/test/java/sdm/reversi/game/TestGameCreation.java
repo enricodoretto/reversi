@@ -12,19 +12,6 @@ import sdm.reversi.player.Player;
 public class TestGameCreation {
 
     @ParameterizedTest
-    @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
-    void withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String player1Name, String player2Name) {
-        Game othelloGame = new OthelloGame(player1Name, player2Name);
-        Game reversiGame = new ReversiGame(player1Name, player2Name);
-        assertAll(
-                () -> assertEquals(new Player(player1Name, Disk.Color.BLACK), othelloGame.getPlayer1()),
-                () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), othelloGame.getPlayer2()),
-                () -> assertEquals(new Player(player1Name, Disk.Color.BLACK), reversiGame.getPlayer1()),
-                () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), reversiGame.getPlayer2())
-        );
-    }
-
-    @ParameterizedTest
     @CsvSource({"Bob", "Alice", "John"})
     void failsWithBothPlayersWithSameName(String playerName) {
         assertAll(
@@ -35,7 +22,7 @@ public class TestGameCreation {
 
     @ParameterizedTest
     @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
-    void withTwoPlayersWithDifferentNamesAndDefaultBoardSucceedsWithBuilder(String player1Name, String player2Name) {
+    void withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String player1Name, String player2Name) {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).buildOthello();
         Game reversiGame = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).buildReversi();
         assertAll(
