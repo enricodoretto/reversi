@@ -18,9 +18,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource("6E,3D,5F")
     void isValidIfCellIsAvailableAndHasNeighborOfDifferentColorAndCausesDisksToFlip(Coordinate coordinate) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertTrue(othelloGame.isValidMove(coordinate)),
                 () -> assertTrue(reversiGame.isValidMove(coordinate)));
     }
@@ -28,9 +28,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource("5D,5F,4D,4E")
     void isInvalidIfCellIsAlreadyFull(Coordinate coordinate) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
                 () -> assertFalse(reversiGame.isValidMove(coordinate)));
     }
@@ -38,9 +38,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource("6C,1A,8H")
     void isInvalidIfCellDoesNotHaveNeighborOfDifferentColor(Coordinate coordinate) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
                 () -> assertFalse(reversiGame.isValidMove(coordinate)));
     }
@@ -48,9 +48,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource("3C,6F")
     void isInvalidIfDoesNotCauseDisksToFlip(Coordinate coordinate) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
                 () -> assertFalse(reversiGame.isValidMove(coordinate)));
     }
@@ -58,9 +58,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
     void returnsCoordinatesToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
         assertAll(() -> assertEquals(coordinatesToFlip, othelloGame.getDisksToFlip(blackDiskPosition)),
                 () -> assertEquals(coordinatesToFlip, reversiGame.getDisksToFlip(blackDiskPosition)));
@@ -69,9 +69,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource("6F,6D,3E,3C")
     void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertNull(othelloGame.getDisksToFlip(blackDiskPosition)),
                 () -> assertNull(reversiGame.getDisksToFlip(blackDiskPosition)));
     }
@@ -84,9 +84,9 @@ public class TestGameMove {
         URL originalBoardFile = Thread.currentThread().getContextClassLoader().getResource(originalBoardFileName);
         URL finalBoardFile = Thread.currentThread().getContextClassLoader().getResource(expectedFinalBoardFileName);
         String finalBoard = Files.readString(Paths.get(finalBoardFile.toURI()));
-        Game othelloGame = new OthelloGame("Bob", "Alice", originalBoardFile);
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(originalBoardFile).buildOthello();
         othelloGame.makeMove(moveCoordinate);
-        Game reversiGame = new ReversiGame("Bob", "Alice", originalBoardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(originalBoardFile).buildReversi();
         reversiGame.makeMove(moveCoordinate);
         assertAll(() -> assertEquals(finalBoard, othelloGame.getBoard().toString()),
                 () -> assertEquals(finalBoard, reversiGame.getBoard().toString()));
@@ -95,9 +95,9 @@ public class TestGameMove {
     @ParameterizedTest
     @CsvSource("1A,10H,3C")
     void cannotBeMadeIfNotValid(String blackDiskCoordinate) throws IOException {
-        Game othelloGame = new OthelloGame("Bob", "Alice");
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = new ReversiGame("Bob", "Alice", boardFile);
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertThrows(IllegalArgumentException.class, () -> othelloGame.makeMove(new Coordinate(blackDiskCoordinate))),
                 () -> assertThrows(IllegalArgumentException.class, () -> reversiGame.makeMove(new Coordinate(blackDiskCoordinate))));
     }

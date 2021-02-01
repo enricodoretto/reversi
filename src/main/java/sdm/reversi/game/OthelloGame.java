@@ -53,7 +53,7 @@ public class OthelloGame extends Game {
 
     public OthelloGame(GameBuilder gameBuilder){
         super(gameBuilder);
-        initializeBoard();
+        if(board.getNumberOfDisks() == 0) initializeBoard();
         calculatePlayerPossibleMoves();
         updatePlayersScore();
     }
