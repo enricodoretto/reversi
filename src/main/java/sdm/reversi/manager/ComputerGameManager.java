@@ -18,7 +18,7 @@ public class ComputerGameManager implements GameManager{
     }
 
     @Override
-    public void illegalMove(String message) {
+    public void illegalMove() {
 
     }
 

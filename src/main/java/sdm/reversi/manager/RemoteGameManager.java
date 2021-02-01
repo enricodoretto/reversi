@@ -100,10 +100,9 @@ public class RemoteGameManager implements GameManager {
     }
 
     @Override
-    public void illegalMove(String message) {
+    public void illegalMove() {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.ILLEGAL);
-            objectOutputStream.writeObject(message);
         } catch (IOException e) {
             e.printStackTrace();
         }

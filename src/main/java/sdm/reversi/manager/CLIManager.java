@@ -57,7 +57,7 @@ public class CLIManager implements GameManager {
     }
 
     @Override
-    public void illegalMove(String message) {
-        System.out.println(message);
+    public void illegalMove() {
+        System.out.println("Invalid move, please choose another one");
     }
 }

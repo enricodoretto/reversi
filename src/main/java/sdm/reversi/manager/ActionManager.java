@@ -8,5 +8,5 @@ public interface ActionManager {
 
     void suggestMoves(Collection<Coordinate> moves);
     Coordinate getMoveFromPlayer();
-    void illegalMove(String message);
+    void illegalMove();
 }

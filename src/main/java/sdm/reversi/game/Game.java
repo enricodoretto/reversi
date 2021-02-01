@@ -219,7 +219,7 @@ public abstract class Game implements Serializable {
                         notificationsManager.updateGame(this);
                         break;
                     } catch (IllegalArgumentException e) {
-                        currentPlayer.gameManager.illegalMove("Invalid move, please choose another one");
+                        currentPlayer.gameManager.illegalMove();
                     }
                 }
             }

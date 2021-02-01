@@ -77,8 +77,8 @@ public class GUIManager extends JFrame implements GameManager, ActionListener {
     }
 
     @Override
-    public void illegalMove(String message) {
-        JOptionPane.showMessageDialog(this, message);
+    public void illegalMove() {
+        JOptionPane.showMessageDialog(this, "Invalid move, please choose another one");
     }
 
     private void updateGridPanel(Board board) {
