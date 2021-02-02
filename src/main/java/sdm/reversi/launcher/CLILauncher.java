@@ -33,13 +33,14 @@ public class CLILauncher {
                 gameBuilder.withCPUOpponent();
                 break;
             case 3:
+                System.out.println("Wait until client connection...");
                 gameBuilder.withRemoteOpponent();
                 break;
             case 4:
                 System.out.println("IP Address Host: ");
                 String serverIP = scanner.nextLine();
                 Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
-                break;
+                return;
             default:
                 System.out.println("Illegal Argument");
                 new CLILauncher();
