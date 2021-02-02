@@ -45,47 +45,47 @@ public abstract class Game implements Serializable {
         }
 
         public GameBuilder withOpponent(String player2Name) {
-            if (player1.getName().equals(player2Name)) throw new IllegalArgumentException();
-            if (player2 != null) throw new IllegalArgumentException();
+            if (player1.getName().equals(player2Name)) throw new IllegalArgumentException("The two players must have different names");
+            if (player2 != null) throw new IllegalArgumentException("Player 2 already specified");
             player2 = new Player(player2Name, Disk.Color.WHITE, gameManager);
             return this;
         }
 
         public GameBuilder withCPUOpponent() {
-            if (player2 != null) throw new IllegalArgumentException();
+            if (player2 != null) throw new IllegalArgumentException("Player 2 already specified");
             player2 = new ComputerPlayer(Disk.Color.WHITE);
             return this;
         }
 
         public GameBuilder withRemoteOpponent() throws IOException {
-            if (player2 != null) throw new IllegalArgumentException();
+            if (player2 != null) throw new IllegalArgumentException("Player 2 already specified");
             player2 = new RemotePlayer(Disk.Color.WHITE);
             return this;
         }
 
         public GameBuilder withBoardSize(int boardSize) {
-            if (board != null) throw new IllegalArgumentException();
+            if (board != null) throw new IllegalArgumentException("Board already specified");
             board = new Board(boardSize);
             return this;
         }
 
         public GameBuilder withCustomBoard(URL boardFileURL) throws IOException {
-            if (board != null) throw new IllegalArgumentException();
+            if (board != null) throw new IllegalArgumentException("Board already specified");
             board = new Board(boardFileURL);
             if (board.getNumberOfDisks() < 4) {
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Custom board needs to have at least four disks");
             }
             return this;
         }
 
         public Game buildReversi(){
-            if(player2 == null) throw new IllegalArgumentException();
+            if(player2 == null) throw new IllegalArgumentException("Player 2 not specified");
             if(board == null) board = new Board();
             return new ReversiGame(this);
         }
 
         public Game buildOthello(){
-            if(player2 == null) throw new IllegalArgumentException();
+            if(player2 == null) throw new IllegalArgumentException("Player 2 not specified");
             if(board == null) board = new Board();
             return new OthelloGame(this);
         }
@@ -168,7 +168,7 @@ public abstract class Game implements Serializable {
 
     public void makeMove(Coordinate coordinate) {
         if (!isValidMove(coordinate)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Illegal move");
         }
         board.putDisk(currentPlayer.getColor(), coordinate);
         allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
