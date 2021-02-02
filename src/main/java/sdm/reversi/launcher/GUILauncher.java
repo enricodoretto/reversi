@@ -1,6 +1,7 @@
 package sdm.reversi.launcher;
 
 import sdm.reversi.gui.DraggableFrame;
+import sdm.reversi.gui.OneVsCPU;
 import sdm.reversi.gui.OneVsOne;
 import sdm.reversi.gui.TitleBar;
 
@@ -30,7 +31,7 @@ public class GUILauncher {
             frame.setVisible(false);
         });
         oneVsCPU.addActionListener(e -> {
-            //new OneVsCPU();
+            new OneVsCPU();
             frame.setVisible(false);
         });
         online.addActionListener(e -> {
