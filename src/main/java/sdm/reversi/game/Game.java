@@ -125,7 +125,7 @@ public abstract class Game implements Serializable {
         if (!board.isCellAvailable(coordinate)) {
             return null;
         }
-        Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values())
+        Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values()).parallel()
                 .map(direction -> getDisksToFlipInADirection(coordinate, currentPlayer.getColor(), direction))
                 .filter(Objects::nonNull).flatMap(Set::stream).collect(Collectors.toSet());
         return disksToFlip.size() == 0 ? null : disksToFlip;

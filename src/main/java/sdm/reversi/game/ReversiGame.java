@@ -28,7 +28,7 @@ public class ReversiGame extends Game {
             super.calculatePlayerPossibleMoves();
             return;
         }
-        allowedMovesForCurrentPlayer = Arrays.stream(initialMoves)
+        allowedMovesForCurrentPlayer = Arrays.stream(initialMoves).parallel()
                 .filter(c -> board.isCellAvailable(c))
                 .collect(Collectors.toMap(
                         coordinate -> coordinate,
