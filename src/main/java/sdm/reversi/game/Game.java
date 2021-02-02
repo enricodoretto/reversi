@@ -32,6 +32,7 @@ public abstract class Game implements Serializable {
         private final GameManager gameManager;
 
         private GameBuilder(String player1Name, GameManager gameManager){
+            if(player1Name.isEmpty()) throw new IllegalArgumentException("Player 1 can't have empty name");
             player1 = new Player(player1Name, Disk.Color.BLACK, gameManager);
             this.gameManager = gameManager;
         }
@@ -45,6 +46,7 @@ public abstract class Game implements Serializable {
         }
 
         public GameBuilder withOpponent(String player2Name) {
+            if(player2Name.isEmpty()) throw new IllegalArgumentException("Player 2 can't have empty name");
             if (player1.getName().equals(player2Name)) throw new IllegalArgumentException("The two players must have different names");
             if (player2 != null) throw new IllegalArgumentException("Player 2 already specified");
             player2 = new Player(player2Name, Disk.Color.WHITE, gameManager);

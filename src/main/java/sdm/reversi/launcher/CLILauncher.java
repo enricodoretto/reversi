@@ -13,10 +13,19 @@ public class CLILauncher {
     public static void launch() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Player1 name: ");
-        String player1Name = scanner.nextLine();
+        System.out.println("Player1 name:");
+        String player1Name;
+        Game.GameBuilder gameBuilder;
+        while (true) {
+            try {
+                player1Name = scanner.nextLine();
+                gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
+            }
+        }
 
-        Game.GameBuilder gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name);
         System.out.println("What game do you want to play? \n" +
                 "1 - 1v1\n" +
                 "2 - 1vCPU\n" +
