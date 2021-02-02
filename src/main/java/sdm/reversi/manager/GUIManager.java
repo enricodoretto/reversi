@@ -98,7 +98,7 @@ public class GUIManager extends JFrame implements GameManager, ActionListener {
         new DraggableFrame(this);
         boardSize = game.getBoard().getSize();
 
-        TitleBar titleBar = new TitleBar();
+        TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(this).build();
         add(titleBar.getTitleBar(), BorderLayout.NORTH);
 
         JPanel statisticsPanel = createStatisticsPanel(game);

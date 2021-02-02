@@ -1,5 +1,7 @@
 package sdm.reversi.gui;
 
+import sdm.reversi.launcher.GUILauncher;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -22,7 +24,7 @@ public class TitleBar implements MouseListener {
             this.frame = frame;
             titleBar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
             titleBar.setBackground(Color.LIGHT_GRAY);
-            topPanelRight = new TitleBar().createTitleBarRight();
+            topPanelRight = new TitleBar(frame).createTitleBarRight();
         }
 
         public static TitleBarBuilder createTitleBar(JFrame frame) {
@@ -36,7 +38,7 @@ public class TitleBar implements MouseListener {
             titleBar.add(topPanelLeft);
             topPanelLeft.setSize(frame.getWidth() / 2, 10);
             final JLabel back = new JLabel("\u2190 Back");
-            back.addMouseListener(new TitleBar());
+            back.addMouseListener(new TitleBar(frame));
             back.setSize(10, 5);
             back.setFont(new Font("Tahoma", Font.BOLD, 15));
             topPanelLeft.add(back);
@@ -49,7 +51,8 @@ public class TitleBar implements MouseListener {
         }
     }
 
-    public TitleBar() {
+    public TitleBar(final JFrame frame) {
+        this.frame = frame;
     }
 
     public TitleBar(TitleBarBuilder titleBarBuilder) {
@@ -97,8 +100,8 @@ public class TitleBar implements MouseListener {
                 }
                 break;
             case "\u2190 Back":
-                //ew Start();
-                //frame.setVisible(false);
+                GUILauncher.launch();
+                frame.setVisible(false);
                 break;
             default:
                 break;

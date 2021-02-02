@@ -1,6 +1,7 @@
 package sdm.reversi.launcher;
 
 import sdm.reversi.gui.DraggableFrame;
+import sdm.reversi.gui.OneVsOne;
 import sdm.reversi.gui.TitleBar;
 
 import javax.swing.*;
@@ -25,7 +26,7 @@ public class GUILauncher {
         buttonMenu.add(online);
         container.add(buttonMenu);
         oneVsOne.addActionListener(e -> {
-            //new OneVsOne();
+            new OneVsOne();
             frame.setVisible(false);
         });
         oneVsCPU.addActionListener(e -> {
