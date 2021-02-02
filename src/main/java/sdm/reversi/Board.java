@@ -16,7 +16,8 @@ public class Board implements Serializable{
     }
 
     public Board(int size) {
-        if (size % 2 != 0 || size < 4 || size > 26) throw new IllegalArgumentException();
+        if (size % 2 != 0 || size < 4 || size > 26)
+            throw new IllegalArgumentException("Board size must be even and between 4 and 26");
         board = new Disk[size][size];
     }
 
@@ -32,7 +33,7 @@ public class Board implements Serializable{
                     board = new Disk[size][size];
                 }
                 if(line.length()!=size || row>=size){
-                    throw new IllegalArgumentException();
+                    throw new IllegalArgumentException("Error in parsing board from file");
                 }
                 for (int col = 0; col < size; col++) {
                     switch (line.charAt(col)) {
@@ -45,13 +46,13 @@ public class Board implements Serializable{
                         case '-':
                             break;
                         default:
-                            throw new IllegalArgumentException();
+                            throw new IllegalArgumentException("Error in parsing board from file");
                     }
                 }
                 row++;
             }
             if(row!=size){
-                throw new IllegalArgumentException();
+                throw new IllegalArgumentException("Error in parsing board from file");
             }
             return board;
         }
@@ -74,7 +75,7 @@ public class Board implements Serializable{
 
     public boolean isCellEmpty(Coordinate coordinate) {
         if (!isCellValid(coordinate)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Cell outside board");
         }
         return board[coordinate.getRow()][coordinate.getColumn()] == null;
     }
@@ -105,14 +106,14 @@ public class Board implements Serializable{
 
     public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
         if (!isCellEmpty(coordinate)) {
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Cell already full");
         }
         board[coordinate.getRow()][coordinate.getColumn()] = new Disk(diskColor);
     }
 
     public void flipDisk(Coordinate coordinate) {
         if (!isCellValid(coordinate))
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid cell");
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
 
@@ -122,7 +123,7 @@ public class Board implements Serializable{
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
         if (!isCellValid(coordinate))
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Invalid cell");
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
         return disk == null ? null : disk.getSideUp();
     }

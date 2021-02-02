@@ -19,8 +19,8 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
     }
 
     public Coordinate(String inputCoordinate) {
-        if(!Pattern.compile("^[0-9]{1,2}[A-Za-z]{1}").matcher(inputCoordinate).find()){
-            throw new IllegalArgumentException();
+        if(!Pattern.compile("^[0-9]{1,2}[A-Za-z]").matcher(inputCoordinate).find()){
+            throw new IllegalArgumentException("Malformed coordinate: must be of type number-letter");
         }
         try {
             Matcher matcher = Pattern.compile("\\d+").matcher(inputCoordinate);
@@ -30,7 +30,7 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
         }
         catch (NullPointerException | IndexOutOfBoundsException |
                 IllegalStateException | IllegalArgumentException e){
-            throw new IllegalArgumentException();
+            throw new IllegalArgumentException("Malformed coordinate");
         }
     }
 
