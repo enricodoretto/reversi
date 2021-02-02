@@ -1,9 +1,6 @@
 package sdm.reversi.launcher;
 
-import sdm.reversi.gui.DraggableFrame;
-import sdm.reversi.gui.OneVsCPU;
-import sdm.reversi.gui.OneVsOne;
-import sdm.reversi.gui.TitleBar;
+import sdm.reversi.gui.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -35,7 +32,7 @@ public class GUILauncher {
             frame.setVisible(false);
         });
         online.addActionListener(e -> {
-            //new Online();
+            new Online();
             frame.setVisible(false);
         });
 
