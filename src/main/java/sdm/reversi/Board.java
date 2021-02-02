@@ -118,7 +118,7 @@ public class Board implements Serializable{
     }
 
     public long getNumberOfDisks(){
-        return Arrays.stream(board).flatMap(Arrays::stream).filter(Objects::nonNull).count();
+        return Arrays.stream(board).parallel().flatMap(Arrays::stream).filter(Objects::nonNull).count();
     }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
