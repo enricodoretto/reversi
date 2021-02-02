@@ -12,14 +12,16 @@ import java.net.UnknownHostException;
 
 public class Client {
 
+    private static final int PORT_NUMBER = 10000;
+
     public static void main(String[] args) throws UnknownHostException {
         GameManager gameManager = new CLIManager();
         String playerName = "Client Player";
-        connectAndPlay(playerName, gameManager, InetAddress.getLocalHost(), 10000);
+        connectAndPlay(playerName, gameManager, InetAddress.getLocalHost());
     }
 
-    public static void connectAndPlay(String playerName, GameManager gameManager, InetAddress ip, int port) {
-        try (Socket socket = new Socket(ip, port);
+    public static void connectAndPlay(String playerName, GameManager gameManager, InetAddress ip) {
+        try (Socket socket = new Socket(ip, PORT_NUMBER);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())
         ) {
