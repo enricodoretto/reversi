@@ -6,6 +6,7 @@ import sdm.reversi.manager.CLIManager;
 
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Scanner;
 
 public class CLILauncher {
@@ -21,13 +22,31 @@ public class CLILauncher {
                 "2 - 1vCPU\n" +
                 "3 - Online Server\n" +
                 "4 - Online Client");
-        int gameMode = Integer.parseInt(scanner.nextLine());
-
-        switch(gameMode){
+        int gameMode;
+        while (true) {
+            try {
+                gameMode = Integer.parseInt(scanner.nextLine());
+                if (gameMode < 1 || gameMode > 4) {
+                    throw new IllegalArgumentException();
+                }
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Illegal input, please type a number between 1 and 4");
+            }
+        }
+        switch (gameMode) {
             case 1:
                 System.out.println("Player2 name: ");
-                String player2Name = scanner.nextLine();
-                gameBuilder.withOpponent(player2Name);
+                String player2Name;
+                while (true) {
+                    try {
+                        player2Name = scanner.nextLine();
+                        gameBuilder.withOpponent(player2Name);
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
+                    }
+                }
                 break;
             case 2:
                 gameBuilder.withCPUOpponent();
@@ -38,25 +57,50 @@ public class CLILauncher {
                 break;
             case 4:
                 System.out.println("IP Address Host: ");
-                String serverIP = scanner.nextLine();
-                Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
+                String serverIP;
+                while (true) {
+                    try {
+                        serverIP = scanner.nextLine();
+                        Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
+                        break;
+                    } catch (UnknownHostException e) {
+                        System.out.println("Illegal IP address, please retry");
+                    }
+                }
                 return;
             default:
-                System.out.println("Illegal Argument");
-                new CLILauncher();
-                break;
+                System.out.println("Unexpected error occurred, the launcher will restart...");
+                launch();
+                return;
         }
-        
+
         System.out.println("Board size: ");
-        int boardSize = Integer.parseInt(scanner.nextLine());
-        
-        gameBuilder.withBoardSize(boardSize);
+        int boardSize;
+        while (true) {
+            try {
+                boardSize = Integer.parseInt(scanner.nextLine());
+                gameBuilder.withBoardSize(boardSize);
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
+            }
+        }
 
         System.out.println("What game do you want to play? \n" +
                 "1 - Reversi\n" +
                 "2 - Othello");
-
-        int typeOfGame = Integer.parseInt(scanner.nextLine());
+        int typeOfGame;
+        while (true) {
+            try {
+                typeOfGame = Integer.parseInt(scanner.nextLine());
+                if (typeOfGame != 1 && typeOfGame!=2) {
+                    throw new IllegalArgumentException();
+                }
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Illegal input, please type a number between 1 and 2");
+            }
+        }
 
         Game game;
         if (typeOfGame == 1) {
