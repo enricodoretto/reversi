@@ -9,39 +9,59 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-public class TitleBar implements MouseListener{
-    private final JPanel titleBar;
-    private final JFrame frame;
+public class TitleBar implements MouseListener {
+    private JFrame frame;
+    private JPanel titleBar;
 
-    public TitleBar(){
-        this.frame = null;
-        titleBar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        titleBar.setBackground(Color.LIGHT_GRAY);
-        titleBar.add(createTopPanelRight());
+    public static class TitleBarBuilder {
+        private final JPanel titleBar;
+        private final JFrame frame;
+        private JPanel topPanelRight;
+
+        private TitleBarBuilder(JFrame frame) {
+            this.frame = frame;
+            titleBar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+            titleBar.setBackground(Color.LIGHT_GRAY);
+            topPanelRight = new TitleBar().createTitleBarRight();
+        }
+
+        public static TitleBarBuilder createTitleBar(JFrame frame) {
+            return new TitleBarBuilder(frame);
+        }
+
+        public TitleBarBuilder withBackButton() {
+            titleBar.setLayout(new GridLayout(1, 2));
+            JPanel topPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            topPanelLeft.setBackground(Color.LIGHT_GRAY);
+            titleBar.add(topPanelLeft);
+            topPanelLeft.setSize(frame.getWidth() / 2, 10);
+            final JLabel back = new JLabel("\u2190 Back");
+            back.addMouseListener(new TitleBar());
+            back.setSize(10, 5);
+            back.setFont(new Font("Tahoma", Font.BOLD, 15));
+            topPanelLeft.add(back);
+            return this;
+        }
+
+        public TitleBar build() {
+            titleBar.add(topPanelRight);
+            return new TitleBar(this);
+        }
     }
 
-    public TitleBar(final JFrame frame){
-        this.frame = frame;
-        titleBar = new JPanel(new GridLayout(1, 2));
-        JPanel topPanelRight = createTopPanelRight();
-        JPanel topPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        topPanelLeft.setBackground(Color.LIGHT_GRAY);
-        titleBar.add(topPanelLeft);
-        titleBar.add(topPanelRight);
+    public TitleBar() {
+    }
 
-        topPanelLeft.setSize(frame.getWidth() / 2, 10);
-        final JLabel back = new JLabel("\u2190 Back");
-        back.addMouseListener(this);
-        back.setSize(10, 5);
-        back.setFont(new Font("Tahoma", Font.BOLD, 15));
-        topPanelLeft.add(back);
+    public TitleBar(TitleBarBuilder titleBarBuilder) {
+        this.frame = titleBarBuilder.frame;
+        this.titleBar = titleBarBuilder.titleBar;
     }
 
     public JPanel getTitleBar() {
         return titleBar;
     }
 
-    private JPanel createTopPanelRight(){
+    private JPanel createTitleBarRight() {
         JPanel topPanelRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         topPanelRight.setBackground(Color.LIGHT_GRAY);
         final JLabel help = new JLabel("?");
@@ -56,14 +76,13 @@ public class TitleBar implements MouseListener{
         help.setFont(new Font("Tahoma", Font.BOLD, 15));
         topPanelRight.add(help);
         topPanelRight.add(exit);
-
         return topPanelRight;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
         JLabel clickedLabel = (JLabel) e.getSource();
-        switch (clickedLabel.getText()){
+        switch (clickedLabel.getText()) {
             case "X":
                 System.exit(0);
                 break;
@@ -98,7 +117,7 @@ public class TitleBar implements MouseListener{
     public void mouseEntered(MouseEvent e) {
         JLabel overLabel = (JLabel) e.getSource();
         overLabel.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        if(overLabel.getText().equals("X")){
+        if (overLabel.getText().equals("X")) {
             overLabel.setOpaque(true);
             overLabel.setBackground(Color.RED);
         }
@@ -107,7 +126,7 @@ public class TitleBar implements MouseListener{
     @Override
     public void mouseExited(MouseEvent e) {
         JLabel overLabel = (JLabel) e.getSource();
-        if(overLabel.getText().equals("X")){
+        if (overLabel.getText().equals("X")) {
             overLabel.setOpaque(true);
             overLabel.setBackground(Color.LIGHT_GRAY);
         }
