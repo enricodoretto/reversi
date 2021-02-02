@@ -39,7 +39,7 @@ public class CLIManager implements GameManager {
 
     @Override
     public void suggestMoves(Collection<Coordinate> moves) {
-        System.out.println(moves.stream().map(Coordinate::toString).sorted().collect(Collectors.joining(" ")));
+        System.out.println(moves.stream().parallel().map(Coordinate::toString).sorted().collect(Collectors.joining(" ")));
     }
 
     @Override

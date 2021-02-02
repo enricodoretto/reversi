@@ -9,7 +9,7 @@ public class ComputerGameManager implements GameManager{
 
     @Override
     public void suggestMoves(Collection<Coordinate> moves) {
-        move = moves.stream().sorted().findFirst().get();
+        move = moves.stream().parallel().sorted().findFirst().get();
     }
 
     @Override
