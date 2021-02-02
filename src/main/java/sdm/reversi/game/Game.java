@@ -129,7 +129,6 @@ public abstract class Game implements Serializable {
         return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
-
     private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
         if (!board.shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return null;
@@ -146,7 +145,6 @@ public abstract class Game implements Serializable {
             disksToFlipInADirection.add(coordinate);
         }
     }
-
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         return allowedMovesForCurrentPlayer;
