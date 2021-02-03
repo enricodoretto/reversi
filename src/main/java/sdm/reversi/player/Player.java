@@ -1,18 +1,22 @@
 package sdm.reversi.player;
 
+import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
+import sdm.reversi.manager.ActionManager;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GameManager;
+import sdm.reversi.manager.NotificationsManager;
 
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Objects;
 
-public class Player implements Serializable {
+public class Player implements Serializable, ActionManager {
     private final String name;
     private final Disk.Color color;
     private boolean inStall;
     private int score;
-    public transient final GameManager gameManager;
+    private transient final GameManager gameManager;
 
     public Player(String name, Disk.Color color, GameManager gameManager){
         this.name = name;
@@ -41,6 +45,25 @@ public class Player implements Serializable {
 
     public int getScore() {return score;}
     public void setScore(int score) {this.score = score;}
+
+    public NotificationsManager getNotificationsManager(){
+        return gameManager;
+    }
+
+    @Override
+    public void suggestMoves(Collection<Coordinate> moves) {
+        gameManager.suggestMoves(moves);
+    }
+
+    @Override
+    public Coordinate getMoveFromPlayer() {
+        return gameManager.getMoveFromPlayer();
+    }
+
+    @Override
+    public void illegalMove() {
+        gameManager.illegalMove();
+    }
 
     @Override
     public boolean equals(Object o) {

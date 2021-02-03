@@ -1,4 +1,6 @@
 package sdm.reversi.gui;
+import sdm.reversi.game.Game;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -69,6 +71,8 @@ public class OneVsOne extends JFrame {
             } else {
                 int dimensionBoard = Integer.parseInt(availableDimension.getSelectedItem().toString().split("x")[0]);
                 //GameBuilder.create2PlayerGameWithGUI(dimensionBoard, namePlayer1.getText(), namePlayer2.getText(), availableGameType.getSelectedItem().toString());
+                Game game = Game.GameBuilder.GUIGameBuilder("A").withOpponent("B").buildOthello();
+                game.play();
                 setVisible(false);
             }
         });

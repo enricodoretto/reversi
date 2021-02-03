@@ -200,17 +200,17 @@ public abstract class Game implements Serializable {
     }
 
     public void play() {
-        NotificationsManager notificationsManager = player1.gameManager.compose(player2.gameManager);
+        NotificationsManager notificationsManager = player1.getNotificationsManager().compose(player2.getNotificationsManager());
         notificationsManager.initialize(this);
         while (!isOver()) {
             notificationsManager.startTurn(currentPlayer);
             if (currentPlayer.isInStall()) {
                 notificationsManager.skipTurn();
             } else {
-                currentPlayer.gameManager.suggestMoves(allowedMovesForCurrentPlayer.keySet());
+                currentPlayer.suggestMoves(allowedMovesForCurrentPlayer.keySet());
                 while (true) {
                     try {
-                        Coordinate coordinateOfDesiredMove = currentPlayer.gameManager.getMoveFromPlayer();
+                        Coordinate coordinateOfDesiredMove = currentPlayer.getMoveFromPlayer();
                         if (coordinateOfDesiredMove == null) {
                             isQuit = true;
                             break;
@@ -219,7 +219,7 @@ public abstract class Game implements Serializable {
                         notificationsManager.updateGame(this);
                         break;
                     } catch (IllegalArgumentException e) {
-                        currentPlayer.gameManager.illegalMove();
+                        currentPlayer.illegalMove();
                     }
                 }
             }
