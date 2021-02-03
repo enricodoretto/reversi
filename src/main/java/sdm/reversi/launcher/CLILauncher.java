@@ -3,6 +3,7 @@ package sdm.reversi.launcher;
 import sdm.reversi.Client;
 import sdm.reversi.game.Game;
 import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.GUIManager;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -64,7 +65,7 @@ public class CLILauncher {
             }
         }
         switch (gameMode) {
-            case 1:
+            case 1 -> {
                 System.out.println("Player2 name: ");
                 String player2Name;
                 while (true) {
@@ -76,31 +77,35 @@ public class CLILauncher {
                         System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
                     }
                 }
-                break;
-            case 2:
-                gameBuilder.withCPUOpponent();
-                break;
-            case 3:
+            }
+            case 2 -> gameBuilder.withCPUOpponent();
+            case 3 -> {
                 System.out.println("Wait until client connection...");
                 gameBuilder.withRemoteOpponent();
-                break;
-            case 4:
+            }
+            case 4 -> {
                 System.out.println("IP Address Host: ");
                 String serverIP;
                 while (true) {
                     try {
                         serverIP = scanner.nextLine();
-                        Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
+                        System.out.println("Wait until host connection...");
+                        if (gameInterface == 1)
+                            Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
+                        else
+                            Client.connectAndPlay(player1Name, new GUIManager(), InetAddress.getByName(serverIP));
                         break;
                     } catch (UnknownHostException e) {
                         System.out.println("Illegal IP address, please retry");
                     }
                 }
                 return;
-            default:
+            }
+            default -> {
                 System.out.println("Unexpected error occurred, the launcher will restart...");
                 launch();
                 return;
+            }
         }
 
         System.out.println("Board size: ");
