@@ -36,4 +36,14 @@ public class TestPlayer {
         player.suggestMoves(suggestedMoves);
         assertEquals(suggestedMovesOnCLI+System.lineSeparator(), fakeStandardOutput.toString());
     }
+
+    @Test
+    void withCLIManagerDisplaysIllegalMoveMessageOnCLI() {
+        Player player = new Player("Bob", Disk.Color.BLACK);
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        player.illegalMove();
+        assertEquals("Invalid move, please choose another one"+ System.lineSeparator(), fakeStandardOutput.toString());
+    }
+
 }
