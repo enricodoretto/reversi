@@ -28,4 +28,18 @@ public class TestCoordinate {
     void failsIfNotValidInputString(String coordinate){
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(coordinate));
     }
+
+    @ParameterizedTest
+    @CsvSource({"26,26,27AA","30,30,31AE","99,0,100A"})
+    void ifInputStringIsValidCoordinate(int row, int column, String inputCoordinate){
+        Coordinate coordinate = new Coordinate(row, column);
+        assertEquals(coordinate, new Coordinate(inputCoordinate));
+    }
+
+    @ParameterizedTest
+    @CsvSource({"279ABBA","31AE","100A"})
+    void isPrintedCorrectly(String inputCoordinate){
+        assertEquals(inputCoordinate, new Coordinate(inputCoordinate).toString());
+    }
+
 }
