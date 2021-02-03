@@ -82,13 +82,13 @@ public abstract class Game implements Serializable {
 
         public Game buildReversi(){
             if(player2 == null) throw new IllegalArgumentException("Player 2 not specified");
-            if(board == null) board = new Board();
+            if(board == null) throw new IllegalArgumentException("Board not specified");
             return new ReversiGame(this);
         }
 
         public Game buildOthello(){
             if(player2 == null) throw new IllegalArgumentException("Player 2 not specified");
-            if(board == null) board = new Board();
+            if(board == null) throw new IllegalArgumentException("Board not specified");
             return new OthelloGame(this);
         }
     }

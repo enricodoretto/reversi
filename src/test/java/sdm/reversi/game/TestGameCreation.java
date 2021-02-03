@@ -13,8 +13,8 @@ public class TestGameCreation {
     @ParameterizedTest
     @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
     void withTwoPlayersWithDifferentNamesAndDefaultBoardSucceeds(String player1Name, String player2Name) {
-        Game othelloGame = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).buildOthello();
-        Game reversiGame = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).buildReversi();
+        Game othelloGame = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).withBoardSize(8).buildOthello();
+        Game reversiGame = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).withBoardSize(8).buildReversi();
         assertAll(
                 () -> assertEquals(new Player(player1Name, Disk.Color.BLACK), othelloGame.getPlayer1()),
                 () -> assertEquals(new Player(player2Name, Disk.Color.WHITE), othelloGame.getPlayer2()),

@@ -7,13 +7,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Board implements Serializable{
-
     private final Disk[][] board;
-    private final static int DEFAULT_SIZE = 8;
-
-    public Board() {
-        this(DEFAULT_SIZE);
-    }
 
     public Board(int size) {
         if (size % 2 != 0 || size < 4 || size > 26)

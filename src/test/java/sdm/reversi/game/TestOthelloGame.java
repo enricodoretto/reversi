@@ -18,7 +18,7 @@ public class TestOthelloGame {
 
     @Test
     void suggestsValidPositionsForFirstBlackMove() {
-        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello();
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         Map<Coordinate, Set<Coordinate>> possibleDisksToFlip = Map.of(
                 new Coordinate("3D"), Set.of(new Coordinate("4D")),
                 new Coordinate("4C"), Set.of(new Coordinate("4D")),

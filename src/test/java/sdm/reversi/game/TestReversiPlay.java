@@ -106,7 +106,7 @@ public class TestReversiPlay {
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withCPUOpponent().buildReversi();
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withCPUOpponent().withBoardSize(8).buildReversi();
         game.play();
         assertAll(() -> assertEquals("CPU", game.getWinner().getName()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));

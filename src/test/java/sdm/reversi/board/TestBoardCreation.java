@@ -23,10 +23,10 @@ public class TestBoardCreation {
         assertDoesNotThrow(() -> new Board(boardSize));
     }
 
-    @Test
+    /*@Test
     public void succeedsWithNoSize(){
         assertDoesNotThrow((ThrowingSupplier<Board>) Board::new);
-    }
+    }*/
 
     @ParameterizedTest
     @CsvSource({"emptyBoards/empty8x8Board", "emptyBoards/empty4x4Board", "emptyBoards/empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})
