@@ -35,4 +35,12 @@ public class TestCoordinate {
         assertEquals(coordinate, new Coordinate(coordinate).toString());
     }
 
+    @ParameterizedTest
+    @CsvSource({"1A, RIGHT, 1B", "1B, LEFT, 1A", "2A, UP, 1A", "1A, DOWN, 2A",
+            "1A, DOWN_RIGHT, 2B", "2B, DOWN_LEFT, 3A", "2A, UP_RIGHT, 1B", "3B, UP_LEFT, 2A"})
+    void isCorrectlyShiftedInADirection(Coordinate initialCoordinate, ShiftDirection shiftDirection, Coordinate shiftedCoordinate){
+        assertEquals(shiftedCoordinate, initialCoordinate.getShiftedCoordinate(shiftDirection));
+    }
+
+
 }
