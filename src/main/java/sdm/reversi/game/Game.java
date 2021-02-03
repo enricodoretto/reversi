@@ -117,7 +117,7 @@ public abstract class Game implements Serializable {
         return currentPlayer;
     }
 
-    public boolean isValidMove(Coordinate coordinate) {
+    protected boolean isValidMove(Coordinate coordinate) {
         return allowedMovesForCurrentPlayer.containsKey(coordinate);
     }
 
