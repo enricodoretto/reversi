@@ -15,6 +15,13 @@ public class Board implements Serializable{
         board = new Disk[size][size];
     }
 
+    public Board(URL fileURL) throws IOException {
+        if(fileURL==null){
+            throw new FileNotFoundException();
+        }
+        board = readBoard(new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream())));
+    }
+
     private static Disk[][] readBoard(BufferedReader bufferedReader) throws IOException{
         try (bufferedReader) {
             String line;
@@ -52,13 +59,6 @@ public class Board implements Serializable{
         }
     }
 
-    public Board(URL fileURL) throws IOException {
-        if(fileURL==null){
-         throw new FileNotFoundException();
-        }
-        board = readBoard(new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream())));
-    }
-
     public int getSize() {
         return board.length;
     }
@@ -67,19 +67,12 @@ public class Board implements Serializable{
         return Arrays.stream(board).flatMap(Arrays::stream).noneMatch(Objects::isNull);
     }
 
-    public boolean isCellEmpty(Coordinate coordinate) {
-        if (!isCellValid(coordinate)) {
-            throw new IllegalArgumentException("Cell outside board");
-        }
-        return board[coordinate.getRow()][coordinate.getColumn()] == null;
-    }
-
     public boolean isCellAvailable(Coordinate coordinate){
-        return isCellValid(coordinate) && isCellEmpty(coordinate);
+        return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] == null;
     }
 
     public boolean isCellOccupied(Coordinate coordinate){
-        return isCellValid(coordinate) && !isCellEmpty(coordinate);
+        return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] != null;
     }
 
     public Collection<Coordinate> getAvailableCells() {
@@ -94,19 +87,19 @@ public class Board implements Serializable{
         return index >= 0 && index <= board.length - 1;
     }
 
-    public boolean isCellValid(Coordinate coordinate) {
+    public boolean isCellInsideBoard(Coordinate coordinate) {
         return isIndexValid(coordinate.getRow()) && isIndexValid(coordinate.getColumn());
     }
 
     public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
-        if (!isCellEmpty(coordinate)) {
+        if (!isCellAvailable(coordinate)) {
             throw new IllegalArgumentException("Cell already full");
         }
         board[coordinate.getRow()][coordinate.getColumn()] = new Disk(diskColor);
     }
 
     public void flipDisk(Coordinate coordinate) {
-        if (!isCellValid(coordinate))
+        if (!isCellOccupied(coordinate))
             throw new IllegalArgumentException("Invalid cell");
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
@@ -116,7 +109,7 @@ public class Board implements Serializable{
     }
 
     public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
-        if (!isCellValid(coordinate))
+        if (!isCellInsideBoard(coordinate))
             throw new IllegalArgumentException("Invalid cell");
         Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
         return disk == null ? null : disk.getSideUp();

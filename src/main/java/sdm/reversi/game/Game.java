@@ -121,6 +121,22 @@ public abstract class Game implements Serializable {
         return allowedMovesForCurrentPlayer.containsKey(coordinate);
     }
 
+    protected void calculatePlayerPossibleMoves() {
+        Map<Coordinate, Set<Coordinate>> validCoordinates = board.getAvailableCells().stream()
+                .flatMap(coordinate -> {
+                    Set<Coordinate> disksToFlip = getDisksToFlip(coordinate);
+                    return coordinate != null && disksToFlip != null ?
+                            Stream.of(Map.entry(coordinate, disksToFlip)) : null;
+                }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        if (validCoordinates.size() == 0) {
+            allowedMovesForCurrentPlayer = null;
+            currentPlayer.setInStall(true);
+        } else {
+            allowedMovesForCurrentPlayer = validCoordinates;
+            currentPlayer.setInStall(false);
+        }
+    }
+
     public Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
         if (!board.isCellAvailable(coordinate)) {
             return null;
@@ -150,22 +166,6 @@ public abstract class Game implements Serializable {
 
     public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
         return allowedMovesForCurrentPlayer;
-    }
-
-    protected void calculatePlayerPossibleMoves() {
-        Map<Coordinate, Set<Coordinate>> validCoordinates = board.getAvailableCells().stream()
-                .flatMap(coordinate -> {
-                    Set<Coordinate> disksToFlip = getDisksToFlip(coordinate);
-                    return coordinate != null && disksToFlip != null ?
-                            Stream.of(Map.entry(coordinate, disksToFlip)) : null;
-                }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-        if (validCoordinates.size() == 0) {
-            allowedMovesForCurrentPlayer = null;
-            currentPlayer.setInStall(true);
-        } else {
-            allowedMovesForCurrentPlayer = validCoordinates;
-            currentPlayer.setInStall(false);
-        }
     }
 
     public void makeMove(Coordinate coordinate) {
