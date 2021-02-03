@@ -87,7 +87,7 @@ public class Board implements Serializable{
         return index >= 0 && index <= board.length - 1;
     }
 
-    public boolean isCellInsideBoard(Coordinate coordinate) {
+    private boolean isCellInsideBoard(Coordinate coordinate) {
         return isIndexValid(coordinate.getRow()) && isIndexValid(coordinate.getColumn());
     }
 
