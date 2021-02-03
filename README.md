@@ -1,4 +1,4 @@
-# reversi [![Build Status](https://travis-ci.com/enricodoretto/reversi.svg?branch=main)](https://travis-ci.com/enricodoretto/reversi)
+# Reversi [![Build Status](https://travis-ci.com/enricodoretto/reversi.svg?branch=main)](https://travis-ci.com/enricodoretto/reversi)
 
 Reversi is a strategy board game for two players, played on an 8×8 uncheckered board. It was invented in 1883. Othello, a variant with a change to the board's initial setup, was patented in 1971.
 
@@ -27,8 +27,8 @@ Set the parameters required for the game mode chosen and play!
 
 # Developers
 - [Doretto Enrico](https://github.com/enricodoretto)
-- [Nadizar Giorgia](https://github.com/giorgia-nadizar)
 - [Michelin Davide](https://github.com/DavideMichielin)
+- [Nadizar Giorgia](https://github.com/giorgia-nadizar)
 - [Tumino Adriano](https://github.com/Gideon996)
 
 
