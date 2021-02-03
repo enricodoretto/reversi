@@ -25,10 +25,10 @@ public class TestGameCreation {
 
     @ParameterizedTest
     @CsvSource({"Bob", "Alice", "John"})
-    void failsWithBothPlayersWithSameNameWithGameBuilder(String playerName) {
+    void failsWithBothPlayersWithSameName(String playerName) {
         assertAll(
-                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).buildOthello()),
-                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).buildReversi())
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).withBoardSize(8).buildOthello()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).withBoardSize(8).buildReversi())
         );
     }
 }
