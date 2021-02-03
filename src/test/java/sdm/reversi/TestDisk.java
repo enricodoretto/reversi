@@ -19,7 +19,7 @@ public class TestDisk {
 
     @ParameterizedTest
     @CsvSource({"BLACK,#000000", "WHITE,#FFFFFF"})
-    void hasSameGraphicalColorAsDiskColor(Disk.Color diskColor, String graphicalColor){
+    void hasSameGraphicalColorAsItsSideUpDiskColor(Disk.Color diskColor, String graphicalColor){
         Disk disk = new Disk(diskColor);
         assertEquals(Color.decode(graphicalColor), disk.getSideUp().getGraphicalColor());
     }
