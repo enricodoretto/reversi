@@ -24,13 +24,6 @@ public class TestCoordinate {
     }
 
     @ParameterizedTest
-    @CsvSource({"28,H,28H", "29,D,29D"})
-    void ifValidInputStringIsValidCoordinate(int row, char column, String inputCoordinate){
-        Coordinate coordinate = new Coordinate(row, column);
-        assertEquals(coordinate, new Coordinate(inputCoordinate));
-    }
-
-    @ParameterizedTest
     @CsvSource({"z2", "az6", "1234", "jg", "w3r"})
     void failsIfNotValidInputString(String coordinate){
         assertThrows(IllegalArgumentException.class, () -> new Coordinate(coordinate));
