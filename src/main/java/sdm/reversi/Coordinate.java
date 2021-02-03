@@ -15,10 +15,6 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
         this.column = column;
     }
 
-    public Coordinate(int row, char column) {
-        this(row - 1, Character.toUpperCase(column) - 'A');
-    }
-
     public Coordinate(String inputCoordinate) {
         inputCoordinate = inputCoordinate.toUpperCase().trim();
         Matcher matcher = Pattern.compile("^([0-9]+)([A-Z]+)").matcher(inputCoordinate);
