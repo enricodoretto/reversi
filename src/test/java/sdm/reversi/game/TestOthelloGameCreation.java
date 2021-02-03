@@ -18,6 +18,7 @@ public class TestOthelloGameCreation {
     void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
+        assert boardFile != null;
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }
@@ -26,6 +27,7 @@ public class TestOthelloGameCreation {
     @CsvSource({"fullBoards/allWhite8x8Board", "fullBoards/allBlack8x8Board", "initialBoards/othello4x4Board", "initialBoards/othello16x16Board"})
     void succeedsWithCustomBoardWithAtLeastFourDisks(String fileName) throws URISyntaxException, IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
+        assert boardFile != null;
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         assertEquals(initializedOthelloBoard, game.getBoard().toString());

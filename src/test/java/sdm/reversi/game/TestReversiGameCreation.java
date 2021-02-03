@@ -18,6 +18,7 @@ public class TestReversiGameCreation {
     void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildReversi();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
+        assert boardFile != null;
         String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }

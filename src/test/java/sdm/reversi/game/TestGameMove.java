@@ -83,6 +83,7 @@ public class TestGameMove {
     void flipsDisksIfValid(String originalBoardFileName, Coordinate moveCoordinate, String expectedFinalBoardFileName) throws URISyntaxException, IOException {
         URL originalBoardFile = Thread.currentThread().getContextClassLoader().getResource(originalBoardFileName);
         URL finalBoardFile = Thread.currentThread().getContextClassLoader().getResource(expectedFinalBoardFileName);
+        assert finalBoardFile != null;
         String finalBoard = Files.readString(Paths.get(finalBoardFile.toURI()));
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(originalBoardFile).buildOthello();
         othelloGame.makeMove(moveCoordinate);

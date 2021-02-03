@@ -1,7 +1,6 @@
 package sdm.reversi.game;
 
 import org.junit.jupiter.api.Test;
-import sdm.reversi.manager.CLIManager;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -20,7 +19,9 @@ public class TestReversiPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
+        assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
@@ -35,7 +36,9 @@ public class TestReversiPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfRequiresMoveRepetitionIfGivenMoveIsInvalid");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForRequiresMoveRepetitionIfGivenMoveIsInvalid");
+        assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
@@ -50,7 +53,9 @@ public class TestReversiPlay {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board4x4BlackCantMove");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfReversiIsOverIfAPlayerHasNoPossibleMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForMakesSkipTurnIfThereAreNoAvailableMoves");
+        assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
@@ -64,6 +69,7 @@ public class TestReversiPlay {
     void isOverWhenPlayerQuits() throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverWhenPlayerQuits");
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         game.play();
@@ -74,7 +80,9 @@ public class TestReversiPlay {
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogReversi4x4");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4ReversiGameWonByBob");
+        assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
@@ -88,7 +96,9 @@ public class TestReversiPlay {
     void full8x8GameWonByBob() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogFullReversi8x8");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiFullGame");
+        assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
@@ -102,7 +112,9 @@ public class TestReversiPlay {
     void full8x8GameVsCPUWonByCPU() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8GameVsCPU");
+        assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
         System.setIn(inputMoveFile.openStream());
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));

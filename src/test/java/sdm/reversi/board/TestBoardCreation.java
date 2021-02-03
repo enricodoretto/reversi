@@ -1,7 +1,5 @@
 package sdm.reversi.board;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.ThrowingSupplier;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Board;
@@ -22,11 +20,6 @@ public class TestBoardCreation {
     public void succeedsWithEvenSizeBetween4And26(int boardSize){
         assertDoesNotThrow(() -> new Board(boardSize));
     }
-
-    /*@Test
-    public void succeedsWithNoSize(){
-        assertDoesNotThrow((ThrowingSupplier<Board>) Board::new);
-    }*/
 
     @ParameterizedTest
     @CsvSource({"emptyBoards/empty8x8Board", "emptyBoards/empty4x4Board", "emptyBoards/empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})

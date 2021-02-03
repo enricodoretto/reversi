@@ -20,6 +20,7 @@ public class TestBoardIsRepresented {
     @CsvSource({"emptyBoards/empty8x8Board, 8", "emptyBoards/empty4x4Board, 4", "emptyBoards/empty16x16Board, 16"})
     void asStringOfDashesWhenEmpty(String fileName, int size) throws IOException, URISyntaxException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assert boardFile != null;
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(size);
         assertEquals(emptyBoard, board.toString());
@@ -29,6 +30,7 @@ public class TestBoardIsRepresented {
     @CsvSource({"whiteIn1A8x8Board, 8", "whiteIn1A4x4Board, 4", "whiteIn1A16x16Board, 16"})
     public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(String fileName, int size) throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assert boardFile != null;
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(size);
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
@@ -39,6 +41,7 @@ public class TestBoardIsRepresented {
     @CsvSource({"whiteIn1AblackIn4D8x8Board, 8", "whiteIn1AblackIn4D4x4Board, 4", "whiteIn1AblackIn4D16x16Board, 16"})
     public void asStringOfDashesWithInitialWWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H(String fileName, int size) throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assert boardFile != null;
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(size);
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
