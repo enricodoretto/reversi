@@ -5,8 +5,12 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.player.Player;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.io.PrintStream;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -17,7 +21,7 @@ public class TestPlayer {
 
     @ParameterizedTest
     @CsvSource({"Bob, BLACK", "Alice, WHITE"})
-    public void keepsAssignedNameAndColor(String name, Disk.Color color){
+    public void keepsAssignedNameAndColor(String name, Disk.Color color) {
         Player player = new Player(name, color);
         assertAll(
                 () -> assertEquals(name, player.getName()),
@@ -34,7 +38,7 @@ public class TestPlayer {
         Set<Coordinate> suggestedMoves = Arrays.stream(suggestedMovesOnCLI.split(" "))
                 .map(Coordinate::new).collect(Collectors.toSet());
         player.suggestMoves(suggestedMoves);
-        assertEquals(suggestedMovesOnCLI+System.lineSeparator(), fakeStandardOutput.toString());
+        assertEquals(suggestedMovesOnCLI + System.lineSeparator(), fakeStandardOutput.toString());
     }
 
     @Test
@@ -43,7 +47,16 @@ public class TestPlayer {
         ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
         System.setOut(new PrintStream(fakeStandardOutput));
         player.illegalMove();
-        assertEquals("Invalid move, please choose another one"+ System.lineSeparator(), fakeStandardOutput.toString());
+        assertEquals("Invalid move, please choose another one" + System.lineSeparator(), fakeStandardOutput.toString());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"3A,3A", "5H,5H", "4D,4D"})
+    void withCLIManagerTakesCoordinateFromCLI(String stringCoordinate, Coordinate coordinate) {
+        ByteArrayInputStream bais = new ByteArrayInputStream((stringCoordinate+System.lineSeparator()).getBytes());
+        System.setIn(bais);
+        Player player = new Player("Bob", Disk.Color.BLACK);
+        assertEquals(coordinate, player.getMoveFromPlayer());
     }
 
 }
