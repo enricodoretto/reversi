@@ -13,13 +13,33 @@ public class CLILauncher {
     public static void launch() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
+        Game.GameBuilder gameBuilder;
+
+        System.out.println("How do you want to play? \n" +
+                "1 - CLI\n" +
+                "2 - GUI");
+        int gameInterface;
+        while (true) {
+            try {
+                gameInterface = Integer.parseInt(scanner.nextLine());
+                if (gameInterface != 1 && gameInterface != 2) {
+                    throw new IllegalArgumentException();
+                }
+                break;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Illegal input, please type a number between 1 and 2");
+            }
+        }
+
         System.out.println("Player1 name:");
         String player1Name;
-        Game.GameBuilder gameBuilder;
         while (true) {
             try {
                 player1Name = scanner.nextLine();
-                gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name);
+                if (gameInterface == 1)
+                    gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name);
+                else
+                    gameBuilder = Game.GameBuilder.GUIGameBuilder(player1Name);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
@@ -102,7 +122,7 @@ public class CLILauncher {
         while (true) {
             try {
                 typeOfGame = Integer.parseInt(scanner.nextLine());
-                if (typeOfGame != 1 && typeOfGame!=2) {
+                if (typeOfGame != 1 && typeOfGame != 2) {
                     throw new IllegalArgumentException();
                 }
                 break;
