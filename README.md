@@ -27,8 +27,8 @@ Set the parameters required for the game mode chosen and play!
 
 # Developers
 - [Doretto Enrico](https://github.com/enricodoretto)
-- [Nadizar Giorgia](https://github.com/giorgia-nadizar)
 - [Michelin Davide](https://github.com/DavideMichielin)
+- [Nadizar Giorgia](https://github.com/giorgia-nadizar)
 - [Tumino Adriano](https://github.com/Gideon996)
 
 
