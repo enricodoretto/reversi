@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestOthelloPlay {
 
     @Test
-    void isOverAfterTwoMoves() throws IOException, URISyntaxException {
+    void isOverAfterTwoMovesWithCustomBoard() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
