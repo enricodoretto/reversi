@@ -2,11 +2,13 @@ package sdm.reversi;
 
 import java.io.*;
 import java.net.URL;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class Board implements Serializable{
+public class Board implements Serializable {
     private final Disk[][] board;
 
     public Board(int size) {
@@ -16,13 +18,13 @@ public class Board implements Serializable{
     }
 
     public Board(URL fileURL) throws IOException {
-        if(fileURL==null){
+        if (fileURL == null) {
             throw new FileNotFoundException();
         }
         board = readBoard(new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream())));
     }
 
-    private static Disk[][] readBoard(BufferedReader bufferedReader) throws IOException{
+    private static Disk[][] readBoard(BufferedReader bufferedReader) throws IOException {
         try (bufferedReader) {
             String line;
             int row = 0;
@@ -33,7 +35,7 @@ public class Board implements Serializable{
                     size = line.length();
                     board = new Disk[size][size];
                 }
-                if(line.length()!=size || row>=size){
+                if (line.length() != size || row >= size) {
                     throw new IllegalArgumentException("Error in parsing board from file");
                 }
                 for (int col = 0; col < size; col++) {
@@ -52,7 +54,7 @@ public class Board implements Serializable{
                 }
                 row++;
             }
-            if(row!=size){
+            if (row != size) {
                 throw new IllegalArgumentException("Error in parsing board from file");
             }
             return board;
@@ -63,15 +65,15 @@ public class Board implements Serializable{
         return board.length;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return Arrays.stream(board).flatMap(Arrays::stream).noneMatch(Objects::isNull);
     }
 
-    public boolean isCellAvailable(Coordinate coordinate){
+    public boolean isCellAvailable(Coordinate coordinate) {
         return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] == null;
     }
 
-    public boolean isCellOccupied(Coordinate coordinate){
+    public boolean isCellOccupied(Coordinate coordinate) {
         return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] != null;
     }
 
@@ -104,7 +106,7 @@ public class Board implements Serializable{
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
 
-    public long getNumberOfDisks(){
+    public long getNumberOfDisks() {
         return Arrays.stream(board).parallel().flatMap(Arrays::stream).filter(Objects::nonNull).count();
     }
 
@@ -115,13 +117,13 @@ public class Board implements Serializable{
         return disk == null ? null : disk.getSideUp();
     }
 
-    public int getNumberOfDisksForColor(Disk.Color color){
-        return (int)Arrays.stream(board).flatMap(Arrays::stream).filter(d -> d!=null && d.getSideUp().equals(color)).count();
+    public int getNumberOfDisksForColor(Disk.Color color) {
+        return (int) Arrays.stream(board).flatMap(Arrays::stream).filter(d -> d != null && d.getSideUp().equals(color)).count();
     }
 
     public boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        return isCellOccupied(coordinate.getShiftedCoordinate(shiftDirection)) &&
-                !(getDiskColorFromCoordinate(coordinate.getShiftedCoordinate(shiftDirection)) == diskColor);
+        Coordinate shiftedCellCoordinate = coordinate.getShiftedCoordinate(shiftDirection);
+        return isCellOccupied(shiftedCellCoordinate) && !(getDiskColorFromCoordinate(shiftedCellCoordinate) == diskColor);
     }
 
     @Override
