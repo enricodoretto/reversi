@@ -17,7 +17,7 @@ public class TestCoordinate {
     }
 
     @ParameterizedTest
-    @CsvSource({"0,0,1A", "4,4,5E", "2,3,3D", "7,7,8H", "27,7,28H", "28,3,29D", "26,26,27AA","30,30,31AE","99,0,100A"})
+    @CsvSource({"0,0,1A", "4,4,5E", "2,3,3d", "7,7,8H", "27,7,28H", "28,3,29d", "26,26,27AA","30,30,31AE","99,0,100A"})
     void ifAValidInputStringIsValidCoordinate(int row, int column, String inputCoordinate){
         Coordinate coordinate = new Coordinate(row, column);
         assertEquals(coordinate, new Coordinate(inputCoordinate));
