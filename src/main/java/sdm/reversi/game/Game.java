@@ -165,7 +165,7 @@ public abstract class Game implements Serializable {
         return allowedMovesForCurrentPlayer;
     }
 
-    public void makeMove(Coordinate coordinate) {
+    protected void makeMove(Coordinate coordinate) {
         if (!isValidMove(coordinate)) {
             throw new IllegalArgumentException("Illegal move");
         }
