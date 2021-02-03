@@ -7,7 +7,7 @@ There are sixty-four identical game pieces called disks (often spelled "discs"),
 ## Features of the game
 #### Game modes
 - 1 vs 1 on local PC
-- 1 vs 1 with remote opponent
+- 1 vs 1 with remote opponent (as host or as client)
 - 1 vs PC
 
 #### Game options
