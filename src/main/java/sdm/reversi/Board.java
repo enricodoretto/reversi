@@ -24,10 +24,6 @@ public class Board implements Serializable {
         board = readBoard(new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream())));
     }
 
-    public int getSize() {
-        return board.length;
-    }
-
     private static Disk[][] readBoard(BufferedReader bufferedReader) throws IOException {
         try (bufferedReader) {
             String line;
@@ -65,16 +61,8 @@ public class Board implements Serializable {
         }
     }
 
-    public boolean isFull() {
-        return Arrays.stream(board).flatMap(Arrays::stream).noneMatch(Objects::isNull);
-    }
-
-    public boolean isCellAvailable(Coordinate coordinate) {
-        return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] == null;
-    }
-
-    public boolean isCellOccupied(Coordinate coordinate) {
-        return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] != null;
+    public int getSize() {
+        return board.length;
     }
 
     private boolean isCellInsideBoard(Coordinate coordinate) {
@@ -85,12 +73,24 @@ public class Board implements Serializable {
         return index >= 0 && index <= board.length - 1;
     }
 
-    public Collection<Coordinate> getAvailableCells() {
-        return IntStream.range(0, board.length).boxed()
-                .flatMap(x -> IntStream.range(0, board.length)
-                        .mapToObj(y -> new Coordinate(x, y))
-                        .filter(this::isCellAvailable))
-                .collect(Collectors.toSet());
+    public boolean isCellAvailable(Coordinate coordinate) {
+        return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] == null;
+    }
+
+    public boolean isCellOccupied(Coordinate coordinate) {
+        return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] != null;
+    }
+
+    public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
+        if (!isCellInsideBoard(coordinate))
+            throw new IllegalArgumentException("Invalid cell");
+        Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
+        return disk == null ? null : disk.getSideUp();
+    }
+
+    public boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        Coordinate shiftedCellCoordinate = coordinate.getShiftedCoordinate(shiftDirection);
+        return isCellOccupied(shiftedCellCoordinate) && !(getDiskColorFromCoordinate(shiftedCellCoordinate) == diskColor);
     }
 
     public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
@@ -106,24 +106,24 @@ public class Board implements Serializable {
         board[coordinate.getRow()][coordinate.getColumn()].flip();
     }
 
+    public boolean isFull() {
+        return Arrays.stream(board).flatMap(Arrays::stream).noneMatch(Objects::isNull);
+    }
+
+    public Collection<Coordinate> getAvailableCells() {
+        return IntStream.range(0, board.length).boxed()
+                .flatMap(x -> IntStream.range(0, board.length)
+                        .mapToObj(y -> new Coordinate(x, y))
+                        .filter(this::isCellAvailable))
+                .collect(Collectors.toSet());
+    }
+
     public long getNumberOfDisks() {
         return Arrays.stream(board).parallel().flatMap(Arrays::stream).filter(Objects::nonNull).count();
     }
 
-    public Disk.Color getDiskColorFromCoordinate(Coordinate coordinate) {
-        if (!isCellInsideBoard(coordinate))
-            throw new IllegalArgumentException("Invalid cell");
-        Disk disk = board[coordinate.getRow()][coordinate.getColumn()];
-        return disk == null ? null : disk.getSideUp();
-    }
-
     public int getNumberOfDisksForColor(Disk.Color color) {
         return (int) Arrays.stream(board).flatMap(Arrays::stream).filter(d -> d != null && d.getSideUp().equals(color)).count();
-    }
-
-    public boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        Coordinate shiftedCellCoordinate = coordinate.getShiftedCoordinate(shiftDirection);
-        return isCellOccupied(shiftedCellCoordinate) && !(getDiskColorFromCoordinate(shiftedCellCoordinate) == diskColor);
     }
 
     @Override

@@ -117,8 +117,8 @@ public abstract class Game implements Serializable {
         return currentPlayer;
     }
 
-    protected boolean isValidMove(Coordinate coordinate) {
-        return allowedMovesForCurrentPlayer.containsKey(coordinate);
+    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
+        return allowedMovesForCurrentPlayer;
     }
 
     protected void calculatePlayerPossibleMoves() {
@@ -161,10 +161,6 @@ public abstract class Game implements Serializable {
         }
     }
 
-    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
-        return allowedMovesForCurrentPlayer;
-    }
-
     protected void makeMove(Coordinate coordinate) {
         if (!isValidMove(coordinate)) {
             throw new IllegalArgumentException("Illegal move");
@@ -175,14 +171,18 @@ public abstract class Game implements Serializable {
         numberOfMoves ++;
     }
 
-    protected void updatePlayersScore(){
-        player1.setScore(board.getNumberOfDisksForColor(player1.getColor()));
-        player2.setScore(board.getNumberOfDisksForColor(player2.getColor()));
+    protected boolean isValidMove(Coordinate coordinate) {
+        return allowedMovesForCurrentPlayer.containsKey(coordinate);
     }
 
     protected void changeTurn() {
         currentPlayer = (currentPlayer == player1) ? player2 : player1;
         calculatePlayerPossibleMoves();
+    }
+
+    protected void updatePlayersScore(){
+        player1.setScore(board.getNumberOfDisksForColor(player1.getColor()));
+        player2.setScore(board.getNumberOfDisksForColor(player2.getColor()));
     }
 
     public boolean isOver(){
