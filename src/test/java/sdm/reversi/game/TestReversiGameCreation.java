@@ -19,8 +19,8 @@ public class TestReversiGameCreation {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildReversi();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         assert boardFile != null;
-        String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
-        assertEquals(initializedOthelloBoard, game.getBoard().toString());
+        String initializedReversiBoard = Files.readString(Paths.get(boardFile.toURI()));
+        assertEquals(initializedReversiBoard, game.getBoard().toString());
     }
 
 }

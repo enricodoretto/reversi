@@ -1,0 +1,73 @@
+----
+-WB-
+-BW-
+----
+bob's turn:
+1B 2A 3D 4C
+----
+BBB-
+-BW-
+----
+CPU's turn:
+W---
+BWB-
+-BW-
+----
+bob's turn:
+1B 3D 4C
+W---
+BWB-
+-BBB
+----
+CPU's turn:
+W---
+BWWW
+-BBB
+----
+bob's turn:
+1B 1C 1D
+W--B
+BWBB
+-BBB
+----
+CPU's turn:
+W--B
+WWBB
+WBBB
+----
+bob's turn:
+1B
+WB-B
+WBBB
+WBBB
+----
+CPU's turn:
+WWWB
+WWBB
+WBBB
+----
+bob's turn:
+Sorry you can make no moves!
+CPU's turn:
+WWWB
+WWBB
+WWBB
+-W--
+bob's turn:
+4A
+WWWB
+WWBB
+WBBB
+BW--
+CPU's turn:
+WWWB
+WWWB
+WWWB
+BWW-
+bob's turn:
+4D
+WWWB
+WWWB
+WWWB
+BBBB
+The winner is CPU

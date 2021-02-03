@@ -7,8 +7,13 @@ import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Set;
 
@@ -87,6 +92,22 @@ public class TestOthelloGame {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         game.play();
         assertEquals(Disk.Color.BLACK, game.getWinner().getColor());
+    }
+
+    @Test
+    void full4x4GameVsCPUWonByCPU() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU4x4Othello");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameVsCPU");
+        assert logFile != null;
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
+        System.setIn(inputMoveFile.openStream());
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = Game.GameBuilder.CLIGameBuilder("bob").withCPUOpponent().withBoardSize(4).buildOthello();
+        game.play();
+        assertAll(() -> assertEquals("CPU", game.getWinner().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
 

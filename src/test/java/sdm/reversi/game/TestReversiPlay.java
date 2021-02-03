@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestReversiPlay {
 
     @Test
-    void isOverAfterTwoMoves() throws IOException, URISyntaxException {
+    void isOverAfterTwoMovesWithCustomBoard() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
@@ -110,8 +110,8 @@ public class TestReversiPlay {
 
     @Test
     void full8x8GameVsCPUWonByCPU() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU");
-        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8GameVsCPU");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU8x8Reversi");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiGameVsCPU");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
         assert inputMoveFile != null;
