@@ -18,7 +18,7 @@ public class Player implements Serializable, ActionManager {
     private int score;
     private transient final GameManager gameManager;
 
-    public Player(String name, Disk.Color color, GameManager gameManager){
+    public Player(String name, Disk.Color color, GameManager gameManager) {
         this.name = name;
         this.color = color;
         this.gameManager = gameManager;
@@ -39,14 +39,20 @@ public class Player implements Serializable, ActionManager {
     public boolean isInStall() {
         return inStall;
     }
+
     public void setInStall(boolean inStall) {
         this.inStall = inStall;
     }
 
-    public int getScore() {return score;}
-    public void setScore(int score) {this.score = score;}
+    public int getScore() {
+        return score;
+    }
 
-    public NotificationsManager getNotificationsManager(){
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public NotificationsManager getNotificationsManager() {
         return gameManager;
     }
 

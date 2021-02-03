@@ -39,7 +39,7 @@ public class TestBoardIsRepresented {
 
     @ParameterizedTest
     @CsvSource({"whiteIn1AblackIn4D8x8Board, 8", "whiteIn1AblackIn4D4x4Board, 4", "whiteIn1AblackIn4D16x16Board, 16"})
-    public void asStringOfDashesWithInitialWWhenThereIsAWhiteDiskIn1AAndABlackDiskIn8H(String fileName, int size) throws URISyntaxException, IOException {
+    public void asStringOfDashesWithWAndBWhenThereIsAWhiteDiskIn1AAndABlackDiskIn4D(String fileName, int size) throws URISyntaxException, IOException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
         assert boardFile != null;
         String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));

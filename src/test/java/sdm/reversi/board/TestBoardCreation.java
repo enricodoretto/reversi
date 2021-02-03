@@ -25,6 +25,7 @@ public class TestBoardCreation {
     @CsvSource({"emptyBoards/empty8x8Board", "emptyBoards/empty4x4Board", "emptyBoards/empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})
     void succeedsFromProperlyFormattedFile(String fileName) throws IOException, URISyntaxException {
         URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+        assert boardFile != null;
         String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
         Board board = new Board(boardFile);
         assertEquals(emptyBoard, board.toString());

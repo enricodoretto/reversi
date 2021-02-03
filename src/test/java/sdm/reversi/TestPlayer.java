@@ -53,7 +53,7 @@ public class TestPlayer {
     @ParameterizedTest
     @CsvSource({"3A,3A", "5H,5H", "4D,4D"})
     void withCLIManagerTakesCoordinateFromCLI(String stringCoordinate, Coordinate coordinate) {
-        ByteArrayInputStream bais = new ByteArrayInputStream((stringCoordinate+System.lineSeparator()).getBytes());
+        ByteArrayInputStream bais = new ByteArrayInputStream((stringCoordinate + System.lineSeparator()).getBytes());
         System.setIn(bais);
         Player player = new Player("Bob", Disk.Color.BLACK);
         assertEquals(coordinate, player.getMoveFromPlayer());
