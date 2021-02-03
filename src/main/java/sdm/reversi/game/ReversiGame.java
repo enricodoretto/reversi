@@ -1,10 +1,6 @@
 package sdm.reversi.game;
 
 import sdm.reversi.Coordinate;
-import sdm.reversi.manager.GameManager;
-
-import java.io.IOException;
-import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
