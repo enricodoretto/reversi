@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Disk implements Serializable {
 
-    public enum Color{
+    public enum Color {
         BLACK(java.awt.Color.BLACK), WHITE(java.awt.Color.WHITE);
         private final java.awt.Color graphicalColor;
 
@@ -17,21 +17,20 @@ public class Disk implements Serializable {
         }
     }
 
-    private Color sideUp;
-
     public Disk(Color sideUp) {
         this.sideUp = sideUp;
     }
 
-    public Color getSideUp(){
+    private Color sideUp;
+
+    public Color getSideUp() {
         return sideUp;
     }
 
-    public void flip(){
-        if(sideUp == Color.BLACK){
+    public void flip() {
+        if (sideUp == Color.BLACK) {
             sideUp = Color.WHITE;
-        }
-        else sideUp = Color.BLACK;
+        } else sideUp = Color.BLACK;
     }
 
     @Override

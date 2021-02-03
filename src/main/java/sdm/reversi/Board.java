@@ -24,6 +24,10 @@ public class Board implements Serializable {
         board = readBoard(new BufferedReader(new InputStreamReader(fileURL.openConnection().getInputStream())));
     }
 
+    public int getSize() {
+        return board.length;
+    }
+
     private static Disk[][] readBoard(BufferedReader bufferedReader) throws IOException {
         try (bufferedReader) {
             String line;
@@ -61,10 +65,6 @@ public class Board implements Serializable {
         }
     }
 
-    public int getSize() {
-        return board.length;
-    }
-
     public boolean isFull() {
         return Arrays.stream(board).flatMap(Arrays::stream).noneMatch(Objects::isNull);
     }
@@ -77,20 +77,20 @@ public class Board implements Serializable {
         return isCellInsideBoard(coordinate) && board[coordinate.getRow()][coordinate.getColumn()] != null;
     }
 
-    public Collection<Coordinate> getAvailableCells() {
-        return IntStream.range(0, board.length).boxed()
-                .flatMap(x -> IntStream.range(0, board.length)
-                        .mapToObj(y -> new Coordinate(x, y))
-                        .filter(this::isCellAvailable))
-                .collect(Collectors.toSet());
+    private boolean isCellInsideBoard(Coordinate coordinate) {
+        return isIndexValid(coordinate.getRow()) && isIndexValid(coordinate.getColumn());
     }
 
     private boolean isIndexValid(int index) {
         return index >= 0 && index <= board.length - 1;
     }
 
-    private boolean isCellInsideBoard(Coordinate coordinate) {
-        return isIndexValid(coordinate.getRow()) && isIndexValid(coordinate.getColumn());
+    public Collection<Coordinate> getAvailableCells() {
+        return IntStream.range(0, board.length).boxed()
+                .flatMap(x -> IntStream.range(0, board.length)
+                        .mapToObj(y -> new Coordinate(x, y))
+                        .filter(this::isCellAvailable))
+                .collect(Collectors.toSet());
     }
 
     public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
