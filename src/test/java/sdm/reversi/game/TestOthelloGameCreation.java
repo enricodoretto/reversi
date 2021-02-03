@@ -15,7 +15,7 @@ public class TestOthelloGameCreation {
 
     @ParameterizedTest
     @CsvSource({"4, initialBoards/othello4x4Board", "8, initialBoards/othello8x8Board", "16, initialBoards/othello16x16Board"})
-    void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
+    void succeedsWithDifferentBoardSizes(int boardSize, String fileName) throws URISyntaxException, IOException {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
         assert boardFile != null;
