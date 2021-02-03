@@ -2,11 +2,6 @@ package sdm.reversi.game;
 
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
-import sdm.reversi.manager.GameManager;
-import sdm.reversi.player.Player;
-
-import java.io.IOException;
-import java.net.URL;
 
 public class OthelloGame extends Game {
 
