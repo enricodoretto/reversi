@@ -4,13 +4,13 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
-import sdm.reversi.game.Game;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class TestMoveOnBoard {
 
@@ -26,11 +26,9 @@ public class TestMoveOnBoard {
     @ParameterizedTest
     @CsvSource({"6F", "6D", "3E", "3C"})
     void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
-        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
-        assertAll(() -> assertNull(othelloGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)),
-                () -> assertNull(reversiGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)));
+        Board board = new Board(boardFile);
+        assertNull(board.getDisksToFlip(blackDiskPosition, Disk.Color.BLACK));
     }
 
 }
