@@ -1,7 +1,7 @@
 package sdm.reversi.manager;
 
-import sdm.reversi.board.Board;
 import sdm.reversi.Coordinate;
+import sdm.reversi.board.Board;
 import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.DraggableFrame;
@@ -30,6 +30,7 @@ public class GUIManager extends DraggableFrame implements GameManager, ActionLis
     private JLabel currentPlayerName;
     private int boardSize;
     private Coordinate nextMove;
+    private boolean quit;
 
     @Override
     public void startTurn(Player currentPlayer) {
@@ -64,6 +65,8 @@ public class GUIManager extends DraggableFrame implements GameManager, ActionLis
 
     @Override
     public Coordinate getMoveFromPlayer() {
+        if (quit)
+            return null;
         while (nextMove == null) {
             try {
                 Thread.sleep(10);
@@ -188,7 +191,7 @@ public class GUIManager extends DraggableFrame implements GameManager, ActionLis
         player2Score.setForeground(Color.WHITE);
 
         currentPlayerName.setBorder(new EmptyBorder(50, 0, 50, 0));
-        
+
         JButton mainMenuButton = new JButton("Main Menu");
         mainMenuButton.setMaximumSize(new Dimension(30, 10));
         mainMenuButton.addActionListener(this);
