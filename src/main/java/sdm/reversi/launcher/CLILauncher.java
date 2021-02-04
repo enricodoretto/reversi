@@ -27,10 +27,10 @@ public class CLILauncher {
             }
         }
 
-        System.out.println("What game do you want to play?\n" +
-                "1 - 1v1\n" +
-                "2 - 1vCPU\n" +
-                "3 - Online Server\n" +
+        System.out.println("What game do you want to play?"+System.lineSeparator() +
+                "1 - 1v1"+System.lineSeparator() +
+                "2 - 1vCPU"+System.lineSeparator() +
+                "3 - Online Server"+System.lineSeparator() +
                 "4 - Online Client");
         int gameMode;
         while (true) {
@@ -96,8 +96,8 @@ public class CLILauncher {
             }
         }
 
-        System.out.println("What game do you want to play?\n" +
-                "1 - Reversi\n" +
+        System.out.println("What game do you want to play?"+System.lineSeparator() +
+                "1 - Reversi"+System.lineSeparator() +
                 "2 - Othello");
         int typeOfGame;
         while (true) {
