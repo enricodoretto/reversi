@@ -7,7 +7,6 @@ import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Disk;
 
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;

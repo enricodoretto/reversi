@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestGameMove {
 
     @ParameterizedTest
-    @CsvSource("6E,3D,5F")
+    @CsvSource({"6E","3D","5F"})
     void isValidIfCellIsAvailableAndHasNeighborOfDifferentColorAndCausesDisksToFlip(Coordinate coordinate) throws IOException {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
@@ -26,7 +26,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("5D,5F,4D,4E")
+    @CsvSource({"5D","5E","4D","4E"})
     void isInvalidIfCellIsAlreadyFull(Coordinate coordinate) throws IOException {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
@@ -36,7 +36,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("6C,1A,8H")
+    @CsvSource({"6C","1A","8H"})
     void isInvalidIfCellDoesNotHaveNeighborOfDifferentColor(Coordinate coordinate) throws IOException {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
@@ -46,7 +46,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("3C,6F")
+    @CsvSource({"3C","6F"})
     void isInvalidIfDoesNotCauseDisksToFlip(Coordinate coordinate) throws IOException {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
@@ -67,7 +67,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("6F,6D,3E,3C")
+    @CsvSource({"6F","6D","3E","3C"})
     void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
@@ -94,7 +94,7 @@ public class TestGameMove {
     }
 
     @ParameterizedTest
-    @CsvSource("1A,10H,3C")
+    @CsvSource({"1A","10H","3C"})
     void cannotBeMadeIfNotValid(String blackDiskCoordinate) throws IOException {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");

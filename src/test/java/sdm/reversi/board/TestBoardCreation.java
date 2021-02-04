@@ -53,7 +53,7 @@ public class TestBoardCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"5,7,15"})
+    @CsvSource({"5","7","15"})
     public void failsWithOddSize(int boardSize){
         assertThrows(IllegalArgumentException.class, () -> new Board(boardSize));
     }

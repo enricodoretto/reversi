@@ -7,13 +7,8 @@ import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.PrintStream;
-import java.net.URISyntaxException;
 import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Set;
 
