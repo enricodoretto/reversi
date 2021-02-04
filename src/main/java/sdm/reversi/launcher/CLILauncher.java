@@ -38,7 +38,7 @@ public class CLILauncher {
             try {
                 player1Name = scanner.nextLine();
                 if (gameInterface == 1)
-                    gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name);
+                    gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name, scanner);
                 else
                     gameBuilder = Game.GameBuilder.GUIGameBuilder(player1Name);
                 break;
@@ -93,7 +93,7 @@ public class CLILauncher {
                         serverIP = scanner.nextLine();
                         System.out.println("Wait until host connection...");
                         if (gameInterface == 1)
-                            Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
+                            Client.connectAndPlay(player1Name, new CLIManager(scanner), InetAddress.getByName(serverIP));
                         else
                             Client.connectAndPlay(player1Name, new GUIManager(), InetAddress.getByName(serverIP));
                         return;

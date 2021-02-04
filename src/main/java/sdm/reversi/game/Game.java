@@ -40,6 +40,10 @@ public abstract class Game implements Serializable {
             return new GameBuilder(player1Name, new CLIManager());
         }
 
+        public static GameBuilder CLIGameBuilder(String player1Name, Scanner scanner) {
+            return new GameBuilder(player1Name, new CLIManager(scanner));
+        }
+
         public static GameBuilder GUIGameBuilder(String player1Name) {
             return new GameBuilder(player1Name, new GUIManager());
         }

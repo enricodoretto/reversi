@@ -11,7 +11,15 @@ import java.util.stream.Collectors;
 public class CLIManager implements GameManager {
 
     private static final String QUIT_COMMAND = "q";
-    private  final Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner;
+
+    public CLIManager(){
+        scanner = new Scanner(System.in);
+    }
+
+    public CLIManager(Scanner scanner){
+        this.scanner = scanner;
+    }
 
     @Override
     public void updateGame(Game game) {
