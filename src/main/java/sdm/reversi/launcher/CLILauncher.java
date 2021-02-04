@@ -65,7 +65,7 @@ public class CLILauncher {
             }
         }
         switch (gameMode) {
-            case 1 -> {
+            case 1:
                 System.out.println("Player2 name: ");
                 String player2Name;
                 while (true) {
@@ -77,13 +77,15 @@ public class CLILauncher {
                         System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
                     }
                 }
-            }
-            case 2 -> gameBuilder.withCPUOpponent();
-            case 3 -> {
+            break;
+            case 2:
+                gameBuilder.withCPUOpponent();
+                break;
+            case 3:
                 System.out.println("Wait until client connection...");
                 gameBuilder.withRemoteOpponent();
-            }
-            case 4 -> {
+                break;
+            case 4:
                 System.out.println("IP Address Host: ");
                 String serverIP;
                 while (true) {
@@ -99,13 +101,11 @@ public class CLILauncher {
                         System.out.println("Illegal IP address, please retry");
                     }
                 }
-                return;
-            }
-            default -> {
+                break;
+            default:
                 System.out.println("Unexpected error occurred, the launcher will restart...");
                 launch();
-                return;
-            }
+                break;
         }
 
         System.out.println("Board size: ");
