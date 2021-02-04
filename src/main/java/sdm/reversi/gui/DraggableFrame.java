@@ -5,14 +5,12 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
-public class DraggableFrame implements MouseListener, MouseMotionListener {
+public class DraggableFrame extends JFrame implements MouseListener, MouseMotionListener {
     private int  pressedX, pressedY;
-    private final JFrame frame;
 
-    public DraggableFrame(final JFrame frame) {
-        this.frame = frame;
-        this.frame.addMouseListener(this);
-        this.frame.addMouseMotionListener(this);
+    public DraggableFrame() {
+        addMouseListener(this);
+        addMouseMotionListener(this);
     }
 
     @Override
@@ -41,9 +39,7 @@ public class DraggableFrame implements MouseListener, MouseMotionListener {
     public void mouseDragged(MouseEvent e) {
         int x = e.getXOnScreen();
         int y = e.getYOnScreen();
-        // Move frame by the mouse delta
-        frame.setLocation(x  - pressedX ,
-                y  - pressedY);
+        setLocation(x  - pressedX , y  - pressedY);
     }
 
     @Override

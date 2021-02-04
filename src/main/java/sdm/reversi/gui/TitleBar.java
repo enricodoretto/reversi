@@ -18,13 +18,13 @@ public class TitleBar implements MouseListener {
     public static class TitleBarBuilder {
         private final JPanel titleBar;
         private final JFrame frame;
-        private JPanel topPanelRight;
+        private JPanel titleBarRight;
 
         private TitleBarBuilder(JFrame frame) {
             this.frame = frame;
             titleBar = new JPanel(new FlowLayout(FlowLayout.RIGHT));
             titleBar.setBackground(Color.LIGHT_GRAY);
-            topPanelRight = new TitleBar(frame).createTitleBarRight();
+            titleBarRight = new TitleBar(frame).createTitleBarRight();
         }
 
         public static TitleBarBuilder createTitleBar(JFrame frame) {
@@ -33,20 +33,20 @@ public class TitleBar implements MouseListener {
 
         public TitleBarBuilder withBackButton() {
             titleBar.setLayout(new GridLayout(1, 2));
-            JPanel topPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
-            topPanelLeft.setBackground(Color.LIGHT_GRAY);
-            titleBar.add(topPanelLeft);
-            topPanelLeft.setSize(frame.getWidth() / 2, 10);
+            JPanel titleBarLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            titleBarLeft.setBackground(Color.LIGHT_GRAY);
+            titleBar.add(titleBarLeft);
+            titleBarLeft.setSize(frame.getWidth() / 2, 10);
             final JLabel back = new JLabel("\u2190 Back");
             back.addMouseListener(new TitleBar(frame));
             back.setSize(10, 5);
             back.setFont(new Font("Tahoma", Font.BOLD, 15));
-            topPanelLeft.add(back);
+            titleBarLeft.add(back);
             return this;
         }
 
         public TitleBar build() {
-            titleBar.add(topPanelRight);
+            titleBar.add(titleBarRight);
             return new TitleBar(this);
         }
     }
@@ -65,8 +65,8 @@ public class TitleBar implements MouseListener {
     }
 
     private JPanel createTitleBarRight() {
-        JPanel topPanelRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        topPanelRight.setBackground(Color.LIGHT_GRAY);
+        JPanel titleBarRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        titleBarRight.setBackground(Color.LIGHT_GRAY);
         final JLabel help = new JLabel("?");
         final JLabel exit = new JLabel("X");
         exit.addMouseListener(this);
@@ -77,9 +77,9 @@ public class TitleBar implements MouseListener {
         help.setBorder(new EmptyBorder(0, 10, 0, 10));
         help.setSize(10, 5);
         help.setFont(new Font("Tahoma", Font.BOLD, 15));
-        topPanelRight.add(help);
-        topPanelRight.add(exit);
-        return topPanelRight;
+        titleBarRight.add(help);
+        titleBarRight.add(exit);
+        return titleBarRight;
     }
 
     @Override

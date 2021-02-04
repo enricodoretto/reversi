@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class GUIManager extends JFrame implements GameManager, ActionListener {
+public class GUIManager extends DraggableFrame implements GameManager, ActionListener {
 
     private final static int FRAME_SIZE = 700;
 
@@ -95,7 +95,6 @@ public class GUIManager extends JFrame implements GameManager, ActionListener {
 
     @Override
     public void initialize(Game game) {
-        new DraggableFrame(this);
         boardSize = game.getBoard().getSize();
 
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(this).build();
@@ -189,8 +188,7 @@ public class GUIManager extends JFrame implements GameManager, ActionListener {
         player2Score.setForeground(Color.WHITE);
 
         currentPlayerName.setBorder(new EmptyBorder(50, 0, 50, 0));
-
-        // to move in class fields
+        
         JButton mainMenuButton = new JButton("Main Menu");
         mainMenuButton.setMaximumSize(new Dimension(30, 10));
         mainMenuButton.addActionListener(this);

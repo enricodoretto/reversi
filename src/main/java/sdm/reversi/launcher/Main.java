@@ -1,5 +1,8 @@
 package sdm.reversi.launcher;
 
+import sdm.reversi.game.Game;
+import sdm.reversi.manager.GUIManager;
+
 import java.io.IOException;
 
 public class Main {

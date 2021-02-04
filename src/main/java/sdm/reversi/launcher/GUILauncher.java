@@ -5,11 +5,11 @@ import sdm.reversi.gui.*;
 import javax.swing.*;
 import java.awt.*;
 
-public class GUILauncher {
+public class GUILauncher{
     private static JFrame frame;
+    
     public static void launch(){
-        frame = new JFrame();
-        new DraggableFrame(frame);
+        frame = new DraggableFrame();
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(frame).build();
         frame.add(titleBar.getTitleBar(), BorderLayout.NORTH);
 
@@ -37,7 +37,7 @@ public class GUILauncher {
         });
 
         frame.setSize(500, 300);
-        frame.setLocationRelativeTo(null); //center of the screen
+        frame.setLocationRelativeTo(null);
         frame.setUndecorated(true);
         frame.setResizable(false);
         frame.setVisible(true);

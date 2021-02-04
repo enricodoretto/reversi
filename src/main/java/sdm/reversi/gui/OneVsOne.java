@@ -4,23 +4,14 @@ import sdm.reversi.game.Game;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-public class OneVsOne extends JFrame {
-    private final String[] dimensionOfBoard = {"4x4", "6x6", "8x8", "10x10", "12x12", "14x14",
-            "16x16", "18x18", "20x20", "22x22", "24x24", "26x26"};
-
-    private final String[] gameType = {"Othello", "Reversi"};
-
+public class OneVsOne extends DraggableFrame {
     private final JTextField namePlayer1, namePlayer2;
-    private final JComboBox<String> availableDimension, availableGameType;
 
 
     public OneVsOne() {
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(this).withBackButton().build();
         add(titleBar.getTitleBar(), BorderLayout.NORTH);
-        new DraggableFrame(this);
         JPanel container = new JPanel(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.gridx = 0;
@@ -41,19 +32,8 @@ public class OneVsOne extends JFrame {
         namePlayersContainer.add(namePlayer2);
         ++c.gridy;
 
-        JPanel boardConfigurationContainer = new JPanel(new GridLayout(2, 2, 70, 7));
-        boardConfigurationContainer.setBorder(new EmptyBorder(0, 0, 25, 0));
-        container.add(boardConfigurationContainer, c);
-        JLabel dimension = new JLabel("Board Size: ");
-
-        availableDimension = new JComboBox<>(dimensionOfBoard);
-        JLabel typeOfGame = new JLabel("Select Game: ");
-        availableGameType = new JComboBox<>(gameType);
-        availableDimension.setSelectedIndex(2);
-        boardConfigurationContainer.add(dimension);
-        boardConfigurationContainer.add(typeOfGame);
-        boardConfigurationContainer.add(availableDimension);
-        boardConfigurationContainer.add(availableGameType);
+        BoardConfigurationGUI boardConfigurationGUI = new BoardConfigurationGUI();
+        container.add(boardConfigurationGUI.getBoardConfiguration(), c);
 
         ++c.gridy;
         JPanel playButtonContainer = new JPanel();
@@ -69,17 +49,16 @@ public class OneVsOne extends JFrame {
             } else if (namePlayer1.getText().length() > 8 || namePlayer2.getText().length() > 8) {
                 JOptionPane.showMessageDialog(this, "One or more player name is too long");
             } else {
-                int dimensionBoard = Integer.parseInt(availableDimension.getSelectedItem().toString().split("x")[0]);
-                //GameBuilder.create2PlayerGameWithGUI(dimensionBoard, namePlayer1.getText(), namePlayer2.getText(), availableGameType.getSelectedItem().toString());
-                Game game = Game.GameBuilder.GUIGameBuilder("A").withOpponent("B").buildOthello();
-                game.play();
                 setVisible(false);
+                int dimension = boardConfigurationGUI.getSelectedDimension();
+                Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText())
+                        .withBoardSize(dimension).buildReversi();
+                game.play();
             }
         });
 
         setSize(500, 500);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); //center of the screen
+        setLocationRelativeTo(null);
         setUndecorated(true);
         setResizable(false);
         setVisible(true);
