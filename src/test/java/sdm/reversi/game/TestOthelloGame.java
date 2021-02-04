@@ -42,7 +42,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("finishedGameBoards/2011FinalBoard, finishedGameBoards/2017FinalBoard")
+    @CsvSource({"finishedGameBoards/2011FinalBoard", "finishedGameBoards/2017FinalBoard"})
     void withBothPlayersInStallIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
@@ -51,7 +51,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("fullBoards/allWhite8x8Board, allBlack8x8Board, /tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board")
+    @CsvSource({"fullBoards/allWhite8x8Board", "fullBoards/allBlack8x8Board", "tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board"})
     void withFullBoardIsOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
@@ -60,7 +60,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("initialBoards/othello8x8Board, othelloInitialBoards/othello4x4Board, othelloInitialBoards/othello16x16Board")
+    @CsvSource({"initialBoards/othello8x8Board", "initialBoards/othello4x4Board", "initialBoards/othello16x16Board"})
     void withBoardNotFullAndPlayersNotInStallIsNotOver(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
@@ -68,7 +68,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board, tieGameBoards/first4ColumnsWhiteAndLast4ColumnsBlack8x8Board, tieGameBoards/chequered4x4Board, tieGameBoards/chequered14x14Board")
+    @CsvSource({"tieGameBoards/first4RowsWhiteAndLast4RowsBlack8x8Board", "tieGameBoards/first4ColumnsWhiteAndLast4ColumnsBlack8x8Board", "tieGameBoards/chequered4x4Board", "tieGameBoards/chequered14x14Board"})
     void withEqualNumberOfBlackAndWhiteDisksHasNoWinner(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
@@ -77,7 +77,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("finishedGameBoards/2017FinalBoard, fullBoards/board4x4WonByWhite, fullBoards/board8x8WonByWhite")
+    @CsvSource({"finishedGameBoards/2017FinalBoard", "fullBoards/board4x4WonByWhite", "fullBoards/board8x8WonByWhite"})
     void withMoreWhitesThanBlacksIsWonByWhite(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
@@ -86,7 +86,7 @@ public class TestOthelloGame {
     }
 
     @ParameterizedTest
-    @CsvSource("fullBoards/board4x4WonByBlack, fullBoards/board8x8WonByBlack")
+    @CsvSource({"fullBoards/board4x4WonByBlack", "fullBoards/board8x8WonByBlack"})
     void withMoreBlacksThanWhitesIsWonByBlack(String boardFileName) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(boardFileName);
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
@@ -94,7 +94,27 @@ public class TestOthelloGame {
         assertEquals(Disk.Color.BLACK, game.getWinner().getColor());
     }
 
+    @Test
+    void calculatesScoreCorrectlyBobVsCPU() throws IOException {
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameVsCPU");
+        assert inputMoveFile != null;
+        System.setIn(inputMoveFile.openStream());
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withCPUOpponent().withBoardSize(4).buildOthello();
+        game.play();
+        assertAll(() -> assertEquals(7, game.getPlayer1().getScore()),
+                () -> assertEquals(9, game.getPlayer2().getScore()));
+    }
 
+    @Test
+    void calculatesScoreCorrectlyBobVsAlice() throws IOException {
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameWonByBob");
+        assert inputMoveFile != null;
+        System.setIn(inputMoveFile.openStream());
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(4).buildOthello();
+        game.play();
+        assertAll(() -> assertEquals(6, game.getPlayer1().getScore()),
+                () -> assertEquals(3, game.getPlayer2().getScore()));
+    }
 
 
 }
