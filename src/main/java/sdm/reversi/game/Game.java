@@ -122,42 +122,13 @@ public abstract class Game implements Serializable {
     }
 
     protected void calculatePlayerPossibleMoves() {
-        Map<Coordinate, Set<Coordinate>> validCoordinates = board.getAvailableCells().stream()
-                .flatMap(coordinate -> {
-                    Set<Coordinate> disksToFlip = getDisksToFlip(coordinate);
-                    return coordinate != null && disksToFlip != null ?
-                            Stream.of(Map.entry(coordinate, disksToFlip)) : null;
-                }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        Map<Coordinate, Set<Coordinate>> validCoordinates = board.getValidMoves(currentPlayer.getColor());
         if (validCoordinates.size() == 0) {
             allowedMovesForCurrentPlayer = null;
             currentPlayer.setInStall(true);
         } else {
             allowedMovesForCurrentPlayer = validCoordinates;
             currentPlayer.setInStall(false);
-        }
-    }
-
-    protected Set<Coordinate> getDisksToFlip(Coordinate coordinate) {
-        Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values()).parallel()
-                .map(direction -> getDisksToFlipInADirection(coordinate, currentPlayer.getColor(), direction))
-                .filter(Objects::nonNull).flatMap(Set::stream).collect(Collectors.toSet());
-        return disksToFlip.size() == 0 ? null : disksToFlip;
-    }
-
-    private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
-        if (!board.shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
-            return null;
-        }
-        Set<Coordinate> disksToFlipInADirection = new HashSet<>();
-        while (true) {
-            coordinate = coordinate.getShiftedCoordinate(shiftDirection);
-            if (!board.isCellOccupied(coordinate)) {
-                return null;
-            }
-            if (board.getDiskColorFromCoordinate(coordinate) == diskColor) {
-                return disksToFlipInADirection;
-            }
-            disksToFlipInADirection.add(coordinate);
         }
     }
 

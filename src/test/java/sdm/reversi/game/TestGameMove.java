@@ -3,6 +3,7 @@ package sdm.reversi.game;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
+import sdm.reversi.Disk;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -62,8 +63,8 @@ public class TestGameMove {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
         Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
-        assertAll(() -> assertEquals(coordinatesToFlip, othelloGame.getDisksToFlip(blackDiskPosition)),
-                () -> assertEquals(coordinatesToFlip, reversiGame.getDisksToFlip(blackDiskPosition)));
+        assertAll(() -> assertEquals(coordinatesToFlip, othelloGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)),
+                () -> assertEquals(coordinatesToFlip, reversiGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)));
     }
 
     @ParameterizedTest
@@ -72,8 +73,8 @@ public class TestGameMove {
         Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
         Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
-        assertAll(() -> assertNull(othelloGame.getDisksToFlip(blackDiskPosition)),
-                () -> assertNull(reversiGame.getDisksToFlip(blackDiskPosition)));
+        assertAll(() -> assertNull(othelloGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)),
+                () -> assertNull(reversiGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)));
     }
 
     @ParameterizedTest

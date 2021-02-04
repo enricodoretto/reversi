@@ -2,11 +2,10 @@ package sdm.reversi;
 
 import java.io.*;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Board implements Serializable {
     private final Disk[][] board;
@@ -91,6 +90,39 @@ public class Board implements Serializable {
     public boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
         Coordinate shiftedCellCoordinate = coordinate.getShiftedCoordinate(shiftDirection);
         return isCellOccupied(shiftedCellCoordinate) && !(getDiskColorFromCoordinate(shiftedCellCoordinate) == diskColor);
+    }
+
+    public Map<Coordinate, Set<Coordinate>> getValidMoves(Disk.Color diskColor){
+        return getAvailableCells().stream()
+                .flatMap(coordinate -> {
+                    Set<Coordinate> disksToFlip = getDisksToFlip(coordinate, diskColor);
+                    return coordinate != null && disksToFlip != null ?
+                            Stream.of(Map.entry(coordinate, disksToFlip)) : null;
+                }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    public Set<Coordinate> getDisksToFlip(Coordinate coordinate, Disk.Color diskColor) {
+        Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values()).parallel()
+                .map(direction -> getDisksToFlipInADirection(coordinate, diskColor, direction))
+                .filter(Objects::nonNull).flatMap(Set::stream).collect(Collectors.toSet());
+        return disksToFlip.size() == 0 ? null : disksToFlip;
+    }
+
+    private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+        if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
+            return null;
+        }
+        Set<Coordinate> disksToFlipInADirection = new HashSet<>();
+        while (true) {
+            coordinate = coordinate.getShiftedCoordinate(shiftDirection);
+            if (!isCellOccupied(coordinate)) {
+                return null;
+            }
+            if (getDiskColorFromCoordinate(coordinate) == diskColor) {
+                return disksToFlipInADirection;
+            }
+            disksToFlipInADirection.add(coordinate);
+        }
     }
 
     public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
