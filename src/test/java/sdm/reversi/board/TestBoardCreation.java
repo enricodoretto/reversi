@@ -2,7 +2,6 @@ package sdm.reversi.board;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import sdm.reversi.Board;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

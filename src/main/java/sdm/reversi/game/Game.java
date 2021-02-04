@@ -1,6 +1,7 @@
 package sdm.reversi.game;
 
 import sdm.reversi.*;
+import sdm.reversi.board.Board;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;
@@ -13,8 +14,6 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public abstract class Game implements Serializable {
     protected final Player player1;

@@ -3,14 +3,12 @@ package sdm.reversi.game;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,27 +52,6 @@ public class TestGameMove {
         Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
         assertAll(() -> assertFalse(othelloGame.isValidMove(coordinate)),
                 () -> assertFalse(reversiGame.isValidMove(coordinate)));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
-    void returnsCoordinatesToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) throws IOException {
-        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
-        Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
-        assertAll(() -> assertEquals(coordinatesToFlip, othelloGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)),
-                () -> assertEquals(coordinatesToFlip, reversiGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)));
-    }
-
-    @ParameterizedTest
-    @CsvSource({"6F","6D","3E","3C"})
-    void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
-        Game othelloGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
-        Game reversiGame = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildReversi();
-        assertAll(() -> assertNull(othelloGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)),
-                () -> assertNull(reversiGame.getBoard().getDisksToFlip(blackDiskPosition, Disk.Color.BLACK)));
     }
 
     @ParameterizedTest
