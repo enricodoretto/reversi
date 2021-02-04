@@ -4,7 +4,6 @@ What game do you want to play?
 2 - 1vCPU
 3 - Online Server
 4 - Online Client
-Player2 name:
 Board size:
 What game do you want to play?
 1 - Reversi
@@ -13,11 +12,11 @@ Press q when you want to quit the game
 --------
 --------
 --------
---------
---------
+---WB---
+---BW---
 --------
 --------
 --------
 Bob's turn:
-4D 4E 5D 5E
+3D 4C 5F 6E
 Tie!

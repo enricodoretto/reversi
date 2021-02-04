@@ -4,11 +4,15 @@ What game do you want to play?
 2 - 1vCPU
 3 - Online Server
 4 - Online Client
+Illegal input, please type a number between 1 and 4
 Player2 name:
 Board size:
+Illegal input, board size must be even and between 4 and 26, please retry
+Illegal input, for input string: "a", please retry
 What game do you want to play?
 1 - Reversi
 2 - Othello
+Illegal input, please type a number between 1 and 2
 Press q when you want to quit the game
 --------
 --------

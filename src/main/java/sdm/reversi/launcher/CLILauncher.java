@@ -3,7 +3,6 @@ package sdm.reversi.launcher;
 import sdm.reversi.Client;
 import sdm.reversi.game.Game;
 import sdm.reversi.manager.CLIManager;
-import sdm.reversi.manager.GUIManager;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -16,31 +15,12 @@ public class CLILauncher {
 
         Game.GameBuilder gameBuilder;
 
-        System.out.println("How do you want to play?\n" +
-                "1 - CLI\n" +
-                "2 - GUI");
-        int gameInterface;
-        while (true) {
-            try {
-                gameInterface = Integer.parseInt(scanner.nextLine());
-                if (gameInterface != 1 && gameInterface != 2) {
-                    throw new IllegalArgumentException();
-                }
-                break;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Illegal input, please type a number between 1 and 2");
-            }
-        }
-
         System.out.println("Player1 name:");
         String player1Name;
         while (true) {
             try {
                 player1Name = scanner.nextLine();
-                if (gameInterface == 1)
-                    gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name, scanner);
-                else
-                    gameBuilder = Game.GameBuilder.GUIGameBuilder(player1Name);
+                gameBuilder = Game.GameBuilder.CLIGameBuilder(player1Name, scanner);
                 break;
             } catch (IllegalArgumentException e) {
                 System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
@@ -92,10 +72,7 @@ public class CLILauncher {
                     try {
                         serverIP = scanner.nextLine();
                         System.out.println("Wait until host connection...");
-                        if (gameInterface == 1)
-                            Client.connectAndPlay(player1Name, new CLIManager(scanner), InetAddress.getByName(serverIP));
-                        else
-                            Client.connectAndPlay(player1Name, new GUIManager(), InetAddress.getByName(serverIP));
+                        Client.connectAndPlay(player1Name, new CLIManager(scanner), InetAddress.getByName(serverIP));
                         return;
                     } catch (UnknownHostException e) {
                         System.out.println("Illegal IP address, please retry");
