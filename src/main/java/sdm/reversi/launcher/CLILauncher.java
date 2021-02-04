@@ -16,7 +16,7 @@ public class CLILauncher {
 
         Game.GameBuilder gameBuilder;
 
-        System.out.println("How do you want to play? \n" +
+        System.out.println("How do you want to play?\n" +
                 "1 - CLI\n" +
                 "2 - GUI");
         int gameInterface;
@@ -47,7 +47,7 @@ public class CLILauncher {
             }
         }
 
-        System.out.println("What game do you want to play? \n" +
+        System.out.println("What game do you want to play?\n" +
                 "1 - 1v1\n" +
                 "2 - 1vCPU\n" +
                 "3 - Online Server\n" +
@@ -66,7 +66,7 @@ public class CLILauncher {
         }
         switch (gameMode) {
             case 1:
-                System.out.println("Player2 name: ");
+                System.out.println("Player2 name:");
                 String player2Name;
                 while (true) {
                     try {
@@ -86,7 +86,7 @@ public class CLILauncher {
                 gameBuilder.withRemoteOpponent();
                 break;
             case 4:
-                System.out.println("IP Address Host: ");
+                System.out.println("IP Address Host:");
                 String serverIP;
                 while (true) {
                     try {
@@ -107,7 +107,7 @@ public class CLILauncher {
                 break;
         }
 
-        System.out.println("Board size: ");
+        System.out.println("Board size:");
         int boardSize;
         while (true) {
             try {
@@ -119,7 +119,7 @@ public class CLILauncher {
             }
         }
 
-        System.out.println("What game do you want to play? \n" +
+        System.out.println("What game do you want to play?\n" +
                 "1 - Reversi\n" +
                 "2 - Othello");
         int typeOfGame;

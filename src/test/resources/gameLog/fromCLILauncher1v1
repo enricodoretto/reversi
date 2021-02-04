@@ -1,0 +1,26 @@
+How do you want to play?
+1 - CLI
+2 - GUI
+Player1 name:
+What game do you want to play?
+1 - 1v1
+2 - 1vCPU
+3 - Online Server
+4 - Online Client
+Player2 name:
+Board size:
+What game do you want to play?
+1 - Reversi
+2 - Othello
+Press q when you want to quit the game
+--------
+--------
+--------
+--------
+--------
+--------
+--------
+--------
+Bob's turn:
+4D 4E 5D 5E
+Tie!
