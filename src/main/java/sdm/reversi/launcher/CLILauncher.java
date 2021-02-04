@@ -96,12 +96,11 @@ public class CLILauncher {
                             Client.connectAndPlay(player1Name, new CLIManager(), InetAddress.getByName(serverIP));
                         else
                             Client.connectAndPlay(player1Name, new GUIManager(), InetAddress.getByName(serverIP));
-                        break;
+                        return;
                     } catch (UnknownHostException e) {
                         System.out.println("Illegal IP address, please retry");
                     }
                 }
-                break;
             default:
                 System.out.println("Unexpected error occurred, the launcher will restart...");
                 launch();
