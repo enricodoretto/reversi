@@ -2,6 +2,7 @@ package sdm.reversi.game;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.PrintStream;
@@ -89,6 +90,22 @@ public class TestReversiPlay {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(4).buildReversi();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
+    @Test
+    void endsInTie() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogReversiEndsTie");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiGameEndsTie");
+        assert logFile != null;
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
+        System.setIn(inputMoveFile.openStream());
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildReversi();
+        game.play();
+        assertAll(() -> assertNull(game.getWinner()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 

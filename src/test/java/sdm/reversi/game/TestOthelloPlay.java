@@ -76,6 +76,37 @@ public class TestOthelloPlay {
     }
 
     @Test
+    void endsInTie() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthelloEndsTie");
+        assert logFile != null;
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        ByteArrayInputStream bais = new ByteArrayInputStream(("q").getBytes());
+        System.setIn(bais);
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
+        game.play();
+        assertAll(() -> assertNull(game.getWinner()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
+    @Test
+    void full4x4GameVsCPUWonByCPU() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU4x4Othello");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameVsCPU");
+        assert logFile != null;
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        assert inputMoveFile != null;
+        System.setIn(inputMoveFile.openStream());
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = Game.GameBuilder.CLIGameBuilder("bob").withCPUOpponent().withBoardSize(4).buildOthello();
+        game.play();
+        assertAll(() -> assertEquals("CPU", game.getWinner().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
+    @Test
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthello4x4");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameWonByBob");
@@ -88,21 +119,6 @@ public class TestOthelloPlay {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(4).buildOthello();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
-                () -> assertEquals(messages, fakeStandardOutput.toString()));
-    }
-
-    @Test
-    void endsInTie() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthelloEndsTie");
-        assert logFile != null;
-        String messages = Files.readString(Paths.get(logFile.toURI()));
-        ByteArrayInputStream bais = new ByteArrayInputStream(("q").getBytes());
-        System.setIn(bais);
-        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(fakeStandardOutput));
-        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
-        game.play();
-        assertAll(() -> assertNull(game.getWinner()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
