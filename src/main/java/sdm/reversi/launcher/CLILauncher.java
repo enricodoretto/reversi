@@ -77,7 +77,7 @@ public class CLILauncher {
                         System.out.printf("Illegal input, %s, please retry%s", e.getMessage().toLowerCase(), System.lineSeparator());
                     }
                 }
-            break;
+                break;
             case 2:
                 gameBuilder.withCPUOpponent();
                 break;

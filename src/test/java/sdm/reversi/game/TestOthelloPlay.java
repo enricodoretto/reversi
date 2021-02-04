@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.io.*;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -87,6 +88,21 @@ public class TestOthelloPlay {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(4).buildOthello();
         game.play();
         assertAll(() -> assertEquals("Bob", game.getWinner().getName()),
+                () -> assertEquals(messages, fakeStandardOutput.toString()));
+    }
+
+    @Test
+    void endsInTie() throws URISyntaxException, IOException {
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthelloEndsTie");
+        assert logFile != null;
+        String messages = Files.readString(Paths.get(logFile.toURI()));
+        ByteArrayInputStream bais = new ByteArrayInputStream(("q").getBytes());
+        System.setIn(bais);
+        ByteArrayOutputStream fakeStandardOutput = new ByteArrayOutputStream();
+        System.setOut(new PrintStream(fakeStandardOutput));
+        Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).buildOthello();
+        game.play();
+        assertAll(() -> assertNull(game.getWinner()),
                 () -> assertEquals(messages, fakeStandardOutput.toString()));
     }
 
