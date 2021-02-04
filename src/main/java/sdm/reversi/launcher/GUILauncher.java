@@ -9,6 +9,13 @@ public class GUILauncher{
     private static JFrame frame;
     
     public static void launch(){
+        Thread t = new Thread(() ->{
+            createGUI();
+        });
+        t.start();
+    }
+
+    private static void createGUI(){
         frame = new DraggableFrame();
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(frame).build();
         frame.add(titleBar.getTitleBar(), BorderLayout.NORTH);

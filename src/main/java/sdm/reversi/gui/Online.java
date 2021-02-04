@@ -1,11 +1,17 @@
 package sdm.reversi.gui;
 
+import sdm.reversi.Client;
+import sdm.reversi.game.Game;
+import sdm.reversi.manager.GUIManager;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
+import java.io.IOException;
 import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
@@ -95,6 +101,44 @@ public class Online extends DraggableFrame {
                 JOptionPane.showMessageDialog(Online.this , "Please, insert your name",
                         "Warning",
                         JOptionPane.WARNING_MESSAGE);
+            }else{
+                if(group.getSelection().getActionCommand().equals("host")){
+                    setVisible(false);
+                    int dimension = boardConfigurationGUI.getSelectedDimension();
+                    int gameType = boardConfigurationGUI.getSelectedGame();
+                    Thread thread;
+                    if(gameType == 1){
+                        thread = new Thread(() -> {
+                            Game game = null;
+                            try {
+                                game = Game.GameBuilder.GUIGameBuilder(playerName.getText()).withRemoteOpponent().withBoardSize(dimension).buildOthello();
+                            } catch (IOException exception) {
+                                exception.printStackTrace();
+                            }
+                            game.play();
+                        });
+                    }else{
+                        thread = new Thread(() -> {
+                            Game game = null;
+                            try {
+                                game = Game.GameBuilder.GUIGameBuilder(playerName.getText()).withRemoteOpponent().withBoardSize(dimension).buildReversi();
+                            } catch (IOException exception) {
+                                exception.printStackTrace();
+                            }
+                            game.play();
+                        });
+                    }
+                    thread.start();
+                }else{
+                    Thread thread = new Thread(() -> {
+                        try {
+                            Client.connectAndPlay(playerName.getText(), new GUIManager(), InetAddress.getByName(IPAddressHostPC.getText()));
+                        } catch (UnknownHostException exception) {
+                            exception.printStackTrace();
+                        }
+                    });
+                    thread.start();
+                }
             }
         });
 

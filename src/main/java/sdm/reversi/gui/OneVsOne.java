@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class OneVsOne extends DraggableFrame {
     private final JTextField namePlayer1, namePlayer2;
-
+    private boolean test = false;
 
     public OneVsOne() {
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(this).withBackButton().build();
@@ -51,16 +51,27 @@ public class OneVsOne extends DraggableFrame {
             } else {
                 setVisible(false);
                 int dimension = boardConfigurationGUI.getSelectedDimension();
-                Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText())
-                        .withBoardSize(dimension).buildReversi();
-                game.play();
+                int gameType = boardConfigurationGUI.getSelectedGame();
+                Thread thread;
+                if(gameType == 1){
+                    thread = new Thread(() -> {
+                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText()).withBoardSize(dimension).buildOthello();
+                        game.play();
+                    });
+                }else{
+                    thread = new Thread(() -> {
+                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText()).withBoardSize(dimension).buildReversi();
+                        game.play();
+                    });
+                }
+                thread.start();
             }
         });
-
         setSize(500, 500);
         setLocationRelativeTo(null);
         setUndecorated(true);
         setResizable(false);
         setVisible(true);
     }
+
 }

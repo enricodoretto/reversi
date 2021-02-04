@@ -45,9 +45,20 @@ public class OneVsCPU extends DraggableFrame  {
             } else {
                 setVisible(false);
                 int dimension = boardConfigurationGUI.getSelectedDimension();
-                Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withCPUOpponent()
-                        .withBoardSize(dimension).buildReversi();
-                game.play();
+                int gameType = boardConfigurationGUI.getSelectedGame();
+                Thread thread;
+                if(gameType == 1){
+                    thread = new Thread(() -> {
+                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withCPUOpponent().withBoardSize(dimension).buildOthello();
+                        game.play();
+                    });
+                }else{
+                    thread = new Thread(() -> {
+                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withCPUOpponent().withBoardSize(dimension).buildReversi();
+                        game.play();
+                    });
+                }
+                thread.start();
             }
         });
 

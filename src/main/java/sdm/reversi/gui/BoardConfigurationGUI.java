@@ -37,6 +37,10 @@ public class BoardConfigurationGUI {
         return Integer.parseInt(Objects.requireNonNull(availableDimension.getSelectedItem()).toString().split("x")[0]);
     }
 
+    public int getSelectedGame(){
+        return (availableGameType.getSelectedItem().equals("Othello")) ? 1 : 2;
+    }
+
     public static JComboBox<String> getAvailableDimension() {
         return availableDimension;
     }

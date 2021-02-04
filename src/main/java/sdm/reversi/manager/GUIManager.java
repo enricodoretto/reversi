@@ -6,6 +6,7 @@ import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;
 import sdm.reversi.gui.DraggableFrame;
 import sdm.reversi.gui.TitleBar;
+import sdm.reversi.launcher.GUILauncher;
 import sdm.reversi.player.Player;
 
 import javax.swing.*;
@@ -20,7 +21,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class GUIManager extends DraggableFrame implements GameManager, ActionListener {
+public class GUIManager extends DraggableFrame implements GameManager {
 
     private final static int FRAME_SIZE = 700;
 
@@ -60,20 +61,28 @@ public class GUIManager extends DraggableFrame implements GameManager, ActionLis
 
     @Override
     public void showWinner(Player player) {
+        if(player == null){
+            JOptionPane.showMessageDialog(this, "Tie!");
+            dispose();
+            GUILauncher.launch();
+            return;
+        }
         JOptionPane.showMessageDialog(this, "The winner is " + player.getName());
+        dispose();
+        GUILauncher.launch();
     }
 
     @Override
     public Coordinate getMoveFromPlayer() {
-        if (quit)
-            return null;
-        while (nextMove == null) {
+        while (nextMove == null && !quit) {
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
+        if (quit)
+            return null;
         Coordinate move = new Coordinate(nextMove.getRow(), nextMove.getColumn());
         nextMove = null;
         return move;
@@ -194,7 +203,10 @@ public class GUIManager extends DraggableFrame implements GameManager, ActionLis
 
         JButton mainMenuButton = new JButton("Main Menu");
         mainMenuButton.setMaximumSize(new Dimension(30, 10));
-        mainMenuButton.addActionListener(this);
+        mainMenuButton.addActionListener(e -> {
+            quit = true;
+
+        });
 
         statisticsPanel.add(currentPlayerName, BorderLayout.NORTH);
         JPanel playerStatisticsPanel = new JPanel(new GridLayout(4, 1));
@@ -207,10 +219,5 @@ public class GUIManager extends DraggableFrame implements GameManager, ActionLis
         statisticsPanel.add(mainMenuButton, BorderLayout.SOUTH);
 
         return statisticsPanel;
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-
     }
 }
