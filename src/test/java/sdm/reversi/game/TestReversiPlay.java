@@ -16,7 +16,7 @@ public class TestReversiPlay {
     @Test
     void isOverAfterTwoMovesWithCustomBoard() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/isOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -33,7 +33,7 @@ public class TestReversiPlay {
     @Test
     void requiresMoveRepetitionIfGivenMoveIsInvalid() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfRequiresMoveRepetitionIfGivenMoveIsInvalid");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/requiresMoveRepetitionIfGivenMoveIsInvalid");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForRequiresMoveRepetitionIfGivenMoveIsInvalid");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -50,7 +50,7 @@ public class TestReversiPlay {
     @Test
     void isOverIfAPlayerHasNoPossibleMoves() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board4x4BlackCantMove");
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfReversiIsOverIfAPlayerHasNoPossibleMoves");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/reversiIsOverIfAPlayerHasNoPossibleMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForMakesSkipTurnIfThereAreNoAvailableMoves");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -77,7 +77,7 @@ public class TestReversiPlay {
 
     @Test
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogReversi4x4");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/fullReversi4x4_1v1");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4ReversiGameWonByBob");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -93,7 +93,7 @@ public class TestReversiPlay {
 
     @Test
     void endsInTie() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogReversiEndsTie");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/reversi8x8EndsTie");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiGameEndsTie");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -109,7 +109,7 @@ public class TestReversiPlay {
 
     @Test
     void full8x8GameWonByBob() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogFullReversi8x8");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/fullReversi8x8_1v1");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiFullGame");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -125,7 +125,7 @@ public class TestReversiPlay {
 
     @Test
     void full8x8GameVsCPUWonByCPU() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU8x8Reversi");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/fullReversi8x8_1vCPU");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor8x8ReversiGameVsCPU");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));

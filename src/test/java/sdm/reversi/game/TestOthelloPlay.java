@@ -15,7 +15,7 @@ public class TestOthelloPlay {
     @Test
     void isOverAfterTwoMovesWithCustomBoard() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfIsOverAfterTwoMoves");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/isOverAfterTwoMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForIsOverAfterTwoMoves");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -32,7 +32,7 @@ public class TestOthelloPlay {
     @Test
     void requiresMoveRepetitionIfGivenMoveIsInvalid() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board8x8WithTwoMovesMissing");
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfRequiresMoveRepetitionIfGivenMoveIsInvalid");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/requiresMoveRepetitionIfGivenMoveIsInvalid");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForRequiresMoveRepetitionIfGivenMoveIsInvalid");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -49,7 +49,7 @@ public class TestOthelloPlay {
     @Test
     void makesSkipTurnIfThereAreNoAvailableMoves() throws IOException, URISyntaxException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("board4x4BlackCantMove");
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/logOfMakesSkipTurnIfThereAreNoAvailableMoves");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/makesSkipTurnIfThereAreNoAvailableMoves");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForMakesSkipTurnIfThereAreNoAvailableMoves");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -76,7 +76,7 @@ public class TestOthelloPlay {
 
     @Test
     void endsInTie() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthelloEndsTie");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/othello8x8EndsTie");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
         ByteArrayInputStream bais = new ByteArrayInputStream(("q").getBytes());
@@ -91,7 +91,7 @@ public class TestOthelloPlay {
 
     @Test
     void full4x4GameVsCPUWonByCPU() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogVsCPU4x4Othello");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/fullOthello4x4_1vCPU");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameVsCPU");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
@@ -107,7 +107,7 @@ public class TestOthelloPlay {
 
     @Test
     void full4x4GameWonByBob() throws URISyntaxException, IOException {
-        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/expectedGameLogOthello4x4");
+        URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/fullOthello4x4_1v1");
         URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesFor4x4OthelloGameWonByBob");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
