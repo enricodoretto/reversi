@@ -25,7 +25,7 @@ public class TestOthelloGame {
                 new Coordinate("6E"), Set.of(new Coordinate("5E")),
                 new Coordinate("5F"), Set.of(new Coordinate("5E"))
         );
-        assertEquals(possibleDisksToFlip, game.getPlayerPossibleMoves());
+        assertEquals(possibleDisksToFlip, game.getBoard().getValidMoves(Disk.Color.BLACK));
     }
 
     @Test

@@ -116,10 +116,6 @@ public abstract class Game implements Serializable {
         return currentPlayer;
     }
 
-    public Map<Coordinate, Set<Coordinate>> getPlayerPossibleMoves() {
-        return allowedMovesForCurrentPlayer;
-    }
-
     protected void calculatePlayerPossibleMoves() {
         Map<Coordinate, Set<Coordinate>> validCoordinates = board.getValidMoves(currentPlayer.getColor());
         if (validCoordinates.size() == 0) {
