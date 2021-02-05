@@ -27,10 +27,10 @@ public class CLILauncher {
             }
         }
 
-        System.out.println("What game do you want to play?"+System.lineSeparator() +
-                "1 - 1v1"+System.lineSeparator() +
-                "2 - 1vCPU"+System.lineSeparator() +
-                "3 - Online Server"+System.lineSeparator() +
+        System.out.println("What game do you want to play?" + System.lineSeparator() +
+                "1 - 1v1" + System.lineSeparator() +
+                "2 - 1vCPU" + System.lineSeparator() +
+                "3 - Online Server" + System.lineSeparator() +
                 "4 - Online Client");
         int gameMode;
         while (true) {
@@ -62,8 +62,7 @@ public class CLILauncher {
                 gameBuilder.withCPUOpponent();
                 break;
             case 3:
-                System.out.println("Wait until client connection...");
-                gameBuilder.withRemoteOpponent();
+
                 break;
             case 4:
                 System.out.println("IP Address Host:");
@@ -96,8 +95,8 @@ public class CLILauncher {
             }
         }
 
-        System.out.println("What game do you want to play?"+System.lineSeparator() +
-                "1 - Reversi"+System.lineSeparator() +
+        System.out.println("What game do you want to play?" + System.lineSeparator() +
+                "1 - Reversi" + System.lineSeparator() +
                 "2 - Othello");
         int typeOfGame;
         while (true) {
@@ -113,12 +112,21 @@ public class CLILauncher {
         }
 
         Game game;
-        if (typeOfGame == 1) {
-            game = gameBuilder.buildReversi();
-        } else {
-            game = gameBuilder.buildOthello();
-        }
+        if (gameMode == 3) {
+            System.out.println("Wait until client connection...");
 
+            if (typeOfGame == 1) {
+                game = gameBuilder.withRemoteOpponent().buildReversi();
+            } else {
+                game = gameBuilder.withRemoteOpponent().buildOthello();
+            }
+        } else {
+            if (typeOfGame == 1) {
+                game = gameBuilder.buildReversi();
+            } else {
+                game = gameBuilder.buildOthello();
+            }
+        }
         System.out.println("Press q when you want to quit the game");
 
         game.play();
