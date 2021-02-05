@@ -91,7 +91,7 @@ public class TitleBar implements MouseListener {
                 break;
             case "?":
                 try {
-                    String url = "https://en.wikipedia.org/wiki/Reversi#Rules";
+                    String url = "https://github.com/enricodoretto/reversi#reversi-";
                     Desktop dt = Desktop.getDesktop();
                     URI uri = new URI(url);
                     dt.browse(uri.resolve(uri));
