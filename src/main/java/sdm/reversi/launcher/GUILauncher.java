@@ -28,15 +28,15 @@ public class GUILauncher{
         buttonPanel.add(online);
         container.add(buttonPanel);
         oneVsOne.addActionListener(e -> {
-            SwingUtilities.invokeLater(OneVsOne::new);
+            new OneVsOne();
             frame.dispose();
         });
         oneVsCPU.addActionListener(e -> {
-            SwingUtilities.invokeLater(OneVsCPU::new);
+            new OneVsCPU();
             frame.dispose();
         });
         online.addActionListener(e -> {
-            SwingUtilities.invokeLater(Online::new);
+            new Online();
             frame.dispose();
         });
 

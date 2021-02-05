@@ -42,37 +42,23 @@ public class OneVsOne extends DraggableFrame {
         JButton playButton = new JButton("PLAY!");
         playButtonContainer.add(playButton);
         playButton.addActionListener(e -> {
-            //invece di fare questo controllo ci sta chiamare il costruttore del "back-end" e vedere se lancia l'eccezione
-            if (player1NameInput.getText().isEmpty() || player2NameInput.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Insert both player name");
-            } else if (player1NameInput.getText().equals(player2NameInput.getText())) {
-                JOptionPane.showMessageDialog(this, "Name must be different");
-            } else if (player1NameInput.getText().length() > 8 || player2NameInput.getText().length() > 8) {
-                JOptionPane.showMessageDialog(this, "One or more player name is too long");
-            } else {
-                setVisible(false);
-                int dimension = GUIBoardConfiguration.getSelectedSize();
-                int gameType = GUIBoardConfiguration.getSelectedGame();
-                if (gameType == 1) {
-                    SwingUtilities.invokeLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            Game game = Game.GameBuilder.GUIGameBuilder(player1NameInput.getText()).withOpponent(player2NameInput.getText()).withBoardSize(dimension).buildOthello();
-                            game.play();
-                        }
-                    });
-
-                } else {
-                    SwingUtilities.invokeLater(new Runnable() {
-                        @Override
-                        public void run() {
-                            Game game = Game.GameBuilder.GUIGameBuilder(player1NameInput.getText()).withOpponent(player2NameInput.getText()).withBoardSize(dimension).buildReversi();
-                            game.play();
-                        }
-                    });
-                }
+            int boardSize = GUIBoardConfiguration.getSelectedSize();
+            int gameType = GUIBoardConfiguration.getSelectedGame();
+            Game.GameBuilder gameBuilder;
+            try {
+                gameBuilder = Game.GameBuilder.GUIGameBuilder(player1NameInput.getText()).withOpponent(player2NameInput.getText()).withBoardSize(boardSize);
+            } catch (IllegalArgumentException exception) {
+                JOptionPane.showMessageDialog(this, exception.getMessage());
+                return;
             }
+            if (gameType == 1) {
+                gameBuilder.buildOthello().play();
+            } else {
+                gameBuilder.buildReversi().play();
+            }
+            dispose();
         });
+
         setSize(500, 500);
         setLocationRelativeTo(null);
         setUndecorated(true);
