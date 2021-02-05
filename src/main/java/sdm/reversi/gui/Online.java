@@ -1,8 +1,6 @@
 package sdm.reversi.gui;
 
-import sdm.reversi.Client;
 import sdm.reversi.game.Game;
-import sdm.reversi.manager.GUIManager;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -11,7 +9,6 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
 import java.net.Inet4Address;
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
@@ -41,8 +38,8 @@ public class Online extends DraggableFrame {
         namePlayersContainer.add(playerName);
         ++c.gridy;
 
-        BoardConfigurationGUI boardConfigurationGUI = new BoardConfigurationGUI();
-        container.add(boardConfigurationGUI.getBoardConfiguration(), c);
+        GUIBoardConfiguration GUIBoardConfiguration = new GUIBoardConfiguration();
+        container.add(GUIBoardConfiguration.getBoardConfiguration(), c);
 
         c.gridy += 2;
         JPanel radioPanel = new JPanel(new GridLayout(2, 2, 70, 7));
@@ -78,14 +75,12 @@ public class Online extends DraggableFrame {
         chooseHost.addActionListener(e -> {
             IPAddressThisPC.setEnabled(true);
             IPAddressHostPC.setEnabled(false);
-            BoardConfigurationGUI.getAvailableDimension().setEnabled(true);
-            BoardConfigurationGUI.getAvailableGameType().setEnabled(true);
+            GUIBoardConfiguration.enableInputs();
         });
         chooseClient.addActionListener(e -> {
             IPAddressHostPC.setEnabled(true);
             IPAddressThisPC.setEnabled(false);
-            BoardConfigurationGUI.getAvailableDimension().setEnabled(false);
-            BoardConfigurationGUI.getAvailableGameType().setEnabled(false);
+            GUIBoardConfiguration.disableInputs();
         });
         playButton.addActionListener(e -> {
             if (group.getSelection() == null) {
@@ -104,8 +99,8 @@ public class Online extends DraggableFrame {
             } else {
                 if (group.getSelection().getActionCommand().equals("host")) {
                     setVisible(false);
-                    int dimension = boardConfigurationGUI.getSelectedDimension();
-                    int gameType = boardConfigurationGUI.getSelectedGame();
+                    int dimension = GUIBoardConfiguration.getSelectedSize();
+                    int gameType = GUIBoardConfiguration.getSelectedGame();
                     if (gameType == 1) {
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override

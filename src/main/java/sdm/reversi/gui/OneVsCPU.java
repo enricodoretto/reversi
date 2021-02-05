@@ -6,7 +6,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class OneVsCPU extends DraggableFrame  {
-    private final BoardConfigurationGUI boardConfigurationGUI;
+    private final GUIBoardConfiguration GUIBoardConfiguration;
     private final JTextField namePlayer1;
 
     public OneVsCPU() {
@@ -29,8 +29,8 @@ public class OneVsCPU extends DraggableFrame  {
         namePlayersContainer.add(namePlayer1);
         ++c.gridy;
 
-        boardConfigurationGUI = new BoardConfigurationGUI();
-        container.add(boardConfigurationGUI.getBoardConfiguration(), c);
+        GUIBoardConfiguration = new GUIBoardConfiguration();
+        container.add(GUIBoardConfiguration.getBoardConfiguration(), c);
 
         ++c.gridy;
         JPanel playButtonContainer = new JPanel();
@@ -44,8 +44,8 @@ public class OneVsCPU extends DraggableFrame  {
                 JOptionPane.showMessageDialog(this, "One or more player name is too long");
             } else {
                 setVisible(false);
-                int dimension = boardConfigurationGUI.getSelectedDimension();
-                int gameType = boardConfigurationGUI.getSelectedGame();
+                int dimension = GUIBoardConfiguration.getSelectedSize();
+                int gameType = GUIBoardConfiguration.getSelectedGame();
                 Thread thread;
                 if(gameType == 1){
                     thread = new Thread(() -> {
