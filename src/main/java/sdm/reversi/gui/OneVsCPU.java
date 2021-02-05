@@ -6,60 +6,52 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class OneVsCPU extends DraggableFrame  {
-    private final GUIBoardConfiguration GUIBoardConfiguration;
-    private final JTextField namePlayer1;
+    private final JTextField playerNameInput;
 
     public OneVsCPU() {
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(this).withBackButton().build();
         add(titleBar.getTitleBar(), BorderLayout.NORTH);
 
         JPanel container = new JPanel(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.gridx = 0;
-        c.gridy = 0;
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
 
         add(container, BorderLayout.CENTER);
 
-        JPanel namePlayersContainer = new JPanel(new GridLayout(2, 1, 70, 15));
-        namePlayersContainer.setBorder(new EmptyBorder(0, 0, 17, 0));
-        container.add(namePlayersContainer, c);
-        JLabel player1 = new JLabel("Name Player 1:");
-        namePlayer1 = new JTextField();
-        namePlayersContainer.add(player1);
-        namePlayersContainer.add(namePlayer1);
-        ++c.gridy;
+        JPanel playerNameContainer = new JPanel(new GridLayout(2, 1, 70, 15));
+        playerNameContainer.setBorder(new EmptyBorder(0, 0, 17, 0));
+        container.add(playerNameContainer, gridBagConstraints);
+        JLabel playerNameLabel = new JLabel("Name Player 1:");
+        playerNameInput = new JTextField();
+        playerNameContainer.add(playerNameLabel);
+        playerNameContainer.add(playerNameInput);
+        gridBagConstraints.gridy++;
 
-        GUIBoardConfiguration = new GUIBoardConfiguration();
-        container.add(GUIBoardConfiguration.getBoardConfiguration(), c);
+        GUIBoardConfiguration guiBoardConfiguration = new GUIBoardConfiguration();
+        container.add(guiBoardConfiguration.getBoardConfiguration(), gridBagConstraints);
 
-        ++c.gridy;
+        gridBagConstraints.gridy++;
         JPanel playButtonContainer = new JPanel();
-        container.add(playButtonContainer, c);
+        container.add(playButtonContainer, gridBagConstraints);
         JButton playButton = new JButton("PLAY!");
         playButtonContainer.add(playButton);
         playButton.addActionListener(e -> {
-            if (namePlayer1.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Insert both player name");
-            } else if (namePlayer1.getText().length() > 8) {
-                JOptionPane.showMessageDialog(this, "One or more player name is too long");
-            } else {
-                setVisible(false);
-                int dimension = GUIBoardConfiguration.getSelectedSize();
-                int gameType = GUIBoardConfiguration.getSelectedGame();
-                Thread thread;
-                if(gameType == 1){
-                    thread = new Thread(() -> {
-                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withCPUOpponent().withBoardSize(dimension).buildOthello();
-                        game.play();
-                    });
-                }else{
-                    thread = new Thread(() -> {
-                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withCPUOpponent().withBoardSize(dimension).buildReversi();
-                        game.play();
-                    });
-                }
-                thread.start();
+            int boardSize = guiBoardConfiguration.getSelectedSize();
+            int gameType = guiBoardConfiguration.getSelectedGame();
+            Game.GameBuilder gameBuilder;
+            try {
+                gameBuilder = Game.GameBuilder.GUIGameBuilder(playerNameInput.getText()).withCPUOpponent().withBoardSize(boardSize);
+            } catch (IllegalArgumentException exception) {
+                JOptionPane.showMessageDialog(this, exception.getMessage());
+                return;
             }
+            if (gameType == 1) {
+                gameBuilder.buildOthello().play();
+            } else {
+                gameBuilder.buildReversi().play();
+            }
+            dispose();
         });
 
         setSize(500, 500);

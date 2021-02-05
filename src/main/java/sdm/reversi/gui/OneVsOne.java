@@ -33,8 +33,8 @@ public class OneVsOne extends DraggableFrame {
         playersNamesContainer.add(player2NameInput);
         gridBagConstraints.gridy++;
 
-        GUIBoardConfiguration GUIBoardConfiguration = new GUIBoardConfiguration();
-        container.add(GUIBoardConfiguration.getBoardConfiguration(), gridBagConstraints);
+        GUIBoardConfiguration guiBoardConfiguration = new GUIBoardConfiguration();
+        container.add(guiBoardConfiguration.getBoardConfiguration(), gridBagConstraints);
 
         gridBagConstraints.gridy++;
         JPanel playButtonContainer = new JPanel();
@@ -42,8 +42,8 @@ public class OneVsOne extends DraggableFrame {
         JButton playButton = new JButton("PLAY!");
         playButtonContainer.add(playButton);
         playButton.addActionListener(e -> {
-            int boardSize = GUIBoardConfiguration.getSelectedSize();
-            int gameType = GUIBoardConfiguration.getSelectedGame();
+            int boardSize = guiBoardConfiguration.getSelectedSize();
+            int gameType = guiBoardConfiguration.getSelectedGame();
             Game.GameBuilder gameBuilder;
             try {
                 gameBuilder = Game.GameBuilder.GUIGameBuilder(player1NameInput.getText()).withOpponent(player2NameInput.getText()).withBoardSize(boardSize);
