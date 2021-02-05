@@ -143,6 +143,7 @@ public class GUIManager extends DraggableFrame implements GameManager {
         setUndecorated(true);
         pack();
         setLocationRelativeTo(null);
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/icon/reversi_othello_icon.png"));
         setVisible(true);
     }
 
