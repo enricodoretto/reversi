@@ -15,12 +15,14 @@ import java.util.HashSet;
 
 public class RemoteGameManager implements GameManager {
 
+    private static final int TIMEOUT = 10000;
     private static final int PORT_NUMBER = 10000;
     private final ObjectOutputStream objectOutputStream;
     private final ObjectInputStream objectInputStream;
 
     public RemoteGameManager() throws IOException {
         try (ServerSocket serverSocket = new ServerSocket(PORT_NUMBER)) {
+            serverSocket.setSoTimeout(TIMEOUT);
             Socket socket = serverSocket.accept();
             objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
             objectInputStream = new ObjectInputStream(socket.getInputStream());
@@ -33,7 +35,7 @@ public class RemoteGameManager implements GameManager {
             objectOutputStream.reset();
             objectOutputStream.writeObject(CommunicationProtocol.UPDATE);
             objectOutputStream.writeObject(game);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 
@@ -42,7 +44,7 @@ public class RemoteGameManager implements GameManager {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.START);
             objectOutputStream.writeObject(currentPlayer);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 
@@ -50,7 +52,7 @@ public class RemoteGameManager implements GameManager {
     public void skipTurn() {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.SKIP);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 
@@ -59,7 +61,7 @@ public class RemoteGameManager implements GameManager {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.WINNER);
             objectOutputStream.writeObject(player);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 
@@ -68,7 +70,7 @@ public class RemoteGameManager implements GameManager {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.SUGGEST);
             objectOutputStream.writeObject(new HashSet<>(moves));
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 
@@ -87,7 +89,7 @@ public class RemoteGameManager implements GameManager {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.INITIALIZE);
             objectOutputStream.writeObject(game);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 
@@ -95,7 +97,7 @@ public class RemoteGameManager implements GameManager {
     public void illegalMove() {
         try {
             objectOutputStream.writeObject(CommunicationProtocol.ILLEGAL);
-        } catch (IOException e) {
+        } catch (IOException ignored) {
         }
     }
 

@@ -2,7 +2,6 @@ package sdm.reversi.gui;
 
 import sdm.reversi.Client;
 import sdm.reversi.game.Game;
-import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GUIManager;
 
 import javax.swing.*;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.net.Inet4Address;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Arrays;
 
 public class Online extends DraggableFrame {
     private final JTextField playerNameInput;
@@ -107,6 +105,7 @@ public class Online extends DraggableFrame {
                 Game.GameBuilder gameBuilder;
                 try {
                     gameBuilder = Game.GameBuilder.GUIGameBuilder(playerNameInput.getText()).withRemoteOpponent().withBoardSize(boardSize);
+
                 } catch (IllegalArgumentException | IOException exception) {
                     JOptionPane.showMessageDialog(this, exception.getMessage());
                     return;
@@ -119,7 +118,6 @@ public class Online extends DraggableFrame {
                 dispose();
             }
         });
-
 
         serverIPAddressInput.addFocusListener(new FocusListener() {
             @Override
