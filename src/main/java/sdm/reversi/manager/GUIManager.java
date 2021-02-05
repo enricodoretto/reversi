@@ -12,8 +12,6 @@ import sdm.reversi.player.Player;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Collection;
@@ -204,10 +202,7 @@ public class GUIManager extends DraggableFrame implements GameManager {
 
         JButton mainMenuButton = new JButton("Main Menu");
         mainMenuButton.setMaximumSize(new Dimension(30, 10));
-        mainMenuButton.addActionListener(e -> {
-            quit = true;
-
-        });
+        mainMenuButton.addActionListener(e -> quit = true);
 
         statisticsPanel.add(currentPlayerName, BorderLayout.NORTH);
         JPanel playerStatisticsPanel = new JPanel(new GridLayout(4, 1));
