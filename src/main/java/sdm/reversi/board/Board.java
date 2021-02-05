@@ -167,7 +167,8 @@ public class Board implements Serializable {
         return Arrays.stream(board).map(row -> Arrays.toString(row)
                 .replace("null", "-")
                 .replaceAll("[\\[\\],]", "")
-                .replace(" ", "")).collect(Collectors.joining(System.lineSeparator()));
+                .replace(" ", ""))
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 
 }

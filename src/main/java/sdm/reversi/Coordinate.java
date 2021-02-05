@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.IntStream;
 
 public class Coordinate implements Comparable<Coordinate>, Serializable {
     private final int row;
@@ -22,9 +21,7 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
             throw new IllegalArgumentException("Malformed coordinate: must be of type number-letter");
         }
         this.row = Integer.parseInt(matcher.group(1)) - 1;
-        String s = new StringBuffer(matcher.group(2)).reverse().toString();
-        this.column = IntStream.range(0,s.length()).map(i -> (int) ((s.charAt(i)-'A'+1)*Math.pow(26,i))).sum()-1;
-
+        this.column = LetterNumberConverter.convertLettersToNumber(matcher.group(2));
     }
 
     public int getRow() {
@@ -62,13 +59,7 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
 
     @Override
     public String toString() {
-        StringBuilder reversedColumnAsString = new StringBuilder();
-        int localColumn = column +1;
-        while(localColumn!=0){
-            reversedColumnAsString.append((char) (localColumn % 26 + 'A' - 1));
-            localColumn = localColumn/26;
-        }
-        return String.format("%d%s",row +1, reversedColumnAsString.reverse().toString());
+        return String.format("%d%s",row +1, LetterNumberConverter.convertNumberToLetter(column));
     }
 
 }

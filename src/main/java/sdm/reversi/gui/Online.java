@@ -133,6 +133,7 @@ public class Online extends DraggableFrame {
         setLocationRelativeTo(null);
         setUndecorated(true);
         setResizable(false);
+        setIconImage(Toolkit.getDefaultToolkit().getImage("src/icon/reversi_othello_icon.png"));
         setVisible(true);
     }
 

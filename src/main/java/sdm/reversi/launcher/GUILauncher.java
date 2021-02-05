@@ -44,6 +44,7 @@ public class GUILauncher{
         frame.setLocationRelativeTo(null);
         frame.setUndecorated(true);
         frame.setResizable(false);
+        frame.setIconImage(Toolkit.getDefaultToolkit().getImage("src/icon/reversi_othello_icon.png"));
         frame.setVisible(true);
     }
 }
