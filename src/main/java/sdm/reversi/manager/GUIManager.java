@@ -57,7 +57,6 @@ public class GUIManager extends DraggableFrame implements GameManager {
         player1Score.setText(String.format("%d", game.getPlayer1().getScore()));
         player2Score.setText(String.format("%d", game.getPlayer2().getScore()));
         updateGridPanel(game.getBoard());
-
     }
 
     @Override

@@ -106,7 +106,6 @@ public class Online extends DraggableFrame {
                     setVisible(false);
                     int dimension = boardConfigurationGUI.getSelectedDimension();
                     int gameType = boardConfigurationGUI.getSelectedGame();
-                    Thread thread;
                     if (gameType == 1) {
                         SwingUtilities.invokeLater(new Runnable() {
                             @Override

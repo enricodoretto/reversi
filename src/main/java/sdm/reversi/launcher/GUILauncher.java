@@ -9,12 +9,7 @@ public class GUILauncher{
     private static JFrame frame;
     
     public static void launch(){
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                createGUI();
-            }
-        });
+        SwingUtilities.invokeLater(GUILauncher::createGUI);
     }
 
     private static void createGUI(){
@@ -24,42 +19,25 @@ public class GUILauncher{
 
         JPanel container = new JPanel(new GridBagLayout());
         frame.add(container, BorderLayout.CENTER);
-        JPanel buttonMenu = new JPanel(new GridLayout(1, 3, 5, 10));
+        JPanel buttonPanel = new JPanel(new GridLayout(1, 3, 5, 10));
         JButton oneVsOne = new JButton("1vs1");
         JButton oneVsCPU = new JButton("vsComputer");
         JButton online = new JButton("Online");
-        buttonMenu.add(oneVsOne);
-        buttonMenu.add(oneVsCPU);
-        buttonMenu.add(online);
-        container.add(buttonMenu);
+        buttonPanel.add(oneVsOne);
+        buttonPanel.add(oneVsCPU);
+        buttonPanel.add(online);
+        container.add(buttonPanel);
         oneVsOne.addActionListener(e -> {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    new OneVsOne();
-                }
-            });
-
-            frame.setVisible(false);
+            SwingUtilities.invokeLater(OneVsOne::new);
+            frame.dispose();
         });
         oneVsCPU.addActionListener(e -> {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    new OneVsCPU();
-                }
-            });
-
-            frame.setVisible(false);
+            SwingUtilities.invokeLater(OneVsCPU::new);
+            frame.dispose();
         });
         online.addActionListener(e -> {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    new Online();
-                }
-            });
-            frame.setVisible(false);
+            SwingUtilities.invokeLater(Online::new);
+            frame.dispose();
         });
 
         frame.setSize(500, 300);
