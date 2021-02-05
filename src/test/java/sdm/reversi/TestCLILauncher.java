@@ -48,7 +48,7 @@ public class TestCLILauncher {
     @Test
     void requiresInputRepetitionIfInvalid() throws URISyntaxException, IOException {
         URL logFile = Thread.currentThread().getContextClassLoader().getResource("gameLog/fromCLILauncherRequiresNewInputIfInvalid");
-        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForCLILauncherRequiresNewInputIfInvali");
+        URL inputMoveFile = Thread.currentThread().getContextClassLoader().getResource("gameInputs/movesForCLILauncherRequiresNewInputIfInvalid");
         assert logFile != null;
         String messages = Files.readString(Paths.get(logFile.toURI()));
         assert inputMoveFile != null;

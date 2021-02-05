@@ -14,21 +14,26 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestOthelloGameCreation {
 
     @ParameterizedTest
-    @CsvSource({"4, initialBoards/othello4x4Board", "8, initialBoards/othello8x8Board", "16, initialBoards/othello16x16Board"})
-    void succeedsWithDifferentBoardSizes(int boardSize, String fileName) throws URISyntaxException, IOException {
+    @CsvSource({"4, initialBoards/othello4x4Board, initialBoards/othello4x4BoardOutput",
+            "8, initialBoards/othello8x8Board, initialBoards/othello8x8BoardOutput",
+            "16, initialBoards/othello16x16Board, initialBoards/othello16x16BoardOutput"})
+    void succeedsWithDifferentBoardSizes(int boardSize, String fileNameInput, String fileNameOutput) throws URISyntaxException, IOException {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildOthello();
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileNameInput);
+        URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
-        String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
+        String initializedOthelloBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }
 
     @ParameterizedTest
-    @CsvSource({"fullBoards/allWhite8x8Board", "fullBoards/allBlack8x8Board", "initialBoards/othello4x4Board", "initialBoards/othello16x16Board"})
-    void succeedsWithCustomBoardWithAtLeastFourDisks(String fileName) throws URISyntaxException, IOException {
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);
+    @CsvSource({"fullBoards/allWhite8x8Board,fullBoards/allWhite8x8BoardOutput", "fullBoards/allBlack8x8Board,fullBoards/allBlack8x8BoardOutput",
+            "initialBoards/othello4x4Board, initialBoards/othello4x4BoardOutput", "initialBoards/othello16x16Board, initialBoards/othello16x16BoardOutput"})
+    void succeedsWithCustomBoardWithAtLeastFourDisks(String fileNameInput, String fileNameOutput) throws URISyntaxException, IOException {
+        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileNameInput);
+        URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
-        String initializedOthelloBoard = Files.readString(Paths.get(boardFile.toURI()));
+        String initializedOthelloBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }

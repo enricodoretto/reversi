@@ -16,32 +16,39 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestBoardIsRepresented {
 
     @ParameterizedTest
-    @CsvSource({"emptyBoards/empty8x8Board, 8", "emptyBoards/empty4x4Board, 4", "emptyBoards/empty16x16Board, 16"})
-    void asStringOfDashesWhenEmpty(String fileName, int size) throws IOException, URISyntaxException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+    @CsvSource({"emptyBoards/empty8x8Board, emptyBoards/empty8x8BoardOutput,8",
+            "emptyBoards/empty4x4Board,emptyBoards/empty4x4BoardOutput ,4",
+            "emptyBoards/empty16x16Board,emptyBoards/empty16x16BoardOutput ,16"})
+    void asStringOfDashesWhenEmpty(String fileNameInput, String fileNameOutput, int size) throws IOException, URISyntaxException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameInput);
+        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
-        String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
+        String emptyBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(size);
         assertEquals(emptyBoard, board.toString());
     }
 
     @ParameterizedTest
-    @CsvSource({"whiteIn1A8x8Board, 8", "whiteIn1A4x4Board, 4", "whiteIn1A16x16Board, 16"})
-    public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(String fileName, int size) throws URISyntaxException, IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+    @CsvSource({"whiteIn1A8x8Board, whiteIn1A8x8BoardOutput,8", "whiteIn1A4x4Board, whiteIn1A4x4BoardOutput,4", "whiteIn1A16x16Board, whiteIn1A16x16BoardOutput,16"})
+    public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(String fileNameInput, String fileNameOutput,int size) throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameInput);
+        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
-        String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
+        String boardRepresentation = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(size);
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
         assertEquals(boardRepresentation, board.toString());
     }
 
     @ParameterizedTest
-    @CsvSource({"whiteIn1AblackIn4D8x8Board, 8", "whiteIn1AblackIn4D4x4Board, 4", "whiteIn1AblackIn4D16x16Board, 16"})
-    public void asStringOfDashesWithWAndBWhenThereIsAWhiteDiskIn1AAndABlackDiskIn4D(String fileName, int size) throws URISyntaxException, IOException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+    @CsvSource({"whiteIn1ABlackIn4D8x8Board, whiteIn1ABlackIn4D8x8BoardOutput,8",
+            "whiteIn1ABlackIn4D4x4Board,whiteIn1ABlackIn4D4x4BoardOutput ,4",
+            "whiteIn1ABlackIn4D16x16Board, whiteIn1ABlackIn4D16x16BoardOutput,16"})
+    public void asStringOfDashesWithWAndBWhenThereIsAWhiteDiskIn1AAndABlackDiskIn4D(String fileNameInput, String fileNameOutput ,int size) throws URISyntaxException, IOException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameInput);
+        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
-        String boardRepresentation = Files.readString(Paths.get(boardFile.toURI()));
+        String boardRepresentation = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(size);
         board.putDisk(Disk.Color.WHITE,new Coordinate("1A"));
         board.putDisk(Disk.Color.BLACK,new Coordinate("4D"));

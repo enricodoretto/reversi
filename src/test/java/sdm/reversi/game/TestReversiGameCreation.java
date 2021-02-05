@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TestReversiGameCreation {
 
     @ParameterizedTest
-    @CsvSource({"4, emptyBoards/empty4x4Board", "8, emptyBoards/empty8x8Board", "16, emptyBoards/empty16x16Board"})
+    @CsvSource({"4, emptyBoards/empty4x4BoardOutput", "8, emptyBoards/empty8x8BoardOutput", "16, emptyBoards/empty16x16BoardOutput"})
     void initializesTheBoardCorrectly(int boardSize, String fileName) throws URISyntaxException, IOException {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildReversi();
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileName);

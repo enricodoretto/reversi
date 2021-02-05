@@ -2,6 +2,7 @@ package sdm.reversi.board;
 
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
+import sdm.reversi.LetterNumberConverter;
 import sdm.reversi.ShiftDirection;
 
 import java.io.*;
@@ -164,11 +165,25 @@ public class Board implements Serializable {
 
     @Override
     public String toString() {
+        int initialColumnSize = board.length < 9 ? 1 : 2;
+        return String.format("%" + initialColumnSize + "s", " ")
+                + IntStream.range(0, board.length).mapToObj(LetterNumberConverter::convertNumberToLetter).collect(Collectors.joining())
+                + System.lineSeparator()
+                + IntStream.range(0, board.length).mapToObj(rowIndex ->
+                String.format("%" + initialColumnSize + "d", (rowIndex + 1)) +
+                        Arrays.toString(board[rowIndex])
+                                .replace("null", "-")
+                                .replaceAll("[\\[\\],]", "")
+                                .replace(" ", ""))
+                .collect(Collectors.joining(System.lineSeparator()));
+    }
+    /*@Override
+    public String toString() {
         return Arrays.stream(board).map(row -> Arrays.toString(row)
                 .replace("null", "-")
                 .replaceAll("[\\[\\],]", "")
                 .replace(" ", ""))
                 .collect(Collectors.joining(System.lineSeparator()));
-    }
+    }*/
 
 }

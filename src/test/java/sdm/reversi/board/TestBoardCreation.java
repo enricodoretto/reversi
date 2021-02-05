@@ -21,11 +21,16 @@ public class TestBoardCreation {
     }
 
     @ParameterizedTest
-    @CsvSource({"emptyBoards/empty8x8Board", "emptyBoards/empty4x4Board", "emptyBoards/empty16x16Board", "whiteIn1A8x8Board", "whiteIn1A4x4Board", "whiteIn1A16x16Board", "whiteIn1AblackIn4D8x8Board", "whiteIn1AblackIn4D4x4Board", "whiteIn1AblackIn4D16x16Board"})
-    void succeedsFromProperlyFormattedFile(String fileName) throws IOException, URISyntaxException {
-        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileName);
+    @CsvSource({"emptyBoards/empty8x8Board, emptyBoards/empty8x8BoardOutput", "emptyBoards/empty4x4Board, emptyBoards/empty4x4BoardOutput",
+            "emptyBoards/empty16x16Board, emptyBoards/empty16x16BoardOutput", "whiteIn1A8x8Board, whiteIn1A8x8BoardOutput",
+            "whiteIn1A4x4Board, whiteIn1A4x4BoardOutput", "whiteIn1A16x16Board, whiteIn1A16x16BoardOutput",
+            "whiteIn1ABlackIn4D8x8Board, whiteIn1ABlackIn4D8x8BoardOutput",
+            "whiteIn1ABlackIn4D4x4Board, whiteIn1ABlackIn4D4x4BoardOutput", "whiteIn1ABlackIn4D16x16Board,whiteIn1ABlackIn4D16x16BoardOutput"})
+    void succeedsFromProperlyFormattedFile(String fileNameInput, String fileNameOutput) throws IOException, URISyntaxException {
+        URL boardFile = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameInput);
+        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
-        String emptyBoard = Files.readString(Paths.get(boardFile.toURI()));
+        String emptyBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(boardFile);
         assertEquals(emptyBoard, board.toString());
     }

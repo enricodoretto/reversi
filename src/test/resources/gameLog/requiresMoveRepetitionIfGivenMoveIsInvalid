@@ -1,18 +1,21 @@
-BBBB
-BBBB
-BWWW
-WW--
+ ABCD
+1BBBB
+2BBBB
+3BWWW
+4WW--
 Bob's turn:
 4C 4D
-BBBB
-BBBB
-BBBW
-WWB-
+ ABCD
+1BBBB
+2BBBB
+3BBBW
+4WWB-
 Alice's turn:
 4D
 Invalid move, please choose another one
-BBBB
-BBBB
-BBBW
-WWWW
+ ABCD
+1BBBB
+2BBBB
+3BBBW
+4WWWW
 The winner is Bob

@@ -1,379 +1,417 @@
---------
---------
---------
---------
---------
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4--------
+5--------
+6--------
+7--------
+8--------
 Bob's turn:
 4D 4E 5D 5E
---------
---------
---------
----B----
---------
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4---B----
+5--------
+6--------
+7--------
+8--------
 Alice's turn:
 4E 5D 5E
---------
---------
---------
----B----
----W----
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4---B----
+5---W----
+6--------
+7--------
+8--------
 Bob's turn:
 4E 5E
---------
---------
---------
----B----
----WB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4---B----
+5---WB---
+6--------
+7--------
+8--------
 Alice's turn:
 4E
---------
---------
---------
----BW---
----WB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4---BW---
+5---WB---
+6--------
+7--------
+8--------
 Bob's turn:
 3E 4F 5C 6D
---------
---------
---------
----BW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4---BW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 4C 6C 6E
---------
---------
---------
---WWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3--------
+4--WWW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 3B 3C 3D 3E 3F
---------
---------
--B------
---BWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3-B------
+4--BWW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 4B 6B 6C 6D 6E 6F
---------
---------
--B------
--WWWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3-B------
+4-WWWW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 3A 3C 3D 3E 3F 5B
---------
---------
-BB------
--BWWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2--------
+3BB------
+4-BWWW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 2A 4A 6B 6C 6D 6E 6F
---------
-W-------
-BW------
--BWWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1--------
+2W-------
+3BW------
+4-BWWW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 1A 2B 3C 3D 3E 3F 4F
-B-------
-B-------
-BW------
--BWWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1B-------
+2B-------
+3BW------
+4-BWWW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 4A 5B 6B 6C 6D 6E 6F
-B-------
-B-------
-BW------
-WWWWW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1B-------
+2B-------
+3BW------
+4WWWWW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 3C 3D 3E 3F 5A
-B-------
-B-------
-BBB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1B-------
+2B-------
+3BBB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 2B 2C 2D 6C 6D 6E
-B-------
-BW------
-BWB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1B-------
+2BW------
+3BWB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 1C 2C 3E 3F 4F 5A
-B-B-----
-BB------
-BWB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1B-B-----
+2BB------
+3BWB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 1B 2D 3D 6C 6D 6E
-BWB-----
-BW------
-BWB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1BWB-----
+2BW------
+3BWB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 2C 3E 3F 4F 5A
-BWB-----
-BBB-----
-BWB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1BWB-----
+2BBB-----
+3BWB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 1D 2D 3D 6C 6D 6E
-BWWW----
-BBW-----
-BWB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1BWWW----
+2BBW-----
+3BWB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 1E 2D 3E 3F 4F 5A 5B
-BBBBB---
-BBW-----
-BWB-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1BBBBB---
+2BBW-----
+3BWB-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 2D 3D 6C 6D 6E
-BBBBB---
-BBWW----
-BWW-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1BBBBB---
+2BBWW----
+3BWW-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Bob's turn:
 2E 3D 3E 3F 4F 5A 5B
-BBBBB---
-BBBBB---
-BWW-----
-WWBBW---
---BBB---
---------
---------
---------
+ ABCDEFGH
+1BBBBB---
+2BBBBB---
+3BWW-----
+4WWBBW---
+5--BBB---
+6--------
+7--------
+8--------
 Alice's turn:
 6C 6D 6E 6F
-BBBBB---
-BBBBB---
-BWW-----
-WWWBW---
---WWB---
---W-----
---------
---------
+ ABCDEFGH
+1BBBBB---
+2BBBBB---
+3BWW-----
+4WWWBW---
+5--WWB---
+6--W-----
+7--------
+8--------
 Bob's turn:
 3D 3E 4F 5A 5B 6B 6D 6E 7C
-BBBBB---
-BBBBB---
-BBBB----
-WWWBW---
---WWB---
---W-----
---------
---------
+ ABCDEFGH
+1BBBBB---
+2BBBBB---
+3BBBB----
+4WWWBW---
+5--WWB---
+6--W-----
+7--------
+8--------
 Alice's turn:
 1F 3E 5F 6E
-BBBBBW--
-BBBBW---
-BBBW----
-WWWBW---
---WWB---
---W-----
---------
---------
+ ABCDEFGH
+1BBBBBW--
+2BBBBW---
+3BBBW----
+4WWWBW---
+5--WWB---
+6--W-----
+7--------
+8--------
 Bob's turn:
 1G 2F 3E 3F 4F 5A 5B 5F 6B 6D 6E 7C
-BBBBBBB-
-BBBBW---
-BBBW----
-WWWBW---
---WWB---
---W-----
---------
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBW---
+3BBBW----
+4WWWBW---
+5--WWB---
+6--W-----
+7--------
+8--------
 Alice's turn:
 3E 5F 6E
-BBBBBBB-
-BBBBW---
-BBBW----
-WWWBW---
---WWW---
---W-W---
---------
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBW---
+3BBBW----
+4WWWBW---
+5--WWW---
+6--W-W---
+7--------
+8--------
 Bob's turn:
 2F 3E 3F 4F 5A 5B 5F 6B 6D 6F 7C 7F
-BBBBBBB-
-BBBBBB--
-BBBW----
-WWWBW---
---WWW---
---W-W---
---------
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBW----
+4WWWBW---
+5--WWW---
+6--W-W---
+7--------
+8--------
 Alice's turn:
 3E
-BBBBBBB-
-BBBBBB--
-BBBWW---
-WWWWW---
---WWW---
---W-W---
---------
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBWW---
+4WWWWW---
+5--WWW---
+6--W-W---
+7--------
+8--------
 Bob's turn:
 3F 4F 5A 5B 5F 6B 6D 6F 7C 7E 7F
-BBBBBBB-
-BBBBBB--
-BBBWW---
-WWBWW---
---WBW---
---W-B---
------B--
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBWW---
+4WWBWW---
+5--WBW---
+6--W-B---
+7-----B--
+8--------
 Alice's turn:
 5B 6D 7E
-BBBBBBB-
-BBBBBB--
-BBBWW---
-WWBWW---
---WBW---
---W-W---
-----WB--
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBWW---
+4WWBWW---
+5--WBW---
+6--W-W---
+7----WB--
+8--------
 Bob's turn:
 3F 4F 5A 5B 5F 6B 6D 6F 7B 7C 7D 8E
-BBBBBBB-
-BBBBBB--
-BBBBBB--
-WWBWB---
---WBW---
---W-W---
-----WB--
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBBBB--
+4WWBWB---
+5--WBW---
+6--W-W---
+7----WB--
+8--------
 Alice's turn:
 2G 4F 6D 7G 8G
-BBBBBBB-
-BBBBBB--
-BBBBBB--
-WWBWB---
---WBW---
---W-W---
-----WWW-
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBBBB--
+4WWBWB---
+5--WBW---
+6--W-W---
+7----WWW-
+8--------
 Bob's turn:
 5A 5B 5F 6B 6D 6F 7B 7C 8E 8G
-BBBBBBB-
-BBBBBB--
-BBBBBB--
-BBBWB---
-B-WBW---
---W-W---
-----WWW-
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBB--
+3BBBBBB--
+4BBBWB---
+5B-WBW---
+6--W-W---
+7----WWW-
+8--------
 Alice's turn:
 2G 4F 6D
-BBBBBBB-
-BBBBBBW-
-BBBBBW--
-BBBWW---
-B-WWW---
---W-W---
-----WWW-
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBBW-
+3BBBBBW--
+4BBBWW---
+5B-WWW---
+6--W-W---
+7----WWW-
+8--------
 Bob's turn:
 2H 3G 3H 4F 4G 5F 6B 6D 6F 7C 8E 8G
-BBBBBBB-
-BBBBBBB-
-BBBBBBB-
-BBBWW---
-B-WWW---
---W-W---
-----WWW-
---------
+ ABCDEFGH
+1BBBBBBB-
+2BBBBBBB-
+3BBBBBBB-
+4BBBWW---
+5B-WWW---
+6--W-W---
+7----WWW-
+8--------
 Alice's turn:
 1H
-BBBBBBBW
-BBBBBBW-
-BBBBBWB-
-BBBWW---
-B-WWW---
---W-W---
-----WWW-
---------
+ ABCDEFGH
+1BBBBBBBW
+2BBBBBBW-
+3BBBBBWB-
+4BBBWW---
+5B-WWW---
+6--W-W---
+7----WWW-
+8--------
 Bob's turn:
 2H 3H 4F 4G 5F 6B 6D 6F 7C 8E 8G
-BBBBBBBW
-BBBBBBB-
-BBBBBWBB
-BBBWW---
-B-WWW---
---W-W---
-----WWW-
---------
+ ABCDEFGH
+1BBBBBBBW
+2BBBBBBB-
+3BBBBBWBB
+4BBBWW---
+5B-WWW---
+6--W-W---
+7----WWW-
+8--------
 The winner is Bob

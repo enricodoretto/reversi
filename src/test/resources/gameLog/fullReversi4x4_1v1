@@ -1,62 +1,72 @@
-----
-----
-----
-----
+ ABCD
+1----
+2----
+3----
+4----
 Bob's turn:
 2B 2C 3B 3C
-----
--B--
-----
-----
+ ABCD
+1----
+2-B--
+3----
+4----
 Alice's turn:
 2C 3B 3C
 Invalid move, please choose another one
-----
--B--
---W-
-----
+ ABCD
+1----
+2-B--
+3--W-
+4----
 Bob's turn:
 2C 3B
-----
--BB-
---W-
-----
+ ABCD
+1----
+2-BB-
+3--W-
+4----
 Alice's turn:
 3B
-----
--BB-
--WW-
-----
+ ABCD
+1----
+2-BB-
+3-WW-
+4----
 Bob's turn:
 4A 4B 4C 4D
-----
--BB-
--BW-
--B--
+ ABCD
+1----
+2-BB-
+3-BW-
+4-B--
 Alice's turn:
 1A 1C 3A
-W---
--WB-
--BW-
--B--
+ ABCD
+1W---
+2-WB-
+3-BW-
+4-B--
 Bob's turn:
 1B 2A 2D 3D 4C
-WB--
--BB-
--BW-
--B--
+ ABCD
+1WB--
+2-BB-
+3-BW-
+4-B--
 Alice's turn:
 1C 3A
-WB--
--BB-
-WWW-
--B--
+ ABCD
+1WB--
+2-BB-
+3WWW-
+4-B--
 Bob's turn:
 2D 4A 4C 4D
-WB--
--BB-
-WWB-
--BB-
+ ABCD
+1WB--
+2-BB-
+3WWB-
+4-BB-
 Alice's turn:
 1C 1D 3D 4D
 The winner is Bob
