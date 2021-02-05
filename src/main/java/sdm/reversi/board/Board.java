@@ -177,13 +177,5 @@ public class Board implements Serializable {
                                 .replace(" ", ""))
                 .collect(Collectors.joining(System.lineSeparator()));
     }
-    /*@Override
-    public String toString() {
-        return Arrays.stream(board).map(row -> Arrays.toString(row)
-                .replace("null", "-")
-                .replaceAll("[\\[\\],]", "")
-                .replace(" ", ""))
-                .collect(Collectors.joining(System.lineSeparator()));
-    }*/
 
 }
