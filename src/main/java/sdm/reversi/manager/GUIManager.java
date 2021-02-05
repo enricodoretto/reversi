@@ -57,11 +57,12 @@ public class GUIManager extends DraggableFrame implements GameManager {
         player1Score.setText(String.format("%d", game.getPlayer1().getScore()));
         player2Score.setText(String.format("%d", game.getPlayer2().getScore()));
         updateGridPanel(game.getBoard());
+
     }
 
     @Override
     public void showWinner(Player player) {
-        if(player == null){
+        if (player == null) {
             JOptionPane.showMessageDialog(this, "Tie!");
             dispose();
             GUILauncher.launch();
@@ -103,6 +104,7 @@ public class GUIManager extends DraggableFrame implements GameManager {
             panel.setColor(board.getDiskColorFromCoordinate(coordinate));
             panel.repaint();
         });
+
     }
 
     @Override

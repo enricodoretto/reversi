@@ -1,4 +1,5 @@
 package sdm.reversi.gui;
+
 import sdm.reversi.game.Game;
 
 import javax.swing.*;
@@ -52,19 +53,24 @@ public class OneVsOne extends DraggableFrame {
                 setVisible(false);
                 int dimension = boardConfigurationGUI.getSelectedDimension();
                 int gameType = boardConfigurationGUI.getSelectedGame();
-                Thread thread;
-                if(gameType == 1){
-                    thread = new Thread(() -> {
-                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText()).withBoardSize(dimension).buildOthello();
-                        game.play();
+                if (gameType == 1) {
+                    SwingUtilities.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText()).withBoardSize(dimension).buildOthello();
+                            game.play();
+                        }
                     });
-                }else{
-                    thread = new Thread(() -> {
-                        Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText()).withBoardSize(dimension).buildReversi();
-                        game.play();
+
+                } else {
+                    SwingUtilities.invokeLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            Game game = Game.GameBuilder.GUIGameBuilder(namePlayer1.getText()).withOpponent(namePlayer2.getText()).withBoardSize(dimension).buildReversi();
+                            game.play();
+                        }
                     });
                 }
-                thread.start();
             }
         });
         setSize(500, 500);

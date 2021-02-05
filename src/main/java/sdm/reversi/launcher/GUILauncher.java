@@ -9,10 +9,12 @@ public class GUILauncher{
     private static JFrame frame;
     
     public static void launch(){
-        Thread t = new Thread(() ->{
-            createGUI();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                createGUI();
+            }
         });
-        t.start();
     }
 
     private static void createGUI(){
@@ -31,15 +33,32 @@ public class GUILauncher{
         buttonMenu.add(online);
         container.add(buttonMenu);
         oneVsOne.addActionListener(e -> {
-            new OneVsOne();
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new OneVsOne();
+                }
+            });
+
             frame.setVisible(false);
         });
         oneVsCPU.addActionListener(e -> {
-            new OneVsCPU();
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new OneVsCPU();
+                }
+            });
+
             frame.setVisible(false);
         });
         online.addActionListener(e -> {
-            new Online();
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new Online();
+                }
+            });
             frame.setVisible(false);
         });
 

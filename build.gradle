@@ -12,6 +12,12 @@ repositories {
 compileJava.options.encoding = 'UTF-8'
 compileTestJava.options.encoding = 'UTF-8'
 
+gradle.projectsEvaluated {
+    tasks.withType(JavaCompile){
+        options.compilerArgs << "-Xlint:deprecation"
+    }
+}
+
 dependencies {
     testImplementation(platform('org.junit:junit-bom:5.6.2'))
     testImplementation('org.junit.jupiter:junit-jupiter')

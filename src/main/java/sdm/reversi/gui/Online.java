@@ -45,7 +45,7 @@ public class Online extends DraggableFrame {
         container.add(boardConfigurationGUI.getBoardConfiguration(), c);
 
         c.gridy += 2;
-        JPanel radioPanel = new JPanel(new GridLayout(2,2, 70, 7));
+        JPanel radioPanel = new JPanel(new GridLayout(2, 2, 70, 7));
         JRadioButton chooseHost = new JRadioButton("Host");
         chooseHost.setActionCommand("host");
         JRadioButton chooseClient = new JRadioButton("Client");
@@ -75,13 +75,13 @@ public class Online extends DraggableFrame {
         playButtonContainer.add(playButton);
         add(container, BorderLayout.CENTER);
 
-        chooseHost.addActionListener(e ->{
+        chooseHost.addActionListener(e -> {
             IPAddressThisPC.setEnabled(true);
             IPAddressHostPC.setEnabled(false);
             BoardConfigurationGUI.getAvailableDimension().setEnabled(true);
             BoardConfigurationGUI.getAvailableGameType().setEnabled(true);
         });
-        chooseClient.addActionListener(e ->{
+        chooseClient.addActionListener(e -> {
             IPAddressHostPC.setEnabled(true);
             IPAddressThisPC.setEnabled(false);
             BoardConfigurationGUI.getAvailableDimension().setEnabled(false);
@@ -94,50 +94,35 @@ public class Online extends DraggableFrame {
                         JOptionPane.WARNING_MESSAGE);
             } else if (group.getSelection().getActionCommand().equals("client")
                     && !isIp(IPAddressHostPC.getText())) {
-                JOptionPane.showMessageDialog(Online.this , "Please, write a valid IP number",
+                JOptionPane.showMessageDialog(Online.this, "Please, write a valid IP number",
                         "Warning",
                         JOptionPane.WARNING_MESSAGE);
-            } else if(playerName.getText().isEmpty()){
-                JOptionPane.showMessageDialog(Online.this , "Please, insert your name",
+            } else if (playerName.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(Online.this, "Please, insert your name",
                         "Warning",
                         JOptionPane.WARNING_MESSAGE);
-            }else{
-                if(group.getSelection().getActionCommand().equals("host")){
+            } else {
+                if (group.getSelection().getActionCommand().equals("host")) {
                     setVisible(false);
                     int dimension = boardConfigurationGUI.getSelectedDimension();
                     int gameType = boardConfigurationGUI.getSelectedGame();
                     Thread thread;
-                    if(gameType == 1){
-                        thread = new Thread(() -> {
-                            Game game = null;
-                            try {
-                                game = Game.GameBuilder.GUIGameBuilder(playerName.getText()).withRemoteOpponent().withBoardSize(dimension).buildOthello();
-                            } catch (IOException exception) {
-                                exception.printStackTrace();
+                    if (gameType == 1) {
+                        SwingUtilities.invokeLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                Game game = null;
+                                try {
+                                    game = Game.GameBuilder.GUIGameBuilder(playerName.getText()).withRemoteOpponent().withBoardSize(dimension).buildOthello();
+                                } catch (IOException exception) {
+                                    exception.printStackTrace();
+                                }
+                                game.play();
                             }
-                            game.play();
-                        });
-                    }else{
-                        thread = new Thread(() -> {
-                            Game game = null;
-                            try {
-                                game = Game.GameBuilder.GUIGameBuilder(playerName.getText()).withRemoteOpponent().withBoardSize(dimension).buildReversi();
-                            } catch (IOException exception) {
-                                exception.printStackTrace();
-                            }
-                            game.play();
                         });
                     }
-                    thread.start();
-                }else{
-                    Thread thread = new Thread(() -> {
-                        try {
-                            Client.connectAndPlay(playerName.getText(), new GUIManager(), InetAddress.getByName(IPAddressHostPC.getText()));
-                        } catch (UnknownHostException exception) {
-                            exception.printStackTrace();
-                        }
-                    });
-                    thread.start();
+                } else {
+
                 }
             }
         });

@@ -2,14 +2,12 @@ package sdm.reversi.game;
 
 import sdm.reversi.*;
 import sdm.reversi.board.Board;
-import sdm.reversi.manager.CLIManager;
-import sdm.reversi.manager.GUIManager;
-import sdm.reversi.manager.GameManager;
-import sdm.reversi.manager.NotificationsManager;
+import sdm.reversi.manager.*;
 import sdm.reversi.player.ComputerPlayer;
 import sdm.reversi.player.Player;
 import sdm.reversi.player.RemotePlayer;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.Serializable;
 import java.net.URL;
@@ -169,6 +167,21 @@ public abstract class Game implements Serializable {
     public void play() {
         NotificationsManager notificationsManager = player1.getNotificationsManager().compose(player2.getNotificationsManager());
         notificationsManager.initialize(this);
+        if(player1.getNotificationsManager() instanceof GUIManager){
+            SwingWorker<Void,Void> worker = new SwingWorker<>() {
+                @Override
+                protected Void doInBackground() {
+                    play(notificationsManager);
+                    return null;
+                }
+            };
+            worker.execute();
+        }else{
+            play(notificationsManager);
+        }
+    }
+
+    private void play(NotificationsManager notificationsManager){
         while (!isOver()) {
             notificationsManager.startTurn(currentPlayer);
             if (currentPlayer.isInStall()) {
@@ -183,7 +196,7 @@ public abstract class Game implements Serializable {
                             break;
                         }
                         makeMove(coordinateOfDesiredMove);
-                        notificationsManager.updateGame(this);
+                        notificationsManager.updateGame(Game.this);
                         break;
                     } catch (IllegalArgumentException e) {
                         currentPlayer.illegalMove();
