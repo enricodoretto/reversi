@@ -21,6 +21,9 @@ public class Client {
     }
 
     public static void connectAndPlay(String playerName, GameManager gameManager, InetAddress ip) {
+        if(playerName.isEmpty()){
+            throw new IllegalArgumentException("Player name can't be empty");
+        }
         try (Socket socket = new Socket(ip, PORT_NUMBER);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())
