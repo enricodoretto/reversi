@@ -1,8 +1,10 @@
 package sdm.reversi;
 
 import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -24,6 +26,21 @@ public class Client {
         if(playerName.isEmpty()){
             throw new IllegalArgumentException("Player name can't be empty");
         }
+        if (gameManager instanceof GUIManager) {
+                SwingWorker<Void,Void> worker = new SwingWorker<>() {
+                    @Override
+                    protected Void doInBackground() {
+                        connectAndPlayWorker(playerName, gameManager, ip);
+                        return null;
+                    }
+                };
+                worker.execute();
+        } else {
+            connectAndPlayWorker(playerName, gameManager, ip);
+        }
+    }
+
+    private static void connectAndPlayWorker(String playerName, GameManager gameManager, InetAddress ip){
         try (Socket socket = new Socket(ip, PORT_NUMBER);
              ObjectOutputStream objectOutputStream = new ObjectOutputStream(socket.getOutputStream());
              ObjectInputStream objectInputStream = new ObjectInputStream(socket.getInputStream())

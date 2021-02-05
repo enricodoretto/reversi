@@ -1,6 +1,9 @@
 package sdm.reversi.gui;
 
+import sdm.reversi.Client;
 import sdm.reversi.game.Game;
+import sdm.reversi.manager.CLIManager;
+import sdm.reversi.manager.GUIManager;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -9,147 +12,130 @@ import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 import java.io.IOException;
 import java.net.Inet4Address;
+import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
 
 public class Online extends DraggableFrame {
-    private final JLabel IPAddressThisPC = new JLabel();
-    private final JTextField IPAddressHostPC = new JTextField("Insert IP Address");
-    private final ButtonGroup group;
-    private final JTextField playerName;
+    private final JTextField playerNameInput;
 
     public Online() {
         TitleBar titleBar = TitleBar.TitleBarBuilder.createTitleBar(this).withBackButton().build();
         add(titleBar.getTitleBar(), BorderLayout.NORTH);
 
         JPanel container = new JPanel(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.gridx = 0;
-        c.gridy = 0;
+        GridBagConstraints gridBagConstraints = new GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
 
         add(container, BorderLayout.CENTER);
 
-        JPanel namePlayersContainer = new JPanel(new GridLayout(2, 1, 70, 15));
-        namePlayersContainer.setBorder(new EmptyBorder(0, 0, 17, 0));
-        container.add(namePlayersContainer, c);
+        JPanel playerNameContainer = new JPanel(new GridLayout(2, 1, 70, 15));
+        playerNameContainer.setBorder(new EmptyBorder(0, 0, 17, 0));
+        container.add(playerNameContainer, gridBagConstraints);
         JLabel playerNameLabel = new JLabel("Player name:");
-        playerName = new JTextField();
-        namePlayersContainer.add(playerNameLabel);
-        namePlayersContainer.add(playerName);
-        ++c.gridy;
+        playerNameInput = new JTextField();
+        playerNameContainer.add(playerNameLabel);
+        playerNameContainer.add(playerNameInput);
+        gridBagConstraints.gridy++;
 
-        GUIBoardConfiguration GUIBoardConfiguration = new GUIBoardConfiguration();
-        container.add(GUIBoardConfiguration.getBoardConfiguration(), c);
+        GUIBoardConfiguration guiBoardConfiguration = new GUIBoardConfiguration();
+        container.add(guiBoardConfiguration.getBoardConfiguration(), gridBagConstraints);
 
-        c.gridy += 2;
+        gridBagConstraints.gridy++;
         JPanel radioPanel = new JPanel(new GridLayout(2, 2, 70, 7));
-        JRadioButton chooseHost = new JRadioButton("Host");
-        chooseHost.setActionCommand("host");
-        JRadioButton chooseClient = new JRadioButton("Client");
-        chooseClient.setActionCommand("client");
-        group = new ButtonGroup();
-        group.add(chooseHost);
-        group.add(chooseClient);
+        JRadioButton hostRadioButton = new JRadioButton("Host");
+        hostRadioButton.setActionCommand("host");
+        JRadioButton clientRadioButton = new JRadioButton("Client");
+        clientRadioButton.setActionCommand("client");
+        ButtonGroup group = new ButtonGroup();
+        group.add(hostRadioButton);
+        group.add(clientRadioButton);
 
-        radioPanel.add(chooseHost);
-        radioPanel.add(chooseClient);
-        container.add(radioPanel, c);
+        radioPanel.add(hostRadioButton);
+        radioPanel.add(clientRadioButton);
+        container.add(radioPanel, gridBagConstraints);
 
+        JLabel localIPAddressLabel = new JLabel();
         try {
-            String hostIP = Inet4Address.getLocalHost().getHostAddress();
-            IPAddressThisPC.setText(hostIP);
-            radioPanel.add(IPAddressThisPC);
-
+            localIPAddressLabel.setText(Inet4Address.getLocalHost().getHostAddress());
+            radioPanel.add(localIPAddressLabel);
         } catch (UnknownHostException uhe) {
-            System.out.println("Cannot take own IP address");
+            JOptionPane.showMessageDialog(this, "Cannot take own IP address");
         }
-        radioPanel.add(IPAddressHostPC);
 
-        ++c.gridy;
+        JTextField serverIPAddressInput = new JTextField("Insert Server IP Address");
+        radioPanel.add(serverIPAddressInput);
+
+        gridBagConstraints.gridy++;
         JPanel playButtonContainer = new JPanel();
-        container.add(playButtonContainer, c);
+        container.add(playButtonContainer, gridBagConstraints);
         JButton playButton = new JButton("PLAY!");
         playButtonContainer.add(playButton);
         add(container, BorderLayout.CENTER);
 
-        chooseHost.addActionListener(e -> {
-            IPAddressThisPC.setEnabled(true);
-            IPAddressHostPC.setEnabled(false);
-            GUIBoardConfiguration.enableInputs();
+        hostRadioButton.addActionListener(e -> {
+            localIPAddressLabel.setEnabled(true);
+            serverIPAddressInput.setEnabled(false);
+            guiBoardConfiguration.enableInputs();
         });
-        chooseClient.addActionListener(e -> {
-            IPAddressHostPC.setEnabled(true);
-            IPAddressThisPC.setEnabled(false);
-            GUIBoardConfiguration.disableInputs();
+        clientRadioButton.addActionListener(e -> {
+            serverIPAddressInput.setEnabled(true);
+            localIPAddressLabel.setEnabled(false);
+            guiBoardConfiguration.disableInputs();
         });
         playButton.addActionListener(e -> {
             if (group.getSelection() == null) {
-                JOptionPane.showMessageDialog(Online.this, "Please, make a selection",
-                        "Warning",
-                        JOptionPane.WARNING_MESSAGE);
-            } else if (group.getSelection().getActionCommand().equals("client")
-                    && !isIp(IPAddressHostPC.getText())) {
-                JOptionPane.showMessageDialog(Online.this, "Please, write a valid IP number",
-                        "Warning",
-                        JOptionPane.WARNING_MESSAGE);
-            } else if (playerName.getText().isEmpty()) {
-                JOptionPane.showMessageDialog(Online.this, "Please, insert your name",
-                        "Warning",
-                        JOptionPane.WARNING_MESSAGE);
-            } else {
-                if (group.getSelection().getActionCommand().equals("host")) {
-                    setVisible(false);
-                    int dimension = GUIBoardConfiguration.getSelectedSize();
-                    int gameType = GUIBoardConfiguration.getSelectedGame();
-                    if (gameType == 1) {
-                        SwingUtilities.invokeLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                Game game = null;
-                                try {
-                                    game = Game.GameBuilder.GUIGameBuilder(playerName.getText()).withRemoteOpponent().withBoardSize(dimension).buildOthello();
-                                } catch (IOException exception) {
-                                    exception.printStackTrace();
-                                }
-                                game.play();
-                            }
-                        });
-                    }
-                } else {
-
+                JOptionPane.showMessageDialog(this, "Please, make a selection");
+                return;
+            }
+            if (group.getSelection().getActionCommand().equals("client")) {
+                try {
+                    Client.connectAndPlay(playerNameInput.getText(), new GUIManager(), InetAddress.getByName(serverIPAddressInput.getText()));
+                    dispose();
+                } catch (IllegalArgumentException exception) {
+                    JOptionPane.showMessageDialog(this, exception.getMessage());
+                    return;
+                } catch (UnknownHostException exception) {
+                    JOptionPane.showMessageDialog(this, "Please, write a valid IP number");
+                    return;
                 }
+            }
+            if (group.getSelection().getActionCommand().equals("host")) {
+                int boardSize = guiBoardConfiguration.getSelectedSize();
+                int gameType = guiBoardConfiguration.getSelectedGame();
+                Game.GameBuilder gameBuilder;
+                try {
+                    gameBuilder = Game.GameBuilder.GUIGameBuilder(playerNameInput.getText()).withRemoteOpponent().withBoardSize(boardSize);
+                } catch (IllegalArgumentException | IOException exception) {
+                    JOptionPane.showMessageDialog(this, exception.getMessage());
+                    return;
+                }
+                if (gameType == 1) {
+                    gameBuilder.buildOthello().play();
+                } else {
+                    gameBuilder.buildReversi().play();
+                }
+                dispose();
             }
         });
 
 
-        IPAddressHostPC.addFocusListener(new FocusListener() {
-
+        serverIPAddressInput.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
-                IPAddressHostPC.setText("");
+                serverIPAddressInput.setText("");
             }
-
             @Override
             public void focusLost(FocusEvent e) {
-
             }
-
         });
 
         setSize(500, 500);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); //center of the screen
+        setLocationRelativeTo(null);
         setUndecorated(true);
         setResizable(false);
         setVisible(true);
     }
 
-    public static boolean isIp(String string) {
-        String[] parts = string.split("\\.", -1);
-        return parts.length == 4
-                && Arrays.stream(parts)
-                .map(Integer::parseInt)
-                .filter(i -> i <= 255 && i >= 0)
-                .count() == 4;
-    }
 }
