@@ -30,3 +30,9 @@ test {
 application{
     mainClassName = 'sdm.reversi.Main'
 }
+
+jar {
+    manifest {
+        attributes ('Main-class': 'sdm.reversi.launcher.Main')
+    }
+}
