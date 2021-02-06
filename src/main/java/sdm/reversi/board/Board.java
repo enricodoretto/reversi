@@ -166,11 +166,11 @@ public class Board implements Serializable {
     @Override
     public String toString() {
         int initialColumnSize = board.length < 9 ? 1 : 2;
-        return String.format("%" + initialColumnSize + "s", " ")
+        return String.format("%" + initialColumnSize + "s ", " ")
                 + IntStream.range(0, board.length).mapToObj(LetterNumberConverter::convertNumberToLetter).collect(Collectors.joining())
                 + System.lineSeparator()
                 + IntStream.range(0, board.length).mapToObj(rowIndex ->
-                String.format("%" + initialColumnSize + "d", (rowIndex + 1)) +
+                String.format("%" + initialColumnSize + "d ", (rowIndex + 1)) +
                         Arrays.toString(board[rowIndex])
                                 .replace("null", "-")
                                 .replaceAll("[\\[\\],]", "")

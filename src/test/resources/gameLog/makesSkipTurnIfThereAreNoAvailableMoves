@@ -1,17 +1,17 @@
- ABCD
-1WWWW
-2-B--
-3----
-4----
+  ABCD
+1 WWWW
+2 -B--
+3 ----
+4 ----
 Bob's turn:
 Sorry you can make no moves!
 Alice's turn:
 3A 3B 3C
- ABCD
-1WWWW
-2-W--
-3-W--
-4----
+  ABCD
+1 WWWW
+2 -W--
+3 -W--
+4 ----
 Bob's turn:
 Sorry you can make no moves!
 The winner is Alice

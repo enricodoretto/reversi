@@ -1,640 +1,640 @@
- ABCDEFGH
-1--------
-2--------
-3--------
-4--------
-5--------
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 --------
+5 --------
+6 --------
+7 --------
+8 --------
 Bob's turn:
 4D 4E 5D 5E
- ABCDEFGH
-1--------
-2--------
-3--------
-4---B----
-5--------
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 ---B----
+5 --------
+6 --------
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1--------
-2--------
-3--------
-4---BW---
-5--------
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 ---BW---
+5 --------
+6 --------
+7 --------
+8 --------
 Bob's turn:
 5D 5E
- ABCDEFGH
-1--------
-2--------
-3--------
-4---BW---
-5----B---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 ---BW---
+5 ----B---
+6 --------
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1--------
-2--------
-3--------
-4---BW---
-5---WB---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 ---BW---
+5 ---WB---
+6 --------
+7 --------
+8 --------
 Bob's turn:
 3E 4F 5C 6D
- ABCDEFGH
-1--------
-2--------
-3----B---
-4---BB---
-5---WB---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 ----B---
+4 ---BB---
+5 ---WB---
+6 --------
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1--------
-2--------
-3---WB---
-4---WB---
-5---WB---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 ---WB---
+4 ---WB---
+5 ---WB---
+6 --------
+7 --------
+8 --------
 Bob's turn:
 2C 3C 4C 5C 6C
- ABCDEFGH
-1--------
-2--------
-3---WB---
-4--BBB---
-5---WB---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 ---WB---
+4 --BBB---
+5 ---WB---
+6 --------
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1--------
-2--------
-3-W-WB---
-4--WBB---
-5---WB---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 -W-WB---
+4 --WBB---
+5 ---WB---
+6 --------
+7 --------
+8 --------
 Bob's turn:
 2C 2D 3C 4B 5C 6C 6D
- ABCDEFGH
-1--------
-2--------
-3-W-WB---
-4--WBB---
-5---BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 -W-WB---
+4 --WBB---
+5 ---BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1--------
-2--------
-3-W-WWW--
-4--WBB---
-5---BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 -W-WWW--
+4 --WBB---
+5 ---BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 2A 2C 2D 2E 2F 2G 4B
- ABCDEFGH
-1--------
-2-----B--
-3-W-WBW--
-4--WBB---
-5---BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 -----B--
+3 -W-WBW--
+4 --WBB---
+5 ---BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W--
-2-----W--
-3-W-WBW--
-4--WBB---
-5---BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 -----W--
+3 -W-WBW--
+4 --WBB---
+5 ---BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1G 2A 2C 2D 2G 3C 3G 4B
- ABCDEFGH
-1-----W--
-2B----W--
-3-B-WBW--
-4--BBB---
-5---BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 B----W--
+3 -B-WBW--
+4 --BBB---
+5 ---BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W--
-2B----W--
-3-B-WBW--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 B----W--
+3 -B-WBW--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1G 2C 2D 2G 3C 3G 4B
- ABCDEFGH
-1-----W--
-2B----WB-
-3-B-WBB--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 B----WB-
+3 -B-WBB--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W--
-2B----WWW
-3-B-WBB--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 B----WWW
+3 -B-WBB--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1G 1H 2C 2D 3C 4B
- ABCDEFGH
-1-----W--
-2B----WWW
-3-BBBBB--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 B----WWW
+3 -BBBBB--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W--
-2B-W--WWW
-3-BWBBB--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W--
+2 B-W--WWW
+3 -BWBBB--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1B 1D 1G 1H 2B 4B 6A
- ABCDEFGH
-1-----W-B
-2B-W--WBW
-3-BWBBB--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W--WBW
+3 -BWBBB--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W-B
-2B-W-WWBW
-3-BWWBB--
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBW
+3 -BWWBB--
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1B 1D 1E 1G 2B 2D 3H 4B
- ABCDEFGH
-1-----W-B
-2B-W-WWBB
-3-BWWBB-B
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBB
+3 -BWWBB-B
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W-B
-2B-W-WWBB
-3WWWWBB-B
-4--WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBB
+3 WWWWBB-B
+4 --WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1B 1D 1E 1G 2B 2D 4A 4B
- ABCDEFGH
-1-----W-B
-2B-W-WWBB
-3BWWWBB-B
-4B-WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBB
+3 BWWWBB-B
+4 B-WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W-B
-2B-W-WWBB
-3BWWWWWWB
-4B-WBB---
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBB
+3 BWWWWWWB
+4 B-WBB---
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1B 1D 1E 1G 2B 2D 4B 4F 4G 6C
- ABCDEFGH
-1-----W-B
-2B-W-WWBB
-3BWWWWWBB
-4B-WBB-B-
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBB
+3 BWWWWWBB
+4 B-WBB-B-
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-----W-B
-2B-W-WWBB
-3BWWWWWBB
-4B-WWWWB-
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 B-W-WWBB
+3 BWWWWWBB
+4 B-WWWWB-
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1D 1E 2B 2D 4B 6C
- ABCDEFGH
-1-----W-B
-2BBW-WWBB
-3BWBWWWBB
-4B-WBWWB-
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -----W-B
+2 BBW-WWBB
+3 BWBWWWBB
+4 B-WBWWB-
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---W-B
-2BWW-WWBB
-3BWBWWWBB
-4B-WBWWB-
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---W-B
+2 BWW-WWBB
+3 BWBWWWBB
+4 B-WBWWB-
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1A 1C 1D 1E 1G 2D 4B 5C 6C
- ABCDEFGH
-1-W---W-B
-2BWW-WWBB
-3BWBWWWBB
-4BBBBWWB-
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---W-B
+2 BWW-WWBB
+3 BWBWWWBB
+4 BBBBWWB-
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---W-B
-2BWW-WWBB
-3BWBWWWWB
-4BBBBWWWW
-5-W-BB---
-6---B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---W-B
+2 BWW-WWBB
+3 BWBWWWWB
+4 BBBBWWWW
+5 -W-BB---
+6 ---B----
+7 --------
+8 --------
 Bob's turn:
 1A 1C 1D 1E 1G 2D 5F 5G 5H 6A 6B 6C
- ABCDEFGH
-1-W---W-B
-2BWW-WWBB
-3BWBWWWWB
-4BBBBWWWW
-5-B-BB---
-6-B-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---W-B
+2 BWW-WWBB
+3 BWBWWWWB
+4 BBBBWWWW
+5 -B-BB---
+6 -B-B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWBWWWWB
-4BBBBWWWW
-5-B-BB---
-6-B-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWBWWWWB
+4 BBBBWWWW
+5 -B-BB---
+6 -B-B----
+7 --------
+8 --------
 Bob's turn:
 1A 1C 1D 1E 2D 5F 5H
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWBWWWWB
-4BBBBWWBW
-5-B-BBB--
-6-B-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWBWWWWB
+4 BBBBWWBW
+5 -B-BBB--
+6 -B-B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BBWWWWBW
-5-BWBBB--
-6-B-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BBWWWWBW
+5 -BWBBB--
+6 -B-B----
+7 --------
+8 --------
 Bob's turn:
 1A 1C 1D 1E 2D 5H
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BBWWWWBB
-5-BWBBB-B
-6-B-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BBWWWWBB
+5 -BWBBB-B
+6 -B-B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWBB
-5WWWBBB-B
-6-B-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWBB
+5 WWWBBB-B
+6 -B-B----
+7 --------
+8 --------
 Bob's turn:
 1A 1C 1D 1E 2D 6A 6C
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWBB
-5BWWBBB-B
-6BB-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWBB
+5 BWWBBB-B
+6 BB-B----
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWWB
-5BWWWWWWB
-6BB-B----
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWWB
+5 BWWWWWWB
+6 BB-B----
+7 --------
+8 --------
 Bob's turn:
 1C 1D 1E 2D 6C 6E 6F
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWWB
-5BWWWWWBB
-6BB-B-B--
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWWB
+5 BWWWWWBB
+6 BB-B-B--
+7 --------
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWWB
-5BWWWWWWB
-6BB-B-BW-
-7--------
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWWB
+5 BWWWWWWB
+6 BB-B-BW-
+7 --------
+8 --------
 Bob's turn:
 1A 1C 1D 1E 2D 6C 6E 6H 7F
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWWB
-5BWWWWWWB
-6BB-B-BB-
-7-----B--
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWWB
+5 BWWWWWWB
+6 BB-B-BB-
+7 -----B--
+8 --------
 CPU's turn:
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWWB
-5BWWWWWWB
-6BW-B-BB-
-7W----B--
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWWB
+5 BWWWWWWB
+6 BW-B-BB-
+7 W----B--
+8 --------
 Bob's turn:
 1A 1C 1D 1E 2D 6C 6E 7C 8A
- ABCDEFGH
-1-W---WWB
-2BWW-WWWB
-3BWWWWWWB
-4BWWWWWWB
-5BWWWWWWB
-6BB-B-BB-
-7W-B--B--
-8--------
+  ABCDEFGH
+1 -W---WWB
+2 BWW-WWWB
+3 BWWWWWWB
+4 BWWWWWWB
+5 BWWWWWWB
+6 BB-B-BB-
+7 W-B--B--
+8 --------
 CPU's turn:
- ABCDEFGH
-1WW---WWB
-2WWW-WWWB
-3WWWWWWWB
-4WWWWWWWB
-5WWWWWWWB
-6WB-B-BB-
-7W-B--B--
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWWB
+3 WWWWWWWB
+4 WWWWWWWB
+5 WWWWWWWB
+6 WB-B-BB-
+7 W-B--B--
+8 --------
 Bob's turn:
 1D 1E 2D 6C 6E
- ABCDEFGH
-1WW---WWB
-2WWW-WWBB
-3WWWWWBWB
-4WWWWBWWB
-5WWWBWWWB
-6WBBB-BB-
-7W-B--B--
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWBB
+3 WWWWWBWB
+4 WWWWBWWB
+5 WWWBWWWB
+6 WBBB-BB-
+7 W-B--B--
+8 --------
 CPU's turn:
- ABCDEFGH
-1WW---WWB
-2WWW-WWBB
-3WWWWWBWB
-4WWWWBWWB
-5WWWWWWWB
-6WWWWWBB-
-7W-B--B--
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWBB
+3 WWWWWBWB
+4 WWWWBWWB
+5 WWWWWWWB
+6 WWWWWBB-
+7 W-B--B--
+8 --------
 Bob's turn:
 1C 1D 1E 2D 7B 7D 7E
- ABCDEFGH
-1WW---WWB
-2WWW-WWBB
-3WWWWWBWB
-4WWWWBWWB
-5WWWWBWWB
-6WWWWBBB-
-7W-B-BB--
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWBB
+3 WWWWWBWB
+4 WWWWBWWB
+5 WWWWBWWB
+6 WWWWBBB-
+7 W-B-BB--
+8 --------
 CPU's turn:
- ABCDEFGH
-1WW---WWB
-2WWW-WWBB
-3WWWWWBWB
-4WWWWBWWB
-5WWWWBWWB
-6WWWWWWWW
-7W-B-BB--
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWBB
+3 WWWWWBWB
+4 WWWWBWWB
+5 WWWWBWWB
+6 WWWWWWWW
+7 W-B-BB--
+8 --------
 Bob's turn:
 1C 1D 1E 2D 7B 7D 7G 7H
- ABCDEFGH
-1WW---WWB
-2WWW-WWBB
-3WWWWWBWB
-4WWWWBWWB
-5WWWWBBWB
-6WWWWWWBB
-7W-B-BB-B
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWBB
+3 WWWWWBWB
+4 WWWWBWWB
+5 WWWWBBWB
+6 WWWWWWBB
+7 W-B-BB-B
+8 --------
 CPU's turn:
- ABCDEFGH
-1WW---WWB
-2WWW-WWBB
-3WWWWWBWB
-4WWWWBWWB
-5WWWWBBWB
-6WWWWWWWB
-7W-B-BBWB
-8--------
+  ABCDEFGH
+1 WW---WWB
+2 WWW-WWBB
+3 WWWWWBWB
+4 WWWWBWWB
+5 WWWWBBWB
+6 WWWWWWWB
+7 W-B-BBWB
+8 --------
 Bob's turn:
 1C 1D 1E 2D 7B 7D 8F 8G 8H
- ABCDEFGH
-1WWB--WWB
-2WWB-WWBB
-3WWBWWBWB
-4WWBWBWWB
-5WWBWBBWB
-6WWBWWWWB
-7W-B-BBWB
-8--------
+  ABCDEFGH
+1 WWB--WWB
+2 WWB-WWBB
+3 WWBWWBWB
+4 WWBWBWWB
+5 WWBWBBWB
+6 WWBWWWWB
+7 W-B-BBWB
+8 --------
 CPU's turn:
- ABCDEFGH
-1WWWW-WWB
-2WWW-WWBB
-3WWBWWBWB
-4WWBWBWWB
-5WWBWBBWB
-6WWBWWWWB
-7W-B-BBWB
-8--------
+  ABCDEFGH
+1 WWWW-WWB
+2 WWW-WWBB
+3 WWBWWBWB
+4 WWBWBWWB
+5 WWBWBBWB
+6 WWBWWWWB
+7 W-B-BBWB
+8 --------
 Bob's turn:
 1E 2D 7D 8F 8G 8H
- ABCDEFGH
-1WWWW-WWB
-2WWWBBBBB
-3WWBWBBWB
-4WWBWBBWB
-5WWBWBBBB
-6WWBWWWWB
-7W-B-BBWB
-8--------
+  ABCDEFGH
+1 WWWW-WWB
+2 WWWBBBBB
+3 WWBWBBWB
+4 WWBWBBWB
+5 WWBWBBBB
+6 WWBWWWWB
+7 W-B-BBWB
+8 --------
 CPU's turn:
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWWBWB
-5WWBWWBBB
-6WWBWWWWB
-7W-B-BBWB
-8--------
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWWBWB
+5 WWBWWBBB
+6 WWBWWWWB
+7 W-B-BBWB
+8 --------
 Bob's turn:
 7D 8F 8G
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWWBWB
-5WWBWWBBB
-6WWBWWWWB
-7W-B-BBBB
-8-----B--
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWWBWB
+5 WWBWWBBB
+6 WWBWWWWB
+7 W-B-BBBB
+8 -----B--
 CPU's turn:
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWWBWB
-5WWBWWBBB
-6WWWWWWWB
-7WWB-BBBB
-8-----B--
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWWBWB
+5 WWBWWBBB
+6 WWWWWWWB
+7 WWB-BBBB
+8 -----B--
 Bob's turn:
 7D 8A
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWBBWB
-5WWBBWBBB
-6WWBWWWWB
-7WBB-BBBB
-8B----B--
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWBBWB
+5 WWBBWBBB
+6 WWBWWWWB
+7 WBB-BBBB
+8 B----B--
 CPU's turn:
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWBBWB
-5WWBBWBBB
-6WWWWWWWB
-7WWWWBBBB
-8B----B--
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWBBWB
+5 WWBBWBBB
+6 WWWWWWWB
+7 WWWWBBBB
+8 B----B--
 Bob's turn:
 8B 8C 8D
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWBBWB
-5WWBBWBBB
-6WWBWBWWB
-7WWBBBBBB
-8B-B--B--
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWBBWB
+5 WWBBWBBB
+6 WWBWBWWB
+7 WWBBBBBB
+8 B-B--B--
 CPU's turn:
- ABCDEFGH
-1WWWWWWWB
-2WWWWWWBB
-3WWWWWBWB
-4WWBWBBWB
-5WWBBWBBB
-6WWBWBWWB
-7WWWBBBBB
-8BWB--B--
+  ABCDEFGH
+1 WWWWWWWB
+2 WWWWWWBB
+3 WWWWWBWB
+4 WWBWBBWB
+5 WWBBWBBB
+6 WWBWBWWB
+7 WWWBBBBB
+8 BWB--B--
 The winner is CPU

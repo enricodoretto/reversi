@@ -1,86 +1,86 @@
- ABCD
-1----
-2-WB-
-3-BW-
-4----
+  ABCD
+1 ----
+2 -WB-
+3 -BW-
+4 ----
 bob's turn:
 1B 2A 3D 4C
- ABCD
-1----
-2BBB-
-3-BW-
-4----
+  ABCD
+1 ----
+2 BBB-
+3 -BW-
+4 ----
 CPU's turn:
- ABCD
-1W---
-2BWB-
-3-BW-
-4----
+  ABCD
+1 W---
+2 BWB-
+3 -BW-
+4 ----
 bob's turn:
 1B 3D 4C
- ABCD
-1W---
-2BWB-
-3-BBB
-4----
+  ABCD
+1 W---
+2 BWB-
+3 -BBB
+4 ----
 CPU's turn:
- ABCD
-1W---
-2BWWW
-3-BBB
-4----
+  ABCD
+1 W---
+2 BWWW
+3 -BBB
+4 ----
 bob's turn:
 1B 1C 1D
- ABCD
-1W--B
-2BWBB
-3-BBB
-4----
+  ABCD
+1 W--B
+2 BWBB
+3 -BBB
+4 ----
 CPU's turn:
- ABCD
-1W--B
-2WWBB
-3WBBB
-4----
+  ABCD
+1 W--B
+2 WWBB
+3 WBBB
+4 ----
 bob's turn:
 1B
- ABCD
-1WB-B
-2WBBB
-3WBBB
-4----
+  ABCD
+1 WB-B
+2 WBBB
+3 WBBB
+4 ----
 CPU's turn:
- ABCD
-1WWWB
-2WWBB
-3WBBB
-4----
+  ABCD
+1 WWWB
+2 WWBB
+3 WBBB
+4 ----
 bob's turn:
 Sorry you can make no moves!
 CPU's turn:
- ABCD
-1WWWB
-2WWBB
-3WWBB
-4-W--
+  ABCD
+1 WWWB
+2 WWBB
+3 WWBB
+4 -W--
 bob's turn:
 4A
- ABCD
-1WWWB
-2WWBB
-3WBBB
-4BW--
+  ABCD
+1 WWWB
+2 WWBB
+3 WBBB
+4 BW--
 CPU's turn:
- ABCD
-1WWWB
-2WWWB
-3WWWB
-4BWW-
+  ABCD
+1 WWWB
+2 WWWB
+3 WWWB
+4 BWW-
 bob's turn:
 4D
- ABCD
-1WWWB
-2WWWB
-3WWWB
-4BBBB
+  ABCD
+1 WWWB
+2 WWWB
+3 WWWB
+4 BBBB
 The winner is CPU

@@ -14,15 +14,15 @@ What game do you want to play?
 2 - Othello
 Illegal input, please type a number between 1 and 2
 Press q when you want to quit the game
- ABCDEFGH
-1--------
-2--------
-3--------
-4--------
-5--------
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 --------
+5 --------
+6 --------
+7 --------
+8 --------
 Bob's turn:
 4D 4E 5D 5E
 Tie!

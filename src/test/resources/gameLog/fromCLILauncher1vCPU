@@ -9,15 +9,15 @@ What game do you want to play?
 1 - Reversi
 2 - Othello
 Press q when you want to quit the game
- ABCDEFGH
-1--------
-2--------
-3--------
-4---WB---
-5---BW---
-6--------
-7--------
-8--------
+  ABCDEFGH
+1 --------
+2 --------
+3 --------
+4 ---WB---
+5 ---BW---
+6 --------
+7 --------
+8 --------
 Bob's turn:
 3D 4C 5F 6E
 Tie!
