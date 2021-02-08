@@ -60,4 +60,12 @@ public class TestGameCreation {
                 () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(8).withCustomBoard(boardFile).buildReversi())
         );
     }
+
+    @Test
+    void failsWithNoBoard() {
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildOthello()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").buildReversi())
+        );
+    }
 }
