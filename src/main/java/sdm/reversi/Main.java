@@ -1,4 +1,7 @@
-package sdm.reversi.launcher;
+package sdm.reversi;
+
+import sdm.reversi.launcher.CLILauncher;
+import sdm.reversi.launcher.GUILauncher;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package sdm.reversi;
+package sdm.reversi.client;
 
 import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;

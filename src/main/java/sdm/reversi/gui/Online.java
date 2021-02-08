@@ -1,6 +1,6 @@
 package sdm.reversi.gui;
 
-import sdm.reversi.Client;
+import sdm.reversi.client.Client;
 import sdm.reversi.game.Game;
 import sdm.reversi.manager.GUIManager;
 
