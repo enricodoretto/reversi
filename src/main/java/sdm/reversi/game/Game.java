@@ -48,9 +48,9 @@ public abstract class Game implements Serializable {
         }
 
         public GameBuilder withOpponent(String player2Name) {
+            if (player2 != null) throw new IllegalArgumentException("Player 2 already specified");
             if(player2Name.isEmpty()) throw new IllegalArgumentException("Player 2 can't have empty name");
             if (player1.getName().equals(player2Name)) throw new IllegalArgumentException("The two players must have different names");
-            if (player2 != null) throw new IllegalArgumentException("Player 2 already specified");
             player2 = new Player(player2Name, Disk.Color.WHITE, gameManager);
             return this;
         }
