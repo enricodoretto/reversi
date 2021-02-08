@@ -1,4 +1,4 @@
-package sdm.reversi;
+package sdm.reversi.board;
 
 import java.io.Serializable;
 

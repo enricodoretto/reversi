@@ -1,7 +1,7 @@
 package sdm.reversi.game;
 
-import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
+import sdm.reversi.board.Coordinate;
+import sdm.reversi.board.Disk;
 
 public class OthelloGame extends Game {
 

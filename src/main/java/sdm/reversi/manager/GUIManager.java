@@ -1,6 +1,6 @@
 package sdm.reversi.manager;
 
-import sdm.reversi.Coordinate;
+import sdm.reversi.board.Coordinate;
 import sdm.reversi.board.Board;
 import sdm.reversi.game.Game;
 import sdm.reversi.gui.DiskPanel;

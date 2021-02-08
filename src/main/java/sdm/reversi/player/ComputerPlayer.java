@@ -1,6 +1,6 @@
 package sdm.reversi.player;
 
-import sdm.reversi.Disk;
+import sdm.reversi.board.Disk;
 import sdm.reversi.manager.ComputerGameManager;
 
 public class ComputerPlayer extends Player{

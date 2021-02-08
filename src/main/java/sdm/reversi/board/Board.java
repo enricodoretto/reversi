@@ -1,7 +1,5 @@
 package sdm.reversi.board;
 
-import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
 import sdm.reversi.utils.LetterNumberConverter;
 
 import java.io.*;

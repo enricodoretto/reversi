@@ -2,7 +2,7 @@ package sdm.reversi.game;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import sdm.reversi.Coordinate;
+import sdm.reversi.board.Coordinate;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

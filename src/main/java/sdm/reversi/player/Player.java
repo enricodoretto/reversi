@@ -1,7 +1,7 @@
 package sdm.reversi.player;
 
-import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
+import sdm.reversi.board.Coordinate;
+import sdm.reversi.board.Disk;
 import sdm.reversi.manager.ActionManager;
 import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GameManager;

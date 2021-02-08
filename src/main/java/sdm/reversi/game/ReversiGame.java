@@ -1,6 +1,6 @@
 package sdm.reversi.game;
 
-import sdm.reversi.Coordinate;
+import sdm.reversi.board.Coordinate;
 import java.util.*;
 import java.util.stream.Collectors;
 

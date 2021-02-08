@@ -2,8 +2,6 @@ package sdm.reversi.board;
 
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
 
 import static org.junit.jupiter.api.Assertions.*;
 

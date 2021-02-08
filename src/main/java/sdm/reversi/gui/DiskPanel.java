@@ -1,6 +1,6 @@
 package sdm.reversi.gui;
 
-import sdm.reversi.Disk;
+import sdm.reversi.board.Disk;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;

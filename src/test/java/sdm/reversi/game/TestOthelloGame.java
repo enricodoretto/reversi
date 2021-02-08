@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-import sdm.reversi.Coordinate;
-import sdm.reversi.Disk;
+import sdm.reversi.board.Coordinate;
+import sdm.reversi.board.Disk;
 
 import java.io.IOException;
 import java.net.URL;

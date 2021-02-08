@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import sdm.reversi.Disk;
+import sdm.reversi.board.Disk;
 import sdm.reversi.player.Player;
 
 public class TestGameCreation {

@@ -3,6 +3,7 @@ package sdm.reversi;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
+import sdm.reversi.board.Disk;
 
 import java.awt.*;
 
