@@ -2,8 +2,7 @@ package sdm.reversi.board;
 
 import sdm.reversi.Coordinate;
 import sdm.reversi.Disk;
-import sdm.reversi.LetterNumberConverter;
-import sdm.reversi.ShiftDirection;
+import sdm.reversi.utils.LetterNumberConverter;
 
 import java.io.*;
 import java.net.URL;
@@ -92,7 +91,7 @@ public class Board implements Serializable {
         return disk == null ? null : disk.getSideUp();
     }
 
-    private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+    private boolean shiftedCellHasDiskWithDifferentColor(Coordinate coordinate, Disk.Color diskColor, Coordinate.ShiftDirection shiftDirection) {
         Coordinate shiftedCellCoordinate = coordinate.getShiftedCoordinate(shiftDirection);
         return isCellOccupied(shiftedCellCoordinate) && !(getDiskColorFromCoordinate(shiftedCellCoordinate) == diskColor);
     }
@@ -107,13 +106,13 @@ public class Board implements Serializable {
     }
 
     protected Set<Coordinate> getDisksToFlip(Coordinate coordinate, Disk.Color diskColor) {
-        Set<Coordinate> disksToFlip = Stream.of(ShiftDirection.values()).parallel()
+        Set<Coordinate> disksToFlip = Stream.of(Coordinate.ShiftDirection.values()).parallel()
                 .map(direction -> getDisksToFlipInADirection(coordinate, diskColor, direction))
                 .filter(Objects::nonNull).flatMap(Set::stream).collect(Collectors.toSet());
         return disksToFlip.size() == 0 ? null : disksToFlip;
     }
 
-    private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, ShiftDirection shiftDirection) {
+    private Set<Coordinate> getDisksToFlipInADirection(Coordinate coordinate, Disk.Color diskColor, Coordinate.ShiftDirection shiftDirection) {
         if (!shiftedCellHasDiskWithDifferentColor(coordinate, diskColor, shiftDirection)) {
             return null;
         }

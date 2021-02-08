@@ -1,6 +1,6 @@
 package sdm.reversi.manager;
 
-import sdm.reversi.CommunicationProtocol;
+import sdm.reversi.utils.CommunicationProtocol;
 import sdm.reversi.Coordinate;
 import sdm.reversi.game.Game;
 import sdm.reversi.player.Player;

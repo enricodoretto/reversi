@@ -2,6 +2,7 @@ package sdm.reversi;
 
 import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;
+import sdm.reversi.utils.CommunicationProtocol;
 
 import javax.swing.*;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package sdm.reversi;
+package sdm.reversi.utils;
 
 import java.util.stream.IntStream;
 
