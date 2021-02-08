@@ -1,6 +1,5 @@
 package sdm.reversi;
 
-import sdm.reversi.manager.CLIManager;
 import sdm.reversi.manager.GUIManager;
 import sdm.reversi.manager.GameManager;
 
@@ -10,7 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.InetAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
 
 public class Client {
 
