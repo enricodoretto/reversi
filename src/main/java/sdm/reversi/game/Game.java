@@ -100,7 +100,7 @@ public abstract class Game implements Serializable {
         player2 = gameBuilder.player2;
         currentPlayer = player1;
         board = gameBuilder.board;
-        numberOfMoves = (int) board.getNumberOfDisks();
+        numberOfMoves = board.getNumberOfDisks();
     }
 
     public Board getBoard() {

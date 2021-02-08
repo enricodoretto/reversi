@@ -94,7 +94,7 @@ public class Board implements Serializable {
         return isCellOccupied(shiftedCellCoordinate) && !(getDiskColorFromCoordinate(shiftedCellCoordinate) == diskColor);
     }
 
-    public Map<Coordinate, Set<Coordinate>> getValidMoves(Disk.Color diskColor){
+    public Map<Coordinate, Set<Coordinate>> getValidMoves(Disk.Color diskColor) {
         return getAvailableCells().stream()
                 .flatMap(coordinate -> {
                     Set<Coordinate> disksToFlip = getDisksToFlip(coordinate, diskColor);
@@ -127,7 +127,7 @@ public class Board implements Serializable {
         }
     }
 
-    public void makeMove(Disk.Color diskColor, Coordinate coordinate, Collection<Coordinate> disksToFlip){
+    public void makeMove(Disk.Color diskColor, Coordinate coordinate, Collection<Coordinate> disksToFlip) {
         putDisk(diskColor, coordinate);
         disksToFlip.forEach(this::flipDisk);
     }
@@ -157,8 +157,8 @@ public class Board implements Serializable {
                 .collect(Collectors.toSet());
     }
 
-    public long getNumberOfDisks() {
-        return Arrays.stream(board).parallel().flatMap(Arrays::stream).filter(Objects::nonNull).count();
+    public int getNumberOfDisks() {
+        return (int) Arrays.stream(board).parallel().flatMap(Arrays::stream).filter(Objects::nonNull).count();
     }
 
     public int getNumberOfDisksForColor(Disk.Color color) {
