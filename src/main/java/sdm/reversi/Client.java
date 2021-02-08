@@ -16,12 +16,6 @@ public class Client {
 
     private static final int PORT_NUMBER = 10000;
 
-    public static void main(String[] args) throws UnknownHostException {
-        GameManager gameManager = new CLIManager();
-        String playerName = "Client Player";
-        connectAndPlay(playerName, gameManager, InetAddress.getLocalHost());
-    }
-
     public static void connectAndPlay(String playerName, GameManager gameManager, InetAddress ip) {
         if(playerName.isEmpty()){
             throw new IllegalArgumentException("Player name can't be empty");
