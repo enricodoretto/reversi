@@ -2,6 +2,7 @@ package sdm.reversi.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -29,6 +30,16 @@ public class TestGameCreation {
         assertAll(
                 () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).withBoardSize(8).buildOthello()),
                 () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder(playerName).withOpponent(playerName).withBoardSize(8).buildReversi())
+        );
+    }
+
+    @Test
+    void failsWithMultipleOpponents() {
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCPUOpponent().withBoardSize(8).buildOthello()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCPUOpponent().withBoardSize(8).buildReversi()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withCPUOpponent().withRemoteOpponent().withBoardSize(8).buildOthello()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withCPUOpponent().withRemoteOpponent().withBoardSize(8).buildReversi())
         );
     }
 }
