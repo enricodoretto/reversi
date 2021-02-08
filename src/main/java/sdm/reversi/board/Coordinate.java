@@ -67,9 +67,7 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
 
     @Override
     public int compareTo(Coordinate o) {
-        int compareRow = Integer.compare(this.row, o.row);
-        if(compareRow != 0) return compareRow;
-        return Integer.compare(this.column, o.column);
+        return this.row != o.row ? Integer.compare(this.row, o.row) : Integer.compare(this.column, o.column);
     }
 
     @Override
