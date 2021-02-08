@@ -13,16 +13,21 @@ There are sixty-four identical game pieces called disks (often spelled "discs"),
 #### Game options
 - GUI or CLI version
 - Custom board size
+- Othello or Reversi
 
 ## How to play
 Clone the repository, build the project, launch the main. If no arguments are present the default version is the GUI one. If "CLI" is passed as argument the game will start in the Command Line. 
 
+##### Note: you need to have java 15 in order to compile the game
+
 Input your name and choose the game mode.
 Set the parameters required for the game mode chosen and play!
 
-#### Notes:
-- If you want to end the game before the and, just close the GUI or press 'q' whenever is your turn in the command line.
+### Notes:
+- In CLI, if you want to end the game before the end, press 'q' when it is your turn.
+- In GUI, if you want to end the game before the end, close the window or press the main menu button
 - To play the client-server version you need to open port 10000 on your firewall.
+- When playing on big boards (26x26, 24x24) the board might take some time to update after a move is made.
 
 
 # Developers
