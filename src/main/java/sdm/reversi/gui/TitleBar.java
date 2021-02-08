@@ -12,13 +12,13 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 public class TitleBar implements MouseListener {
-    private JFrame frame;
+    private final JFrame frame;
     private JPanel titleBar;
 
     public static class TitleBarBuilder {
         private final JPanel titleBar;
         private final JFrame frame;
-        private JPanel titleBarRight;
+        private final JPanel titleBarRight;
 
         private TitleBarBuilder(JFrame frame) {
             this.frame = frame;
