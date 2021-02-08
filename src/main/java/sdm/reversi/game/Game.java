@@ -133,8 +133,7 @@ public abstract class Game implements Serializable {
         if (!isValidMove(coordinate)) {
             throw new IllegalArgumentException("Illegal move");
         }
-        board.putDisk(currentPlayer.getColor(), coordinate);
-        allowedMovesForCurrentPlayer.get(coordinate).forEach(c -> board.flipDisk(c));
+        board.makeMove(currentPlayer.getColor(), coordinate, allowedMovesForCurrentPlayer.get(coordinate));
         updatePlayersScore();
         numberOfMoves ++;
     }

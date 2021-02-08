@@ -130,6 +130,11 @@ public class Board implements Serializable {
         }
     }
 
+    public void makeMove(Disk.Color diskColor, Coordinate coordinate, Collection<Coordinate> disksToFlip){
+        putDisk(diskColor, coordinate);
+        disksToFlip.forEach(this::flipDisk);
+    }
+
     public void putDisk(Disk.Color diskColor, Coordinate coordinate) {
         if (!isCellAvailable(coordinate)) {
             throw new IllegalArgumentException("Cell already full");
@@ -137,7 +142,7 @@ public class Board implements Serializable {
         board[coordinate.getRow()][coordinate.getColumn()] = new Disk(diskColor);
     }
 
-    public void flipDisk(Coordinate coordinate) {
+    protected void flipDisk(Coordinate coordinate) {
         if (!isCellOccupied(coordinate))
             throw new IllegalArgumentException("Invalid cell");
         board[coordinate.getRow()][coordinate.getColumn()].flip();
