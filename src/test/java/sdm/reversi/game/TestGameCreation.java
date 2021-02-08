@@ -45,6 +45,14 @@ public class TestGameCreation {
     }
 
     @Test
+    void failsWithNoOpponent() {
+        assertAll(
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withBoardSize(8).buildOthello()),
+                () -> assertThrows(IllegalArgumentException.class, () -> Game.GameBuilder.CLIGameBuilder("Bob").withBoardSize(8).buildReversi())
+        );
+    }
+
+    @Test
     void failsWithMultipleBoards() {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello4x4BoardOutput");
         assertAll(
