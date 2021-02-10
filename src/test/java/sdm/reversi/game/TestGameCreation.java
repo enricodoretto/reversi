@@ -14,7 +14,7 @@ public class TestGameCreation {
 
     @ParameterizedTest
     @CsvSource({"Bob, Alice", "Jack, John", "Simon, Leonard"})
-    void withTwoPlayersWithDifferentNamesAndBoardSize8Succeeds(String player1Name, String player2Name) {
+    void succeedsWithTwoPlayersWithDifferentNamesAndBoardSize8(String player1Name, String player2Name) {
         Game othelloGameCLI = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).withBoardSize(8).buildOthello();
         Game reversiGameCLI = Game.GameBuilder.CLIGameBuilder(player1Name).withOpponent(player2Name).withBoardSize(8).buildReversi();
         assertAll(
