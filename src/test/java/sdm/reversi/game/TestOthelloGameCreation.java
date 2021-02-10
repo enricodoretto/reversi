@@ -14,14 +14,11 @@ import static org.junit.jupiter.api.Assertions.*;
 public class TestOthelloGameCreation {
 
     @ParameterizedTest
-    @CsvSource({"4, initialBoards/othello4x4Board, initialBoards/othello4x4BoardOutput",
-            "8, initialBoards/othello8x8Board, initialBoards/othello8x8BoardOutput",
-            "16, initialBoards/othello16x16Board, initialBoards/othello16x16BoardOutput"})
-    void succeedsWithDifferentBoardSizes(int boardSize, String fileNameInput, String fileNameOutput) throws URISyntaxException, IOException {
+    @CsvSource({"4, initialBoards/othello4x4BoardOutput", "8, initialBoards/othello8x8BoardOutput", "16, initialBoards/othello16x16BoardOutput"})
+    void succeedsWithDifferentBoardSizes(int boardSize, String fileNameOutput) throws URISyntaxException, IOException {
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withBoardSize(boardSize).buildOthello();
-        URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileNameInput);
         URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
-        assert boardFile != null;
+        assert boardFileOutput != null;
         String initializedOthelloBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
     }
@@ -33,6 +30,7 @@ public class TestOthelloGameCreation {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource(fileNameInput);
         URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
         assert boardFile != null;
+        assert boardFileOutput != null;
         String initializedOthelloBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         Game game = Game.GameBuilder.CLIGameBuilder("Bob").withOpponent("Alice").withCustomBoard(boardFile).buildOthello();
         assertEquals(initializedOthelloBoard, game.getBoard().toString());
