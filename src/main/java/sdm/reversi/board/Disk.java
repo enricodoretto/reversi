@@ -17,11 +17,11 @@ public class Disk implements Serializable {
         }
     }
 
+    private Color sideUp;
+
     public Disk(Color sideUp) {
         this.sideUp = sideUp;
     }
-
-    private Color sideUp;
 
     public Color getSideUp() {
         return sideUp;

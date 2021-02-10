@@ -8,9 +8,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Coordinate implements Comparable<Coordinate>, Serializable {
-    private final int row;
-    private final int column;
-
     public enum ShiftDirection {
         UP(-1, 0),
         DOWN(1, 0),
@@ -37,6 +34,9 @@ public class Coordinate implements Comparable<Coordinate>, Serializable {
             return columnShift;
         }
     }
+
+    private final int row;
+    private final int column;
 
     public Coordinate(int row, int column) {
         this.row = row;
