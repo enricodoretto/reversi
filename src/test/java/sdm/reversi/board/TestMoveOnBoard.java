@@ -14,7 +14,7 @@ public class TestMoveOnBoard {
 
     @ParameterizedTest
     @CsvSource({"6E,5E", "5F,5E", "4C,4D", "3D,4D"})
-    void returnsCoordinatesToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) throws IOException {
+    void returnsCoordinatesOfDisksToFlipIfValid(Coordinate blackDiskPosition, Coordinate coordinateToFlip) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
         Board board = new Board(boardFile);
         Set<Coordinate> coordinatesToFlip = Set.of(coordinateToFlip);
@@ -23,7 +23,7 @@ public class TestMoveOnBoard {
 
     @ParameterizedTest
     @CsvSource({"6F", "6D", "3E", "3C"})
-    void returnsNoCoordinatesToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
+    void returnsNoCoordinatesOfDisksToFlipIfInvalid(Coordinate blackDiskPosition) throws IOException {
         URL boardFile = Thread.currentThread().getContextClassLoader().getResource("initialBoards/othello8x8Board");
         Board board = new Board(boardFile);
         assertNull(board.getDisksToFlip(blackDiskPosition, Disk.Color.BLACK));

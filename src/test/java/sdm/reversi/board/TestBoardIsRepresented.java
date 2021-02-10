@@ -18,7 +18,7 @@ public class TestBoardIsRepresented {
             "emptyBoards/empty4x4BoardOutput ,4",
             "emptyBoards/empty16x16BoardOutput ,16"})
     void asStringOfDashesWhenEmpty(String fileNameOutput, int boardSize) throws IOException, URISyntaxException {
-        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
+        URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
         assert boardFileOutput != null;
         String emptyBoard = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(boardSize);
@@ -28,7 +28,7 @@ public class TestBoardIsRepresented {
     @ParameterizedTest
     @CsvSource({"whiteIn1A8x8BoardOutput,8", "whiteIn1A4x4BoardOutput,4", "whiteIn1A16x16BoardOutput,16"})
     public void asStringOfDashesWithInitialWWhenThereIsOnlyOneWhiteDiskIn1A(String fileNameOutput,int boardSize) throws URISyntaxException, IOException {
-        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
+        URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
         assert boardFileOutput != null;
         String boardRepresentation = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(boardSize);
@@ -39,7 +39,7 @@ public class TestBoardIsRepresented {
     @ParameterizedTest
     @CsvSource({"whiteIn1ABlackIn4D8x8BoardOutput,8", "whiteIn1ABlackIn4D4x4BoardOutput ,4", "whiteIn1ABlackIn4D16x16BoardOutput,16"})
     public void asStringOfDashesWithWAndBWhenThereIsAWhiteDiskIn1AAndABlackDiskIn4D(String fileNameOutput ,int boardSize) throws URISyntaxException, IOException {
-        URL boardFileOutput = TestBoardIsRepresented.class.getClassLoader().getResource(fileNameOutput);
+        URL boardFileOutput = Thread.currentThread().getContextClassLoader().getResource(fileNameOutput);
         assert boardFileOutput != null;
         String boardRepresentation = Files.readString(Paths.get(boardFileOutput.toURI()));
         Board board = new Board(boardSize);
