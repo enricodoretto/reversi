@@ -36,3 +36,10 @@ jar {
         attributes ('Main-class': 'sdm.reversi.launcher.Main')
     }
 }
+
+sonarqube {
+    properties {
+        property "sonar.projectName", "Reversi"
+        property "sonar.projectKey", "com.sonarqube.examples.java-gradle-travis-project"
+    }
+}

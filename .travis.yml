@@ -1,1 +1,10 @@
 language: java
+
+addons:
+  sonarcloud:
+    organization: "sonarcloud"
+    token:
+      secure: SONAR_TOKEN
+
+script:
+  - ./gradlew sonarqube
