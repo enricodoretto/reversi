@@ -1,5 +1,6 @@
 plugins {
     id 'application'
+    id "org.sonarqube" version "2.7.1"
 }
 
 group 'org.example'
@@ -39,7 +40,7 @@ jar {
 
 sonarqube {
     properties {
-        property "sonar.projectName", "Reversi"
+        property "sonar.projectName", "reversi"
         property "sonar.projectKey", "com.sonarqube.examples.java-gradle-travis-project"
     }
 }
