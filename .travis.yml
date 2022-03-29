@@ -2,9 +2,9 @@ language: java
 
 addons:
   sonarcloud:
-    organization: "sonarcloud"
+    organization: "enricodoretto@github"
     token:
-      secure: $SONAR_TOKEN
+      secure: ${SONAR_TOKEN}
 
 script:
   - ./gradlew sonarqube
