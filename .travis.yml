@@ -4,7 +4,7 @@ addons:
   sonarcloud:
     organization: "enricodoretto@github"
     token:
-      secure: "${SONAR_TOKEN}"
+      secure: "hoXOJR0DtKJiqkBREna53Ru6sGJy2fXsMzYx5tvSv7TM0DzxgVmhUieitxwr2obBStQHKNQUg5oe3owxpji+c8tWiDDz7zwHsdjfGS2sMdDbfJxHld45V+O0f2r+4Hc9hjGGrLfsvvpf342PvPnsRgAZRZ6yLk6aWn5f0p+/v6icYeaGk4O56Ae1SocfLDviip4eqM5IW6Ob8ALexgLFRkC2XoozACQM7fCQTpzxSGbVRbpAoA22y5cxtTquhx+hhQI1sLgwa/c1s6UM1a0jXOqqPIrTQwBqFIciBMQjAhImy3JdHeaEXSsa2AFh3MAiT4xZOWKWYTh8zjwcSAjhT89iGL64csMxrFeIg+gFVPhH7utEpyr4EJ5veciTV8uSOuY9ysailGUSBlRlXDgyq88+tatspZ1SHDqgy9OCcmbxaLzqEgz00nLSs3qbgs1XaYhZyziSSlRa3vDyY2rCJa8Wi4BE2OYiwnDTM8i3H/ewclNJRM/6sYjwPmUt/pnlxB7YbJ7fs2yD3hWmnD0YzYcmVgH+9aPNoAooDPU7xBv8+ZYkPVaqEosP0DcE0aUwtPKVMS2Q/QiLjMaj5gCCZpnTdtbyGY2toyl8ewrq5mGaGzN2dO+IekBLq00lHhFjv8s7CVRUQ8JihMFnpih3YeZv04cZUbJX7LRbm9KgD5A="
 
 script:
   - ./gradlew sonarqube
