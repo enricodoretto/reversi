@@ -4,7 +4,7 @@ addons:
   sonarcloud:
     organization: "enricodoretto@github"
     token:
-      secure: ${SONAR_TOKEN}
+      secure: "${SONAR_TOKEN}"
 
 script:
   - ./gradlew sonarqube
